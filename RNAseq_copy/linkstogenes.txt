@@ -1,0 +1,3 @@
+http://www.genecards.org/cgi-bin/carddisp.pl?gene=sag#localization
+http://string-db.org/cgi/network.pl?taskId=MRXS5TQ55w0H
+https://www.ncbi.nlm.nih.gov/gene/?term=cpne9%5Bsym%5D+ictidomys%5Borgn%5D
