@@ -831,7 +831,7 @@
       <circle cx="267.5" cy="250.0" fill="rgb(15,127,18)" id="mDat" r="5" stroke="none" stroke-width="4" transform="rotate(144.0,267.5,250.0)"/>
       <circle cx="267.5" cy="250.0" fill="rgb(252,13,27)" id="lDat" r="5" stroke="none" stroke-width="4" transform="rotate(216.0,267.5,250.0)"/>
       <circle cx="267.5" cy="250.0" fill="rgb(0,0,0)" id="rDat" r="5" stroke="none" stroke-width="4" transform="rotate(288.0,267.5,250.0)"/>
-      <circle cx="600.8333333333334" cy="418.2593289430306" fill="rgb(253,189,64)" id="zDat" r="5" stroke="none" stroke-width="4" transform="rotate(0,600.8333333333334,250.0)"/>
+      <circle cx="600.8333333333334" cy="nan" fill="rgb(253,189,64)" id="zDat" r="5" stroke="none" stroke-width="4" transform="rotate(0,600.8333333333334,250.0)"/>
     </g>
     <g transform="translate(650.0, 1000.0) scale(1) translate(0, 0) scale(0.5) ">
       <defs/>
