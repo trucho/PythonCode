@@ -35,7 +35,7 @@ class hcCanvas:
         self.x_origin = self.x_center
         self.y_origin = self.y_size-self.y_center
         self.colors = options = {'uv':'rgb(127,15,126)','s':'rgb(11,36,251)','m':'rgb(15,127,18)','l':'rgb(252,13,27)','r':'rgb(0,0,0)','z':'rgb(253,189,64)'}
-        self.canvas = svgwrite.Drawing(filename = self.filename + ".svg",size = (self.x_size, self.y_size))
+        self.canvas = svgwrite.Drawing(filename = self.filename + ".svg",size = (self.x_size, self.y_size), profile = "full")
         # self.canvas.add(self.canvas.rect(insert = (0,0),size = (self.x_size, self.y_size),id='frame',stroke="black",fill="rgb(240,240,240)"))
 #         self.addOrigin();
         self.addAxis();
