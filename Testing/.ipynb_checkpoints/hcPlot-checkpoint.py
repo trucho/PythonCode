@@ -24,8 +24,8 @@ class hcCanvas:
     axGonColor = "rgb(255,255,255)"
     axSW=2
     axSWGon=1
-    axMax=20
-    scalar = axMax*1/3+1; #to transform from pixels to units
+    axMax=25
+    scalar = axMax*1/3; #to transform from pixels to units
     z_gap = (axMax+15) * scalar
     h_pentagon = (axMax * scalar * (math.sqrt(5+2*math.sqrt(5))/16))
     def __init__(self,svgfilename):
@@ -35,9 +35,8 @@ class hcCanvas:
         self.x_origin = self.x_center
         self.y_origin = self.y_size-self.y_center
         self.colors = options = {'uv':'rgb(127,15,126)','s':'rgb(11,36,251)','m':'rgb(15,127,18)','l':'rgb(252,13,27)','r':'rgb(0,0,0)','z':'rgb(253,189,64)'}
-        self.canvas = svgwrite.Drawing(filename = self.filename + ".svg",size = (self.x_size, self.y_size), profile = "full", id = "eel")
+        self.canvas = svgwrite.Drawing(filename = self.filename + ".svg",size = (self.x_size, self.y_size), profile = "full")
         # self.canvas.add(self.canvas.rect(insert = (0,0),size = (self.x_size, self.y_size),id='frame',stroke="black",fill="rgb(240,240,240)"))
-        self.canvas.add(self.canvas.rect(insert = (0,0),size = (self.x_size, self.y_size),id='frame',stroke="black",fill="rgb(255,255,255)"))
 #         self.addOrigin();
         self.addAxis();
         
@@ -111,7 +110,7 @@ class hcCanvas:
                 id='axGonMinor',fill=self.axColorMin,stroke = self.axColor,stroke_width=self.axSWGon)
         )
     
-    def drawZAxgon(self,scale):
+    def drawZAxGon(self,scale):
         AxSquare = self.canvas.add(
             self.canvas.rect(
                 insert = (self.x_center+self.z_gap+2.5-20,self.y_center+((self.axMax-scale) * self.scalar)-self.h_pentagon),
@@ -119,7 +118,7 @@ class hcCanvas:
                 id='zaxGon',fill=self.axGonColor,stroke = self.axColor,stroke_width=self.axSWGon)
         )
     
-    def drawZAxgonMinor(self,scale):
+    def drawZAxGonMinor(self,scale):
         AxSquare = self.canvas.add(
             self.canvas.rect(
                 insert = (self.x_center+self.z_gap+2.5-20,self.y_center+((self.axMax-scale) * self.scalar)-self.h_pentagon),
@@ -130,16 +129,16 @@ class hcCanvas:
     
     
     def addAxis(self):
-        # self.drawAxgonMinor(25);
-        self.drawAxgonMinor(20);
-        self.drawAxgon(15);
-        self.drawAxgonMinor(10);
-        self.drawAxgon(5);
-        # self.drawZAxGonMinor(25);
-        self.drawZAxgonMinor(20);
-        self.drawZAxgon(15);
-        self.drawZAxgonMinor(10);
-        self.drawZAxgon(5);
+        self.drawAxgonMinor(25);
+        self.drawAxgon(20);
+        self.drawAxgonMinor(15);
+        self.drawAxgon(10);
+        self.drawAxgonMinor(5);
+        self.drawZAxGonMinor(25);
+        self.drawZAxGon(20);
+        self.drawZAxGonMinor(15);
+        self.drawZAxGon(10);
+        self.drawZAxGonMinor(5);
         
 #         [self.drawAx(360*facet/5) for facet in range(5)]
         self.drawZAx();
