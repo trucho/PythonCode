@@ -53,23 +53,23 @@ class hcCanvas:
         self.z_origin=plotDatum(self,self.x_center+self.z_gap,self.y_center-(self.axMax * self.scalar),0,"none",self.axColor);
         self.z_origin.addDot('zOrigin');
     
-    def drawAx(self,rotation,tag=""): 
-        if tag == 'uv': axLabel, axLabelAnchor, axLabelTrans = 'UV', 'middle', 'translate(0,-10)'
-        elif tag == 's': axLabel, axLabelAnchor, axLabelTrans = 'S', 'start', 'translate(5,0)'
-        elif tag == 'm': axLabel, axLabelAnchor, axLabelTrans = 'M', 'start', 'translate(2,10)'
-        elif tag == 'l': axLabel, axLabelAnchor, axLabelTrans = 'L', 'end', 'translate(-2,10)'
-        elif tag == 'r': axLabel, axLabelAnchor, axLabelTrans = 'Rod', 'end', 'translate(-5,0)'
-        else: axLabel, axLabelAnchor, axLabelTrans = '', 'start', 'translate(-5,0)'
+    def drawAx(self,translation,tag=""): 
+        if tag == 'uv': axLabel, axLabelAnchor, axLabelTrans = 'UV', 'middle', 'translate(-50,0)'
+        elif tag == 's': axLabel, axLabelAnchor, axLabelTrans = 'S', 'start', 'translate(0,0)'
+        elif tag == 'm': axLabel, axLabelAnchor, axLabelTrans = 'M', 'start', 'translate(50,0)'
+        elif tag == 'l': axLabel, axLabelAnchor, axLabelTrans = 'L', 'end', 'translate(100,0)'
+        elif tag == 'r': axLabel, axLabelAnchor, axLabelTrans = 'Rod', 'end', 'translate(150,0)'
+        else: axLabel, axLabelAnchor, axLabelTrans = '', 'start', 'translate(200,0)'
         # draw axis    
         Ax = self.canvas.add(self.canvas.line(
             start=(self.x_origin,self.y_origin),
             end=(self.x_origin,self.y_origin-self.scalar*self.axMax),
             stroke=self.axColor,stroke_width=self.axSW,stroke_dasharray=4,
-            transform='rotate({0},{1},{2})'.format(rotation,self.x_center,self.y_size-self.y_center)))
+            transform='translate({0},0)'.format(translation)))
         # place label
         self.canvas.add(self.canvas.text(
             axLabel,
-            insert=(rotate(self.x_origin, self.y_origin-self.scalar*self.axMax,rotation,self.x_origin,self.y_origin)),
+            insert=(rotate(self.x_origin+50, self.y_origin-self.scalar*self.axMax,0,self.x_origin,self.y_origin)),
             font_size=20,font_family='sans-serif',text_anchor=axLabelAnchor,
             fill=self.colors.get(tag), alignment_baseline="middle",
             transform=axLabelTrans
@@ -78,16 +78,16 @@ class hcCanvas:
     
     def drawZAx(self):
         zAx = self.canvas.add(self.canvas.line(
-            start=(self.x_center+self.z_gap+2.5,self.y_center+(self.axMax * self.scalar)-self.h_pentagon),
-            end=(self.x_center+self.z_gap+2.5,self.y_center-self.h_pentagon),
+            start=(self.x_origin,self.y_origin),
+            end=(self.x_origin,self.y_origin-self.scalar*self.axMax),
             stroke=self.axColor,stroke_width=self.axSW,stroke_dasharray=4,
-            ))
+            transform='translate({0},0)'.format(250)))
         self.canvas.add(self.canvas.text(
             '?',
-            insert=(self.x_center+self.z_gap+2.5,self.y_center-self.h_pentagon),
+            insert=(rotate(self.x_origin+50, self.y_origin-self.scalar*self.axMax,0,self.x_origin,self.y_origin)),
             font_size=20,font_family='sans-serif',text_anchor='middle',
             fill=self.colors.get('z'),
-            transform='translate(0,-10)'
+            transform='translate(200,0)'
         ))
         
     def drawAxgon(self,scale):
@@ -133,29 +133,29 @@ class hcCanvas:
     
     
     def addAxis(self):
-        # self.drawAxgonMinor(25);
-        self.drawAxgonMinor(20);
-        self.drawAxgon(15);
-        self.drawAxgonMinor(10);
-        self.drawAxgon(5);
-        # self.drawZAxGonMinor(25);
-        self.drawZAxgonMinor(20);
-        self.drawZAxgon(15);
-        self.drawZAxgonMinor(10);
-        self.drawZAxgon(5);
+        # # self.drawAxgonMinor(25);
+        # self.drawAxgonMinor(20);
+        # self.drawAxgon(15);
+        # self.drawAxgonMinor(10);
+        # self.drawAxgon(5);
+        # # self.drawZAxGonMinor(25);
+        # self.drawZAxgonMinor(20);
+        # self.drawZAxgon(15);
+        # self.drawZAxgonMinor(10);
+        # self.drawZAxgon(5);
         
 #         [self.drawAx(360*facet/5) for facet in range(5)]
         self.drawZAx();
-        self.axU=self.drawAx(360*0/5,'uv');
-        self.axS=self.drawAx(360*1/5,'s');
-        self.axM=self.drawAx(360*2/5,'m');
-        self.axL=self.drawAx(360*3/5,'l');
-        self.axR=self.drawAx(360*4/5,'r');
+        self.axU=self.drawAx(50*0,'uv');
+        self.axS=self.drawAx(50*1,'s');
+        self.axM=self.drawAx(50*2,'m');
+        self.axL=self.drawAx(50*3,'l');
+        self.axR=self.drawAx(50*4,'r');
         
 class plotDatum:
     #Class attributes
     w = 5;
-    def __init__(self,dwg,x=0,y=0,h=0,stroke="none",fill="black",rotate=0):
+    def __init__(self,dwg,x=0,y=0,h=0,stroke="none",fill="black",translate=0):
         self.dwg = dwg
         self.canvas = dwg.canvas
         self.h = h * self.dwg.scalar
@@ -166,10 +166,11 @@ class plotDatum:
         self.y_svg = self.dwg.y_size - self.y - self.h
         
         #tranformations
-        self.rotAngle = rotate
-        self.x_rotCenter = self.x + self.w/2
-        self.y_rotCenter = self.dwg.y_size - self.y
-        self.rotDot(); #get coordiantes after rotation
+        # self.rotAngle = rotate
+        # self.x_rotCenter = self.x + self.w/2
+        # self.y_rotCenter = self.dwg.y_size - self.y
+        # self.rotDot(); #get coordiantes after rotation
+        self.translate = translate
         
         #format
         self.stroke = stroke
@@ -183,7 +184,7 @@ class plotDatum:
                 insert = (self.x,self.y_svg),
                 size = (self.w, self.h),
                 stroke_width = self.stroke_width,stroke = self.stroke,fill = self.fill,
-                transform='rotate({0},{1},{2})'.format(self.rotAngle,self.x_rotCenter,self.y_rotCenter)
+                transform='translate({0},0)'.format(self.translate)
             )
         )
     def addDot(self,):
@@ -193,7 +194,7 @@ class plotDatum:
                 center = (self.x_svg,self.y_svg),
                 r=5,
                 stroke_width = self.stroke_width,stroke = self.stroke,fill = self.fill,
-                transform='rotate({0},{1},{2})'.format(self.rotAngle,self.x_rotCenter,self.y_rotCenter)
+                transform='translate({0},0)'.format(self.translate)
             )
         )
         
@@ -201,10 +202,10 @@ class plotDatum:
         #Dot for zData (unable to assign to a specific photoreceptor type)
         self.canvas.add(
             self.canvas.circle(
-                center = (self.x_svg,self.y_svg+(self.dwg.axMax * self.dwg.scalar)-self.dwg.h_pentagon),
+                center = (self.x_svg,self.y_svg),
                 r=5,
                 stroke_width = self.stroke_width,stroke = self.stroke,fill = self.fill,
-                transform='rotate({0},{1},{2})'.format(self.rotAngle,self.x_rotCenter,self.y_rotCenter)
+                transform='translate({0},0)'.format(self.translate)
             )
         )
         
@@ -216,24 +217,33 @@ class plotDatum:
 
 class uBar(plotDatum):
     def __init__(self,dwg,h):
-        super().__init__(dwg,dwg.x_center,dwg.y_center,h,"none",dwg.colors.get('uv'),360*0/5)
+        super().__init__(dwg,dwg.x_center,dwg.y_center,h,"none",dwg.colors.get('uv'),50*0)
+        self.x_real = self.x + 50*0
+        self.y_real = self.y
 
 class sBar(plotDatum):
     def __init__(self,dwg,h):
-        super().__init__(dwg,dwg.x_center,dwg.y_center,h,"none",dwg.colors.get('s'),360*1/5)
-        
+        super().__init__(dwg,dwg.x_center,dwg.y_center,h,"none",dwg.colors.get('s'),50*1)
+        self.x_real = self.x + 50*1
+        self.y_real = self.y
 
 class mBar(plotDatum):
     def __init__(self,dwg,h):
-        super().__init__(dwg,dwg.x_center,dwg.y_center,h,"none",dwg.colors.get('m'),360*2/5)
-
+        super().__init__(dwg,dwg.x_center,dwg.y_center,h,"none",dwg.colors.get('m'),50*2)
+        self.x_real = self.x + 50*2
+        self.y_real = self.y
+        
 class lBar(plotDatum):
     def __init__(self,dwg,h):
-        super().__init__(dwg,dwg.x_center,dwg.y_center,h,"none",dwg.colors.get('l'),360*3/5)
-
+        super().__init__(dwg,dwg.x_center,dwg.y_center,h,"none",dwg.colors.get('l'),50*3)
+        self.x_real = self.x + 50*3
+        self.y_real = self.y
+        
 class rBar(plotDatum):
     def __init__(self,dwg,h):
-        super().__init__(dwg,dwg.x_center,dwg.y_center,h,"none",dwg.colors.get('r'),360*4/5)
+        super().__init__(dwg,dwg.x_center,dwg.y_center,h,"none",dwg.colors.get('r'),50*4)
+        self.x_real = self.x + 50*4
+        self.y_real = self.y
 
 class zBar(plotDatum):
     def __init__(self,dwg,h):
@@ -258,6 +268,12 @@ class plotCell:
         self.mDat.addDot();
         self.lDat.addDot();
         self.rDat.addDot();
+        self.zDat.addzDot();
+        self.uDat.addBar();
+        self.sDat.addBar();
+        self.mDat.addBar();
+        self.lDat.addBar();
+        self.rDat.addBar();
         self.zDat.addzDot();
         
     def polyCell(self):

@@ -1,0 +1,1059 @@
+<?xml version='1.0' encoding='ASCII' standalone='yes'?>
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" version="1.1" width="2275.0px" height="1270.0px">
+  <g>
+    <g transform="translate(0.0, 0.0) scale(1) translate(0, 0) scale(0.5) ">
+      <defs/>
+      <rect fill="white" height="480" stroke="rgb(255,216,0)" stroke-width="10" width="630" x="20" y="20"/>
+      <polygon fill="rgb(230,230,230)" points="265.0,96.66666666666666 410.82866583192356,202.61739419584137 355.1270720181792,374.04927247082526 174.8729279818208,374.04927247082526 119.17133416807644,202.61739419584143" stroke="rgb(200,200,200)" stroke-width="1"/>
+      <polygon fill="rgb(255,255,255)" points="265.0,135.0 374.37149937394264,214.46304564688103 332.5953040136344,343.036954353119 197.4046959863656,343.036954353119 155.62850062605733,214.46304564688108" stroke="rgb(200,200,200)" stroke-width="1"/>
+      <polygon fill="rgb(230,230,230)" points="265.0,173.33333333333331 337.9143329159618,226.30869709792069 310.0635360090896,312.02463623541263 219.9364639909104,312.02463623541263 192.08566708403822,226.3086970979207" stroke="rgb(200,200,200)" stroke-width="1"/>
+      <polygon fill="rgb(255,255,255)" points="265.0,211.66666666666666 301.4571664579809,238.15434854896034 287.5317680045448,281.01231811770634 242.4682319954552,281.01231811770634 228.5428335420191,238.15434854896034" stroke="rgb(200,200,200)" stroke-width="1"/>
+      <rect fill="rgb(230,230,230)" height="153.33333333333334" stroke="rgb(200,200,200)" stroke-width="1" width="40" x="515.8333333333334" y="220.50553276873714"/>
+      <rect fill="rgb(255,255,255)" height="115.0" stroke="rgb(200,200,200)" stroke-width="1" width="40" x="515.8333333333334" y="258.8388661020705"/>
+      <rect fill="rgb(230,230,230)" height="76.66666666666667" stroke="rgb(200,200,200)" stroke-width="1" width="40" x="515.8333333333334" y="297.17219943540385"/>
+      <rect fill="rgb(255,255,255)" height="38.333333333333336" stroke="rgb(200,200,200)" stroke-width="1" width="40" x="515.8333333333334" y="335.50553276873717"/>
+      <line stroke="rgb(200,200,200)" stroke-dasharray="4" stroke-width="2" x1="535.8333333333334" x2="535.8333333333334" y1="373.83886610207054" y2="220.50553276873714"/>
+      <text fill="rgb(253,189,64)" font-family="sans-serif" font-size="20" text-anchor="middle" transform="translate(0,-10)" x="535.8333333333334" y="220.50553276873714">?</text>
+      <line stroke="rgb(200,200,200)" stroke-dasharray="4" stroke-width="2" transform="rotate(0.0,265.0,250.0)" x1="265.0" x2="265.0" y1="250.0" y2="96.66666666666666"/>
+      <text alignment-baseline="middle" fill="rgb(127,15,126)" font-family="sans-serif" font-size="20" text-anchor="middle" transform="translate(0,-10)" x="265.0" y="96.66666666666666">UV</text>
+      <line stroke="rgb(200,200,200)" stroke-dasharray="4" stroke-width="2" transform="rotate(72.0,265.0,250.0)" x1="265.0" x2="265.0" y1="250.0" y2="96.66666666666666"/>
+      <text alignment-baseline="middle" fill="rgb(11,36,251)" font-family="sans-serif" font-size="20" text-anchor="start" transform="translate(5,0)" x="410.82866583192356" y="202.61739419584137">S</text>
+      <line stroke="rgb(200,200,200)" stroke-dasharray="4" stroke-width="2" transform="rotate(144.0,265.0,250.0)" x1="265.0" x2="265.0" y1="250.0" y2="96.66666666666666"/>
+      <text alignment-baseline="middle" fill="rgb(15,127,18)" font-family="sans-serif" font-size="20" text-anchor="start" transform="translate(2,10)" x="355.1270720181792" y="374.04927247082526">M</text>
+      <line stroke="rgb(200,200,200)" stroke-dasharray="4" stroke-width="2" transform="rotate(216.0,265.0,250.0)" x1="265.0" x2="265.0" y1="250.0" y2="96.66666666666666"/>
+      <text alignment-baseline="middle" fill="rgb(252,13,27)" font-family="sans-serif" font-size="20" text-anchor="end" transform="translate(-2,10)" x="174.8729279818208" y="374.04927247082526">L</text>
+      <line stroke="rgb(200,200,200)" stroke-dasharray="4" stroke-width="2" transform="rotate(288.0,265.0,250.0)" x1="265.0" x2="265.0" y1="250.0" y2="96.66666666666666"/>
+      <text alignment-baseline="middle" fill="rgb(0,0,0)" font-family="sans-serif" font-size="20" text-anchor="end" transform="translate(-5,0)" x="119.17133416807644" y="202.61739419584143">Rod</text>
+      <path d="M267,158 L318,233 L267,250 L267,250 L267,250 Z" fill="none" stroke="rgb(0,0,0)" stroke-linecap="round" stroke-opacity="1" stroke-width="3"/>
+      <circle cx="267.5" cy="158.0" fill="rgb(127,15,126)" r="5" stroke="none" stroke-width="4" transform="rotate(0.0,267.5,250.0)"/>
+      <circle cx="267.5" cy="196.33333333333331" fill="rgb(11,36,251)" r="5" stroke="none" stroke-width="4" transform="rotate(72.0,267.5,250.0)"/>
+      <circle cx="267.5" cy="250.0" fill="rgb(15,127,18)" r="5" stroke="none" stroke-width="4" transform="rotate(144.0,267.5,250.0)"/>
+      <circle cx="267.5" cy="250.0" fill="rgb(252,13,27)" r="5" stroke="none" stroke-width="4" transform="rotate(216.0,267.5,250.0)"/>
+      <circle cx="267.5" cy="250.0" fill="rgb(0,0,0)" r="5" stroke="none" stroke-width="4" transform="rotate(288.0,267.5,250.0)"/>
+      <circle cx="535.8333333333334" cy="366.17219943540385" fill="rgb(253,189,64)" r="5" stroke="none" stroke-width="4" transform="rotate(0,535.8333333333334,250.0)"/>
+    </g>
+    <g transform="translate(325.0, 0.0) scale(1) translate(0, 0) scale(0.5) ">
+      <defs/>
+      <rect fill="white" height="480" stroke="rgb(58,242,174)" stroke-width="10" width="630" x="20" y="20"/>
+      <polygon fill="rgb(230,230,230)" points="265.0,96.66666666666666 410.82866583192356,202.61739419584137 355.1270720181792,374.04927247082526 174.8729279818208,374.04927247082526 119.17133416807644,202.61739419584143" stroke="rgb(200,200,200)" stroke-width="1"/>
+      <polygon fill="rgb(255,255,255)" points="265.0,135.0 374.37149937394264,214.46304564688103 332.5953040136344,343.036954353119 197.4046959863656,343.036954353119 155.62850062605733,214.46304564688108" stroke="rgb(200,200,200)" stroke-width="1"/>
+      <polygon fill="rgb(230,230,230)" points="265.0,173.33333333333331 337.9143329159618,226.30869709792069 310.0635360090896,312.02463623541263 219.9364639909104,312.02463623541263 192.08566708403822,226.3086970979207" stroke="rgb(200,200,200)" stroke-width="1"/>
+      <polygon fill="rgb(255,255,255)" points="265.0,211.66666666666666 301.4571664579809,238.15434854896034 287.5317680045448,281.01231811770634 242.4682319954552,281.01231811770634 228.5428335420191,238.15434854896034" stroke="rgb(200,200,200)" stroke-width="1"/>
+      <rect fill="rgb(230,230,230)" height="153.33333333333334" stroke="rgb(200,200,200)" stroke-width="1" width="40" x="515.8333333333334" y="220.50553276873714"/>
+      <rect fill="rgb(255,255,255)" height="115.0" stroke="rgb(200,200,200)" stroke-width="1" width="40" x="515.8333333333334" y="258.8388661020705"/>
+      <rect fill="rgb(230,230,230)" height="76.66666666666667" stroke="rgb(200,200,200)" stroke-width="1" width="40" x="515.8333333333334" y="297.17219943540385"/>
+      <rect fill="rgb(255,255,255)" height="38.333333333333336" stroke="rgb(200,200,200)" stroke-width="1" width="40" x="515.8333333333334" y="335.50553276873717"/>
+      <line stroke="rgb(200,200,200)" stroke-dasharray="4" stroke-width="2" x1="535.8333333333334" x2="535.8333333333334" y1="373.83886610207054" y2="220.50553276873714"/>
+      <text fill="rgb(253,189,64)" font-family="sans-serif" font-size="20" text-anchor="middle" transform="translate(0,-10)" x="535.8333333333334" y="220.50553276873714">?</text>
+      <line stroke="rgb(200,200,200)" stroke-dasharray="4" stroke-width="2" transform="rotate(0.0,265.0,250.0)" x1="265.0" x2="265.0" y1="250.0" y2="96.66666666666666"/>
+      <text alignment-baseline="middle" fill="rgb(127,15,126)" font-family="sans-serif" font-size="20" text-anchor="middle" transform="translate(0,-10)" x="265.0" y="96.66666666666666">UV</text>
+      <line stroke="rgb(200,200,200)" stroke-dasharray="4" stroke-width="2" transform="rotate(72.0,265.0,250.0)" x1="265.0" x2="265.0" y1="250.0" y2="96.66666666666666"/>
+      <text alignment-baseline="middle" fill="rgb(11,36,251)" font-family="sans-serif" font-size="20" text-anchor="start" transform="translate(5,0)" x="410.82866583192356" y="202.61739419584137">S</text>
+      <line stroke="rgb(200,200,200)" stroke-dasharray="4" stroke-width="2" transform="rotate(144.0,265.0,250.0)" x1="265.0" x2="265.0" y1="250.0" y2="96.66666666666666"/>
+      <text alignment-baseline="middle" fill="rgb(15,127,18)" font-family="sans-serif" font-size="20" text-anchor="start" transform="translate(2,10)" x="355.1270720181792" y="374.04927247082526">M</text>
+      <line stroke="rgb(200,200,200)" stroke-dasharray="4" stroke-width="2" transform="rotate(216.0,265.0,250.0)" x1="265.0" x2="265.0" y1="250.0" y2="96.66666666666666"/>
+      <text alignment-baseline="middle" fill="rgb(252,13,27)" font-family="sans-serif" font-size="20" text-anchor="end" transform="translate(-2,10)" x="174.8729279818208" y="374.04927247082526">L</text>
+      <line stroke="rgb(200,200,200)" stroke-dasharray="4" stroke-width="2" transform="rotate(288.0,265.0,250.0)" x1="265.0" x2="265.0" y1="250.0" y2="96.66666666666666"/>
+      <text alignment-baseline="middle" fill="rgb(0,0,0)" font-family="sans-serif" font-size="20" text-anchor="end" transform="translate(-5,0)" x="119.17133416807644" y="202.61739419584143">Rod</text>
+      <path d="M267,219 L296,240 L317,318 L258,262 L267,250 Z" fill="none" stroke="rgb(0,0,0)" stroke-linecap="round" stroke-opacity="1" stroke-width="3"/>
+      <circle cx="267.5" cy="219.33333333333334" fill="rgb(127,15,126)" r="5" stroke="none" stroke-width="4" transform="rotate(0.0,267.5,250.0)"/>
+      <circle cx="267.5" cy="219.33333333333334" fill="rgb(11,36,251)" r="5" stroke="none" stroke-width="4" transform="rotate(72.0,267.5,250.0)"/>
+      <circle cx="267.5" cy="165.66666666666666" fill="rgb(15,127,18)" r="5" stroke="none" stroke-width="4" transform="rotate(144.0,267.5,250.0)"/>
+      <circle cx="267.5" cy="234.66666666666666" fill="rgb(252,13,27)" r="5" stroke="none" stroke-width="4" transform="rotate(216.0,267.5,250.0)"/>
+      <circle cx="267.5" cy="250.0" fill="rgb(0,0,0)" r="5" stroke="none" stroke-width="4" transform="rotate(288.0,267.5,250.0)"/>
+      <circle cx="535.8333333333334" cy="373.83886610207054" fill="rgb(253,189,64)" r="5" stroke="none" stroke-width="4" transform="rotate(0,535.8333333333334,250.0)"/>
+    </g>
+    <g transform="translate(650.0, 0.0) scale(1) translate(0, 0) scale(0.5) ">
+      <defs/>
+      <rect fill="white" height="480" stroke="rgb(58,242,174)" stroke-width="10" width="630" x="20" y="20"/>
+      <polygon fill="rgb(230,230,230)" points="265.0,96.66666666666666 410.82866583192356,202.61739419584137 355.1270720181792,374.04927247082526 174.8729279818208,374.04927247082526 119.17133416807644,202.61739419584143" stroke="rgb(200,200,200)" stroke-width="1"/>
+      <polygon fill="rgb(255,255,255)" points="265.0,135.0 374.37149937394264,214.46304564688103 332.5953040136344,343.036954353119 197.4046959863656,343.036954353119 155.62850062605733,214.46304564688108" stroke="rgb(200,200,200)" stroke-width="1"/>
+      <polygon fill="rgb(230,230,230)" points="265.0,173.33333333333331 337.9143329159618,226.30869709792069 310.0635360090896,312.02463623541263 219.9364639909104,312.02463623541263 192.08566708403822,226.3086970979207" stroke="rgb(200,200,200)" stroke-width="1"/>
+      <polygon fill="rgb(255,255,255)" points="265.0,211.66666666666666 301.4571664579809,238.15434854896034 287.5317680045448,281.01231811770634 242.4682319954552,281.01231811770634 228.5428335420191,238.15434854896034" stroke="rgb(200,200,200)" stroke-width="1"/>
+      <rect fill="rgb(230,230,230)" height="153.33333333333334" stroke="rgb(200,200,200)" stroke-width="1" width="40" x="515.8333333333334" y="220.50553276873714"/>
+      <rect fill="rgb(255,255,255)" height="115.0" stroke="rgb(200,200,200)" stroke-width="1" width="40" x="515.8333333333334" y="258.8388661020705"/>
+      <rect fill="rgb(230,230,230)" height="76.66666666666667" stroke="rgb(200,200,200)" stroke-width="1" width="40" x="515.8333333333334" y="297.17219943540385"/>
+      <rect fill="rgb(255,255,255)" height="38.333333333333336" stroke="rgb(200,200,200)" stroke-width="1" width="40" x="515.8333333333334" y="335.50553276873717"/>
+      <line stroke="rgb(200,200,200)" stroke-dasharray="4" stroke-width="2" x1="535.8333333333334" x2="535.8333333333334" y1="373.83886610207054" y2="220.50553276873714"/>
+      <text fill="rgb(253,189,64)" font-family="sans-serif" font-size="20" text-anchor="middle" transform="translate(0,-10)" x="535.8333333333334" y="220.50553276873714">?</text>
+      <line stroke="rgb(200,200,200)" stroke-dasharray="4" stroke-width="2" transform="rotate(0.0,265.0,250.0)" x1="265.0" x2="265.0" y1="250.0" y2="96.66666666666666"/>
+      <text alignment-baseline="middle" fill="rgb(127,15,126)" font-family="sans-serif" font-size="20" text-anchor="middle" transform="translate(0,-10)" x="265.0" y="96.66666666666666">UV</text>
+      <line stroke="rgb(200,200,200)" stroke-dasharray="4" stroke-width="2" transform="rotate(72.0,265.0,250.0)" x1="265.0" x2="265.0" y1="250.0" y2="96.66666666666666"/>
+      <text alignment-baseline="middle" fill="rgb(11,36,251)" font-family="sans-serif" font-size="20" text-anchor="start" transform="translate(5,0)" x="410.82866583192356" y="202.61739419584137">S</text>
+      <line stroke="rgb(200,200,200)" stroke-dasharray="4" stroke-width="2" transform="rotate(144.0,265.0,250.0)" x1="265.0" x2="265.0" y1="250.0" y2="96.66666666666666"/>
+      <text alignment-baseline="middle" fill="rgb(15,127,18)" font-family="sans-serif" font-size="20" text-anchor="start" transform="translate(2,10)" x="355.1270720181792" y="374.04927247082526">M</text>
+      <line stroke="rgb(200,200,200)" stroke-dasharray="4" stroke-width="2" transform="rotate(216.0,265.0,250.0)" x1="265.0" x2="265.0" y1="250.0" y2="96.66666666666666"/>
+      <text alignment-baseline="middle" fill="rgb(252,13,27)" font-family="sans-serif" font-size="20" text-anchor="end" transform="translate(-2,10)" x="174.8729279818208" y="374.04927247082526">L</text>
+      <line stroke="rgb(200,200,200)" stroke-dasharray="4" stroke-width="2" transform="rotate(288.0,265.0,250.0)" x1="265.0" x2="265.0" y1="250.0" y2="96.66666666666666"/>
+      <text alignment-baseline="middle" fill="rgb(0,0,0)" font-family="sans-serif" font-size="20" text-anchor="end" transform="translate(-5,0)" x="119.17133416807644" y="202.61739419584143">Rod</text>
+      <path d="M267,211 L311,235 L321,324 L267,250 L267,250 Z" fill="none" stroke="rgb(0,0,0)" stroke-linecap="round" stroke-opacity="1" stroke-width="3"/>
+      <circle cx="267.5" cy="211.66666666666666" fill="rgb(127,15,126)" r="5" stroke="none" stroke-width="4" transform="rotate(0.0,267.5,250.0)"/>
+      <circle cx="267.5" cy="204.0" fill="rgb(11,36,251)" r="5" stroke="none" stroke-width="4" transform="rotate(72.0,267.5,250.0)"/>
+      <circle cx="267.5" cy="158.0" fill="rgb(15,127,18)" r="5" stroke="none" stroke-width="4" transform="rotate(144.0,267.5,250.0)"/>
+      <circle cx="267.5" cy="250.0" fill="rgb(252,13,27)" r="5" stroke="none" stroke-width="4" transform="rotate(216.0,267.5,250.0)"/>
+      <circle cx="267.5" cy="250.0" fill="rgb(0,0,0)" r="5" stroke="none" stroke-width="4" transform="rotate(288.0,267.5,250.0)"/>
+      <circle cx="535.8333333333334" cy="373.83886610207054" fill="rgb(253,189,64)" r="5" stroke="none" stroke-width="4" transform="rotate(0,535.8333333333334,250.0)"/>
+    </g>
+    <g transform="translate(975.0, 0.0) scale(1) translate(0, 0) scale(0.5) ">
+      <defs/>
+      <rect fill="white" height="480" stroke="rgb(255,216,0)" stroke-width="10" width="630" x="20" y="20"/>
+      <polygon fill="rgb(230,230,230)" points="265.0,96.66666666666666 410.82866583192356,202.61739419584137 355.1270720181792,374.04927247082526 174.8729279818208,374.04927247082526 119.17133416807644,202.61739419584143" stroke="rgb(200,200,200)" stroke-width="1"/>
+      <polygon fill="rgb(255,255,255)" points="265.0,135.0 374.37149937394264,214.46304564688103 332.5953040136344,343.036954353119 197.4046959863656,343.036954353119 155.62850062605733,214.46304564688108" stroke="rgb(200,200,200)" stroke-width="1"/>
+      <polygon fill="rgb(230,230,230)" points="265.0,173.33333333333331 337.9143329159618,226.30869709792069 310.0635360090896,312.02463623541263 219.9364639909104,312.02463623541263 192.08566708403822,226.3086970979207" stroke="rgb(200,200,200)" stroke-width="1"/>
+      <polygon fill="rgb(255,255,255)" points="265.0,211.66666666666666 301.4571664579809,238.15434854896034 287.5317680045448,281.01231811770634 242.4682319954552,281.01231811770634 228.5428335420191,238.15434854896034" stroke="rgb(200,200,200)" stroke-width="1"/>
+      <rect fill="rgb(230,230,230)" height="153.33333333333334" stroke="rgb(200,200,200)" stroke-width="1" width="40" x="515.8333333333334" y="220.50553276873714"/>
+      <rect fill="rgb(255,255,255)" height="115.0" stroke="rgb(200,200,200)" stroke-width="1" width="40" x="515.8333333333334" y="258.8388661020705"/>
+      <rect fill="rgb(230,230,230)" height="76.66666666666667" stroke="rgb(200,200,200)" stroke-width="1" width="40" x="515.8333333333334" y="297.17219943540385"/>
+      <rect fill="rgb(255,255,255)" height="38.333333333333336" stroke="rgb(200,200,200)" stroke-width="1" width="40" x="515.8333333333334" y="335.50553276873717"/>
+      <line stroke="rgb(200,200,200)" stroke-dasharray="4" stroke-width="2" x1="535.8333333333334" x2="535.8333333333334" y1="373.83886610207054" y2="220.50553276873714"/>
+      <text fill="rgb(253,189,64)" font-family="sans-serif" font-size="20" text-anchor="middle" transform="translate(0,-10)" x="535.8333333333334" y="220.50553276873714">?</text>
+      <line stroke="rgb(200,200,200)" stroke-dasharray="4" stroke-width="2" transform="rotate(0.0,265.0,250.0)" x1="265.0" x2="265.0" y1="250.0" y2="96.66666666666666"/>
+      <text alignment-baseline="middle" fill="rgb(127,15,126)" font-family="sans-serif" font-size="20" text-anchor="middle" transform="translate(0,-10)" x="265.0" y="96.66666666666666">UV</text>
+      <line stroke="rgb(200,200,200)" stroke-dasharray="4" stroke-width="2" transform="rotate(72.0,265.0,250.0)" x1="265.0" x2="265.0" y1="250.0" y2="96.66666666666666"/>
+      <text alignment-baseline="middle" fill="rgb(11,36,251)" font-family="sans-serif" font-size="20" text-anchor="start" transform="translate(5,0)" x="410.82866583192356" y="202.61739419584137">S</text>
+      <line stroke="rgb(200,200,200)" stroke-dasharray="4" stroke-width="2" transform="rotate(144.0,265.0,250.0)" x1="265.0" x2="265.0" y1="250.0" y2="96.66666666666666"/>
+      <text alignment-baseline="middle" fill="rgb(15,127,18)" font-family="sans-serif" font-size="20" text-anchor="start" transform="translate(2,10)" x="355.1270720181792" y="374.04927247082526">M</text>
+      <line stroke="rgb(200,200,200)" stroke-dasharray="4" stroke-width="2" transform="rotate(216.0,265.0,250.0)" x1="265.0" x2="265.0" y1="250.0" y2="96.66666666666666"/>
+      <text alignment-baseline="middle" fill="rgb(252,13,27)" font-family="sans-serif" font-size="20" text-anchor="end" transform="translate(-2,10)" x="174.8729279818208" y="374.04927247082526">L</text>
+      <line stroke="rgb(200,200,200)" stroke-dasharray="4" stroke-width="2" transform="rotate(288.0,265.0,250.0)" x1="265.0" x2="265.0" y1="250.0" y2="96.66666666666666"/>
+      <text alignment-baseline="middle" fill="rgb(0,0,0)" font-family="sans-serif" font-size="20" text-anchor="end" transform="translate(-5,0)" x="119.17133416807644" y="202.61739419584143">Rod</text>
+      <path d="M267,135 L347,223 L267,250 L267,250 L267,250 Z" fill="none" stroke="rgb(0,0,0)" stroke-linecap="round" stroke-opacity="1" stroke-width="3"/>
+      <circle cx="267.5" cy="135.0" fill="rgb(127,15,126)" r="5" stroke="none" stroke-width="4" transform="rotate(0.0,267.5,250.0)"/>
+      <circle cx="267.5" cy="165.66666666666666" fill="rgb(11,36,251)" r="5" stroke="none" stroke-width="4" transform="rotate(72.0,267.5,250.0)"/>
+      <circle cx="267.5" cy="250.0" fill="rgb(15,127,18)" r="5" stroke="none" stroke-width="4" transform="rotate(144.0,267.5,250.0)"/>
+      <circle cx="267.5" cy="250.0" fill="rgb(252,13,27)" r="5" stroke="none" stroke-width="4" transform="rotate(216.0,267.5,250.0)"/>
+      <circle cx="267.5" cy="250.0" fill="rgb(0,0,0)" r="5" stroke="none" stroke-width="4" transform="rotate(288.0,267.5,250.0)"/>
+      <circle cx="535.8333333333334" cy="373.83886610207054" fill="rgb(253,189,64)" r="5" stroke="none" stroke-width="4" transform="rotate(0,535.8333333333334,250.0)"/>
+    </g>
+    <g transform="translate(1300.0, 0.0) scale(1) translate(0, 0) scale(0.5) ">
+      <defs/>
+      <rect fill="white" height="480" stroke="rgb(255,216,0)" stroke-width="10" width="630" x="20" y="20"/>
+      <polygon fill="rgb(230,230,230)" points="265.0,96.66666666666666 410.82866583192356,202.61739419584137 355.1270720181792,374.04927247082526 174.8729279818208,374.04927247082526 119.17133416807644,202.61739419584143" stroke="rgb(200,200,200)" stroke-width="1"/>
+      <polygon fill="rgb(255,255,255)" points="265.0,135.0 374.37149937394264,214.46304564688103 332.5953040136344,343.036954353119 197.4046959863656,343.036954353119 155.62850062605733,214.46304564688108" stroke="rgb(200,200,200)" stroke-width="1"/>
+      <polygon fill="rgb(230,230,230)" points="265.0,173.33333333333331 337.9143329159618,226.30869709792069 310.0635360090896,312.02463623541263 219.9364639909104,312.02463623541263 192.08566708403822,226.3086970979207" stroke="rgb(200,200,200)" stroke-width="1"/>
+      <polygon fill="rgb(255,255,255)" points="265.0,211.66666666666666 301.4571664579809,238.15434854896034 287.5317680045448,281.01231811770634 242.4682319954552,281.01231811770634 228.5428335420191,238.15434854896034" stroke="rgb(200,200,200)" stroke-width="1"/>
+      <rect fill="rgb(230,230,230)" height="153.33333333333334" stroke="rgb(200,200,200)" stroke-width="1" width="40" x="515.8333333333334" y="220.50553276873714"/>
+      <rect fill="rgb(255,255,255)" height="115.0" stroke="rgb(200,200,200)" stroke-width="1" width="40" x="515.8333333333334" y="258.8388661020705"/>
+      <rect fill="rgb(230,230,230)" height="76.66666666666667" stroke="rgb(200,200,200)" stroke-width="1" width="40" x="515.8333333333334" y="297.17219943540385"/>
+      <rect fill="rgb(255,255,255)" height="38.333333333333336" stroke="rgb(200,200,200)" stroke-width="1" width="40" x="515.8333333333334" y="335.50553276873717"/>
+      <line stroke="rgb(200,200,200)" stroke-dasharray="4" stroke-width="2" x1="535.8333333333334" x2="535.8333333333334" y1="373.83886610207054" y2="220.50553276873714"/>
+      <text fill="rgb(253,189,64)" font-family="sans-serif" font-size="20" text-anchor="middle" transform="translate(0,-10)" x="535.8333333333334" y="220.50553276873714">?</text>
+      <line stroke="rgb(200,200,200)" stroke-dasharray="4" stroke-width="2" transform="rotate(0.0,265.0,250.0)" x1="265.0" x2="265.0" y1="250.0" y2="96.66666666666666"/>
+      <text alignment-baseline="middle" fill="rgb(127,15,126)" font-family="sans-serif" font-size="20" text-anchor="middle" transform="translate(0,-10)" x="265.0" y="96.66666666666666">UV</text>
+      <line stroke="rgb(200,200,200)" stroke-dasharray="4" stroke-width="2" transform="rotate(72.0,265.0,250.0)" x1="265.0" x2="265.0" y1="250.0" y2="96.66666666666666"/>
+      <text alignment-baseline="middle" fill="rgb(11,36,251)" font-family="sans-serif" font-size="20" text-anchor="start" transform="translate(5,0)" x="410.82866583192356" y="202.61739419584137">S</text>
+      <line stroke="rgb(200,200,200)" stroke-dasharray="4" stroke-width="2" transform="rotate(144.0,265.0,250.0)" x1="265.0" x2="265.0" y1="250.0" y2="96.66666666666666"/>
+      <text alignment-baseline="middle" fill="rgb(15,127,18)" font-family="sans-serif" font-size="20" text-anchor="start" transform="translate(2,10)" x="355.1270720181792" y="374.04927247082526">M</text>
+      <line stroke="rgb(200,200,200)" stroke-dasharray="4" stroke-width="2" transform="rotate(216.0,265.0,250.0)" x1="265.0" x2="265.0" y1="250.0" y2="96.66666666666666"/>
+      <text alignment-baseline="middle" fill="rgb(252,13,27)" font-family="sans-serif" font-size="20" text-anchor="end" transform="translate(-2,10)" x="174.8729279818208" y="374.04927247082526">L</text>
+      <line stroke="rgb(200,200,200)" stroke-dasharray="4" stroke-width="2" transform="rotate(288.0,265.0,250.0)" x1="265.0" x2="265.0" y1="250.0" y2="96.66666666666666"/>
+      <text alignment-baseline="middle" fill="rgb(0,0,0)" font-family="sans-serif" font-size="20" text-anchor="end" transform="translate(-5,0)" x="119.17133416807644" y="202.61739419584143">Rod</text>
+      <path d="M267,104 L347,223 L267,250 L267,250 L267,250 Z" fill="none" stroke="rgb(0,0,0)" stroke-linecap="round" stroke-opacity="1" stroke-width="3"/>
+      <circle cx="267.5" cy="104.33333333333331" fill="rgb(127,15,126)" r="5" stroke="none" stroke-width="4" transform="rotate(0.0,267.5,250.0)"/>
+      <circle cx="267.5" cy="165.66666666666666" fill="rgb(11,36,251)" r="5" stroke="none" stroke-width="4" transform="rotate(72.0,267.5,250.0)"/>
+      <circle cx="267.5" cy="250.0" fill="rgb(15,127,18)" r="5" stroke="none" stroke-width="4" transform="rotate(144.0,267.5,250.0)"/>
+      <circle cx="267.5" cy="250.0" fill="rgb(252,13,27)" r="5" stroke="none" stroke-width="4" transform="rotate(216.0,267.5,250.0)"/>
+      <circle cx="267.5" cy="250.0" fill="rgb(0,0,0)" r="5" stroke="none" stroke-width="4" transform="rotate(288.0,267.5,250.0)"/>
+      <circle cx="535.8333333333334" cy="373.83886610207054" fill="rgb(253,189,64)" r="5" stroke="none" stroke-width="4" transform="rotate(0,535.8333333333334,250.0)"/>
+    </g>
+    <g transform="translate(1625.0, 0.0) scale(1) translate(0, 0) scale(0.5) ">
+      <defs/>
+      <rect fill="white" height="480" stroke="rgb(255,216,0)" stroke-width="10" width="630" x="20" y="20"/>
+      <polygon fill="rgb(230,230,230)" points="265.0,96.66666666666666 410.82866583192356,202.61739419584137 355.1270720181792,374.04927247082526 174.8729279818208,374.04927247082526 119.17133416807644,202.61739419584143" stroke="rgb(200,200,200)" stroke-width="1"/>
+      <polygon fill="rgb(255,255,255)" points="265.0,135.0 374.37149937394264,214.46304564688103 332.5953040136344,343.036954353119 197.4046959863656,343.036954353119 155.62850062605733,214.46304564688108" stroke="rgb(200,200,200)" stroke-width="1"/>
+      <polygon fill="rgb(230,230,230)" points="265.0,173.33333333333331 337.9143329159618,226.30869709792069 310.0635360090896,312.02463623541263 219.9364639909104,312.02463623541263 192.08566708403822,226.3086970979207" stroke="rgb(200,200,200)" stroke-width="1"/>
+      <polygon fill="rgb(255,255,255)" points="265.0,211.66666666666666 301.4571664579809,238.15434854896034 287.5317680045448,281.01231811770634 242.4682319954552,281.01231811770634 228.5428335420191,238.15434854896034" stroke="rgb(200,200,200)" stroke-width="1"/>
+      <rect fill="rgb(230,230,230)" height="153.33333333333334" stroke="rgb(200,200,200)" stroke-width="1" width="40" x="515.8333333333334" y="220.50553276873714"/>
+      <rect fill="rgb(255,255,255)" height="115.0" stroke="rgb(200,200,200)" stroke-width="1" width="40" x="515.8333333333334" y="258.8388661020705"/>
+      <rect fill="rgb(230,230,230)" height="76.66666666666667" stroke="rgb(200,200,200)" stroke-width="1" width="40" x="515.8333333333334" y="297.17219943540385"/>
+      <rect fill="rgb(255,255,255)" height="38.333333333333336" stroke="rgb(200,200,200)" stroke-width="1" width="40" x="515.8333333333334" y="335.50553276873717"/>
+      <line stroke="rgb(200,200,200)" stroke-dasharray="4" stroke-width="2" x1="535.8333333333334" x2="535.8333333333334" y1="373.83886610207054" y2="220.50553276873714"/>
+      <text fill="rgb(253,189,64)" font-family="sans-serif" font-size="20" text-anchor="middle" transform="translate(0,-10)" x="535.8333333333334" y="220.50553276873714">?</text>
+      <line stroke="rgb(200,200,200)" stroke-dasharray="4" stroke-width="2" transform="rotate(0.0,265.0,250.0)" x1="265.0" x2="265.0" y1="250.0" y2="96.66666666666666"/>
+      <text alignment-baseline="middle" fill="rgb(127,15,126)" font-family="sans-serif" font-size="20" text-anchor="middle" transform="translate(0,-10)" x="265.0" y="96.66666666666666">UV</text>
+      <line stroke="rgb(200,200,200)" stroke-dasharray="4" stroke-width="2" transform="rotate(72.0,265.0,250.0)" x1="265.0" x2="265.0" y1="250.0" y2="96.66666666666666"/>
+      <text alignment-baseline="middle" fill="rgb(11,36,251)" font-family="sans-serif" font-size="20" text-anchor="start" transform="translate(5,0)" x="410.82866583192356" y="202.61739419584137">S</text>
+      <line stroke="rgb(200,200,200)" stroke-dasharray="4" stroke-width="2" transform="rotate(144.0,265.0,250.0)" x1="265.0" x2="265.0" y1="250.0" y2="96.66666666666666"/>
+      <text alignment-baseline="middle" fill="rgb(15,127,18)" font-family="sans-serif" font-size="20" text-anchor="start" transform="translate(2,10)" x="355.1270720181792" y="374.04927247082526">M</text>
+      <line stroke="rgb(200,200,200)" stroke-dasharray="4" stroke-width="2" transform="rotate(216.0,265.0,250.0)" x1="265.0" x2="265.0" y1="250.0" y2="96.66666666666666"/>
+      <text alignment-baseline="middle" fill="rgb(252,13,27)" font-family="sans-serif" font-size="20" text-anchor="end" transform="translate(-2,10)" x="174.8729279818208" y="374.04927247082526">L</text>
+      <line stroke="rgb(200,200,200)" stroke-dasharray="4" stroke-width="2" transform="rotate(288.0,265.0,250.0)" x1="265.0" x2="265.0" y1="250.0" y2="96.66666666666666"/>
+      <text alignment-baseline="middle" fill="rgb(0,0,0)" font-family="sans-serif" font-size="20" text-anchor="end" transform="translate(-5,0)" x="119.17133416807644" y="202.61739419584143">Rod</text>
+      <path d="M267,135 L362,219 L267,250 L267,250 L267,250 Z" fill="none" stroke="rgb(0,0,0)" stroke-linecap="round" stroke-opacity="1" stroke-width="3"/>
+      <circle cx="267.5" cy="135.0" fill="rgb(127,15,126)" r="5" stroke="none" stroke-width="4" transform="rotate(0.0,267.5,250.0)"/>
+      <circle cx="267.5" cy="150.33333333333331" fill="rgb(11,36,251)" r="5" stroke="none" stroke-width="4" transform="rotate(72.0,267.5,250.0)"/>
+      <circle cx="267.5" cy="250.0" fill="rgb(15,127,18)" r="5" stroke="none" stroke-width="4" transform="rotate(144.0,267.5,250.0)"/>
+      <circle cx="267.5" cy="250.0" fill="rgb(252,13,27)" r="5" stroke="none" stroke-width="4" transform="rotate(216.0,267.5,250.0)"/>
+      <circle cx="267.5" cy="250.0" fill="rgb(0,0,0)" r="5" stroke="none" stroke-width="4" transform="rotate(288.0,267.5,250.0)"/>
+      <circle cx="535.8333333333334" cy="373.83886610207054" fill="rgb(253,189,64)" r="5" stroke="none" stroke-width="4" transform="rotate(0,535.8333333333334,250.0)"/>
+    </g>
+    <g transform="translate(1950.0, 0.0) scale(1) translate(0, 0) scale(0.5) ">
+      <defs/>
+      <rect fill="white" height="480" stroke="rgb(58,242,174)" stroke-width="10" width="630" x="20" y="20"/>
+      <polygon fill="rgb(230,230,230)" points="265.0,96.66666666666666 410.82866583192356,202.61739419584137 355.1270720181792,374.04927247082526 174.8729279818208,374.04927247082526 119.17133416807644,202.61739419584143" stroke="rgb(200,200,200)" stroke-width="1"/>
+      <polygon fill="rgb(255,255,255)" points="265.0,135.0 374.37149937394264,214.46304564688103 332.5953040136344,343.036954353119 197.4046959863656,343.036954353119 155.62850062605733,214.46304564688108" stroke="rgb(200,200,200)" stroke-width="1"/>
+      <polygon fill="rgb(230,230,230)" points="265.0,173.33333333333331 337.9143329159618,226.30869709792069 310.0635360090896,312.02463623541263 219.9364639909104,312.02463623541263 192.08566708403822,226.3086970979207" stroke="rgb(200,200,200)" stroke-width="1"/>
+      <polygon fill="rgb(255,255,255)" points="265.0,211.66666666666666 301.4571664579809,238.15434854896034 287.5317680045448,281.01231811770634 242.4682319954552,281.01231811770634 228.5428335420191,238.15434854896034" stroke="rgb(200,200,200)" stroke-width="1"/>
+      <rect fill="rgb(230,230,230)" height="153.33333333333334" stroke="rgb(200,200,200)" stroke-width="1" width="40" x="515.8333333333334" y="220.50553276873714"/>
+      <rect fill="rgb(255,255,255)" height="115.0" stroke="rgb(200,200,200)" stroke-width="1" width="40" x="515.8333333333334" y="258.8388661020705"/>
+      <rect fill="rgb(230,230,230)" height="76.66666666666667" stroke="rgb(200,200,200)" stroke-width="1" width="40" x="515.8333333333334" y="297.17219943540385"/>
+      <rect fill="rgb(255,255,255)" height="38.333333333333336" stroke="rgb(200,200,200)" stroke-width="1" width="40" x="515.8333333333334" y="335.50553276873717"/>
+      <line stroke="rgb(200,200,200)" stroke-dasharray="4" stroke-width="2" x1="535.8333333333334" x2="535.8333333333334" y1="373.83886610207054" y2="220.50553276873714"/>
+      <text fill="rgb(253,189,64)" font-family="sans-serif" font-size="20" text-anchor="middle" transform="translate(0,-10)" x="535.8333333333334" y="220.50553276873714">?</text>
+      <line stroke="rgb(200,200,200)" stroke-dasharray="4" stroke-width="2" transform="rotate(0.0,265.0,250.0)" x1="265.0" x2="265.0" y1="250.0" y2="96.66666666666666"/>
+      <text alignment-baseline="middle" fill="rgb(127,15,126)" font-family="sans-serif" font-size="20" text-anchor="middle" transform="translate(0,-10)" x="265.0" y="96.66666666666666">UV</text>
+      <line stroke="rgb(200,200,200)" stroke-dasharray="4" stroke-width="2" transform="rotate(72.0,265.0,250.0)" x1="265.0" x2="265.0" y1="250.0" y2="96.66666666666666"/>
+      <text alignment-baseline="middle" fill="rgb(11,36,251)" font-family="sans-serif" font-size="20" text-anchor="start" transform="translate(5,0)" x="410.82866583192356" y="202.61739419584137">S</text>
+      <line stroke="rgb(200,200,200)" stroke-dasharray="4" stroke-width="2" transform="rotate(144.0,265.0,250.0)" x1="265.0" x2="265.0" y1="250.0" y2="96.66666666666666"/>
+      <text alignment-baseline="middle" fill="rgb(15,127,18)" font-family="sans-serif" font-size="20" text-anchor="start" transform="translate(2,10)" x="355.1270720181792" y="374.04927247082526">M</text>
+      <line stroke="rgb(200,200,200)" stroke-dasharray="4" stroke-width="2" transform="rotate(216.0,265.0,250.0)" x1="265.0" x2="265.0" y1="250.0" y2="96.66666666666666"/>
+      <text alignment-baseline="middle" fill="rgb(252,13,27)" font-family="sans-serif" font-size="20" text-anchor="end" transform="translate(-2,10)" x="174.8729279818208" y="374.04927247082526">L</text>
+      <line stroke="rgb(200,200,200)" stroke-dasharray="4" stroke-width="2" transform="rotate(288.0,265.0,250.0)" x1="265.0" x2="265.0" y1="250.0" y2="96.66666666666666"/>
+      <text alignment-baseline="middle" fill="rgb(0,0,0)" font-family="sans-serif" font-size="20" text-anchor="end" transform="translate(-5,0)" x="119.17133416807644" y="202.61739419584143">Rod</text>
+      <path d="M267,211 L303,238 L312,312 L267,250 L267,250 Z" fill="none" stroke="rgb(0,0,0)" stroke-linecap="round" stroke-opacity="1" stroke-width="3"/>
+      <circle cx="267.5" cy="211.66666666666666" fill="rgb(127,15,126)" r="5" stroke="none" stroke-width="4" transform="rotate(0.0,267.5,250.0)"/>
+      <circle cx="267.5" cy="211.66666666666666" fill="rgb(11,36,251)" r="5" stroke="none" stroke-width="4" transform="rotate(72.0,267.5,250.0)"/>
+      <circle cx="267.5" cy="173.33333333333331" fill="rgb(15,127,18)" r="5" stroke="none" stroke-width="4" transform="rotate(144.0,267.5,250.0)"/>
+      <circle cx="267.5" cy="250.0" fill="rgb(252,13,27)" r="5" stroke="none" stroke-width="4" transform="rotate(216.0,267.5,250.0)"/>
+      <circle cx="267.5" cy="250.0" fill="rgb(0,0,0)" r="5" stroke="none" stroke-width="4" transform="rotate(288.0,267.5,250.0)"/>
+      <circle cx="535.8333333333334" cy="373.83886610207054" fill="rgb(253,189,64)" r="5" stroke="none" stroke-width="4" transform="rotate(0,535.8333333333334,250.0)"/>
+    </g>
+    <g transform="translate(0.0, 254.00000000000003) scale(1) translate(0, 0) scale(0.5) ">
+      <defs/>
+      <rect fill="white" height="480" stroke="rgb(255,216,0)" stroke-width="10" width="630" x="20" y="20"/>
+      <polygon fill="rgb(230,230,230)" points="265.0,96.66666666666666 410.82866583192356,202.61739419584137 355.1270720181792,374.04927247082526 174.8729279818208,374.04927247082526 119.17133416807644,202.61739419584143" stroke="rgb(200,200,200)" stroke-width="1"/>
+      <polygon fill="rgb(255,255,255)" points="265.0,135.0 374.37149937394264,214.46304564688103 332.5953040136344,343.036954353119 197.4046959863656,343.036954353119 155.62850062605733,214.46304564688108" stroke="rgb(200,200,200)" stroke-width="1"/>
+      <polygon fill="rgb(230,230,230)" points="265.0,173.33333333333331 337.9143329159618,226.30869709792069 310.0635360090896,312.02463623541263 219.9364639909104,312.02463623541263 192.08566708403822,226.3086970979207" stroke="rgb(200,200,200)" stroke-width="1"/>
+      <polygon fill="rgb(255,255,255)" points="265.0,211.66666666666666 301.4571664579809,238.15434854896034 287.5317680045448,281.01231811770634 242.4682319954552,281.01231811770634 228.5428335420191,238.15434854896034" stroke="rgb(200,200,200)" stroke-width="1"/>
+      <rect fill="rgb(230,230,230)" height="153.33333333333334" stroke="rgb(200,200,200)" stroke-width="1" width="40" x="515.8333333333334" y="220.50553276873714"/>
+      <rect fill="rgb(255,255,255)" height="115.0" stroke="rgb(200,200,200)" stroke-width="1" width="40" x="515.8333333333334" y="258.8388661020705"/>
+      <rect fill="rgb(230,230,230)" height="76.66666666666667" stroke="rgb(200,200,200)" stroke-width="1" width="40" x="515.8333333333334" y="297.17219943540385"/>
+      <rect fill="rgb(255,255,255)" height="38.333333333333336" stroke="rgb(200,200,200)" stroke-width="1" width="40" x="515.8333333333334" y="335.50553276873717"/>
+      <line stroke="rgb(200,200,200)" stroke-dasharray="4" stroke-width="2" x1="535.8333333333334" x2="535.8333333333334" y1="373.83886610207054" y2="220.50553276873714"/>
+      <text fill="rgb(253,189,64)" font-family="sans-serif" font-size="20" text-anchor="middle" transform="translate(0,-10)" x="535.8333333333334" y="220.50553276873714">?</text>
+      <line stroke="rgb(200,200,200)" stroke-dasharray="4" stroke-width="2" transform="rotate(0.0,265.0,250.0)" x1="265.0" x2="265.0" y1="250.0" y2="96.66666666666666"/>
+      <text alignment-baseline="middle" fill="rgb(127,15,126)" font-family="sans-serif" font-size="20" text-anchor="middle" transform="translate(0,-10)" x="265.0" y="96.66666666666666">UV</text>
+      <line stroke="rgb(200,200,200)" stroke-dasharray="4" stroke-width="2" transform="rotate(72.0,265.0,250.0)" x1="265.0" x2="265.0" y1="250.0" y2="96.66666666666666"/>
+      <text alignment-baseline="middle" fill="rgb(11,36,251)" font-family="sans-serif" font-size="20" text-anchor="start" transform="translate(5,0)" x="410.82866583192356" y="202.61739419584137">S</text>
+      <line stroke="rgb(200,200,200)" stroke-dasharray="4" stroke-width="2" transform="rotate(144.0,265.0,250.0)" x1="265.0" x2="265.0" y1="250.0" y2="96.66666666666666"/>
+      <text alignment-baseline="middle" fill="rgb(15,127,18)" font-family="sans-serif" font-size="20" text-anchor="start" transform="translate(2,10)" x="355.1270720181792" y="374.04927247082526">M</text>
+      <line stroke="rgb(200,200,200)" stroke-dasharray="4" stroke-width="2" transform="rotate(216.0,265.0,250.0)" x1="265.0" x2="265.0" y1="250.0" y2="96.66666666666666"/>
+      <text alignment-baseline="middle" fill="rgb(252,13,27)" font-family="sans-serif" font-size="20" text-anchor="end" transform="translate(-2,10)" x="174.8729279818208" y="374.04927247082526">L</text>
+      <line stroke="rgb(200,200,200)" stroke-dasharray="4" stroke-width="2" transform="rotate(288.0,265.0,250.0)" x1="265.0" x2="265.0" y1="250.0" y2="96.66666666666666"/>
+      <text alignment-baseline="middle" fill="rgb(0,0,0)" font-family="sans-serif" font-size="20" text-anchor="end" transform="translate(-5,0)" x="119.17133416807644" y="202.61739419584143">Rod</text>
+      <path d="M267,135 L362,219 L267,250 L267,250 L267,250 Z" fill="none" stroke="rgb(0,0,0)" stroke-linecap="round" stroke-opacity="1" stroke-width="3"/>
+      <circle cx="267.5" cy="135.0" fill="rgb(127,15,126)" r="5" stroke="none" stroke-width="4" transform="rotate(0.0,267.5,250.0)"/>
+      <circle cx="267.5" cy="150.33333333333331" fill="rgb(11,36,251)" r="5" stroke="none" stroke-width="4" transform="rotate(72.0,267.5,250.0)"/>
+      <circle cx="267.5" cy="250.0" fill="rgb(15,127,18)" r="5" stroke="none" stroke-width="4" transform="rotate(144.0,267.5,250.0)"/>
+      <circle cx="267.5" cy="250.0" fill="rgb(252,13,27)" r="5" stroke="none" stroke-width="4" transform="rotate(216.0,267.5,250.0)"/>
+      <circle cx="267.5" cy="250.0" fill="rgb(0,0,0)" r="5" stroke="none" stroke-width="4" transform="rotate(288.0,267.5,250.0)"/>
+      <circle cx="535.8333333333334" cy="366.17219943540385" fill="rgb(253,189,64)" r="5" stroke="none" stroke-width="4" transform="rotate(0,535.8333333333334,250.0)"/>
+    </g>
+    <g transform="translate(325.0, 254.00000000000003) scale(1) translate(0, 0) scale(0.5) ">
+      <defs/>
+      <rect fill="white" height="480" stroke="rgb(255,101,128)" stroke-width="10" width="630" x="20" y="20"/>
+      <polygon fill="rgb(230,230,230)" points="265.0,96.66666666666666 410.82866583192356,202.61739419584137 355.1270720181792,374.04927247082526 174.8729279818208,374.04927247082526 119.17133416807644,202.61739419584143" stroke="rgb(200,200,200)" stroke-width="1"/>
+      <polygon fill="rgb(255,255,255)" points="265.0,135.0 374.37149937394264,214.46304564688103 332.5953040136344,343.036954353119 197.4046959863656,343.036954353119 155.62850062605733,214.46304564688108" stroke="rgb(200,200,200)" stroke-width="1"/>
+      <polygon fill="rgb(230,230,230)" points="265.0,173.33333333333331 337.9143329159618,226.30869709792069 310.0635360090896,312.02463623541263 219.9364639909104,312.02463623541263 192.08566708403822,226.3086970979207" stroke="rgb(200,200,200)" stroke-width="1"/>
+      <polygon fill="rgb(255,255,255)" points="265.0,211.66666666666666 301.4571664579809,238.15434854896034 287.5317680045448,281.01231811770634 242.4682319954552,281.01231811770634 228.5428335420191,238.15434854896034" stroke="rgb(200,200,200)" stroke-width="1"/>
+      <rect fill="rgb(230,230,230)" height="153.33333333333334" stroke="rgb(200,200,200)" stroke-width="1" width="40" x="515.8333333333334" y="220.50553276873714"/>
+      <rect fill="rgb(255,255,255)" height="115.0" stroke="rgb(200,200,200)" stroke-width="1" width="40" x="515.8333333333334" y="258.8388661020705"/>
+      <rect fill="rgb(230,230,230)" height="76.66666666666667" stroke="rgb(200,200,200)" stroke-width="1" width="40" x="515.8333333333334" y="297.17219943540385"/>
+      <rect fill="rgb(255,255,255)" height="38.333333333333336" stroke="rgb(200,200,200)" stroke-width="1" width="40" x="515.8333333333334" y="335.50553276873717"/>
+      <line stroke="rgb(200,200,200)" stroke-dasharray="4" stroke-width="2" x1="535.8333333333334" x2="535.8333333333334" y1="373.83886610207054" y2="220.50553276873714"/>
+      <text fill="rgb(253,189,64)" font-family="sans-serif" font-size="20" text-anchor="middle" transform="translate(0,-10)" x="535.8333333333334" y="220.50553276873714">?</text>
+      <line stroke="rgb(200,200,200)" stroke-dasharray="4" stroke-width="2" transform="rotate(0.0,265.0,250.0)" x1="265.0" x2="265.0" y1="250.0" y2="96.66666666666666"/>
+      <text alignment-baseline="middle" fill="rgb(127,15,126)" font-family="sans-serif" font-size="20" text-anchor="middle" transform="translate(0,-10)" x="265.0" y="96.66666666666666">UV</text>
+      <line stroke="rgb(200,200,200)" stroke-dasharray="4" stroke-width="2" transform="rotate(72.0,265.0,250.0)" x1="265.0" x2="265.0" y1="250.0" y2="96.66666666666666"/>
+      <text alignment-baseline="middle" fill="rgb(11,36,251)" font-family="sans-serif" font-size="20" text-anchor="start" transform="translate(5,0)" x="410.82866583192356" y="202.61739419584137">S</text>
+      <line stroke="rgb(200,200,200)" stroke-dasharray="4" stroke-width="2" transform="rotate(144.0,265.0,250.0)" x1="265.0" x2="265.0" y1="250.0" y2="96.66666666666666"/>
+      <text alignment-baseline="middle" fill="rgb(15,127,18)" font-family="sans-serif" font-size="20" text-anchor="start" transform="translate(2,10)" x="355.1270720181792" y="374.04927247082526">M</text>
+      <line stroke="rgb(200,200,200)" stroke-dasharray="4" stroke-width="2" transform="rotate(216.0,265.0,250.0)" x1="265.0" x2="265.0" y1="250.0" y2="96.66666666666666"/>
+      <text alignment-baseline="middle" fill="rgb(252,13,27)" font-family="sans-serif" font-size="20" text-anchor="end" transform="translate(-2,10)" x="174.8729279818208" y="374.04927247082526">L</text>
+      <line stroke="rgb(200,200,200)" stroke-dasharray="4" stroke-width="2" transform="rotate(288.0,265.0,250.0)" x1="265.0" x2="265.0" y1="250.0" y2="96.66666666666666"/>
+      <text alignment-baseline="middle" fill="rgb(0,0,0)" font-family="sans-serif" font-size="20" text-anchor="end" transform="translate(-5,0)" x="119.17133416807644" y="202.61739419584143">Rod</text>
+      <path d="M267,227 L274,247 L303,299 L253,268 L267,250 Z" fill="none" stroke="rgb(0,0,0)" stroke-linecap="round" stroke-opacity="1" stroke-width="3"/>
+      <circle cx="267.5" cy="227.0" fill="rgb(127,15,126)" r="5" stroke="none" stroke-width="4" transform="rotate(0.0,267.5,250.0)"/>
+      <circle cx="267.5" cy="242.33333333333334" fill="rgb(11,36,251)" r="5" stroke="none" stroke-width="4" transform="rotate(72.0,267.5,250.0)"/>
+      <circle cx="267.5" cy="188.66666666666666" fill="rgb(15,127,18)" r="5" stroke="none" stroke-width="4" transform="rotate(144.0,267.5,250.0)"/>
+      <circle cx="267.5" cy="227.0" fill="rgb(252,13,27)" r="5" stroke="none" stroke-width="4" transform="rotate(216.0,267.5,250.0)"/>
+      <circle cx="267.5" cy="250.0" fill="rgb(0,0,0)" r="5" stroke="none" stroke-width="4" transform="rotate(288.0,267.5,250.0)"/>
+      <circle cx="535.8333333333334" cy="343.17219943540385" fill="rgb(253,189,64)" r="5" stroke="none" stroke-width="4" transform="rotate(0,535.8333333333334,250.0)"/>
+    </g>
+    <g transform="translate(650.0, 254.00000000000003) scale(1) translate(0, 0) scale(0.5) ">
+      <defs/>
+      <rect fill="white" height="480" stroke="rgb(255,101,128)" stroke-width="10" width="630" x="20" y="20"/>
+      <polygon fill="rgb(230,230,230)" points="265.0,96.66666666666666 410.82866583192356,202.61739419584137 355.1270720181792,374.04927247082526 174.8729279818208,374.04927247082526 119.17133416807644,202.61739419584143" stroke="rgb(200,200,200)" stroke-width="1"/>
+      <polygon fill="rgb(255,255,255)" points="265.0,135.0 374.37149937394264,214.46304564688103 332.5953040136344,343.036954353119 197.4046959863656,343.036954353119 155.62850062605733,214.46304564688108" stroke="rgb(200,200,200)" stroke-width="1"/>
+      <polygon fill="rgb(230,230,230)" points="265.0,173.33333333333331 337.9143329159618,226.30869709792069 310.0635360090896,312.02463623541263 219.9364639909104,312.02463623541263 192.08566708403822,226.3086970979207" stroke="rgb(200,200,200)" stroke-width="1"/>
+      <polygon fill="rgb(255,255,255)" points="265.0,211.66666666666666 301.4571664579809,238.15434854896034 287.5317680045448,281.01231811770634 242.4682319954552,281.01231811770634 228.5428335420191,238.15434854896034" stroke="rgb(200,200,200)" stroke-width="1"/>
+      <rect fill="rgb(230,230,230)" height="153.33333333333334" stroke="rgb(200,200,200)" stroke-width="1" width="40" x="515.8333333333334" y="220.50553276873714"/>
+      <rect fill="rgb(255,255,255)" height="115.0" stroke="rgb(200,200,200)" stroke-width="1" width="40" x="515.8333333333334" y="258.8388661020705"/>
+      <rect fill="rgb(230,230,230)" height="76.66666666666667" stroke="rgb(200,200,200)" stroke-width="1" width="40" x="515.8333333333334" y="297.17219943540385"/>
+      <rect fill="rgb(255,255,255)" height="38.333333333333336" stroke="rgb(200,200,200)" stroke-width="1" width="40" x="515.8333333333334" y="335.50553276873717"/>
+      <line stroke="rgb(200,200,200)" stroke-dasharray="4" stroke-width="2" x1="535.8333333333334" x2="535.8333333333334" y1="373.83886610207054" y2="220.50553276873714"/>
+      <text fill="rgb(253,189,64)" font-family="sans-serif" font-size="20" text-anchor="middle" transform="translate(0,-10)" x="535.8333333333334" y="220.50553276873714">?</text>
+      <line stroke="rgb(200,200,200)" stroke-dasharray="4" stroke-width="2" transform="rotate(0.0,265.0,250.0)" x1="265.0" x2="265.0" y1="250.0" y2="96.66666666666666"/>
+      <text alignment-baseline="middle" fill="rgb(127,15,126)" font-family="sans-serif" font-size="20" text-anchor="middle" transform="translate(0,-10)" x="265.0" y="96.66666666666666">UV</text>
+      <line stroke="rgb(200,200,200)" stroke-dasharray="4" stroke-width="2" transform="rotate(72.0,265.0,250.0)" x1="265.0" x2="265.0" y1="250.0" y2="96.66666666666666"/>
+      <text alignment-baseline="middle" fill="rgb(11,36,251)" font-family="sans-serif" font-size="20" text-anchor="start" transform="translate(5,0)" x="410.82866583192356" y="202.61739419584137">S</text>
+      <line stroke="rgb(200,200,200)" stroke-dasharray="4" stroke-width="2" transform="rotate(144.0,265.0,250.0)" x1="265.0" x2="265.0" y1="250.0" y2="96.66666666666666"/>
+      <text alignment-baseline="middle" fill="rgb(15,127,18)" font-family="sans-serif" font-size="20" text-anchor="start" transform="translate(2,10)" x="355.1270720181792" y="374.04927247082526">M</text>
+      <line stroke="rgb(200,200,200)" stroke-dasharray="4" stroke-width="2" transform="rotate(216.0,265.0,250.0)" x1="265.0" x2="265.0" y1="250.0" y2="96.66666666666666"/>
+      <text alignment-baseline="middle" fill="rgb(252,13,27)" font-family="sans-serif" font-size="20" text-anchor="end" transform="translate(-2,10)" x="174.8729279818208" y="374.04927247082526">L</text>
+      <line stroke="rgb(200,200,200)" stroke-dasharray="4" stroke-width="2" transform="rotate(288.0,265.0,250.0)" x1="265.0" x2="265.0" y1="250.0" y2="96.66666666666666"/>
+      <text alignment-baseline="middle" fill="rgb(0,0,0)" font-family="sans-serif" font-size="20" text-anchor="end" transform="translate(-5,0)" x="119.17133416807644" y="202.61739419584143">Rod</text>
+      <path d="M267,242 L274,247 L299,293 L240,287 L267,250 Z" fill="none" stroke="rgb(0,0,0)" stroke-linecap="round" stroke-opacity="1" stroke-width="3"/>
+      <circle cx="267.5" cy="242.33333333333334" fill="rgb(127,15,126)" r="5" stroke="none" stroke-width="4" transform="rotate(0.0,267.5,250.0)"/>
+      <circle cx="267.5" cy="242.33333333333334" fill="rgb(11,36,251)" r="5" stroke="none" stroke-width="4" transform="rotate(72.0,267.5,250.0)"/>
+      <circle cx="267.5" cy="196.33333333333331" fill="rgb(15,127,18)" r="5" stroke="none" stroke-width="4" transform="rotate(144.0,267.5,250.0)"/>
+      <circle cx="267.5" cy="204.0" fill="rgb(252,13,27)" r="5" stroke="none" stroke-width="4" transform="rotate(216.0,267.5,250.0)"/>
+      <circle cx="267.5" cy="250.0" fill="rgb(0,0,0)" r="5" stroke="none" stroke-width="4" transform="rotate(288.0,267.5,250.0)"/>
+      <circle cx="535.8333333333334" cy="366.17219943540385" fill="rgb(253,189,64)" r="5" stroke="none" stroke-width="4" transform="rotate(0,535.8333333333334,250.0)"/>
+    </g>
+    <g transform="translate(975.0, 254.00000000000003) scale(1) translate(0, 0) scale(0.5) ">
+      <defs/>
+      <rect fill="white" height="480" stroke="rgb(255,101,128)" stroke-width="10" width="630" x="20" y="20"/>
+      <polygon fill="rgb(230,230,230)" points="265.0,96.66666666666666 410.82866583192356,202.61739419584137 355.1270720181792,374.04927247082526 174.8729279818208,374.04927247082526 119.17133416807644,202.61739419584143" stroke="rgb(200,200,200)" stroke-width="1"/>
+      <polygon fill="rgb(255,255,255)" points="265.0,135.0 374.37149937394264,214.46304564688103 332.5953040136344,343.036954353119 197.4046959863656,343.036954353119 155.62850062605733,214.46304564688108" stroke="rgb(200,200,200)" stroke-width="1"/>
+      <polygon fill="rgb(230,230,230)" points="265.0,173.33333333333331 337.9143329159618,226.30869709792069 310.0635360090896,312.02463623541263 219.9364639909104,312.02463623541263 192.08566708403822,226.3086970979207" stroke="rgb(200,200,200)" stroke-width="1"/>
+      <polygon fill="rgb(255,255,255)" points="265.0,211.66666666666666 301.4571664579809,238.15434854896034 287.5317680045448,281.01231811770634 242.4682319954552,281.01231811770634 228.5428335420191,238.15434854896034" stroke="rgb(200,200,200)" stroke-width="1"/>
+      <rect fill="rgb(230,230,230)" height="153.33333333333334" stroke="rgb(200,200,200)" stroke-width="1" width="40" x="515.8333333333334" y="220.50553276873714"/>
+      <rect fill="rgb(255,255,255)" height="115.0" stroke="rgb(200,200,200)" stroke-width="1" width="40" x="515.8333333333334" y="258.8388661020705"/>
+      <rect fill="rgb(230,230,230)" height="76.66666666666667" stroke="rgb(200,200,200)" stroke-width="1" width="40" x="515.8333333333334" y="297.17219943540385"/>
+      <rect fill="rgb(255,255,255)" height="38.333333333333336" stroke="rgb(200,200,200)" stroke-width="1" width="40" x="515.8333333333334" y="335.50553276873717"/>
+      <line stroke="rgb(200,200,200)" stroke-dasharray="4" stroke-width="2" x1="535.8333333333334" x2="535.8333333333334" y1="373.83886610207054" y2="220.50553276873714"/>
+      <text fill="rgb(253,189,64)" font-family="sans-serif" font-size="20" text-anchor="middle" transform="translate(0,-10)" x="535.8333333333334" y="220.50553276873714">?</text>
+      <line stroke="rgb(200,200,200)" stroke-dasharray="4" stroke-width="2" transform="rotate(0.0,265.0,250.0)" x1="265.0" x2="265.0" y1="250.0" y2="96.66666666666666"/>
+      <text alignment-baseline="middle" fill="rgb(127,15,126)" font-family="sans-serif" font-size="20" text-anchor="middle" transform="translate(0,-10)" x="265.0" y="96.66666666666666">UV</text>
+      <line stroke="rgb(200,200,200)" stroke-dasharray="4" stroke-width="2" transform="rotate(72.0,265.0,250.0)" x1="265.0" x2="265.0" y1="250.0" y2="96.66666666666666"/>
+      <text alignment-baseline="middle" fill="rgb(11,36,251)" font-family="sans-serif" font-size="20" text-anchor="start" transform="translate(5,0)" x="410.82866583192356" y="202.61739419584137">S</text>
+      <line stroke="rgb(200,200,200)" stroke-dasharray="4" stroke-width="2" transform="rotate(144.0,265.0,250.0)" x1="265.0" x2="265.0" y1="250.0" y2="96.66666666666666"/>
+      <text alignment-baseline="middle" fill="rgb(15,127,18)" font-family="sans-serif" font-size="20" text-anchor="start" transform="translate(2,10)" x="355.1270720181792" y="374.04927247082526">M</text>
+      <line stroke="rgb(200,200,200)" stroke-dasharray="4" stroke-width="2" transform="rotate(216.0,265.0,250.0)" x1="265.0" x2="265.0" y1="250.0" y2="96.66666666666666"/>
+      <text alignment-baseline="middle" fill="rgb(252,13,27)" font-family="sans-serif" font-size="20" text-anchor="end" transform="translate(-2,10)" x="174.8729279818208" y="374.04927247082526">L</text>
+      <line stroke="rgb(200,200,200)" stroke-dasharray="4" stroke-width="2" transform="rotate(288.0,265.0,250.0)" x1="265.0" x2="265.0" y1="250.0" y2="96.66666666666666"/>
+      <text alignment-baseline="middle" fill="rgb(0,0,0)" font-family="sans-serif" font-size="20" text-anchor="end" transform="translate(-5,0)" x="119.17133416807644" y="202.61739419584143">Rod</text>
+      <path d="M267,250 L282,245 L299,293 L244,281 L267,250 Z" fill="none" stroke="rgb(0,0,0)" stroke-linecap="round" stroke-opacity="1" stroke-width="3"/>
+      <circle cx="267.5" cy="250.0" fill="rgb(127,15,126)" r="5" stroke="none" stroke-width="4" transform="rotate(0.0,267.5,250.0)"/>
+      <circle cx="267.5" cy="234.66666666666666" fill="rgb(11,36,251)" r="5" stroke="none" stroke-width="4" transform="rotate(72.0,267.5,250.0)"/>
+      <circle cx="267.5" cy="196.33333333333331" fill="rgb(15,127,18)" r="5" stroke="none" stroke-width="4" transform="rotate(144.0,267.5,250.0)"/>
+      <circle cx="267.5" cy="211.66666666666666" fill="rgb(252,13,27)" r="5" stroke="none" stroke-width="4" transform="rotate(216.0,267.5,250.0)"/>
+      <circle cx="267.5" cy="250.0" fill="rgb(0,0,0)" r="5" stroke="none" stroke-width="4" transform="rotate(288.0,267.5,250.0)"/>
+      <circle cx="535.8333333333334" cy="373.83886610207054" fill="rgb(253,189,64)" r="5" stroke="none" stroke-width="4" transform="rotate(0,535.8333333333334,250.0)"/>
+    </g>
+    <g transform="translate(1300.0, 254.00000000000003) scale(1) translate(0, 0) scale(0.5) ">
+      <defs/>
+      <rect fill="white" height="480" stroke="rgb(255,101,128)" stroke-width="10" width="630" x="20" y="20"/>
+      <polygon fill="rgb(230,230,230)" points="265.0,96.66666666666666 410.82866583192356,202.61739419584137 355.1270720181792,374.04927247082526 174.8729279818208,374.04927247082526 119.17133416807644,202.61739419584143" stroke="rgb(200,200,200)" stroke-width="1"/>
+      <polygon fill="rgb(255,255,255)" points="265.0,135.0 374.37149937394264,214.46304564688103 332.5953040136344,343.036954353119 197.4046959863656,343.036954353119 155.62850062605733,214.46304564688108" stroke="rgb(200,200,200)" stroke-width="1"/>
+      <polygon fill="rgb(230,230,230)" points="265.0,173.33333333333331 337.9143329159618,226.30869709792069 310.0635360090896,312.02463623541263 219.9364639909104,312.02463623541263 192.08566708403822,226.3086970979207" stroke="rgb(200,200,200)" stroke-width="1"/>
+      <polygon fill="rgb(255,255,255)" points="265.0,211.66666666666666 301.4571664579809,238.15434854896034 287.5317680045448,281.01231811770634 242.4682319954552,281.01231811770634 228.5428335420191,238.15434854896034" stroke="rgb(200,200,200)" stroke-width="1"/>
+      <rect fill="rgb(230,230,230)" height="153.33333333333334" stroke="rgb(200,200,200)" stroke-width="1" width="40" x="515.8333333333334" y="220.50553276873714"/>
+      <rect fill="rgb(255,255,255)" height="115.0" stroke="rgb(200,200,200)" stroke-width="1" width="40" x="515.8333333333334" y="258.8388661020705"/>
+      <rect fill="rgb(230,230,230)" height="76.66666666666667" stroke="rgb(200,200,200)" stroke-width="1" width="40" x="515.8333333333334" y="297.17219943540385"/>
+      <rect fill="rgb(255,255,255)" height="38.333333333333336" stroke="rgb(200,200,200)" stroke-width="1" width="40" x="515.8333333333334" y="335.50553276873717"/>
+      <line stroke="rgb(200,200,200)" stroke-dasharray="4" stroke-width="2" x1="535.8333333333334" x2="535.8333333333334" y1="373.83886610207054" y2="220.50553276873714"/>
+      <text fill="rgb(253,189,64)" font-family="sans-serif" font-size="20" text-anchor="middle" transform="translate(0,-10)" x="535.8333333333334" y="220.50553276873714">?</text>
+      <line stroke="rgb(200,200,200)" stroke-dasharray="4" stroke-width="2" transform="rotate(0.0,265.0,250.0)" x1="265.0" x2="265.0" y1="250.0" y2="96.66666666666666"/>
+      <text alignment-baseline="middle" fill="rgb(127,15,126)" font-family="sans-serif" font-size="20" text-anchor="middle" transform="translate(0,-10)" x="265.0" y="96.66666666666666">UV</text>
+      <line stroke="rgb(200,200,200)" stroke-dasharray="4" stroke-width="2" transform="rotate(72.0,265.0,250.0)" x1="265.0" x2="265.0" y1="250.0" y2="96.66666666666666"/>
+      <text alignment-baseline="middle" fill="rgb(11,36,251)" font-family="sans-serif" font-size="20" text-anchor="start" transform="translate(5,0)" x="410.82866583192356" y="202.61739419584137">S</text>
+      <line stroke="rgb(200,200,200)" stroke-dasharray="4" stroke-width="2" transform="rotate(144.0,265.0,250.0)" x1="265.0" x2="265.0" y1="250.0" y2="96.66666666666666"/>
+      <text alignment-baseline="middle" fill="rgb(15,127,18)" font-family="sans-serif" font-size="20" text-anchor="start" transform="translate(2,10)" x="355.1270720181792" y="374.04927247082526">M</text>
+      <line stroke="rgb(200,200,200)" stroke-dasharray="4" stroke-width="2" transform="rotate(216.0,265.0,250.0)" x1="265.0" x2="265.0" y1="250.0" y2="96.66666666666666"/>
+      <text alignment-baseline="middle" fill="rgb(252,13,27)" font-family="sans-serif" font-size="20" text-anchor="end" transform="translate(-2,10)" x="174.8729279818208" y="374.04927247082526">L</text>
+      <line stroke="rgb(200,200,200)" stroke-dasharray="4" stroke-width="2" transform="rotate(288.0,265.0,250.0)" x1="265.0" x2="265.0" y1="250.0" y2="96.66666666666666"/>
+      <text alignment-baseline="middle" fill="rgb(0,0,0)" font-family="sans-serif" font-size="20" text-anchor="end" transform="translate(-5,0)" x="119.17133416807644" y="202.61739419584143">Rod</text>
+      <path d="M267,219 L296,240 L308,305 L222,312 L267,250 Z" fill="none" stroke="rgb(0,0,0)" stroke-linecap="round" stroke-opacity="1" stroke-width="3"/>
+      <circle cx="267.5" cy="219.33333333333334" fill="rgb(127,15,126)" r="5" stroke="none" stroke-width="4" transform="rotate(0.0,267.5,250.0)"/>
+      <circle cx="267.5" cy="219.33333333333334" fill="rgb(11,36,251)" r="5" stroke="none" stroke-width="4" transform="rotate(72.0,267.5,250.0)"/>
+      <circle cx="267.5" cy="181.0" fill="rgb(15,127,18)" r="5" stroke="none" stroke-width="4" transform="rotate(144.0,267.5,250.0)"/>
+      <circle cx="267.5" cy="173.33333333333331" fill="rgb(252,13,27)" r="5" stroke="none" stroke-width="4" transform="rotate(216.0,267.5,250.0)"/>
+      <circle cx="267.5" cy="250.0" fill="rgb(0,0,0)" r="5" stroke="none" stroke-width="4" transform="rotate(288.0,267.5,250.0)"/>
+      <circle cx="535.8333333333334" cy="366.17219943540385" fill="rgb(253,189,64)" r="5" stroke="none" stroke-width="4" transform="rotate(0,535.8333333333334,250.0)"/>
+    </g>
+    <g transform="translate(1625.0, 254.00000000000003) scale(1) translate(0, 0) scale(0.5) ">
+      <defs/>
+      <rect fill="white" height="480" stroke="rgb(255,101,128)" stroke-width="10" width="630" x="20" y="20"/>
+      <polygon fill="rgb(230,230,230)" points="265.0,96.66666666666666 410.82866583192356,202.61739419584137 355.1270720181792,374.04927247082526 174.8729279818208,374.04927247082526 119.17133416807644,202.61739419584143" stroke="rgb(200,200,200)" stroke-width="1"/>
+      <polygon fill="rgb(255,255,255)" points="265.0,135.0 374.37149937394264,214.46304564688103 332.5953040136344,343.036954353119 197.4046959863656,343.036954353119 155.62850062605733,214.46304564688108" stroke="rgb(200,200,200)" stroke-width="1"/>
+      <polygon fill="rgb(230,230,230)" points="265.0,173.33333333333331 337.9143329159618,226.30869709792069 310.0635360090896,312.02463623541263 219.9364639909104,312.02463623541263 192.08566708403822,226.3086970979207" stroke="rgb(200,200,200)" stroke-width="1"/>
+      <polygon fill="rgb(255,255,255)" points="265.0,211.66666666666666 301.4571664579809,238.15434854896034 287.5317680045448,281.01231811770634 242.4682319954552,281.01231811770634 228.5428335420191,238.15434854896034" stroke="rgb(200,200,200)" stroke-width="1"/>
+      <rect fill="rgb(230,230,230)" height="153.33333333333334" stroke="rgb(200,200,200)" stroke-width="1" width="40" x="515.8333333333334" y="220.50553276873714"/>
+      <rect fill="rgb(255,255,255)" height="115.0" stroke="rgb(200,200,200)" stroke-width="1" width="40" x="515.8333333333334" y="258.8388661020705"/>
+      <rect fill="rgb(230,230,230)" height="76.66666666666667" stroke="rgb(200,200,200)" stroke-width="1" width="40" x="515.8333333333334" y="297.17219943540385"/>
+      <rect fill="rgb(255,255,255)" height="38.333333333333336" stroke="rgb(200,200,200)" stroke-width="1" width="40" x="515.8333333333334" y="335.50553276873717"/>
+      <line stroke="rgb(200,200,200)" stroke-dasharray="4" stroke-width="2" x1="535.8333333333334" x2="535.8333333333334" y1="373.83886610207054" y2="220.50553276873714"/>
+      <text fill="rgb(253,189,64)" font-family="sans-serif" font-size="20" text-anchor="middle" transform="translate(0,-10)" x="535.8333333333334" y="220.50553276873714">?</text>
+      <line stroke="rgb(200,200,200)" stroke-dasharray="4" stroke-width="2" transform="rotate(0.0,265.0,250.0)" x1="265.0" x2="265.0" y1="250.0" y2="96.66666666666666"/>
+      <text alignment-baseline="middle" fill="rgb(127,15,126)" font-family="sans-serif" font-size="20" text-anchor="middle" transform="translate(0,-10)" x="265.0" y="96.66666666666666">UV</text>
+      <line stroke="rgb(200,200,200)" stroke-dasharray="4" stroke-width="2" transform="rotate(72.0,265.0,250.0)" x1="265.0" x2="265.0" y1="250.0" y2="96.66666666666666"/>
+      <text alignment-baseline="middle" fill="rgb(11,36,251)" font-family="sans-serif" font-size="20" text-anchor="start" transform="translate(5,0)" x="410.82866583192356" y="202.61739419584137">S</text>
+      <line stroke="rgb(200,200,200)" stroke-dasharray="4" stroke-width="2" transform="rotate(144.0,265.0,250.0)" x1="265.0" x2="265.0" y1="250.0" y2="96.66666666666666"/>
+      <text alignment-baseline="middle" fill="rgb(15,127,18)" font-family="sans-serif" font-size="20" text-anchor="start" transform="translate(2,10)" x="355.1270720181792" y="374.04927247082526">M</text>
+      <line stroke="rgb(200,200,200)" stroke-dasharray="4" stroke-width="2" transform="rotate(216.0,265.0,250.0)" x1="265.0" x2="265.0" y1="250.0" y2="96.66666666666666"/>
+      <text alignment-baseline="middle" fill="rgb(252,13,27)" font-family="sans-serif" font-size="20" text-anchor="end" transform="translate(-2,10)" x="174.8729279818208" y="374.04927247082526">L</text>
+      <line stroke="rgb(200,200,200)" stroke-dasharray="4" stroke-width="2" transform="rotate(288.0,265.0,250.0)" x1="265.0" x2="265.0" y1="250.0" y2="96.66666666666666"/>
+      <text alignment-baseline="middle" fill="rgb(0,0,0)" font-family="sans-serif" font-size="20" text-anchor="end" transform="translate(-5,0)" x="119.17133416807644" y="202.61739419584143">Rod</text>
+      <path d="M267,250 L282,245 L299,293 L226,305 L267,250 Z" fill="none" stroke="rgb(0,0,0)" stroke-linecap="round" stroke-opacity="1" stroke-width="3"/>
+      <circle cx="267.5" cy="250.0" fill="rgb(127,15,126)" r="5" stroke="none" stroke-width="4" transform="rotate(0.0,267.5,250.0)"/>
+      <circle cx="267.5" cy="234.66666666666666" fill="rgb(11,36,251)" r="5" stroke="none" stroke-width="4" transform="rotate(72.0,267.5,250.0)"/>
+      <circle cx="267.5" cy="196.33333333333331" fill="rgb(15,127,18)" r="5" stroke="none" stroke-width="4" transform="rotate(144.0,267.5,250.0)"/>
+      <circle cx="267.5" cy="181.0" fill="rgb(252,13,27)" r="5" stroke="none" stroke-width="4" transform="rotate(216.0,267.5,250.0)"/>
+      <circle cx="267.5" cy="250.0" fill="rgb(0,0,0)" r="5" stroke="none" stroke-width="4" transform="rotate(288.0,267.5,250.0)"/>
+      <circle cx="535.8333333333334" cy="373.83886610207054" fill="rgb(253,189,64)" r="5" stroke="none" stroke-width="4" transform="rotate(0,535.8333333333334,250.0)"/>
+    </g>
+    <g transform="translate(1950.0, 254.00000000000003) scale(1) translate(0, 0) scale(0.5) ">
+      <defs/>
+      <rect fill="white" height="480" stroke="rgb(255,216,0)" stroke-width="10" width="630" x="20" y="20"/>
+      <polygon fill="rgb(230,230,230)" points="265.0,96.66666666666666 410.82866583192356,202.61739419584137 355.1270720181792,374.04927247082526 174.8729279818208,374.04927247082526 119.17133416807644,202.61739419584143" stroke="rgb(200,200,200)" stroke-width="1"/>
+      <polygon fill="rgb(255,255,255)" points="265.0,135.0 374.37149937394264,214.46304564688103 332.5953040136344,343.036954353119 197.4046959863656,343.036954353119 155.62850062605733,214.46304564688108" stroke="rgb(200,200,200)" stroke-width="1"/>
+      <polygon fill="rgb(230,230,230)" points="265.0,173.33333333333331 337.9143329159618,226.30869709792069 310.0635360090896,312.02463623541263 219.9364639909104,312.02463623541263 192.08566708403822,226.3086970979207" stroke="rgb(200,200,200)" stroke-width="1"/>
+      <polygon fill="rgb(255,255,255)" points="265.0,211.66666666666666 301.4571664579809,238.15434854896034 287.5317680045448,281.01231811770634 242.4682319954552,281.01231811770634 228.5428335420191,238.15434854896034" stroke="rgb(200,200,200)" stroke-width="1"/>
+      <rect fill="rgb(230,230,230)" height="153.33333333333334" stroke="rgb(200,200,200)" stroke-width="1" width="40" x="515.8333333333334" y="220.50553276873714"/>
+      <rect fill="rgb(255,255,255)" height="115.0" stroke="rgb(200,200,200)" stroke-width="1" width="40" x="515.8333333333334" y="258.8388661020705"/>
+      <rect fill="rgb(230,230,230)" height="76.66666666666667" stroke="rgb(200,200,200)" stroke-width="1" width="40" x="515.8333333333334" y="297.17219943540385"/>
+      <rect fill="rgb(255,255,255)" height="38.333333333333336" stroke="rgb(200,200,200)" stroke-width="1" width="40" x="515.8333333333334" y="335.50553276873717"/>
+      <line stroke="rgb(200,200,200)" stroke-dasharray="4" stroke-width="2" x1="535.8333333333334" x2="535.8333333333334" y1="373.83886610207054" y2="220.50553276873714"/>
+      <text fill="rgb(253,189,64)" font-family="sans-serif" font-size="20" text-anchor="middle" transform="translate(0,-10)" x="535.8333333333334" y="220.50553276873714">?</text>
+      <line stroke="rgb(200,200,200)" stroke-dasharray="4" stroke-width="2" transform="rotate(0.0,265.0,250.0)" x1="265.0" x2="265.0" y1="250.0" y2="96.66666666666666"/>
+      <text alignment-baseline="middle" fill="rgb(127,15,126)" font-family="sans-serif" font-size="20" text-anchor="middle" transform="translate(0,-10)" x="265.0" y="96.66666666666666">UV</text>
+      <line stroke="rgb(200,200,200)" stroke-dasharray="4" stroke-width="2" transform="rotate(72.0,265.0,250.0)" x1="265.0" x2="265.0" y1="250.0" y2="96.66666666666666"/>
+      <text alignment-baseline="middle" fill="rgb(11,36,251)" font-family="sans-serif" font-size="20" text-anchor="start" transform="translate(5,0)" x="410.82866583192356" y="202.61739419584137">S</text>
+      <line stroke="rgb(200,200,200)" stroke-dasharray="4" stroke-width="2" transform="rotate(144.0,265.0,250.0)" x1="265.0" x2="265.0" y1="250.0" y2="96.66666666666666"/>
+      <text alignment-baseline="middle" fill="rgb(15,127,18)" font-family="sans-serif" font-size="20" text-anchor="start" transform="translate(2,10)" x="355.1270720181792" y="374.04927247082526">M</text>
+      <line stroke="rgb(200,200,200)" stroke-dasharray="4" stroke-width="2" transform="rotate(216.0,265.0,250.0)" x1="265.0" x2="265.0" y1="250.0" y2="96.66666666666666"/>
+      <text alignment-baseline="middle" fill="rgb(252,13,27)" font-family="sans-serif" font-size="20" text-anchor="end" transform="translate(-2,10)" x="174.8729279818208" y="374.04927247082526">L</text>
+      <line stroke="rgb(200,200,200)" stroke-dasharray="4" stroke-width="2" transform="rotate(288.0,265.0,250.0)" x1="265.0" x2="265.0" y1="250.0" y2="96.66666666666666"/>
+      <text alignment-baseline="middle" fill="rgb(0,0,0)" font-family="sans-serif" font-size="20" text-anchor="end" transform="translate(-5,0)" x="119.17133416807644" y="202.61739419584143">Rod</text>
+      <path d="M267,165 L318,233 L267,250 L262,256 L267,250 Z" fill="none" stroke="rgb(0,0,0)" stroke-linecap="round" stroke-opacity="1" stroke-width="3"/>
+      <circle cx="267.5" cy="165.66666666666666" fill="rgb(127,15,126)" r="5" stroke="none" stroke-width="4" transform="rotate(0.0,267.5,250.0)"/>
+      <circle cx="267.5" cy="196.33333333333331" fill="rgb(11,36,251)" r="5" stroke="none" stroke-width="4" transform="rotate(72.0,267.5,250.0)"/>
+      <circle cx="267.5" cy="250.0" fill="rgb(15,127,18)" r="5" stroke="none" stroke-width="4" transform="rotate(144.0,267.5,250.0)"/>
+      <circle cx="267.5" cy="242.33333333333334" fill="rgb(252,13,27)" r="5" stroke="none" stroke-width="4" transform="rotate(216.0,267.5,250.0)"/>
+      <circle cx="267.5" cy="250.0" fill="rgb(0,0,0)" r="5" stroke="none" stroke-width="4" transform="rotate(288.0,267.5,250.0)"/>
+      <circle cx="535.8333333333334" cy="366.17219943540385" fill="rgb(253,189,64)" r="5" stroke="none" stroke-width="4" transform="rotate(0,535.8333333333334,250.0)"/>
+    </g>
+    <g transform="translate(0.0, 508.00000000000006) scale(1) translate(0, 0) scale(0.5) ">
+      <defs/>
+      <rect fill="white" height="480" stroke="rgb(255,216,0)" stroke-width="10" width="630" x="20" y="20"/>
+      <polygon fill="rgb(230,230,230)" points="265.0,96.66666666666666 410.82866583192356,202.61739419584137 355.1270720181792,374.04927247082526 174.8729279818208,374.04927247082526 119.17133416807644,202.61739419584143" stroke="rgb(200,200,200)" stroke-width="1"/>
+      <polygon fill="rgb(255,255,255)" points="265.0,135.0 374.37149937394264,214.46304564688103 332.5953040136344,343.036954353119 197.4046959863656,343.036954353119 155.62850062605733,214.46304564688108" stroke="rgb(200,200,200)" stroke-width="1"/>
+      <polygon fill="rgb(230,230,230)" points="265.0,173.33333333333331 337.9143329159618,226.30869709792069 310.0635360090896,312.02463623541263 219.9364639909104,312.02463623541263 192.08566708403822,226.3086970979207" stroke="rgb(200,200,200)" stroke-width="1"/>
+      <polygon fill="rgb(255,255,255)" points="265.0,211.66666666666666 301.4571664579809,238.15434854896034 287.5317680045448,281.01231811770634 242.4682319954552,281.01231811770634 228.5428335420191,238.15434854896034" stroke="rgb(200,200,200)" stroke-width="1"/>
+      <rect fill="rgb(230,230,230)" height="153.33333333333334" stroke="rgb(200,200,200)" stroke-width="1" width="40" x="515.8333333333334" y="220.50553276873714"/>
+      <rect fill="rgb(255,255,255)" height="115.0" stroke="rgb(200,200,200)" stroke-width="1" width="40" x="515.8333333333334" y="258.8388661020705"/>
+      <rect fill="rgb(230,230,230)" height="76.66666666666667" stroke="rgb(200,200,200)" stroke-width="1" width="40" x="515.8333333333334" y="297.17219943540385"/>
+      <rect fill="rgb(255,255,255)" height="38.333333333333336" stroke="rgb(200,200,200)" stroke-width="1" width="40" x="515.8333333333334" y="335.50553276873717"/>
+      <line stroke="rgb(200,200,200)" stroke-dasharray="4" stroke-width="2" x1="535.8333333333334" x2="535.8333333333334" y1="373.83886610207054" y2="220.50553276873714"/>
+      <text fill="rgb(253,189,64)" font-family="sans-serif" font-size="20" text-anchor="middle" transform="translate(0,-10)" x="535.8333333333334" y="220.50553276873714">?</text>
+      <line stroke="rgb(200,200,200)" stroke-dasharray="4" stroke-width="2" transform="rotate(0.0,265.0,250.0)" x1="265.0" x2="265.0" y1="250.0" y2="96.66666666666666"/>
+      <text alignment-baseline="middle" fill="rgb(127,15,126)" font-family="sans-serif" font-size="20" text-anchor="middle" transform="translate(0,-10)" x="265.0" y="96.66666666666666">UV</text>
+      <line stroke="rgb(200,200,200)" stroke-dasharray="4" stroke-width="2" transform="rotate(72.0,265.0,250.0)" x1="265.0" x2="265.0" y1="250.0" y2="96.66666666666666"/>
+      <text alignment-baseline="middle" fill="rgb(11,36,251)" font-family="sans-serif" font-size="20" text-anchor="start" transform="translate(5,0)" x="410.82866583192356" y="202.61739419584137">S</text>
+      <line stroke="rgb(200,200,200)" stroke-dasharray="4" stroke-width="2" transform="rotate(144.0,265.0,250.0)" x1="265.0" x2="265.0" y1="250.0" y2="96.66666666666666"/>
+      <text alignment-baseline="middle" fill="rgb(15,127,18)" font-family="sans-serif" font-size="20" text-anchor="start" transform="translate(2,10)" x="355.1270720181792" y="374.04927247082526">M</text>
+      <line stroke="rgb(200,200,200)" stroke-dasharray="4" stroke-width="2" transform="rotate(216.0,265.0,250.0)" x1="265.0" x2="265.0" y1="250.0" y2="96.66666666666666"/>
+      <text alignment-baseline="middle" fill="rgb(252,13,27)" font-family="sans-serif" font-size="20" text-anchor="end" transform="translate(-2,10)" x="174.8729279818208" y="374.04927247082526">L</text>
+      <line stroke="rgb(200,200,200)" stroke-dasharray="4" stroke-width="2" transform="rotate(288.0,265.0,250.0)" x1="265.0" x2="265.0" y1="250.0" y2="96.66666666666666"/>
+      <text alignment-baseline="middle" fill="rgb(0,0,0)" font-family="sans-serif" font-size="20" text-anchor="end" transform="translate(-5,0)" x="119.17133416807644" y="202.61739419584143">Rod</text>
+      <path d="M267,135 L325,231 L267,250 L267,250 L267,250 Z" fill="none" stroke="rgb(0,0,0)" stroke-linecap="round" stroke-opacity="1" stroke-width="3"/>
+      <circle cx="267.5" cy="135.0" fill="rgb(127,15,126)" r="5" stroke="none" stroke-width="4" transform="rotate(0.0,267.5,250.0)"/>
+      <circle cx="267.5" cy="188.66666666666666" fill="rgb(11,36,251)" r="5" stroke="none" stroke-width="4" transform="rotate(72.0,267.5,250.0)"/>
+      <circle cx="267.5" cy="250.0" fill="rgb(15,127,18)" r="5" stroke="none" stroke-width="4" transform="rotate(144.0,267.5,250.0)"/>
+      <circle cx="267.5" cy="250.0" fill="rgb(252,13,27)" r="5" stroke="none" stroke-width="4" transform="rotate(216.0,267.5,250.0)"/>
+      <circle cx="267.5" cy="250.0" fill="rgb(0,0,0)" r="5" stroke="none" stroke-width="4" transform="rotate(288.0,267.5,250.0)"/>
+      <circle cx="535.8333333333334" cy="373.83886610207054" fill="rgb(253,189,64)" r="5" stroke="none" stroke-width="4" transform="rotate(0,535.8333333333334,250.0)"/>
+    </g>
+    <g transform="translate(325.0, 508.00000000000006) scale(1) translate(0, 0) scale(0.5) ">
+      <defs/>
+      <rect fill="white" height="480" stroke="rgb(255,216,0)" stroke-width="10" width="630" x="20" y="20"/>
+      <polygon fill="rgb(230,230,230)" points="265.0,96.66666666666666 410.82866583192356,202.61739419584137 355.1270720181792,374.04927247082526 174.8729279818208,374.04927247082526 119.17133416807644,202.61739419584143" stroke="rgb(200,200,200)" stroke-width="1"/>
+      <polygon fill="rgb(255,255,255)" points="265.0,135.0 374.37149937394264,214.46304564688103 332.5953040136344,343.036954353119 197.4046959863656,343.036954353119 155.62850062605733,214.46304564688108" stroke="rgb(200,200,200)" stroke-width="1"/>
+      <polygon fill="rgb(230,230,230)" points="265.0,173.33333333333331 337.9143329159618,226.30869709792069 310.0635360090896,312.02463623541263 219.9364639909104,312.02463623541263 192.08566708403822,226.3086970979207" stroke="rgb(200,200,200)" stroke-width="1"/>
+      <polygon fill="rgb(255,255,255)" points="265.0,211.66666666666666 301.4571664579809,238.15434854896034 287.5317680045448,281.01231811770634 242.4682319954552,281.01231811770634 228.5428335420191,238.15434854896034" stroke="rgb(200,200,200)" stroke-width="1"/>
+      <rect fill="rgb(230,230,230)" height="153.33333333333334" stroke="rgb(200,200,200)" stroke-width="1" width="40" x="515.8333333333334" y="220.50553276873714"/>
+      <rect fill="rgb(255,255,255)" height="115.0" stroke="rgb(200,200,200)" stroke-width="1" width="40" x="515.8333333333334" y="258.8388661020705"/>
+      <rect fill="rgb(230,230,230)" height="76.66666666666667" stroke="rgb(200,200,200)" stroke-width="1" width="40" x="515.8333333333334" y="297.17219943540385"/>
+      <rect fill="rgb(255,255,255)" height="38.333333333333336" stroke="rgb(200,200,200)" stroke-width="1" width="40" x="515.8333333333334" y="335.50553276873717"/>
+      <line stroke="rgb(200,200,200)" stroke-dasharray="4" stroke-width="2" x1="535.8333333333334" x2="535.8333333333334" y1="373.83886610207054" y2="220.50553276873714"/>
+      <text fill="rgb(253,189,64)" font-family="sans-serif" font-size="20" text-anchor="middle" transform="translate(0,-10)" x="535.8333333333334" y="220.50553276873714">?</text>
+      <line stroke="rgb(200,200,200)" stroke-dasharray="4" stroke-width="2" transform="rotate(0.0,265.0,250.0)" x1="265.0" x2="265.0" y1="250.0" y2="96.66666666666666"/>
+      <text alignment-baseline="middle" fill="rgb(127,15,126)" font-family="sans-serif" font-size="20" text-anchor="middle" transform="translate(0,-10)" x="265.0" y="96.66666666666666">UV</text>
+      <line stroke="rgb(200,200,200)" stroke-dasharray="4" stroke-width="2" transform="rotate(72.0,265.0,250.0)" x1="265.0" x2="265.0" y1="250.0" y2="96.66666666666666"/>
+      <text alignment-baseline="middle" fill="rgb(11,36,251)" font-family="sans-serif" font-size="20" text-anchor="start" transform="translate(5,0)" x="410.82866583192356" y="202.61739419584137">S</text>
+      <line stroke="rgb(200,200,200)" stroke-dasharray="4" stroke-width="2" transform="rotate(144.0,265.0,250.0)" x1="265.0" x2="265.0" y1="250.0" y2="96.66666666666666"/>
+      <text alignment-baseline="middle" fill="rgb(15,127,18)" font-family="sans-serif" font-size="20" text-anchor="start" transform="translate(2,10)" x="355.1270720181792" y="374.04927247082526">M</text>
+      <line stroke="rgb(200,200,200)" stroke-dasharray="4" stroke-width="2" transform="rotate(216.0,265.0,250.0)" x1="265.0" x2="265.0" y1="250.0" y2="96.66666666666666"/>
+      <text alignment-baseline="middle" fill="rgb(252,13,27)" font-family="sans-serif" font-size="20" text-anchor="end" transform="translate(-2,10)" x="174.8729279818208" y="374.04927247082526">L</text>
+      <line stroke="rgb(200,200,200)" stroke-dasharray="4" stroke-width="2" transform="rotate(288.0,265.0,250.0)" x1="265.0" x2="265.0" y1="250.0" y2="96.66666666666666"/>
+      <text alignment-baseline="middle" fill="rgb(0,0,0)" font-family="sans-serif" font-size="20" text-anchor="end" transform="translate(-5,0)" x="119.17133416807644" y="202.61739419584143">Rod</text>
+      <path d="M267,127 L333,228 L267,250 L267,250 L267,250 Z" fill="none" stroke="rgb(0,0,0)" stroke-linecap="round" stroke-opacity="1" stroke-width="3"/>
+      <circle cx="267.5" cy="127.33333333333333" fill="rgb(127,15,126)" r="5" stroke="none" stroke-width="4" transform="rotate(0.0,267.5,250.0)"/>
+      <circle cx="267.5" cy="181.0" fill="rgb(11,36,251)" r="5" stroke="none" stroke-width="4" transform="rotate(72.0,267.5,250.0)"/>
+      <circle cx="267.5" cy="250.0" fill="rgb(15,127,18)" r="5" stroke="none" stroke-width="4" transform="rotate(144.0,267.5,250.0)"/>
+      <circle cx="267.5" cy="250.0" fill="rgb(252,13,27)" r="5" stroke="none" stroke-width="4" transform="rotate(216.0,267.5,250.0)"/>
+      <circle cx="267.5" cy="250.0" fill="rgb(0,0,0)" r="5" stroke="none" stroke-width="4" transform="rotate(288.0,267.5,250.0)"/>
+      <circle cx="535.8333333333334" cy="373.83886610207054" fill="rgb(253,189,64)" r="5" stroke="none" stroke-width="4" transform="rotate(0,535.8333333333334,250.0)"/>
+    </g>
+    <g transform="translate(650.0, 508.00000000000006) scale(1) translate(0, 0) scale(0.5) ">
+      <defs/>
+      <rect fill="white" height="480" stroke="rgb(255,101,128)" stroke-width="10" width="630" x="20" y="20"/>
+      <polygon fill="rgb(230,230,230)" points="265.0,96.66666666666666 410.82866583192356,202.61739419584137 355.1270720181792,374.04927247082526 174.8729279818208,374.04927247082526 119.17133416807644,202.61739419584143" stroke="rgb(200,200,200)" stroke-width="1"/>
+      <polygon fill="rgb(255,255,255)" points="265.0,135.0 374.37149937394264,214.46304564688103 332.5953040136344,343.036954353119 197.4046959863656,343.036954353119 155.62850062605733,214.46304564688108" stroke="rgb(200,200,200)" stroke-width="1"/>
+      <polygon fill="rgb(230,230,230)" points="265.0,173.33333333333331 337.9143329159618,226.30869709792069 310.0635360090896,312.02463623541263 219.9364639909104,312.02463623541263 192.08566708403822,226.3086970979207" stroke="rgb(200,200,200)" stroke-width="1"/>
+      <polygon fill="rgb(255,255,255)" points="265.0,211.66666666666666 301.4571664579809,238.15434854896034 287.5317680045448,281.01231811770634 242.4682319954552,281.01231811770634 228.5428335420191,238.15434854896034" stroke="rgb(200,200,200)" stroke-width="1"/>
+      <rect fill="rgb(230,230,230)" height="153.33333333333334" stroke="rgb(200,200,200)" stroke-width="1" width="40" x="515.8333333333334" y="220.50553276873714"/>
+      <rect fill="rgb(255,255,255)" height="115.0" stroke="rgb(200,200,200)" stroke-width="1" width="40" x="515.8333333333334" y="258.8388661020705"/>
+      <rect fill="rgb(230,230,230)" height="76.66666666666667" stroke="rgb(200,200,200)" stroke-width="1" width="40" x="515.8333333333334" y="297.17219943540385"/>
+      <rect fill="rgb(255,255,255)" height="38.333333333333336" stroke="rgb(200,200,200)" stroke-width="1" width="40" x="515.8333333333334" y="335.50553276873717"/>
+      <line stroke="rgb(200,200,200)" stroke-dasharray="4" stroke-width="2" x1="535.8333333333334" x2="535.8333333333334" y1="373.83886610207054" y2="220.50553276873714"/>
+      <text fill="rgb(253,189,64)" font-family="sans-serif" font-size="20" text-anchor="middle" transform="translate(0,-10)" x="535.8333333333334" y="220.50553276873714">?</text>
+      <line stroke="rgb(200,200,200)" stroke-dasharray="4" stroke-width="2" transform="rotate(0.0,265.0,250.0)" x1="265.0" x2="265.0" y1="250.0" y2="96.66666666666666"/>
+      <text alignment-baseline="middle" fill="rgb(127,15,126)" font-family="sans-serif" font-size="20" text-anchor="middle" transform="translate(0,-10)" x="265.0" y="96.66666666666666">UV</text>
+      <line stroke="rgb(200,200,200)" stroke-dasharray="4" stroke-width="2" transform="rotate(72.0,265.0,250.0)" x1="265.0" x2="265.0" y1="250.0" y2="96.66666666666666"/>
+      <text alignment-baseline="middle" fill="rgb(11,36,251)" font-family="sans-serif" font-size="20" text-anchor="start" transform="translate(5,0)" x="410.82866583192356" y="202.61739419584137">S</text>
+      <line stroke="rgb(200,200,200)" stroke-dasharray="4" stroke-width="2" transform="rotate(144.0,265.0,250.0)" x1="265.0" x2="265.0" y1="250.0" y2="96.66666666666666"/>
+      <text alignment-baseline="middle" fill="rgb(15,127,18)" font-family="sans-serif" font-size="20" text-anchor="start" transform="translate(2,10)" x="355.1270720181792" y="374.04927247082526">M</text>
+      <line stroke="rgb(200,200,200)" stroke-dasharray="4" stroke-width="2" transform="rotate(216.0,265.0,250.0)" x1="265.0" x2="265.0" y1="250.0" y2="96.66666666666666"/>
+      <text alignment-baseline="middle" fill="rgb(252,13,27)" font-family="sans-serif" font-size="20" text-anchor="end" transform="translate(-2,10)" x="174.8729279818208" y="374.04927247082526">L</text>
+      <line stroke="rgb(200,200,200)" stroke-dasharray="4" stroke-width="2" transform="rotate(288.0,265.0,250.0)" x1="265.0" x2="265.0" y1="250.0" y2="96.66666666666666"/>
+      <text alignment-baseline="middle" fill="rgb(0,0,0)" font-family="sans-serif" font-size="20" text-anchor="end" transform="translate(-5,0)" x="119.17133416807644" y="202.61739419584143">Rod</text>
+      <path d="M267,242 L282,245 L303,299 L240,287 L267,250 Z" fill="none" stroke="rgb(0,0,0)" stroke-linecap="round" stroke-opacity="1" stroke-width="3"/>
+      <circle cx="267.5" cy="242.33333333333334" fill="rgb(127,15,126)" r="5" stroke="none" stroke-width="4" transform="rotate(0.0,267.5,250.0)"/>
+      <circle cx="267.5" cy="234.66666666666666" fill="rgb(11,36,251)" r="5" stroke="none" stroke-width="4" transform="rotate(72.0,267.5,250.0)"/>
+      <circle cx="267.5" cy="188.66666666666666" fill="rgb(15,127,18)" r="5" stroke="none" stroke-width="4" transform="rotate(144.0,267.5,250.0)"/>
+      <circle cx="267.5" cy="204.0" fill="rgb(252,13,27)" r="5" stroke="none" stroke-width="4" transform="rotate(216.0,267.5,250.0)"/>
+      <circle cx="267.5" cy="250.0" fill="rgb(0,0,0)" r="5" stroke="none" stroke-width="4" transform="rotate(288.0,267.5,250.0)"/>
+      <circle cx="535.8333333333334" cy="373.83886610207054" fill="rgb(253,189,64)" r="5" stroke="none" stroke-width="4" transform="rotate(0,535.8333333333334,250.0)"/>
+    </g>
+    <g transform="translate(975.0, 508.00000000000006) scale(1) translate(0, 0) scale(0.5) ">
+      <defs/>
+      <rect fill="white" height="480" stroke="rgb(58,242,174)" stroke-width="10" width="630" x="20" y="20"/>
+      <polygon fill="rgb(230,230,230)" points="265.0,96.66666666666666 410.82866583192356,202.61739419584137 355.1270720181792,374.04927247082526 174.8729279818208,374.04927247082526 119.17133416807644,202.61739419584143" stroke="rgb(200,200,200)" stroke-width="1"/>
+      <polygon fill="rgb(255,255,255)" points="265.0,135.0 374.37149937394264,214.46304564688103 332.5953040136344,343.036954353119 197.4046959863656,343.036954353119 155.62850062605733,214.46304564688108" stroke="rgb(200,200,200)" stroke-width="1"/>
+      <polygon fill="rgb(230,230,230)" points="265.0,173.33333333333331 337.9143329159618,226.30869709792069 310.0635360090896,312.02463623541263 219.9364639909104,312.02463623541263 192.08566708403822,226.3086970979207" stroke="rgb(200,200,200)" stroke-width="1"/>
+      <polygon fill="rgb(255,255,255)" points="265.0,211.66666666666666 301.4571664579809,238.15434854896034 287.5317680045448,281.01231811770634 242.4682319954552,281.01231811770634 228.5428335420191,238.15434854896034" stroke="rgb(200,200,200)" stroke-width="1"/>
+      <rect fill="rgb(230,230,230)" height="153.33333333333334" stroke="rgb(200,200,200)" stroke-width="1" width="40" x="515.8333333333334" y="220.50553276873714"/>
+      <rect fill="rgb(255,255,255)" height="115.0" stroke="rgb(200,200,200)" stroke-width="1" width="40" x="515.8333333333334" y="258.8388661020705"/>
+      <rect fill="rgb(230,230,230)" height="76.66666666666667" stroke="rgb(200,200,200)" stroke-width="1" width="40" x="515.8333333333334" y="297.17219943540385"/>
+      <rect fill="rgb(255,255,255)" height="38.333333333333336" stroke="rgb(200,200,200)" stroke-width="1" width="40" x="515.8333333333334" y="335.50553276873717"/>
+      <line stroke="rgb(200,200,200)" stroke-dasharray="4" stroke-width="2" x1="535.8333333333334" x2="535.8333333333334" y1="373.83886610207054" y2="220.50553276873714"/>
+      <text fill="rgb(253,189,64)" font-family="sans-serif" font-size="20" text-anchor="middle" transform="translate(0,-10)" x="535.8333333333334" y="220.50553276873714">?</text>
+      <line stroke="rgb(200,200,200)" stroke-dasharray="4" stroke-width="2" transform="rotate(0.0,265.0,250.0)" x1="265.0" x2="265.0" y1="250.0" y2="96.66666666666666"/>
+      <text alignment-baseline="middle" fill="rgb(127,15,126)" font-family="sans-serif" font-size="20" text-anchor="middle" transform="translate(0,-10)" x="265.0" y="96.66666666666666">UV</text>
+      <line stroke="rgb(200,200,200)" stroke-dasharray="4" stroke-width="2" transform="rotate(72.0,265.0,250.0)" x1="265.0" x2="265.0" y1="250.0" y2="96.66666666666666"/>
+      <text alignment-baseline="middle" fill="rgb(11,36,251)" font-family="sans-serif" font-size="20" text-anchor="start" transform="translate(5,0)" x="410.82866583192356" y="202.61739419584137">S</text>
+      <line stroke="rgb(200,200,200)" stroke-dasharray="4" stroke-width="2" transform="rotate(144.0,265.0,250.0)" x1="265.0" x2="265.0" y1="250.0" y2="96.66666666666666"/>
+      <text alignment-baseline="middle" fill="rgb(15,127,18)" font-family="sans-serif" font-size="20" text-anchor="start" transform="translate(2,10)" x="355.1270720181792" y="374.04927247082526">M</text>
+      <line stroke="rgb(200,200,200)" stroke-dasharray="4" stroke-width="2" transform="rotate(216.0,265.0,250.0)" x1="265.0" x2="265.0" y1="250.0" y2="96.66666666666666"/>
+      <text alignment-baseline="middle" fill="rgb(252,13,27)" font-family="sans-serif" font-size="20" text-anchor="end" transform="translate(-2,10)" x="174.8729279818208" y="374.04927247082526">L</text>
+      <line stroke="rgb(200,200,200)" stroke-dasharray="4" stroke-width="2" transform="rotate(288.0,265.0,250.0)" x1="265.0" x2="265.0" y1="250.0" y2="96.66666666666666"/>
+      <text alignment-baseline="middle" fill="rgb(0,0,0)" font-family="sans-serif" font-size="20" text-anchor="end" transform="translate(-5,0)" x="119.17133416807644" y="202.61739419584143">Rod</text>
+      <path d="M267,219 L303,238 L299,293 L267,250 L267,250 Z" fill="none" stroke="rgb(0,0,0)" stroke-linecap="round" stroke-opacity="1" stroke-width="3"/>
+      <circle cx="267.5" cy="219.33333333333334" fill="rgb(127,15,126)" r="5" stroke="none" stroke-width="4" transform="rotate(0.0,267.5,250.0)"/>
+      <circle cx="267.5" cy="211.66666666666666" fill="rgb(11,36,251)" r="5" stroke="none" stroke-width="4" transform="rotate(72.0,267.5,250.0)"/>
+      <circle cx="267.5" cy="196.33333333333331" fill="rgb(15,127,18)" r="5" stroke="none" stroke-width="4" transform="rotate(144.0,267.5,250.0)"/>
+      <circle cx="267.5" cy="250.0" fill="rgb(252,13,27)" r="5" stroke="none" stroke-width="4" transform="rotate(216.0,267.5,250.0)"/>
+      <circle cx="267.5" cy="250.0" fill="rgb(0,0,0)" r="5" stroke="none" stroke-width="4" transform="rotate(288.0,267.5,250.0)"/>
+      <circle cx="535.8333333333334" cy="373.83886610207054" fill="rgb(253,189,64)" r="5" stroke="none" stroke-width="4" transform="rotate(0,535.8333333333334,250.0)"/>
+    </g>
+    <g transform="translate(1300.0, 508.00000000000006) scale(1) translate(0, 0) scale(0.5) ">
+      <defs/>
+      <rect fill="white" height="480" stroke="rgb(255,101,128)" stroke-width="10" width="630" x="20" y="20"/>
+      <polygon fill="rgb(230,230,230)" points="265.0,96.66666666666666 410.82866583192356,202.61739419584137 355.1270720181792,374.04927247082526 174.8729279818208,374.04927247082526 119.17133416807644,202.61739419584143" stroke="rgb(200,200,200)" stroke-width="1"/>
+      <polygon fill="rgb(255,255,255)" points="265.0,135.0 374.37149937394264,214.46304564688103 332.5953040136344,343.036954353119 197.4046959863656,343.036954353119 155.62850062605733,214.46304564688108" stroke="rgb(200,200,200)" stroke-width="1"/>
+      <polygon fill="rgb(230,230,230)" points="265.0,173.33333333333331 337.9143329159618,226.30869709792069 310.0635360090896,312.02463623541263 219.9364639909104,312.02463623541263 192.08566708403822,226.3086970979207" stroke="rgb(200,200,200)" stroke-width="1"/>
+      <polygon fill="rgb(255,255,255)" points="265.0,211.66666666666666 301.4571664579809,238.15434854896034 287.5317680045448,281.01231811770634 242.4682319954552,281.01231811770634 228.5428335420191,238.15434854896034" stroke="rgb(200,200,200)" stroke-width="1"/>
+      <rect fill="rgb(230,230,230)" height="153.33333333333334" stroke="rgb(200,200,200)" stroke-width="1" width="40" x="515.8333333333334" y="220.50553276873714"/>
+      <rect fill="rgb(255,255,255)" height="115.0" stroke="rgb(200,200,200)" stroke-width="1" width="40" x="515.8333333333334" y="258.8388661020705"/>
+      <rect fill="rgb(230,230,230)" height="76.66666666666667" stroke="rgb(200,200,200)" stroke-width="1" width="40" x="515.8333333333334" y="297.17219943540385"/>
+      <rect fill="rgb(255,255,255)" height="38.333333333333336" stroke="rgb(200,200,200)" stroke-width="1" width="40" x="515.8333333333334" y="335.50553276873717"/>
+      <line stroke="rgb(200,200,200)" stroke-dasharray="4" stroke-width="2" x1="535.8333333333334" x2="535.8333333333334" y1="373.83886610207054" y2="220.50553276873714"/>
+      <text fill="rgb(253,189,64)" font-family="sans-serif" font-size="20" text-anchor="middle" transform="translate(0,-10)" x="535.8333333333334" y="220.50553276873714">?</text>
+      <line stroke="rgb(200,200,200)" stroke-dasharray="4" stroke-width="2" transform="rotate(0.0,265.0,250.0)" x1="265.0" x2="265.0" y1="250.0" y2="96.66666666666666"/>
+      <text alignment-baseline="middle" fill="rgb(127,15,126)" font-family="sans-serif" font-size="20" text-anchor="middle" transform="translate(0,-10)" x="265.0" y="96.66666666666666">UV</text>
+      <line stroke="rgb(200,200,200)" stroke-dasharray="4" stroke-width="2" transform="rotate(72.0,265.0,250.0)" x1="265.0" x2="265.0" y1="250.0" y2="96.66666666666666"/>
+      <text alignment-baseline="middle" fill="rgb(11,36,251)" font-family="sans-serif" font-size="20" text-anchor="start" transform="translate(5,0)" x="410.82866583192356" y="202.61739419584137">S</text>
+      <line stroke="rgb(200,200,200)" stroke-dasharray="4" stroke-width="2" transform="rotate(144.0,265.0,250.0)" x1="265.0" x2="265.0" y1="250.0" y2="96.66666666666666"/>
+      <text alignment-baseline="middle" fill="rgb(15,127,18)" font-family="sans-serif" font-size="20" text-anchor="start" transform="translate(2,10)" x="355.1270720181792" y="374.04927247082526">M</text>
+      <line stroke="rgb(200,200,200)" stroke-dasharray="4" stroke-width="2" transform="rotate(216.0,265.0,250.0)" x1="265.0" x2="265.0" y1="250.0" y2="96.66666666666666"/>
+      <text alignment-baseline="middle" fill="rgb(252,13,27)" font-family="sans-serif" font-size="20" text-anchor="end" transform="translate(-2,10)" x="174.8729279818208" y="374.04927247082526">L</text>
+      <line stroke="rgb(200,200,200)" stroke-dasharray="4" stroke-width="2" transform="rotate(288.0,265.0,250.0)" x1="265.0" x2="265.0" y1="250.0" y2="96.66666666666666"/>
+      <text alignment-baseline="middle" fill="rgb(0,0,0)" font-family="sans-serif" font-size="20" text-anchor="end" transform="translate(-5,0)" x="119.17133416807644" y="202.61739419584143">Rod</text>
+      <path d="M267,250 L282,245 L303,299 L217,318 L267,250 Z" fill="none" stroke="rgb(0,0,0)" stroke-linecap="round" stroke-opacity="1" stroke-width="3"/>
+      <circle cx="267.5" cy="250.0" fill="rgb(127,15,126)" r="5" stroke="none" stroke-width="4" transform="rotate(0.0,267.5,250.0)"/>
+      <circle cx="267.5" cy="234.66666666666666" fill="rgb(11,36,251)" r="5" stroke="none" stroke-width="4" transform="rotate(72.0,267.5,250.0)"/>
+      <circle cx="267.5" cy="188.66666666666666" fill="rgb(15,127,18)" r="5" stroke="none" stroke-width="4" transform="rotate(144.0,267.5,250.0)"/>
+      <circle cx="267.5" cy="165.66666666666666" fill="rgb(252,13,27)" r="5" stroke="none" stroke-width="4" transform="rotate(216.0,267.5,250.0)"/>
+      <circle cx="267.5" cy="250.0" fill="rgb(0,0,0)" r="5" stroke="none" stroke-width="4" transform="rotate(288.0,267.5,250.0)"/>
+      <circle cx="535.8333333333334" cy="358.50553276873717" fill="rgb(253,189,64)" r="5" stroke="none" stroke-width="4" transform="rotate(0,535.8333333333334,250.0)"/>
+    </g>
+    <g transform="translate(1625.0, 508.00000000000006) scale(1) translate(0, 0) scale(0.5) ">
+      <defs/>
+      <rect fill="white" height="480" stroke="rgb(255,101,128)" stroke-width="10" width="630" x="20" y="20"/>
+      <polygon fill="rgb(230,230,230)" points="265.0,96.66666666666666 410.82866583192356,202.61739419584137 355.1270720181792,374.04927247082526 174.8729279818208,374.04927247082526 119.17133416807644,202.61739419584143" stroke="rgb(200,200,200)" stroke-width="1"/>
+      <polygon fill="rgb(255,255,255)" points="265.0,135.0 374.37149937394264,214.46304564688103 332.5953040136344,343.036954353119 197.4046959863656,343.036954353119 155.62850062605733,214.46304564688108" stroke="rgb(200,200,200)" stroke-width="1"/>
+      <polygon fill="rgb(230,230,230)" points="265.0,173.33333333333331 337.9143329159618,226.30869709792069 310.0635360090896,312.02463623541263 219.9364639909104,312.02463623541263 192.08566708403822,226.3086970979207" stroke="rgb(200,200,200)" stroke-width="1"/>
+      <polygon fill="rgb(255,255,255)" points="265.0,211.66666666666666 301.4571664579809,238.15434854896034 287.5317680045448,281.01231811770634 242.4682319954552,281.01231811770634 228.5428335420191,238.15434854896034" stroke="rgb(200,200,200)" stroke-width="1"/>
+      <rect fill="rgb(230,230,230)" height="153.33333333333334" stroke="rgb(200,200,200)" stroke-width="1" width="40" x="515.8333333333334" y="220.50553276873714"/>
+      <rect fill="rgb(255,255,255)" height="115.0" stroke="rgb(200,200,200)" stroke-width="1" width="40" x="515.8333333333334" y="258.8388661020705"/>
+      <rect fill="rgb(230,230,230)" height="76.66666666666667" stroke="rgb(200,200,200)" stroke-width="1" width="40" x="515.8333333333334" y="297.17219943540385"/>
+      <rect fill="rgb(255,255,255)" height="38.333333333333336" stroke="rgb(200,200,200)" stroke-width="1" width="40" x="515.8333333333334" y="335.50553276873717"/>
+      <line stroke="rgb(200,200,200)" stroke-dasharray="4" stroke-width="2" x1="535.8333333333334" x2="535.8333333333334" y1="373.83886610207054" y2="220.50553276873714"/>
+      <text fill="rgb(253,189,64)" font-family="sans-serif" font-size="20" text-anchor="middle" transform="translate(0,-10)" x="535.8333333333334" y="220.50553276873714">?</text>
+      <line stroke="rgb(200,200,200)" stroke-dasharray="4" stroke-width="2" transform="rotate(0.0,265.0,250.0)" x1="265.0" x2="265.0" y1="250.0" y2="96.66666666666666"/>
+      <text alignment-baseline="middle" fill="rgb(127,15,126)" font-family="sans-serif" font-size="20" text-anchor="middle" transform="translate(0,-10)" x="265.0" y="96.66666666666666">UV</text>
+      <line stroke="rgb(200,200,200)" stroke-dasharray="4" stroke-width="2" transform="rotate(72.0,265.0,250.0)" x1="265.0" x2="265.0" y1="250.0" y2="96.66666666666666"/>
+      <text alignment-baseline="middle" fill="rgb(11,36,251)" font-family="sans-serif" font-size="20" text-anchor="start" transform="translate(5,0)" x="410.82866583192356" y="202.61739419584137">S</text>
+      <line stroke="rgb(200,200,200)" stroke-dasharray="4" stroke-width="2" transform="rotate(144.0,265.0,250.0)" x1="265.0" x2="265.0" y1="250.0" y2="96.66666666666666"/>
+      <text alignment-baseline="middle" fill="rgb(15,127,18)" font-family="sans-serif" font-size="20" text-anchor="start" transform="translate(2,10)" x="355.1270720181792" y="374.04927247082526">M</text>
+      <line stroke="rgb(200,200,200)" stroke-dasharray="4" stroke-width="2" transform="rotate(216.0,265.0,250.0)" x1="265.0" x2="265.0" y1="250.0" y2="96.66666666666666"/>
+      <text alignment-baseline="middle" fill="rgb(252,13,27)" font-family="sans-serif" font-size="20" text-anchor="end" transform="translate(-2,10)" x="174.8729279818208" y="374.04927247082526">L</text>
+      <line stroke="rgb(200,200,200)" stroke-dasharray="4" stroke-width="2" transform="rotate(288.0,265.0,250.0)" x1="265.0" x2="265.0" y1="250.0" y2="96.66666666666666"/>
+      <text alignment-baseline="middle" fill="rgb(0,0,0)" font-family="sans-serif" font-size="20" text-anchor="end" transform="translate(-5,0)" x="119.17133416807644" y="202.61739419584143">Rod</text>
+      <path d="M267,250 L282,245 L294,287 L213,324 L267,250 Z" fill="none" stroke="rgb(0,0,0)" stroke-linecap="round" stroke-opacity="1" stroke-width="3"/>
+      <circle cx="267.5" cy="250.0" fill="rgb(127,15,126)" r="5" stroke="none" stroke-width="4" transform="rotate(0.0,267.5,250.0)"/>
+      <circle cx="267.5" cy="234.66666666666666" fill="rgb(11,36,251)" r="5" stroke="none" stroke-width="4" transform="rotate(72.0,267.5,250.0)"/>
+      <circle cx="267.5" cy="204.0" fill="rgb(15,127,18)" r="5" stroke="none" stroke-width="4" transform="rotate(144.0,267.5,250.0)"/>
+      <circle cx="267.5" cy="158.0" fill="rgb(252,13,27)" r="5" stroke="none" stroke-width="4" transform="rotate(216.0,267.5,250.0)"/>
+      <circle cx="267.5" cy="250.0" fill="rgb(0,0,0)" r="5" stroke="none" stroke-width="4" transform="rotate(288.0,267.5,250.0)"/>
+      <circle cx="535.8333333333334" cy="373.83886610207054" fill="rgb(253,189,64)" r="5" stroke="none" stroke-width="4" transform="rotate(0,535.8333333333334,250.0)"/>
+    </g>
+    <g transform="translate(1950.0, 508.00000000000006) scale(1) translate(0, 0) scale(0.5) ">
+      <defs/>
+      <rect fill="white" height="480" stroke="rgb(255,101,128)" stroke-width="10" width="630" x="20" y="20"/>
+      <polygon fill="rgb(230,230,230)" points="265.0,96.66666666666666 410.82866583192356,202.61739419584137 355.1270720181792,374.04927247082526 174.8729279818208,374.04927247082526 119.17133416807644,202.61739419584143" stroke="rgb(200,200,200)" stroke-width="1"/>
+      <polygon fill="rgb(255,255,255)" points="265.0,135.0 374.37149937394264,214.46304564688103 332.5953040136344,343.036954353119 197.4046959863656,343.036954353119 155.62850062605733,214.46304564688108" stroke="rgb(200,200,200)" stroke-width="1"/>
+      <polygon fill="rgb(230,230,230)" points="265.0,173.33333333333331 337.9143329159618,226.30869709792069 310.0635360090896,312.02463623541263 219.9364639909104,312.02463623541263 192.08566708403822,226.3086970979207" stroke="rgb(200,200,200)" stroke-width="1"/>
+      <polygon fill="rgb(255,255,255)" points="265.0,211.66666666666666 301.4571664579809,238.15434854896034 287.5317680045448,281.01231811770634 242.4682319954552,281.01231811770634 228.5428335420191,238.15434854896034" stroke="rgb(200,200,200)" stroke-width="1"/>
+      <rect fill="rgb(230,230,230)" height="153.33333333333334" stroke="rgb(200,200,200)" stroke-width="1" width="40" x="515.8333333333334" y="220.50553276873714"/>
+      <rect fill="rgb(255,255,255)" height="115.0" stroke="rgb(200,200,200)" stroke-width="1" width="40" x="515.8333333333334" y="258.8388661020705"/>
+      <rect fill="rgb(230,230,230)" height="76.66666666666667" stroke="rgb(200,200,200)" stroke-width="1" width="40" x="515.8333333333334" y="297.17219943540385"/>
+      <rect fill="rgb(255,255,255)" height="38.333333333333336" stroke="rgb(200,200,200)" stroke-width="1" width="40" x="515.8333333333334" y="335.50553276873717"/>
+      <line stroke="rgb(200,200,200)" stroke-dasharray="4" stroke-width="2" x1="535.8333333333334" x2="535.8333333333334" y1="373.83886610207054" y2="220.50553276873714"/>
+      <text fill="rgb(253,189,64)" font-family="sans-serif" font-size="20" text-anchor="middle" transform="translate(0,-10)" x="535.8333333333334" y="220.50553276873714">?</text>
+      <line stroke="rgb(200,200,200)" stroke-dasharray="4" stroke-width="2" transform="rotate(0.0,265.0,250.0)" x1="265.0" x2="265.0" y1="250.0" y2="96.66666666666666"/>
+      <text alignment-baseline="middle" fill="rgb(127,15,126)" font-family="sans-serif" font-size="20" text-anchor="middle" transform="translate(0,-10)" x="265.0" y="96.66666666666666">UV</text>
+      <line stroke="rgb(200,200,200)" stroke-dasharray="4" stroke-width="2" transform="rotate(72.0,265.0,250.0)" x1="265.0" x2="265.0" y1="250.0" y2="96.66666666666666"/>
+      <text alignment-baseline="middle" fill="rgb(11,36,251)" font-family="sans-serif" font-size="20" text-anchor="start" transform="translate(5,0)" x="410.82866583192356" y="202.61739419584137">S</text>
+      <line stroke="rgb(200,200,200)" stroke-dasharray="4" stroke-width="2" transform="rotate(144.0,265.0,250.0)" x1="265.0" x2="265.0" y1="250.0" y2="96.66666666666666"/>
+      <text alignment-baseline="middle" fill="rgb(15,127,18)" font-family="sans-serif" font-size="20" text-anchor="start" transform="translate(2,10)" x="355.1270720181792" y="374.04927247082526">M</text>
+      <line stroke="rgb(200,200,200)" stroke-dasharray="4" stroke-width="2" transform="rotate(216.0,265.0,250.0)" x1="265.0" x2="265.0" y1="250.0" y2="96.66666666666666"/>
+      <text alignment-baseline="middle" fill="rgb(252,13,27)" font-family="sans-serif" font-size="20" text-anchor="end" transform="translate(-2,10)" x="174.8729279818208" y="374.04927247082526">L</text>
+      <line stroke="rgb(200,200,200)" stroke-dasharray="4" stroke-width="2" transform="rotate(288.0,265.0,250.0)" x1="265.0" x2="265.0" y1="250.0" y2="96.66666666666666"/>
+      <text alignment-baseline="middle" fill="rgb(0,0,0)" font-family="sans-serif" font-size="20" text-anchor="end" transform="translate(-5,0)" x="119.17133416807644" y="202.61739419584143">Rod</text>
+      <path d="M267,250 L282,245 L308,305 L222,312 L267,250 Z" fill="none" stroke="rgb(0,0,0)" stroke-linecap="round" stroke-opacity="1" stroke-width="3"/>
+      <circle cx="267.5" cy="250.0" fill="rgb(127,15,126)" r="5" stroke="none" stroke-width="4" transform="rotate(0.0,267.5,250.0)"/>
+      <circle cx="267.5" cy="234.66666666666666" fill="rgb(11,36,251)" r="5" stroke="none" stroke-width="4" transform="rotate(72.0,267.5,250.0)"/>
+      <circle cx="267.5" cy="181.0" fill="rgb(15,127,18)" r="5" stroke="none" stroke-width="4" transform="rotate(144.0,267.5,250.0)"/>
+      <circle cx="267.5" cy="173.33333333333331" fill="rgb(252,13,27)" r="5" stroke="none" stroke-width="4" transform="rotate(216.0,267.5,250.0)"/>
+      <circle cx="267.5" cy="250.0" fill="rgb(0,0,0)" r="5" stroke="none" stroke-width="4" transform="rotate(288.0,267.5,250.0)"/>
+      <circle cx="535.8333333333334" cy="366.17219943540385" fill="rgb(253,189,64)" r="5" stroke="none" stroke-width="4" transform="rotate(0,535.8333333333334,250.0)"/>
+    </g>
+    <g transform="translate(0.0, 762.0000000000001) scale(1) translate(0, 0) scale(0.5) ">
+      <defs/>
+      <rect fill="white" height="480" stroke="rgb(255,216,0)" stroke-width="10" width="630" x="20" y="20"/>
+      <polygon fill="rgb(230,230,230)" points="265.0,96.66666666666666 410.82866583192356,202.61739419584137 355.1270720181792,374.04927247082526 174.8729279818208,374.04927247082526 119.17133416807644,202.61739419584143" stroke="rgb(200,200,200)" stroke-width="1"/>
+      <polygon fill="rgb(255,255,255)" points="265.0,135.0 374.37149937394264,214.46304564688103 332.5953040136344,343.036954353119 197.4046959863656,343.036954353119 155.62850062605733,214.46304564688108" stroke="rgb(200,200,200)" stroke-width="1"/>
+      <polygon fill="rgb(230,230,230)" points="265.0,173.33333333333331 337.9143329159618,226.30869709792069 310.0635360090896,312.02463623541263 219.9364639909104,312.02463623541263 192.08566708403822,226.3086970979207" stroke="rgb(200,200,200)" stroke-width="1"/>
+      <polygon fill="rgb(255,255,255)" points="265.0,211.66666666666666 301.4571664579809,238.15434854896034 287.5317680045448,281.01231811770634 242.4682319954552,281.01231811770634 228.5428335420191,238.15434854896034" stroke="rgb(200,200,200)" stroke-width="1"/>
+      <rect fill="rgb(230,230,230)" height="153.33333333333334" stroke="rgb(200,200,200)" stroke-width="1" width="40" x="515.8333333333334" y="220.50553276873714"/>
+      <rect fill="rgb(255,255,255)" height="115.0" stroke="rgb(200,200,200)" stroke-width="1" width="40" x="515.8333333333334" y="258.8388661020705"/>
+      <rect fill="rgb(230,230,230)" height="76.66666666666667" stroke="rgb(200,200,200)" stroke-width="1" width="40" x="515.8333333333334" y="297.17219943540385"/>
+      <rect fill="rgb(255,255,255)" height="38.333333333333336" stroke="rgb(200,200,200)" stroke-width="1" width="40" x="515.8333333333334" y="335.50553276873717"/>
+      <line stroke="rgb(200,200,200)" stroke-dasharray="4" stroke-width="2" x1="535.8333333333334" x2="535.8333333333334" y1="373.83886610207054" y2="220.50553276873714"/>
+      <text fill="rgb(253,189,64)" font-family="sans-serif" font-size="20" text-anchor="middle" transform="translate(0,-10)" x="535.8333333333334" y="220.50553276873714">?</text>
+      <line stroke="rgb(200,200,200)" stroke-dasharray="4" stroke-width="2" transform="rotate(0.0,265.0,250.0)" x1="265.0" x2="265.0" y1="250.0" y2="96.66666666666666"/>
+      <text alignment-baseline="middle" fill="rgb(127,15,126)" font-family="sans-serif" font-size="20" text-anchor="middle" transform="translate(0,-10)" x="265.0" y="96.66666666666666">UV</text>
+      <line stroke="rgb(200,200,200)" stroke-dasharray="4" stroke-width="2" transform="rotate(72.0,265.0,250.0)" x1="265.0" x2="265.0" y1="250.0" y2="96.66666666666666"/>
+      <text alignment-baseline="middle" fill="rgb(11,36,251)" font-family="sans-serif" font-size="20" text-anchor="start" transform="translate(5,0)" x="410.82866583192356" y="202.61739419584137">S</text>
+      <line stroke="rgb(200,200,200)" stroke-dasharray="4" stroke-width="2" transform="rotate(144.0,265.0,250.0)" x1="265.0" x2="265.0" y1="250.0" y2="96.66666666666666"/>
+      <text alignment-baseline="middle" fill="rgb(15,127,18)" font-family="sans-serif" font-size="20" text-anchor="start" transform="translate(2,10)" x="355.1270720181792" y="374.04927247082526">M</text>
+      <line stroke="rgb(200,200,200)" stroke-dasharray="4" stroke-width="2" transform="rotate(216.0,265.0,250.0)" x1="265.0" x2="265.0" y1="250.0" y2="96.66666666666666"/>
+      <text alignment-baseline="middle" fill="rgb(252,13,27)" font-family="sans-serif" font-size="20" text-anchor="end" transform="translate(-2,10)" x="174.8729279818208" y="374.04927247082526">L</text>
+      <line stroke="rgb(200,200,200)" stroke-dasharray="4" stroke-width="2" transform="rotate(288.0,265.0,250.0)" x1="265.0" x2="265.0" y1="250.0" y2="96.66666666666666"/>
+      <text alignment-baseline="middle" fill="rgb(0,0,0)" font-family="sans-serif" font-size="20" text-anchor="end" transform="translate(-5,0)" x="119.17133416807644" y="202.61739419584143">Rod</text>
+      <path d="M267,150 L354,221 L267,250 L267,250 L267,250 Z" fill="none" stroke="rgb(0,0,0)" stroke-linecap="round" stroke-opacity="1" stroke-width="3"/>
+      <circle cx="267.5" cy="150.33333333333331" fill="rgb(127,15,126)" r="5" stroke="none" stroke-width="4" transform="rotate(0.0,267.5,250.0)"/>
+      <circle cx="267.5" cy="158.0" fill="rgb(11,36,251)" r="5" stroke="none" stroke-width="4" transform="rotate(72.0,267.5,250.0)"/>
+      <circle cx="267.5" cy="250.0" fill="rgb(15,127,18)" r="5" stroke="none" stroke-width="4" transform="rotate(144.0,267.5,250.0)"/>
+      <circle cx="267.5" cy="250.0" fill="rgb(252,13,27)" r="5" stroke="none" stroke-width="4" transform="rotate(216.0,267.5,250.0)"/>
+      <circle cx="267.5" cy="250.0" fill="rgb(0,0,0)" r="5" stroke="none" stroke-width="4" transform="rotate(288.0,267.5,250.0)"/>
+      <circle cx="535.8333333333334" cy="358.50553276873717" fill="rgb(253,189,64)" r="5" stroke="none" stroke-width="4" transform="rotate(0,535.8333333333334,250.0)"/>
+    </g>
+    <g transform="translate(325.0, 762.0000000000001) scale(1) translate(0, 0) scale(0.5) ">
+      <defs/>
+      <rect fill="white" height="480" stroke="rgb(255,101,128)" stroke-width="10" width="630" x="20" y="20"/>
+      <polygon fill="rgb(230,230,230)" points="265.0,96.66666666666666 410.82866583192356,202.61739419584137 355.1270720181792,374.04927247082526 174.8729279818208,374.04927247082526 119.17133416807644,202.61739419584143" stroke="rgb(200,200,200)" stroke-width="1"/>
+      <polygon fill="rgb(255,255,255)" points="265.0,135.0 374.37149937394264,214.46304564688103 332.5953040136344,343.036954353119 197.4046959863656,343.036954353119 155.62850062605733,214.46304564688108" stroke="rgb(200,200,200)" stroke-width="1"/>
+      <polygon fill="rgb(230,230,230)" points="265.0,173.33333333333331 337.9143329159618,226.30869709792069 310.0635360090896,312.02463623541263 219.9364639909104,312.02463623541263 192.08566708403822,226.3086970979207" stroke="rgb(200,200,200)" stroke-width="1"/>
+      <polygon fill="rgb(255,255,255)" points="265.0,211.66666666666666 301.4571664579809,238.15434854896034 287.5317680045448,281.01231811770634 242.4682319954552,281.01231811770634 228.5428335420191,238.15434854896034" stroke="rgb(200,200,200)" stroke-width="1"/>
+      <rect fill="rgb(230,230,230)" height="153.33333333333334" stroke="rgb(200,200,200)" stroke-width="1" width="40" x="515.8333333333334" y="220.50553276873714"/>
+      <rect fill="rgb(255,255,255)" height="115.0" stroke="rgb(200,200,200)" stroke-width="1" width="40" x="515.8333333333334" y="258.8388661020705"/>
+      <rect fill="rgb(230,230,230)" height="76.66666666666667" stroke="rgb(200,200,200)" stroke-width="1" width="40" x="515.8333333333334" y="297.17219943540385"/>
+      <rect fill="rgb(255,255,255)" height="38.333333333333336" stroke="rgb(200,200,200)" stroke-width="1" width="40" x="515.8333333333334" y="335.50553276873717"/>
+      <line stroke="rgb(200,200,200)" stroke-dasharray="4" stroke-width="2" x1="535.8333333333334" x2="535.8333333333334" y1="373.83886610207054" y2="220.50553276873714"/>
+      <text fill="rgb(253,189,64)" font-family="sans-serif" font-size="20" text-anchor="middle" transform="translate(0,-10)" x="535.8333333333334" y="220.50553276873714">?</text>
+      <line stroke="rgb(200,200,200)" stroke-dasharray="4" stroke-width="2" transform="rotate(0.0,265.0,250.0)" x1="265.0" x2="265.0" y1="250.0" y2="96.66666666666666"/>
+      <text alignment-baseline="middle" fill="rgb(127,15,126)" font-family="sans-serif" font-size="20" text-anchor="middle" transform="translate(0,-10)" x="265.0" y="96.66666666666666">UV</text>
+      <line stroke="rgb(200,200,200)" stroke-dasharray="4" stroke-width="2" transform="rotate(72.0,265.0,250.0)" x1="265.0" x2="265.0" y1="250.0" y2="96.66666666666666"/>
+      <text alignment-baseline="middle" fill="rgb(11,36,251)" font-family="sans-serif" font-size="20" text-anchor="start" transform="translate(5,0)" x="410.82866583192356" y="202.61739419584137">S</text>
+      <line stroke="rgb(200,200,200)" stroke-dasharray="4" stroke-width="2" transform="rotate(144.0,265.0,250.0)" x1="265.0" x2="265.0" y1="250.0" y2="96.66666666666666"/>
+      <text alignment-baseline="middle" fill="rgb(15,127,18)" font-family="sans-serif" font-size="20" text-anchor="start" transform="translate(2,10)" x="355.1270720181792" y="374.04927247082526">M</text>
+      <line stroke="rgb(200,200,200)" stroke-dasharray="4" stroke-width="2" transform="rotate(216.0,265.0,250.0)" x1="265.0" x2="265.0" y1="250.0" y2="96.66666666666666"/>
+      <text alignment-baseline="middle" fill="rgb(252,13,27)" font-family="sans-serif" font-size="20" text-anchor="end" transform="translate(-2,10)" x="174.8729279818208" y="374.04927247082526">L</text>
+      <line stroke="rgb(200,200,200)" stroke-dasharray="4" stroke-width="2" transform="rotate(288.0,265.0,250.0)" x1="265.0" x2="265.0" y1="250.0" y2="96.66666666666666"/>
+      <text alignment-baseline="middle" fill="rgb(0,0,0)" font-family="sans-serif" font-size="20" text-anchor="end" transform="translate(-5,0)" x="119.17133416807644" y="202.61739419584143">Rod</text>
+      <path d="M267,250 L282,245 L308,305 L240,287 L267,250 Z" fill="none" stroke="rgb(0,0,0)" stroke-linecap="round" stroke-opacity="1" stroke-width="3"/>
+      <circle cx="267.5" cy="250.0" fill="rgb(127,15,126)" r="5" stroke="none" stroke-width="4" transform="rotate(0.0,267.5,250.0)"/>
+      <circle cx="267.5" cy="234.66666666666666" fill="rgb(11,36,251)" r="5" stroke="none" stroke-width="4" transform="rotate(72.0,267.5,250.0)"/>
+      <circle cx="267.5" cy="181.0" fill="rgb(15,127,18)" r="5" stroke="none" stroke-width="4" transform="rotate(144.0,267.5,250.0)"/>
+      <circle cx="267.5" cy="204.0" fill="rgb(252,13,27)" r="5" stroke="none" stroke-width="4" transform="rotate(216.0,267.5,250.0)"/>
+      <circle cx="267.5" cy="250.0" fill="rgb(0,0,0)" r="5" stroke="none" stroke-width="4" transform="rotate(288.0,267.5,250.0)"/>
+      <circle cx="535.8333333333334" cy="373.83886610207054" fill="rgb(253,189,64)" r="5" stroke="none" stroke-width="4" transform="rotate(0,535.8333333333334,250.0)"/>
+    </g>
+    <g transform="translate(650.0, 762.0000000000001) scale(1) translate(0, 0) scale(0.5) ">
+      <defs/>
+      <rect fill="white" height="480" stroke="rgb(255,101,128)" stroke-width="10" width="630" x="20" y="20"/>
+      <polygon fill="rgb(230,230,230)" points="265.0,96.66666666666666 410.82866583192356,202.61739419584137 355.1270720181792,374.04927247082526 174.8729279818208,374.04927247082526 119.17133416807644,202.61739419584143" stroke="rgb(200,200,200)" stroke-width="1"/>
+      <polygon fill="rgb(255,255,255)" points="265.0,135.0 374.37149937394264,214.46304564688103 332.5953040136344,343.036954353119 197.4046959863656,343.036954353119 155.62850062605733,214.46304564688108" stroke="rgb(200,200,200)" stroke-width="1"/>
+      <polygon fill="rgb(230,230,230)" points="265.0,173.33333333333331 337.9143329159618,226.30869709792069 310.0635360090896,312.02463623541263 219.9364639909104,312.02463623541263 192.08566708403822,226.3086970979207" stroke="rgb(200,200,200)" stroke-width="1"/>
+      <polygon fill="rgb(255,255,255)" points="265.0,211.66666666666666 301.4571664579809,238.15434854896034 287.5317680045448,281.01231811770634 242.4682319954552,281.01231811770634 228.5428335420191,238.15434854896034" stroke="rgb(200,200,200)" stroke-width="1"/>
+      <rect fill="rgb(230,230,230)" height="153.33333333333334" stroke="rgb(200,200,200)" stroke-width="1" width="40" x="515.8333333333334" y="220.50553276873714"/>
+      <rect fill="rgb(255,255,255)" height="115.0" stroke="rgb(200,200,200)" stroke-width="1" width="40" x="515.8333333333334" y="258.8388661020705"/>
+      <rect fill="rgb(230,230,230)" height="76.66666666666667" stroke="rgb(200,200,200)" stroke-width="1" width="40" x="515.8333333333334" y="297.17219943540385"/>
+      <rect fill="rgb(255,255,255)" height="38.333333333333336" stroke="rgb(200,200,200)" stroke-width="1" width="40" x="515.8333333333334" y="335.50553276873717"/>
+      <line stroke="rgb(200,200,200)" stroke-dasharray="4" stroke-width="2" x1="535.8333333333334" x2="535.8333333333334" y1="373.83886610207054" y2="220.50553276873714"/>
+      <text fill="rgb(253,189,64)" font-family="sans-serif" font-size="20" text-anchor="middle" transform="translate(0,-10)" x="535.8333333333334" y="220.50553276873714">?</text>
+      <line stroke="rgb(200,200,200)" stroke-dasharray="4" stroke-width="2" transform="rotate(0.0,265.0,250.0)" x1="265.0" x2="265.0" y1="250.0" y2="96.66666666666666"/>
+      <text alignment-baseline="middle" fill="rgb(127,15,126)" font-family="sans-serif" font-size="20" text-anchor="middle" transform="translate(0,-10)" x="265.0" y="96.66666666666666">UV</text>
+      <line stroke="rgb(200,200,200)" stroke-dasharray="4" stroke-width="2" transform="rotate(72.0,265.0,250.0)" x1="265.0" x2="265.0" y1="250.0" y2="96.66666666666666"/>
+      <text alignment-baseline="middle" fill="rgb(11,36,251)" font-family="sans-serif" font-size="20" text-anchor="start" transform="translate(5,0)" x="410.82866583192356" y="202.61739419584137">S</text>
+      <line stroke="rgb(200,200,200)" stroke-dasharray="4" stroke-width="2" transform="rotate(144.0,265.0,250.0)" x1="265.0" x2="265.0" y1="250.0" y2="96.66666666666666"/>
+      <text alignment-baseline="middle" fill="rgb(15,127,18)" font-family="sans-serif" font-size="20" text-anchor="start" transform="translate(2,10)" x="355.1270720181792" y="374.04927247082526">M</text>
+      <line stroke="rgb(200,200,200)" stroke-dasharray="4" stroke-width="2" transform="rotate(216.0,265.0,250.0)" x1="265.0" x2="265.0" y1="250.0" y2="96.66666666666666"/>
+      <text alignment-baseline="middle" fill="rgb(252,13,27)" font-family="sans-serif" font-size="20" text-anchor="end" transform="translate(-2,10)" x="174.8729279818208" y="374.04927247082526">L</text>
+      <line stroke="rgb(200,200,200)" stroke-dasharray="4" stroke-width="2" transform="rotate(288.0,265.0,250.0)" x1="265.0" x2="265.0" y1="250.0" y2="96.66666666666666"/>
+      <text alignment-baseline="middle" fill="rgb(0,0,0)" font-family="sans-serif" font-size="20" text-anchor="end" transform="translate(-5,0)" x="119.17133416807644" y="202.61739419584143">Rod</text>
+      <path d="M267,250 L274,247 L303,299 L222,312 L267,250 Z" fill="none" stroke="rgb(0,0,0)" stroke-linecap="round" stroke-opacity="1" stroke-width="3"/>
+      <circle cx="267.5" cy="250.0" fill="rgb(127,15,126)" r="5" stroke="none" stroke-width="4" transform="rotate(0.0,267.5,250.0)"/>
+      <circle cx="267.5" cy="242.33333333333334" fill="rgb(11,36,251)" r="5" stroke="none" stroke-width="4" transform="rotate(72.0,267.5,250.0)"/>
+      <circle cx="267.5" cy="188.66666666666666" fill="rgb(15,127,18)" r="5" stroke="none" stroke-width="4" transform="rotate(144.0,267.5,250.0)"/>
+      <circle cx="267.5" cy="173.33333333333331" fill="rgb(252,13,27)" r="5" stroke="none" stroke-width="4" transform="rotate(216.0,267.5,250.0)"/>
+      <circle cx="267.5" cy="250.0" fill="rgb(0,0,0)" r="5" stroke="none" stroke-width="4" transform="rotate(288.0,267.5,250.0)"/>
+      <circle cx="535.8333333333334" cy="350.83886610207054" fill="rgb(253,189,64)" r="5" stroke="none" stroke-width="4" transform="rotate(0,535.8333333333334,250.0)"/>
+    </g>
+    <g transform="translate(975.0, 762.0000000000001) scale(1) translate(0, 0) scale(0.5) ">
+      <defs/>
+      <rect fill="white" height="480" stroke="rgb(255,216,0)" stroke-width="10" width="630" x="20" y="20"/>
+      <polygon fill="rgb(230,230,230)" points="265.0,96.66666666666666 410.82866583192356,202.61739419584137 355.1270720181792,374.04927247082526 174.8729279818208,374.04927247082526 119.17133416807644,202.61739419584143" stroke="rgb(200,200,200)" stroke-width="1"/>
+      <polygon fill="rgb(255,255,255)" points="265.0,135.0 374.37149937394264,214.46304564688103 332.5953040136344,343.036954353119 197.4046959863656,343.036954353119 155.62850062605733,214.46304564688108" stroke="rgb(200,200,200)" stroke-width="1"/>
+      <polygon fill="rgb(230,230,230)" points="265.0,173.33333333333331 337.9143329159618,226.30869709792069 310.0635360090896,312.02463623541263 219.9364639909104,312.02463623541263 192.08566708403822,226.3086970979207" stroke="rgb(200,200,200)" stroke-width="1"/>
+      <polygon fill="rgb(255,255,255)" points="265.0,211.66666666666666 301.4571664579809,238.15434854896034 287.5317680045448,281.01231811770634 242.4682319954552,281.01231811770634 228.5428335420191,238.15434854896034" stroke="rgb(200,200,200)" stroke-width="1"/>
+      <rect fill="rgb(230,230,230)" height="153.33333333333334" stroke="rgb(200,200,200)" stroke-width="1" width="40" x="515.8333333333334" y="220.50553276873714"/>
+      <rect fill="rgb(255,255,255)" height="115.0" stroke="rgb(200,200,200)" stroke-width="1" width="40" x="515.8333333333334" y="258.8388661020705"/>
+      <rect fill="rgb(230,230,230)" height="76.66666666666667" stroke="rgb(200,200,200)" stroke-width="1" width="40" x="515.8333333333334" y="297.17219943540385"/>
+      <rect fill="rgb(255,255,255)" height="38.333333333333336" stroke="rgb(200,200,200)" stroke-width="1" width="40" x="515.8333333333334" y="335.50553276873717"/>
+      <line stroke="rgb(200,200,200)" stroke-dasharray="4" stroke-width="2" x1="535.8333333333334" x2="535.8333333333334" y1="373.83886610207054" y2="220.50553276873714"/>
+      <text fill="rgb(253,189,64)" font-family="sans-serif" font-size="20" text-anchor="middle" transform="translate(0,-10)" x="535.8333333333334" y="220.50553276873714">?</text>
+      <line stroke="rgb(200,200,200)" stroke-dasharray="4" stroke-width="2" transform="rotate(0.0,265.0,250.0)" x1="265.0" x2="265.0" y1="250.0" y2="96.66666666666666"/>
+      <text alignment-baseline="middle" fill="rgb(127,15,126)" font-family="sans-serif" font-size="20" text-anchor="middle" transform="translate(0,-10)" x="265.0" y="96.66666666666666">UV</text>
+      <line stroke="rgb(200,200,200)" stroke-dasharray="4" stroke-width="2" transform="rotate(72.0,265.0,250.0)" x1="265.0" x2="265.0" y1="250.0" y2="96.66666666666666"/>
+      <text alignment-baseline="middle" fill="rgb(11,36,251)" font-family="sans-serif" font-size="20" text-anchor="start" transform="translate(5,0)" x="410.82866583192356" y="202.61739419584137">S</text>
+      <line stroke="rgb(200,200,200)" stroke-dasharray="4" stroke-width="2" transform="rotate(144.0,265.0,250.0)" x1="265.0" x2="265.0" y1="250.0" y2="96.66666666666666"/>
+      <text alignment-baseline="middle" fill="rgb(15,127,18)" font-family="sans-serif" font-size="20" text-anchor="start" transform="translate(2,10)" x="355.1270720181792" y="374.04927247082526">M</text>
+      <line stroke="rgb(200,200,200)" stroke-dasharray="4" stroke-width="2" transform="rotate(216.0,265.0,250.0)" x1="265.0" x2="265.0" y1="250.0" y2="96.66666666666666"/>
+      <text alignment-baseline="middle" fill="rgb(252,13,27)" font-family="sans-serif" font-size="20" text-anchor="end" transform="translate(-2,10)" x="174.8729279818208" y="374.04927247082526">L</text>
+      <line stroke="rgb(200,200,200)" stroke-dasharray="4" stroke-width="2" transform="rotate(288.0,265.0,250.0)" x1="265.0" x2="265.0" y1="250.0" y2="96.66666666666666"/>
+      <text alignment-baseline="middle" fill="rgb(0,0,0)" font-family="sans-serif" font-size="20" text-anchor="end" transform="translate(-5,0)" x="119.17133416807644" y="202.61739419584143">Rod</text>
+      <path d="M267,135 L354,221 L267,250 L267,250 L267,250 Z" fill="none" stroke="rgb(0,0,0)" stroke-linecap="round" stroke-opacity="1" stroke-width="3"/>
+      <circle cx="267.5" cy="135.0" fill="rgb(127,15,126)" r="5" stroke="none" stroke-width="4" transform="rotate(0.0,267.5,250.0)"/>
+      <circle cx="267.5" cy="158.0" fill="rgb(11,36,251)" r="5" stroke="none" stroke-width="4" transform="rotate(72.0,267.5,250.0)"/>
+      <circle cx="267.5" cy="250.0" fill="rgb(15,127,18)" r="5" stroke="none" stroke-width="4" transform="rotate(144.0,267.5,250.0)"/>
+      <circle cx="267.5" cy="250.0" fill="rgb(252,13,27)" r="5" stroke="none" stroke-width="4" transform="rotate(216.0,267.5,250.0)"/>
+      <circle cx="267.5" cy="250.0" fill="rgb(0,0,0)" r="5" stroke="none" stroke-width="4" transform="rotate(288.0,267.5,250.0)"/>
+      <circle cx="535.8333333333334" cy="373.83886610207054" fill="rgb(253,189,64)" r="5" stroke="none" stroke-width="4" transform="rotate(0,535.8333333333334,250.0)"/>
+    </g>
+    <g transform="translate(1300.0, 762.0000000000001) scale(1) translate(0, 0) scale(0.5) ">
+      <defs/>
+      <rect fill="white" height="480" stroke="rgb(0,0,0)" stroke-width="10" width="630" x="20" y="20"/>
+      <polygon fill="rgb(230,230,230)" points="265.0,96.66666666666666 410.82866583192356,202.61739419584137 355.1270720181792,374.04927247082526 174.8729279818208,374.04927247082526 119.17133416807644,202.61739419584143" stroke="rgb(200,200,200)" stroke-width="1"/>
+      <polygon fill="rgb(255,255,255)" points="265.0,135.0 374.37149937394264,214.46304564688103 332.5953040136344,343.036954353119 197.4046959863656,343.036954353119 155.62850062605733,214.46304564688108" stroke="rgb(200,200,200)" stroke-width="1"/>
+      <polygon fill="rgb(230,230,230)" points="265.0,173.33333333333331 337.9143329159618,226.30869709792069 310.0635360090896,312.02463623541263 219.9364639909104,312.02463623541263 192.08566708403822,226.3086970979207" stroke="rgb(200,200,200)" stroke-width="1"/>
+      <polygon fill="rgb(255,255,255)" points="265.0,211.66666666666666 301.4571664579809,238.15434854896034 287.5317680045448,281.01231811770634 242.4682319954552,281.01231811770634 228.5428335420191,238.15434854896034" stroke="rgb(200,200,200)" stroke-width="1"/>
+      <rect fill="rgb(230,230,230)" height="153.33333333333334" stroke="rgb(200,200,200)" stroke-width="1" width="40" x="515.8333333333334" y="220.50553276873714"/>
+      <rect fill="rgb(255,255,255)" height="115.0" stroke="rgb(200,200,200)" stroke-width="1" width="40" x="515.8333333333334" y="258.8388661020705"/>
+      <rect fill="rgb(230,230,230)" height="76.66666666666667" stroke="rgb(200,200,200)" stroke-width="1" width="40" x="515.8333333333334" y="297.17219943540385"/>
+      <rect fill="rgb(255,255,255)" height="38.333333333333336" stroke="rgb(200,200,200)" stroke-width="1" width="40" x="515.8333333333334" y="335.50553276873717"/>
+      <line stroke="rgb(200,200,200)" stroke-dasharray="4" stroke-width="2" x1="535.8333333333334" x2="535.8333333333334" y1="373.83886610207054" y2="220.50553276873714"/>
+      <text fill="rgb(253,189,64)" font-family="sans-serif" font-size="20" text-anchor="middle" transform="translate(0,-10)" x="535.8333333333334" y="220.50553276873714">?</text>
+      <line stroke="rgb(200,200,200)" stroke-dasharray="4" stroke-width="2" transform="rotate(0.0,265.0,250.0)" x1="265.0" x2="265.0" y1="250.0" y2="96.66666666666666"/>
+      <text alignment-baseline="middle" fill="rgb(127,15,126)" font-family="sans-serif" font-size="20" text-anchor="middle" transform="translate(0,-10)" x="265.0" y="96.66666666666666">UV</text>
+      <line stroke="rgb(200,200,200)" stroke-dasharray="4" stroke-width="2" transform="rotate(72.0,265.0,250.0)" x1="265.0" x2="265.0" y1="250.0" y2="96.66666666666666"/>
+      <text alignment-baseline="middle" fill="rgb(11,36,251)" font-family="sans-serif" font-size="20" text-anchor="start" transform="translate(5,0)" x="410.82866583192356" y="202.61739419584137">S</text>
+      <line stroke="rgb(200,200,200)" stroke-dasharray="4" stroke-width="2" transform="rotate(144.0,265.0,250.0)" x1="265.0" x2="265.0" y1="250.0" y2="96.66666666666666"/>
+      <text alignment-baseline="middle" fill="rgb(15,127,18)" font-family="sans-serif" font-size="20" text-anchor="start" transform="translate(2,10)" x="355.1270720181792" y="374.04927247082526">M</text>
+      <line stroke="rgb(200,200,200)" stroke-dasharray="4" stroke-width="2" transform="rotate(216.0,265.0,250.0)" x1="265.0" x2="265.0" y1="250.0" y2="96.66666666666666"/>
+      <text alignment-baseline="middle" fill="rgb(252,13,27)" font-family="sans-serif" font-size="20" text-anchor="end" transform="translate(-2,10)" x="174.8729279818208" y="374.04927247082526">L</text>
+      <line stroke="rgb(200,200,200)" stroke-dasharray="4" stroke-width="2" transform="rotate(288.0,265.0,250.0)" x1="265.0" x2="265.0" y1="250.0" y2="96.66666666666666"/>
+      <text alignment-baseline="middle" fill="rgb(0,0,0)" font-family="sans-serif" font-size="20" text-anchor="end" transform="translate(-5,0)" x="119.17133416807644" y="202.61739419584143">Rod</text>
+      <path d="M267,250 L267,250 L267,250 L267,250 L267,250 Z" fill="none" stroke="rgb(0,0,0)" stroke-linecap="round" stroke-opacity="1" stroke-width="3"/>
+      <circle cx="267.5" cy="250.0" fill="rgb(127,15,126)" r="5" stroke="none" stroke-width="4" transform="rotate(0.0,267.5,250.0)"/>
+      <circle cx="267.5" cy="250.0" fill="rgb(11,36,251)" r="5" stroke="none" stroke-width="4" transform="rotate(72.0,267.5,250.0)"/>
+      <circle cx="267.5" cy="250.0" fill="rgb(15,127,18)" r="5" stroke="none" stroke-width="4" transform="rotate(144.0,267.5,250.0)"/>
+      <circle cx="267.5" cy="250.0" fill="rgb(252,13,27)" r="5" stroke="none" stroke-width="4" transform="rotate(216.0,267.5,250.0)"/>
+      <circle cx="267.5" cy="250.0" fill="rgb(0,0,0)" r="5" stroke="none" stroke-width="4" transform="rotate(288.0,267.5,250.0)"/>
+      <circle cx="535.8333333333334" cy="373.83886610207054" fill="rgb(253,189,64)" r="5" stroke="none" stroke-width="4" transform="rotate(0,535.8333333333334,250.0)"/>
+    </g>
+    <g transform="translate(1625.0, 762.0000000000001) scale(1) translate(0, 0) scale(0.5) ">
+      <defs/>
+      <rect fill="white" height="480" stroke="rgb(58,242,174)" stroke-width="10" width="630" x="20" y="20"/>
+      <polygon fill="rgb(230,230,230)" points="265.0,96.66666666666666 410.82866583192356,202.61739419584137 355.1270720181792,374.04927247082526 174.8729279818208,374.04927247082526 119.17133416807644,202.61739419584143" stroke="rgb(200,200,200)" stroke-width="1"/>
+      <polygon fill="rgb(255,255,255)" points="265.0,135.0 374.37149937394264,214.46304564688103 332.5953040136344,343.036954353119 197.4046959863656,343.036954353119 155.62850062605733,214.46304564688108" stroke="rgb(200,200,200)" stroke-width="1"/>
+      <polygon fill="rgb(230,230,230)" points="265.0,173.33333333333331 337.9143329159618,226.30869709792069 310.0635360090896,312.02463623541263 219.9364639909104,312.02463623541263 192.08566708403822,226.3086970979207" stroke="rgb(200,200,200)" stroke-width="1"/>
+      <polygon fill="rgb(255,255,255)" points="265.0,211.66666666666666 301.4571664579809,238.15434854896034 287.5317680045448,281.01231811770634 242.4682319954552,281.01231811770634 228.5428335420191,238.15434854896034" stroke="rgb(200,200,200)" stroke-width="1"/>
+      <rect fill="rgb(230,230,230)" height="153.33333333333334" stroke="rgb(200,200,200)" stroke-width="1" width="40" x="515.8333333333334" y="220.50553276873714"/>
+      <rect fill="rgb(255,255,255)" height="115.0" stroke="rgb(200,200,200)" stroke-width="1" width="40" x="515.8333333333334" y="258.8388661020705"/>
+      <rect fill="rgb(230,230,230)" height="76.66666666666667" stroke="rgb(200,200,200)" stroke-width="1" width="40" x="515.8333333333334" y="297.17219943540385"/>
+      <rect fill="rgb(255,255,255)" height="38.333333333333336" stroke="rgb(200,200,200)" stroke-width="1" width="40" x="515.8333333333334" y="335.50553276873717"/>
+      <line stroke="rgb(200,200,200)" stroke-dasharray="4" stroke-width="2" x1="535.8333333333334" x2="535.8333333333334" y1="373.83886610207054" y2="220.50553276873714"/>
+      <text fill="rgb(253,189,64)" font-family="sans-serif" font-size="20" text-anchor="middle" transform="translate(0,-10)" x="535.8333333333334" y="220.50553276873714">?</text>
+      <line stroke="rgb(200,200,200)" stroke-dasharray="4" stroke-width="2" transform="rotate(0.0,265.0,250.0)" x1="265.0" x2="265.0" y1="250.0" y2="96.66666666666666"/>
+      <text alignment-baseline="middle" fill="rgb(127,15,126)" font-family="sans-serif" font-size="20" text-anchor="middle" transform="translate(0,-10)" x="265.0" y="96.66666666666666">UV</text>
+      <line stroke="rgb(200,200,200)" stroke-dasharray="4" stroke-width="2" transform="rotate(72.0,265.0,250.0)" x1="265.0" x2="265.0" y1="250.0" y2="96.66666666666666"/>
+      <text alignment-baseline="middle" fill="rgb(11,36,251)" font-family="sans-serif" font-size="20" text-anchor="start" transform="translate(5,0)" x="410.82866583192356" y="202.61739419584137">S</text>
+      <line stroke="rgb(200,200,200)" stroke-dasharray="4" stroke-width="2" transform="rotate(144.0,265.0,250.0)" x1="265.0" x2="265.0" y1="250.0" y2="96.66666666666666"/>
+      <text alignment-baseline="middle" fill="rgb(15,127,18)" font-family="sans-serif" font-size="20" text-anchor="start" transform="translate(2,10)" x="355.1270720181792" y="374.04927247082526">M</text>
+      <line stroke="rgb(200,200,200)" stroke-dasharray="4" stroke-width="2" transform="rotate(216.0,265.0,250.0)" x1="265.0" x2="265.0" y1="250.0" y2="96.66666666666666"/>
+      <text alignment-baseline="middle" fill="rgb(252,13,27)" font-family="sans-serif" font-size="20" text-anchor="end" transform="translate(-2,10)" x="174.8729279818208" y="374.04927247082526">L</text>
+      <line stroke="rgb(200,200,200)" stroke-dasharray="4" stroke-width="2" transform="rotate(288.0,265.0,250.0)" x1="265.0" x2="265.0" y1="250.0" y2="96.66666666666666"/>
+      <text alignment-baseline="middle" fill="rgb(0,0,0)" font-family="sans-serif" font-size="20" text-anchor="end" transform="translate(-5,0)" x="119.17133416807644" y="202.61739419584143">Rod</text>
+      <path d="M267,227 L303,238 L303,299 L253,268 L267,250 Z" fill="none" stroke="rgb(0,0,0)" stroke-linecap="round" stroke-opacity="1" stroke-width="3"/>
+      <circle cx="267.5" cy="227.0" fill="rgb(127,15,126)" r="5" stroke="none" stroke-width="4" transform="rotate(0.0,267.5,250.0)"/>
+      <circle cx="267.5" cy="211.66666666666666" fill="rgb(11,36,251)" r="5" stroke="none" stroke-width="4" transform="rotate(72.0,267.5,250.0)"/>
+      <circle cx="267.5" cy="188.66666666666666" fill="rgb(15,127,18)" r="5" stroke="none" stroke-width="4" transform="rotate(144.0,267.5,250.0)"/>
+      <circle cx="267.5" cy="227.0" fill="rgb(252,13,27)" r="5" stroke="none" stroke-width="4" transform="rotate(216.0,267.5,250.0)"/>
+      <circle cx="267.5" cy="250.0" fill="rgb(0,0,0)" r="5" stroke="none" stroke-width="4" transform="rotate(288.0,267.5,250.0)"/>
+      <circle cx="535.8333333333334" cy="373.83886610207054" fill="rgb(253,189,64)" r="5" stroke="none" stroke-width="4" transform="rotate(0,535.8333333333334,250.0)"/>
+    </g>
+    <g transform="translate(1950.0, 762.0000000000001) scale(1) translate(0, 0) scale(0.5) ">
+      <defs/>
+      <rect fill="white" height="480" stroke="rgb(58,242,174)" stroke-width="10" width="630" x="20" y="20"/>
+      <polygon fill="rgb(230,230,230)" points="265.0,96.66666666666666 410.82866583192356,202.61739419584137 355.1270720181792,374.04927247082526 174.8729279818208,374.04927247082526 119.17133416807644,202.61739419584143" stroke="rgb(200,200,200)" stroke-width="1"/>
+      <polygon fill="rgb(255,255,255)" points="265.0,135.0 374.37149937394264,214.46304564688103 332.5953040136344,343.036954353119 197.4046959863656,343.036954353119 155.62850062605733,214.46304564688108" stroke="rgb(200,200,200)" stroke-width="1"/>
+      <polygon fill="rgb(230,230,230)" points="265.0,173.33333333333331 337.9143329159618,226.30869709792069 310.0635360090896,312.02463623541263 219.9364639909104,312.02463623541263 192.08566708403822,226.3086970979207" stroke="rgb(200,200,200)" stroke-width="1"/>
+      <polygon fill="rgb(255,255,255)" points="265.0,211.66666666666666 301.4571664579809,238.15434854896034 287.5317680045448,281.01231811770634 242.4682319954552,281.01231811770634 228.5428335420191,238.15434854896034" stroke="rgb(200,200,200)" stroke-width="1"/>
+      <rect fill="rgb(230,230,230)" height="153.33333333333334" stroke="rgb(200,200,200)" stroke-width="1" width="40" x="515.8333333333334" y="220.50553276873714"/>
+      <rect fill="rgb(255,255,255)" height="115.0" stroke="rgb(200,200,200)" stroke-width="1" width="40" x="515.8333333333334" y="258.8388661020705"/>
+      <rect fill="rgb(230,230,230)" height="76.66666666666667" stroke="rgb(200,200,200)" stroke-width="1" width="40" x="515.8333333333334" y="297.17219943540385"/>
+      <rect fill="rgb(255,255,255)" height="38.333333333333336" stroke="rgb(200,200,200)" stroke-width="1" width="40" x="515.8333333333334" y="335.50553276873717"/>
+      <line stroke="rgb(200,200,200)" stroke-dasharray="4" stroke-width="2" x1="535.8333333333334" x2="535.8333333333334" y1="373.83886610207054" y2="220.50553276873714"/>
+      <text fill="rgb(253,189,64)" font-family="sans-serif" font-size="20" text-anchor="middle" transform="translate(0,-10)" x="535.8333333333334" y="220.50553276873714">?</text>
+      <line stroke="rgb(200,200,200)" stroke-dasharray="4" stroke-width="2" transform="rotate(0.0,265.0,250.0)" x1="265.0" x2="265.0" y1="250.0" y2="96.66666666666666"/>
+      <text alignment-baseline="middle" fill="rgb(127,15,126)" font-family="sans-serif" font-size="20" text-anchor="middle" transform="translate(0,-10)" x="265.0" y="96.66666666666666">UV</text>
+      <line stroke="rgb(200,200,200)" stroke-dasharray="4" stroke-width="2" transform="rotate(72.0,265.0,250.0)" x1="265.0" x2="265.0" y1="250.0" y2="96.66666666666666"/>
+      <text alignment-baseline="middle" fill="rgb(11,36,251)" font-family="sans-serif" font-size="20" text-anchor="start" transform="translate(5,0)" x="410.82866583192356" y="202.61739419584137">S</text>
+      <line stroke="rgb(200,200,200)" stroke-dasharray="4" stroke-width="2" transform="rotate(144.0,265.0,250.0)" x1="265.0" x2="265.0" y1="250.0" y2="96.66666666666666"/>
+      <text alignment-baseline="middle" fill="rgb(15,127,18)" font-family="sans-serif" font-size="20" text-anchor="start" transform="translate(2,10)" x="355.1270720181792" y="374.04927247082526">M</text>
+      <line stroke="rgb(200,200,200)" stroke-dasharray="4" stroke-width="2" transform="rotate(216.0,265.0,250.0)" x1="265.0" x2="265.0" y1="250.0" y2="96.66666666666666"/>
+      <text alignment-baseline="middle" fill="rgb(252,13,27)" font-family="sans-serif" font-size="20" text-anchor="end" transform="translate(-2,10)" x="174.8729279818208" y="374.04927247082526">L</text>
+      <line stroke="rgb(200,200,200)" stroke-dasharray="4" stroke-width="2" transform="rotate(288.0,265.0,250.0)" x1="265.0" x2="265.0" y1="250.0" y2="96.66666666666666"/>
+      <text alignment-baseline="middle" fill="rgb(0,0,0)" font-family="sans-serif" font-size="20" text-anchor="end" transform="translate(-5,0)" x="119.17133416807644" y="202.61739419584143">Rod</text>
+      <path d="M267,211 L318,233 L303,299 L258,262 L267,250 Z" fill="none" stroke="rgb(0,0,0)" stroke-linecap="round" stroke-opacity="1" stroke-width="3"/>
+      <circle cx="267.5" cy="211.66666666666666" fill="rgb(127,15,126)" r="5" stroke="none" stroke-width="4" transform="rotate(0.0,267.5,250.0)"/>
+      <circle cx="267.5" cy="196.33333333333331" fill="rgb(11,36,251)" r="5" stroke="none" stroke-width="4" transform="rotate(72.0,267.5,250.0)"/>
+      <circle cx="267.5" cy="188.66666666666666" fill="rgb(15,127,18)" r="5" stroke="none" stroke-width="4" transform="rotate(144.0,267.5,250.0)"/>
+      <circle cx="267.5" cy="234.66666666666666" fill="rgb(252,13,27)" r="5" stroke="none" stroke-width="4" transform="rotate(216.0,267.5,250.0)"/>
+      <circle cx="267.5" cy="250.0" fill="rgb(0,0,0)" r="5" stroke="none" stroke-width="4" transform="rotate(288.0,267.5,250.0)"/>
+      <circle cx="535.8333333333334" cy="373.83886610207054" fill="rgb(253,189,64)" r="5" stroke="none" stroke-width="4" transform="rotate(0,535.8333333333334,250.0)"/>
+    </g>
+    <g transform="translate(0.0, 1016.0000000000001) scale(1) translate(0, 0) scale(0.5) ">
+      <defs/>
+      <rect fill="white" height="480" stroke="rgb(255,101,128)" stroke-width="10" width="630" x="20" y="20"/>
+      <polygon fill="rgb(230,230,230)" points="265.0,96.66666666666666 410.82866583192356,202.61739419584137 355.1270720181792,374.04927247082526 174.8729279818208,374.04927247082526 119.17133416807644,202.61739419584143" stroke="rgb(200,200,200)" stroke-width="1"/>
+      <polygon fill="rgb(255,255,255)" points="265.0,135.0 374.37149937394264,214.46304564688103 332.5953040136344,343.036954353119 197.4046959863656,343.036954353119 155.62850062605733,214.46304564688108" stroke="rgb(200,200,200)" stroke-width="1"/>
+      <polygon fill="rgb(230,230,230)" points="265.0,173.33333333333331 337.9143329159618,226.30869709792069 310.0635360090896,312.02463623541263 219.9364639909104,312.02463623541263 192.08566708403822,226.3086970979207" stroke="rgb(200,200,200)" stroke-width="1"/>
+      <polygon fill="rgb(255,255,255)" points="265.0,211.66666666666666 301.4571664579809,238.15434854896034 287.5317680045448,281.01231811770634 242.4682319954552,281.01231811770634 228.5428335420191,238.15434854896034" stroke="rgb(200,200,200)" stroke-width="1"/>
+      <rect fill="rgb(230,230,230)" height="153.33333333333334" stroke="rgb(200,200,200)" stroke-width="1" width="40" x="515.8333333333334" y="220.50553276873714"/>
+      <rect fill="rgb(255,255,255)" height="115.0" stroke="rgb(200,200,200)" stroke-width="1" width="40" x="515.8333333333334" y="258.8388661020705"/>
+      <rect fill="rgb(230,230,230)" height="76.66666666666667" stroke="rgb(200,200,200)" stroke-width="1" width="40" x="515.8333333333334" y="297.17219943540385"/>
+      <rect fill="rgb(255,255,255)" height="38.333333333333336" stroke="rgb(200,200,200)" stroke-width="1" width="40" x="515.8333333333334" y="335.50553276873717"/>
+      <line stroke="rgb(200,200,200)" stroke-dasharray="4" stroke-width="2" x1="535.8333333333334" x2="535.8333333333334" y1="373.83886610207054" y2="220.50553276873714"/>
+      <text fill="rgb(253,189,64)" font-family="sans-serif" font-size="20" text-anchor="middle" transform="translate(0,-10)" x="535.8333333333334" y="220.50553276873714">?</text>
+      <line stroke="rgb(200,200,200)" stroke-dasharray="4" stroke-width="2" transform="rotate(0.0,265.0,250.0)" x1="265.0" x2="265.0" y1="250.0" y2="96.66666666666666"/>
+      <text alignment-baseline="middle" fill="rgb(127,15,126)" font-family="sans-serif" font-size="20" text-anchor="middle" transform="translate(0,-10)" x="265.0" y="96.66666666666666">UV</text>
+      <line stroke="rgb(200,200,200)" stroke-dasharray="4" stroke-width="2" transform="rotate(72.0,265.0,250.0)" x1="265.0" x2="265.0" y1="250.0" y2="96.66666666666666"/>
+      <text alignment-baseline="middle" fill="rgb(11,36,251)" font-family="sans-serif" font-size="20" text-anchor="start" transform="translate(5,0)" x="410.82866583192356" y="202.61739419584137">S</text>
+      <line stroke="rgb(200,200,200)" stroke-dasharray="4" stroke-width="2" transform="rotate(144.0,265.0,250.0)" x1="265.0" x2="265.0" y1="250.0" y2="96.66666666666666"/>
+      <text alignment-baseline="middle" fill="rgb(15,127,18)" font-family="sans-serif" font-size="20" text-anchor="start" transform="translate(2,10)" x="355.1270720181792" y="374.04927247082526">M</text>
+      <line stroke="rgb(200,200,200)" stroke-dasharray="4" stroke-width="2" transform="rotate(216.0,265.0,250.0)" x1="265.0" x2="265.0" y1="250.0" y2="96.66666666666666"/>
+      <text alignment-baseline="middle" fill="rgb(252,13,27)" font-family="sans-serif" font-size="20" text-anchor="end" transform="translate(-2,10)" x="174.8729279818208" y="374.04927247082526">L</text>
+      <line stroke="rgb(200,200,200)" stroke-dasharray="4" stroke-width="2" transform="rotate(288.0,265.0,250.0)" x1="265.0" x2="265.0" y1="250.0" y2="96.66666666666666"/>
+      <text alignment-baseline="middle" fill="rgb(0,0,0)" font-family="sans-serif" font-size="20" text-anchor="end" transform="translate(-5,0)" x="119.17133416807644" y="202.61739419584143">Rod</text>
+      <path d="M267,250 L282,245 L299,293 L231,299 L267,250 Z" fill="none" stroke="rgb(0,0,0)" stroke-linecap="round" stroke-opacity="1" stroke-width="3"/>
+      <circle cx="267.5" cy="250.0" fill="rgb(127,15,126)" r="5" stroke="none" stroke-width="4" transform="rotate(0.0,267.5,250.0)"/>
+      <circle cx="267.5" cy="234.66666666666666" fill="rgb(11,36,251)" r="5" stroke="none" stroke-width="4" transform="rotate(72.0,267.5,250.0)"/>
+      <circle cx="267.5" cy="196.33333333333331" fill="rgb(15,127,18)" r="5" stroke="none" stroke-width="4" transform="rotate(144.0,267.5,250.0)"/>
+      <circle cx="267.5" cy="188.66666666666666" fill="rgb(252,13,27)" r="5" stroke="none" stroke-width="4" transform="rotate(216.0,267.5,250.0)"/>
+      <circle cx="267.5" cy="250.0" fill="rgb(0,0,0)" r="5" stroke="none" stroke-width="4" transform="rotate(288.0,267.5,250.0)"/>
+      <circle cx="535.8333333333334" cy="373.83886610207054" fill="rgb(253,189,64)" r="5" stroke="none" stroke-width="4" transform="rotate(0,535.8333333333334,250.0)"/>
+    </g>
+    <g transform="translate(325.0, 1016.0000000000001) scale(1) translate(0, 0) scale(0.5) ">
+      <defs/>
+      <rect fill="white" height="480" stroke="rgb(255,216,0)" stroke-width="10" width="630" x="20" y="20"/>
+      <polygon fill="rgb(230,230,230)" points="265.0,96.66666666666666 410.82866583192356,202.61739419584137 355.1270720181792,374.04927247082526 174.8729279818208,374.04927247082526 119.17133416807644,202.61739419584143" stroke="rgb(200,200,200)" stroke-width="1"/>
+      <polygon fill="rgb(255,255,255)" points="265.0,135.0 374.37149937394264,214.46304564688103 332.5953040136344,343.036954353119 197.4046959863656,343.036954353119 155.62850062605733,214.46304564688108" stroke="rgb(200,200,200)" stroke-width="1"/>
+      <polygon fill="rgb(230,230,230)" points="265.0,173.33333333333331 337.9143329159618,226.30869709792069 310.0635360090896,312.02463623541263 219.9364639909104,312.02463623541263 192.08566708403822,226.3086970979207" stroke="rgb(200,200,200)" stroke-width="1"/>
+      <polygon fill="rgb(255,255,255)" points="265.0,211.66666666666666 301.4571664579809,238.15434854896034 287.5317680045448,281.01231811770634 242.4682319954552,281.01231811770634 228.5428335420191,238.15434854896034" stroke="rgb(200,200,200)" stroke-width="1"/>
+      <rect fill="rgb(230,230,230)" height="153.33333333333334" stroke="rgb(200,200,200)" stroke-width="1" width="40" x="515.8333333333334" y="220.50553276873714"/>
+      <rect fill="rgb(255,255,255)" height="115.0" stroke="rgb(200,200,200)" stroke-width="1" width="40" x="515.8333333333334" y="258.8388661020705"/>
+      <rect fill="rgb(230,230,230)" height="76.66666666666667" stroke="rgb(200,200,200)" stroke-width="1" width="40" x="515.8333333333334" y="297.17219943540385"/>
+      <rect fill="rgb(255,255,255)" height="38.333333333333336" stroke="rgb(200,200,200)" stroke-width="1" width="40" x="515.8333333333334" y="335.50553276873717"/>
+      <line stroke="rgb(200,200,200)" stroke-dasharray="4" stroke-width="2" x1="535.8333333333334" x2="535.8333333333334" y1="373.83886610207054" y2="220.50553276873714"/>
+      <text fill="rgb(253,189,64)" font-family="sans-serif" font-size="20" text-anchor="middle" transform="translate(0,-10)" x="535.8333333333334" y="220.50553276873714">?</text>
+      <line stroke="rgb(200,200,200)" stroke-dasharray="4" stroke-width="2" transform="rotate(0.0,265.0,250.0)" x1="265.0" x2="265.0" y1="250.0" y2="96.66666666666666"/>
+      <text alignment-baseline="middle" fill="rgb(127,15,126)" font-family="sans-serif" font-size="20" text-anchor="middle" transform="translate(0,-10)" x="265.0" y="96.66666666666666">UV</text>
+      <line stroke="rgb(200,200,200)" stroke-dasharray="4" stroke-width="2" transform="rotate(72.0,265.0,250.0)" x1="265.0" x2="265.0" y1="250.0" y2="96.66666666666666"/>
+      <text alignment-baseline="middle" fill="rgb(11,36,251)" font-family="sans-serif" font-size="20" text-anchor="start" transform="translate(5,0)" x="410.82866583192356" y="202.61739419584137">S</text>
+      <line stroke="rgb(200,200,200)" stroke-dasharray="4" stroke-width="2" transform="rotate(144.0,265.0,250.0)" x1="265.0" x2="265.0" y1="250.0" y2="96.66666666666666"/>
+      <text alignment-baseline="middle" fill="rgb(15,127,18)" font-family="sans-serif" font-size="20" text-anchor="start" transform="translate(2,10)" x="355.1270720181792" y="374.04927247082526">M</text>
+      <line stroke="rgb(200,200,200)" stroke-dasharray="4" stroke-width="2" transform="rotate(216.0,265.0,250.0)" x1="265.0" x2="265.0" y1="250.0" y2="96.66666666666666"/>
+      <text alignment-baseline="middle" fill="rgb(252,13,27)" font-family="sans-serif" font-size="20" text-anchor="end" transform="translate(-2,10)" x="174.8729279818208" y="374.04927247082526">L</text>
+      <line stroke="rgb(200,200,200)" stroke-dasharray="4" stroke-width="2" transform="rotate(288.0,265.0,250.0)" x1="265.0" x2="265.0" y1="250.0" y2="96.66666666666666"/>
+      <text alignment-baseline="middle" fill="rgb(0,0,0)" font-family="sans-serif" font-size="20" text-anchor="end" transform="translate(-5,0)" x="119.17133416807644" y="202.61739419584143">Rod</text>
+      <path d="M267,150 L347,223 L272,256 L262,256 L267,250 Z" fill="none" stroke="rgb(0,0,0)" stroke-linecap="round" stroke-opacity="1" stroke-width="3"/>
+      <circle cx="267.5" cy="150.33333333333331" fill="rgb(127,15,126)" r="5" stroke="none" stroke-width="4" transform="rotate(0.0,267.5,250.0)"/>
+      <circle cx="267.5" cy="165.66666666666666" fill="rgb(11,36,251)" r="5" stroke="none" stroke-width="4" transform="rotate(72.0,267.5,250.0)"/>
+      <circle cx="267.5" cy="242.33333333333334" fill="rgb(15,127,18)" r="5" stroke="none" stroke-width="4" transform="rotate(144.0,267.5,250.0)"/>
+      <circle cx="267.5" cy="242.33333333333334" fill="rgb(252,13,27)" r="5" stroke="none" stroke-width="4" transform="rotate(216.0,267.5,250.0)"/>
+      <circle cx="267.5" cy="250.0" fill="rgb(0,0,0)" r="5" stroke="none" stroke-width="4" transform="rotate(288.0,267.5,250.0)"/>
+      <circle cx="535.8333333333334" cy="373.83886610207054" fill="rgb(253,189,64)" r="5" stroke="none" stroke-width="4" transform="rotate(0,535.8333333333334,250.0)"/>
+    </g>
+    <g transform="translate(650.0, 1016.0000000000001) scale(1) translate(0, 0) scale(0.5) ">
+      <defs/>
+      <rect fill="white" height="480" stroke="rgb(255,101,128)" stroke-width="10" width="630" x="20" y="20"/>
+      <polygon fill="rgb(230,230,230)" points="265.0,96.66666666666666 410.82866583192356,202.61739419584137 355.1270720181792,374.04927247082526 174.8729279818208,374.04927247082526 119.17133416807644,202.61739419584143" stroke="rgb(200,200,200)" stroke-width="1"/>
+      <polygon fill="rgb(255,255,255)" points="265.0,135.0 374.37149937394264,214.46304564688103 332.5953040136344,343.036954353119 197.4046959863656,343.036954353119 155.62850062605733,214.46304564688108" stroke="rgb(200,200,200)" stroke-width="1"/>
+      <polygon fill="rgb(230,230,230)" points="265.0,173.33333333333331 337.9143329159618,226.30869709792069 310.0635360090896,312.02463623541263 219.9364639909104,312.02463623541263 192.08566708403822,226.3086970979207" stroke="rgb(200,200,200)" stroke-width="1"/>
+      <polygon fill="rgb(255,255,255)" points="265.0,211.66666666666666 301.4571664579809,238.15434854896034 287.5317680045448,281.01231811770634 242.4682319954552,281.01231811770634 228.5428335420191,238.15434854896034" stroke="rgb(200,200,200)" stroke-width="1"/>
+      <rect fill="rgb(230,230,230)" height="153.33333333333334" stroke="rgb(200,200,200)" stroke-width="1" width="40" x="515.8333333333334" y="220.50553276873714"/>
+      <rect fill="rgb(255,255,255)" height="115.0" stroke="rgb(200,200,200)" stroke-width="1" width="40" x="515.8333333333334" y="258.8388661020705"/>
+      <rect fill="rgb(230,230,230)" height="76.66666666666667" stroke="rgb(200,200,200)" stroke-width="1" width="40" x="515.8333333333334" y="297.17219943540385"/>
+      <rect fill="rgb(255,255,255)" height="38.333333333333336" stroke="rgb(200,200,200)" stroke-width="1" width="40" x="515.8333333333334" y="335.50553276873717"/>
+      <line stroke="rgb(200,200,200)" stroke-dasharray="4" stroke-width="2" x1="535.8333333333334" x2="535.8333333333334" y1="373.83886610207054" y2="220.50553276873714"/>
+      <text fill="rgb(253,189,64)" font-family="sans-serif" font-size="20" text-anchor="middle" transform="translate(0,-10)" x="535.8333333333334" y="220.50553276873714">?</text>
+      <line stroke="rgb(200,200,200)" stroke-dasharray="4" stroke-width="2" transform="rotate(0.0,265.0,250.0)" x1="265.0" x2="265.0" y1="250.0" y2="96.66666666666666"/>
+      <text alignment-baseline="middle" fill="rgb(127,15,126)" font-family="sans-serif" font-size="20" text-anchor="middle" transform="translate(0,-10)" x="265.0" y="96.66666666666666">UV</text>
+      <line stroke="rgb(200,200,200)" stroke-dasharray="4" stroke-width="2" transform="rotate(72.0,265.0,250.0)" x1="265.0" x2="265.0" y1="250.0" y2="96.66666666666666"/>
+      <text alignment-baseline="middle" fill="rgb(11,36,251)" font-family="sans-serif" font-size="20" text-anchor="start" transform="translate(5,0)" x="410.82866583192356" y="202.61739419584137">S</text>
+      <line stroke="rgb(200,200,200)" stroke-dasharray="4" stroke-width="2" transform="rotate(144.0,265.0,250.0)" x1="265.0" x2="265.0" y1="250.0" y2="96.66666666666666"/>
+      <text alignment-baseline="middle" fill="rgb(15,127,18)" font-family="sans-serif" font-size="20" text-anchor="start" transform="translate(2,10)" x="355.1270720181792" y="374.04927247082526">M</text>
+      <line stroke="rgb(200,200,200)" stroke-dasharray="4" stroke-width="2" transform="rotate(216.0,265.0,250.0)" x1="265.0" x2="265.0" y1="250.0" y2="96.66666666666666"/>
+      <text alignment-baseline="middle" fill="rgb(252,13,27)" font-family="sans-serif" font-size="20" text-anchor="end" transform="translate(-2,10)" x="174.8729279818208" y="374.04927247082526">L</text>
+      <line stroke="rgb(200,200,200)" stroke-dasharray="4" stroke-width="2" transform="rotate(288.0,265.0,250.0)" x1="265.0" x2="265.0" y1="250.0" y2="96.66666666666666"/>
+      <text alignment-baseline="middle" fill="rgb(0,0,0)" font-family="sans-serif" font-size="20" text-anchor="end" transform="translate(-5,0)" x="119.17133416807644" y="202.61739419584143">Rod</text>
+      <path d="M267,250 L267,250 L281,268 L244,281 L267,250 Z" fill="none" stroke="rgb(0,0,0)" stroke-linecap="round" stroke-opacity="1" stroke-width="3"/>
+      <circle cx="267.5" cy="250.0" fill="rgb(127,15,126)" r="5" stroke="none" stroke-width="4" transform="rotate(0.0,267.5,250.0)"/>
+      <circle cx="267.5" cy="250.0" fill="rgb(11,36,251)" r="5" stroke="none" stroke-width="4" transform="rotate(72.0,267.5,250.0)"/>
+      <circle cx="267.5" cy="227.0" fill="rgb(15,127,18)" r="5" stroke="none" stroke-width="4" transform="rotate(144.0,267.5,250.0)"/>
+      <circle cx="267.5" cy="211.66666666666666" fill="rgb(252,13,27)" r="5" stroke="none" stroke-width="4" transform="rotate(216.0,267.5,250.0)"/>
+      <circle cx="267.5" cy="250.0" fill="rgb(0,0,0)" r="5" stroke="none" stroke-width="4" transform="rotate(288.0,267.5,250.0)"/>
+      <circle cx="535.8333333333334" cy="373.83886610207054" fill="rgb(253,189,64)" r="5" stroke="none" stroke-width="4" transform="rotate(0,535.8333333333334,250.0)"/>
+    </g>
+    <g transform="translate(975.0, 1016.0000000000001) scale(1) translate(0, 0) scale(0.5) ">
+      <defs/>
+      <rect fill="white" height="480" stroke="rgb(255,101,128)" stroke-width="10" width="630" x="20" y="20"/>
+      <polygon fill="rgb(230,230,230)" points="265.0,96.66666666666666 410.82866583192356,202.61739419584137 355.1270720181792,374.04927247082526 174.8729279818208,374.04927247082526 119.17133416807644,202.61739419584143" stroke="rgb(200,200,200)" stroke-width="1"/>
+      <polygon fill="rgb(255,255,255)" points="265.0,135.0 374.37149937394264,214.46304564688103 332.5953040136344,343.036954353119 197.4046959863656,343.036954353119 155.62850062605733,214.46304564688108" stroke="rgb(200,200,200)" stroke-width="1"/>
+      <polygon fill="rgb(230,230,230)" points="265.0,173.33333333333331 337.9143329159618,226.30869709792069 310.0635360090896,312.02463623541263 219.9364639909104,312.02463623541263 192.08566708403822,226.3086970979207" stroke="rgb(200,200,200)" stroke-width="1"/>
+      <polygon fill="rgb(255,255,255)" points="265.0,211.66666666666666 301.4571664579809,238.15434854896034 287.5317680045448,281.01231811770634 242.4682319954552,281.01231811770634 228.5428335420191,238.15434854896034" stroke="rgb(200,200,200)" stroke-width="1"/>
+      <rect fill="rgb(230,230,230)" height="153.33333333333334" stroke="rgb(200,200,200)" stroke-width="1" width="40" x="515.8333333333334" y="220.50553276873714"/>
+      <rect fill="rgb(255,255,255)" height="115.0" stroke="rgb(200,200,200)" stroke-width="1" width="40" x="515.8333333333334" y="258.8388661020705"/>
+      <rect fill="rgb(230,230,230)" height="76.66666666666667" stroke="rgb(200,200,200)" stroke-width="1" width="40" x="515.8333333333334" y="297.17219943540385"/>
+      <rect fill="rgb(255,255,255)" height="38.333333333333336" stroke="rgb(200,200,200)" stroke-width="1" width="40" x="515.8333333333334" y="335.50553276873717"/>
+      <line stroke="rgb(200,200,200)" stroke-dasharray="4" stroke-width="2" x1="535.8333333333334" x2="535.8333333333334" y1="373.83886610207054" y2="220.50553276873714"/>
+      <text fill="rgb(253,189,64)" font-family="sans-serif" font-size="20" text-anchor="middle" transform="translate(0,-10)" x="535.8333333333334" y="220.50553276873714">?</text>
+      <line stroke="rgb(200,200,200)" stroke-dasharray="4" stroke-width="2" transform="rotate(0.0,265.0,250.0)" x1="265.0" x2="265.0" y1="250.0" y2="96.66666666666666"/>
+      <text alignment-baseline="middle" fill="rgb(127,15,126)" font-family="sans-serif" font-size="20" text-anchor="middle" transform="translate(0,-10)" x="265.0" y="96.66666666666666">UV</text>
+      <line stroke="rgb(200,200,200)" stroke-dasharray="4" stroke-width="2" transform="rotate(72.0,265.0,250.0)" x1="265.0" x2="265.0" y1="250.0" y2="96.66666666666666"/>
+      <text alignment-baseline="middle" fill="rgb(11,36,251)" font-family="sans-serif" font-size="20" text-anchor="start" transform="translate(5,0)" x="410.82866583192356" y="202.61739419584137">S</text>
+      <line stroke="rgb(200,200,200)" stroke-dasharray="4" stroke-width="2" transform="rotate(144.0,265.0,250.0)" x1="265.0" x2="265.0" y1="250.0" y2="96.66666666666666"/>
+      <text alignment-baseline="middle" fill="rgb(15,127,18)" font-family="sans-serif" font-size="20" text-anchor="start" transform="translate(2,10)" x="355.1270720181792" y="374.04927247082526">M</text>
+      <line stroke="rgb(200,200,200)" stroke-dasharray="4" stroke-width="2" transform="rotate(216.0,265.0,250.0)" x1="265.0" x2="265.0" y1="250.0" y2="96.66666666666666"/>
+      <text alignment-baseline="middle" fill="rgb(252,13,27)" font-family="sans-serif" font-size="20" text-anchor="end" transform="translate(-2,10)" x="174.8729279818208" y="374.04927247082526">L</text>
+      <line stroke="rgb(200,200,200)" stroke-dasharray="4" stroke-width="2" transform="rotate(288.0,265.0,250.0)" x1="265.0" x2="265.0" y1="250.0" y2="96.66666666666666"/>
+      <text alignment-baseline="middle" fill="rgb(0,0,0)" font-family="sans-serif" font-size="20" text-anchor="end" transform="translate(-5,0)" x="119.17133416807644" y="202.61739419584143">Rod</text>
+      <path d="M267,250 L289,242 L299,293 L231,299 L267,250 Z" fill="none" stroke="rgb(0,0,0)" stroke-linecap="round" stroke-opacity="1" stroke-width="3"/>
+      <circle cx="267.5" cy="250.0" fill="rgb(127,15,126)" r="5" stroke="none" stroke-width="4" transform="rotate(0.0,267.5,250.0)"/>
+      <circle cx="267.5" cy="227.0" fill="rgb(11,36,251)" r="5" stroke="none" stroke-width="4" transform="rotate(72.0,267.5,250.0)"/>
+      <circle cx="267.5" cy="196.33333333333331" fill="rgb(15,127,18)" r="5" stroke="none" stroke-width="4" transform="rotate(144.0,267.5,250.0)"/>
+      <circle cx="267.5" cy="188.66666666666666" fill="rgb(252,13,27)" r="5" stroke="none" stroke-width="4" transform="rotate(216.0,267.5,250.0)"/>
+      <circle cx="267.5" cy="250.0" fill="rgb(0,0,0)" r="5" stroke="none" stroke-width="4" transform="rotate(288.0,267.5,250.0)"/>
+      <circle cx="535.8333333333334" cy="373.83886610207054" fill="rgb(253,189,64)" r="5" stroke="none" stroke-width="4" transform="rotate(0,535.8333333333334,250.0)"/>
+    </g>
+    <g transform="translate(1300.0, 1016.0000000000001) scale(1) translate(0, 0) scale(0.5) ">
+      <defs/>
+      <rect fill="white" height="480" stroke="rgb(255,101,128)" stroke-width="10" width="630" x="20" y="20"/>
+      <polygon fill="rgb(230,230,230)" points="265.0,96.66666666666666 410.82866583192356,202.61739419584137 355.1270720181792,374.04927247082526 174.8729279818208,374.04927247082526 119.17133416807644,202.61739419584143" stroke="rgb(200,200,200)" stroke-width="1"/>
+      <polygon fill="rgb(255,255,255)" points="265.0,135.0 374.37149937394264,214.46304564688103 332.5953040136344,343.036954353119 197.4046959863656,343.036954353119 155.62850062605733,214.46304564688108" stroke="rgb(200,200,200)" stroke-width="1"/>
+      <polygon fill="rgb(230,230,230)" points="265.0,173.33333333333331 337.9143329159618,226.30869709792069 310.0635360090896,312.02463623541263 219.9364639909104,312.02463623541263 192.08566708403822,226.3086970979207" stroke="rgb(200,200,200)" stroke-width="1"/>
+      <polygon fill="rgb(255,255,255)" points="265.0,211.66666666666666 301.4571664579809,238.15434854896034 287.5317680045448,281.01231811770634 242.4682319954552,281.01231811770634 228.5428335420191,238.15434854896034" stroke="rgb(200,200,200)" stroke-width="1"/>
+      <rect fill="rgb(230,230,230)" height="153.33333333333334" stroke="rgb(200,200,200)" stroke-width="1" width="40" x="515.8333333333334" y="220.50553276873714"/>
+      <rect fill="rgb(255,255,255)" height="115.0" stroke="rgb(200,200,200)" stroke-width="1" width="40" x="515.8333333333334" y="258.8388661020705"/>
+      <rect fill="rgb(230,230,230)" height="76.66666666666667" stroke="rgb(200,200,200)" stroke-width="1" width="40" x="515.8333333333334" y="297.17219943540385"/>
+      <rect fill="rgb(255,255,255)" height="38.333333333333336" stroke="rgb(200,200,200)" stroke-width="1" width="40" x="515.8333333333334" y="335.50553276873717"/>
+      <line stroke="rgb(200,200,200)" stroke-dasharray="4" stroke-width="2" x1="535.8333333333334" x2="535.8333333333334" y1="373.83886610207054" y2="220.50553276873714"/>
+      <text fill="rgb(253,189,64)" font-family="sans-serif" font-size="20" text-anchor="middle" transform="translate(0,-10)" x="535.8333333333334" y="220.50553276873714">?</text>
+      <line stroke="rgb(200,200,200)" stroke-dasharray="4" stroke-width="2" transform="rotate(0.0,265.0,250.0)" x1="265.0" x2="265.0" y1="250.0" y2="96.66666666666666"/>
+      <text alignment-baseline="middle" fill="rgb(127,15,126)" font-family="sans-serif" font-size="20" text-anchor="middle" transform="translate(0,-10)" x="265.0" y="96.66666666666666">UV</text>
+      <line stroke="rgb(200,200,200)" stroke-dasharray="4" stroke-width="2" transform="rotate(72.0,265.0,250.0)" x1="265.0" x2="265.0" y1="250.0" y2="96.66666666666666"/>
+      <text alignment-baseline="middle" fill="rgb(11,36,251)" font-family="sans-serif" font-size="20" text-anchor="start" transform="translate(5,0)" x="410.82866583192356" y="202.61739419584137">S</text>
+      <line stroke="rgb(200,200,200)" stroke-dasharray="4" stroke-width="2" transform="rotate(144.0,265.0,250.0)" x1="265.0" x2="265.0" y1="250.0" y2="96.66666666666666"/>
+      <text alignment-baseline="middle" fill="rgb(15,127,18)" font-family="sans-serif" font-size="20" text-anchor="start" transform="translate(2,10)" x="355.1270720181792" y="374.04927247082526">M</text>
+      <line stroke="rgb(200,200,200)" stroke-dasharray="4" stroke-width="2" transform="rotate(216.0,265.0,250.0)" x1="265.0" x2="265.0" y1="250.0" y2="96.66666666666666"/>
+      <text alignment-baseline="middle" fill="rgb(252,13,27)" font-family="sans-serif" font-size="20" text-anchor="end" transform="translate(-2,10)" x="174.8729279818208" y="374.04927247082526">L</text>
+      <line stroke="rgb(200,200,200)" stroke-dasharray="4" stroke-width="2" transform="rotate(288.0,265.0,250.0)" x1="265.0" x2="265.0" y1="250.0" y2="96.66666666666666"/>
+      <text alignment-baseline="middle" fill="rgb(0,0,0)" font-family="sans-serif" font-size="20" text-anchor="end" transform="translate(-5,0)" x="119.17133416807644" y="202.61739419584143">Rod</text>
+      <path d="M267,250 L274,247 L294,287 L222,312 L267,250 Z" fill="none" stroke="rgb(0,0,0)" stroke-linecap="round" stroke-opacity="1" stroke-width="3"/>
+      <circle cx="267.5" cy="250.0" fill="rgb(127,15,126)" r="5" stroke="none" stroke-width="4" transform="rotate(0.0,267.5,250.0)"/>
+      <circle cx="267.5" cy="242.33333333333334" fill="rgb(11,36,251)" r="5" stroke="none" stroke-width="4" transform="rotate(72.0,267.5,250.0)"/>
+      <circle cx="267.5" cy="204.0" fill="rgb(15,127,18)" r="5" stroke="none" stroke-width="4" transform="rotate(144.0,267.5,250.0)"/>
+      <circle cx="267.5" cy="173.33333333333331" fill="rgb(252,13,27)" r="5" stroke="none" stroke-width="4" transform="rotate(216.0,267.5,250.0)"/>
+      <circle cx="267.5" cy="250.0" fill="rgb(0,0,0)" r="5" stroke="none" stroke-width="4" transform="rotate(288.0,267.5,250.0)"/>
+      <circle cx="535.8333333333334" cy="373.83886610207054" fill="rgb(253,189,64)" r="5" stroke="none" stroke-width="4" transform="rotate(0,535.8333333333334,250.0)"/>
+    </g>
+    <g transform="translate(1625.0, 1016.0000000000001) scale(1) translate(0, 0) scale(0.5) ">
+      <defs/>
+      <rect fill="white" height="480" stroke="rgb(58,242,174)" stroke-width="10" width="630" x="20" y="20"/>
+      <polygon fill="rgb(230,230,230)" points="265.0,96.66666666666666 410.82866583192356,202.61739419584137 355.1270720181792,374.04927247082526 174.8729279818208,374.04927247082526 119.17133416807644,202.61739419584143" stroke="rgb(200,200,200)" stroke-width="1"/>
+      <polygon fill="rgb(255,255,255)" points="265.0,135.0 374.37149937394264,214.46304564688103 332.5953040136344,343.036954353119 197.4046959863656,343.036954353119 155.62850062605733,214.46304564688108" stroke="rgb(200,200,200)" stroke-width="1"/>
+      <polygon fill="rgb(230,230,230)" points="265.0,173.33333333333331 337.9143329159618,226.30869709792069 310.0635360090896,312.02463623541263 219.9364639909104,312.02463623541263 192.08566708403822,226.3086970979207" stroke="rgb(200,200,200)" stroke-width="1"/>
+      <polygon fill="rgb(255,255,255)" points="265.0,211.66666666666666 301.4571664579809,238.15434854896034 287.5317680045448,281.01231811770634 242.4682319954552,281.01231811770634 228.5428335420191,238.15434854896034" stroke="rgb(200,200,200)" stroke-width="1"/>
+      <rect fill="rgb(230,230,230)" height="153.33333333333334" stroke="rgb(200,200,200)" stroke-width="1" width="40" x="515.8333333333334" y="220.50553276873714"/>
+      <rect fill="rgb(255,255,255)" height="115.0" stroke="rgb(200,200,200)" stroke-width="1" width="40" x="515.8333333333334" y="258.8388661020705"/>
+      <rect fill="rgb(230,230,230)" height="76.66666666666667" stroke="rgb(200,200,200)" stroke-width="1" width="40" x="515.8333333333334" y="297.17219943540385"/>
+      <rect fill="rgb(255,255,255)" height="38.333333333333336" stroke="rgb(200,200,200)" stroke-width="1" width="40" x="515.8333333333334" y="335.50553276873717"/>
+      <line stroke="rgb(200,200,200)" stroke-dasharray="4" stroke-width="2" x1="535.8333333333334" x2="535.8333333333334" y1="373.83886610207054" y2="220.50553276873714"/>
+      <text fill="rgb(253,189,64)" font-family="sans-serif" font-size="20" text-anchor="middle" transform="translate(0,-10)" x="535.8333333333334" y="220.50553276873714">?</text>
+      <line stroke="rgb(200,200,200)" stroke-dasharray="4" stroke-width="2" transform="rotate(0.0,265.0,250.0)" x1="265.0" x2="265.0" y1="250.0" y2="96.66666666666666"/>
+      <text alignment-baseline="middle" fill="rgb(127,15,126)" font-family="sans-serif" font-size="20" text-anchor="middle" transform="translate(0,-10)" x="265.0" y="96.66666666666666">UV</text>
+      <line stroke="rgb(200,200,200)" stroke-dasharray="4" stroke-width="2" transform="rotate(72.0,265.0,250.0)" x1="265.0" x2="265.0" y1="250.0" y2="96.66666666666666"/>
+      <text alignment-baseline="middle" fill="rgb(11,36,251)" font-family="sans-serif" font-size="20" text-anchor="start" transform="translate(5,0)" x="410.82866583192356" y="202.61739419584137">S</text>
+      <line stroke="rgb(200,200,200)" stroke-dasharray="4" stroke-width="2" transform="rotate(144.0,265.0,250.0)" x1="265.0" x2="265.0" y1="250.0" y2="96.66666666666666"/>
+      <text alignment-baseline="middle" fill="rgb(15,127,18)" font-family="sans-serif" font-size="20" text-anchor="start" transform="translate(2,10)" x="355.1270720181792" y="374.04927247082526">M</text>
+      <line stroke="rgb(200,200,200)" stroke-dasharray="4" stroke-width="2" transform="rotate(216.0,265.0,250.0)" x1="265.0" x2="265.0" y1="250.0" y2="96.66666666666666"/>
+      <text alignment-baseline="middle" fill="rgb(252,13,27)" font-family="sans-serif" font-size="20" text-anchor="end" transform="translate(-2,10)" x="174.8729279818208" y="374.04927247082526">L</text>
+      <line stroke="rgb(200,200,200)" stroke-dasharray="4" stroke-width="2" transform="rotate(288.0,265.0,250.0)" x1="265.0" x2="265.0" y1="250.0" y2="96.66666666666666"/>
+      <text alignment-baseline="middle" fill="rgb(0,0,0)" font-family="sans-serif" font-size="20" text-anchor="end" transform="translate(-5,0)" x="119.17133416807644" y="202.61739419584143">Rod</text>
+      <path d="M267,211 L289,242 L294,287 L267,250 L267,250 Z" fill="none" stroke="rgb(0,0,0)" stroke-linecap="round" stroke-opacity="1" stroke-width="3"/>
+      <circle cx="267.5" cy="211.66666666666666" fill="rgb(127,15,126)" r="5" stroke="none" stroke-width="4" transform="rotate(0.0,267.5,250.0)"/>
+      <circle cx="267.5" cy="227.0" fill="rgb(11,36,251)" r="5" stroke="none" stroke-width="4" transform="rotate(72.0,267.5,250.0)"/>
+      <circle cx="267.5" cy="204.0" fill="rgb(15,127,18)" r="5" stroke="none" stroke-width="4" transform="rotate(144.0,267.5,250.0)"/>
+      <circle cx="267.5" cy="250.0" fill="rgb(252,13,27)" r="5" stroke="none" stroke-width="4" transform="rotate(216.0,267.5,250.0)"/>
+      <circle cx="267.5" cy="250.0" fill="rgb(0,0,0)" r="5" stroke="none" stroke-width="4" transform="rotate(288.0,267.5,250.0)"/>
+      <circle cx="535.8333333333334" cy="373.83886610207054" fill="rgb(253,189,64)" r="5" stroke="none" stroke-width="4" transform="rotate(0,535.8333333333334,250.0)"/>
+    </g>
+  </g>
+</svg>
