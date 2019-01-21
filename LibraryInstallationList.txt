@@ -40,3 +40,5 @@ Python:
         unset NODE_OPTIONS
     
 R:
+    install.packages("retistruct")
+    
