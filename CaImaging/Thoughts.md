@@ -23,7 +23,17 @@
 	 can also accept out-range, or assumes that rescaling should be done to image dtype  
 1. Save as new tiff stack
 ```python
-???
+    # Save a floating-point array and metadata, using zlib compression:
+    data = numpy.random.rand(2, 5, 3, 301, 219).astype('float32')
+    imwrite('temp.tif', data, compress=6, metadata={'axes': 'TZCYX'})
+    
+    # Save two image series to a TIFF file:
+
+    data0 = numpy.random.randint(0, 255, (301, 219, 3), 'uint8')
+    data1 = numpy.random.randint(0, 255, (5, 301, 219), 'uint16')
+    with TiffWriter('temp.tif') as tif:
+        tif.save(data0, compress=6, photometric='rgb')
+        tif.save(data1, compress=6, photometric='minisblack', contiguous=False)
 ```
     * ImageDescription required some elements (https://docs.openmicroscopy.org/ome-model/5.6.3/specifications/index.html):
     ```xml
