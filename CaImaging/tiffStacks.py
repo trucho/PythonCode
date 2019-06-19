@@ -232,6 +232,8 @@ def getTSeries(maskedData):
     tData = np.mean(np.mean(maskedData,axis=1), axis=1)
     return tData
 
+
+
 def norm16bit(tiffData):
     nData = tiffData
     nData = nData - np.min(nData)
