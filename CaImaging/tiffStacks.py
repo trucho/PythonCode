@@ -247,6 +247,24 @@ def getMIP(tiffData):
     mipData = np.max(tiffData,axis=0)
     return mipData
 
+def calcDS(peaks,angles):
+    dsR, dsT = vectorSum(peaks,angles);
+    return dsR, dsT
+
+def cart2pol(x,y):
+    rho = np.sqrt(np.power(x,2)+np.power(y,2))
+    theta = np.arctan2(y,x)
+    return(rho,theta)
+
+def pol2cart(rho, theta):
+    x = rho * np.cos(theta)
+    y = rho * np.sin(theta)
+    return(x, y)
+
+def vectorSum(rho, theta):
+    x,y = pol2cart(rho,theta)
+    return(cart2pol(np.sum(x),np.sum(y)))
+
 def calc_corrcoeff(tiffData, stim):
     nt = np.shape(tiffData)[0];
     ny = np.shape(tiffData)[1];
