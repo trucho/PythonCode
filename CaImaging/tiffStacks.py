@@ -8,12 +8,16 @@ from ScanImageTiffReader import ScanImageTiffReader as sitr
 from tifffile import TiffFile, imwrite, xml2dict
 from skimage.viewer import ImageViewer
 import skimage
+import cmocean
+
 
 from suite2p.run_s2p import run_s2p
 
 
 class sciscanTiff:
     """Python loader for tiff stack obtained using galvo2P SciScan"""
+    """Created May_2019 (Angueyra)"""
+    """Rescales 12-bit images from SciScan into 16-bit images, runs registration using suite 2P and saves a new registered, rescaled stack"""
     def __init__(self, filepath, filename):
         ### directories and paths ###
         self.basedir = '/Users/angueyraaristjm/Documents/LiImaging/TwoPhoton/'
@@ -150,6 +154,7 @@ class sciscanTiff:
             'subpixel' : 10, # precision of subpixel registration (1/subpixel steps)
             'nonrigid': False, # wheter to perform non-rigid registration
             # cell detection settings
+            'roidetect': False, #whether of not to run cell-detection algorithm
             'connected': False, # whether or not to keep ROIs fully connected (set to 0 for dendrites)
             'navg_frames_svd': 5000, # max number of binned frames for the SVD
             'nsvd_for_roi': 1000, # max number of SVD components to keep for ROI detection
@@ -224,6 +229,7 @@ class sciscanTiff:
         plotHistogram(rsData);
             
 
+            
 """Common methods"""
 def getMean(tiffData):
     meanData = np.mean(tiffData,axis=0)
@@ -319,3 +325,7 @@ def plotHistogram(tiffData):
     plt.plot(bins, hist, lw=2)
     ax2.spines['top'].set_visible(False); ax2.spines['right'].set_visible(False)
     return fig, ax0, ax1, ax2
+
+def phaseColormap():
+    return cmocean.cm.phase
+    
