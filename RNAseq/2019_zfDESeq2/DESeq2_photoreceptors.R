@@ -121,5 +121,13 @@ if (all(genenames$symbol == resdata$symbol)) {
   print("data frames do NOT match")
 }
 
+# plot a single gene: counts (normalized by seq depth and +0.5 for log plotting)
+test <- plotCounts(dds, gene="rho", intgroup="type", col =c('blue','blue'), fg='white', col.lab ='white', col.main ='white', col.sub ='white', col.axis='white', bg='white')
+test <- plotCounts(dds, gene="rho", intgroup="subtype", col =c('red','green','black','magenta','blue'), fg='white', col.lab ='white', col.main ='white', col.sub ='white', col.axis='white', bg='white')
 
-
+# more customizable plot of a single gene: counts (normalized by seq depth and +0.5 for log plotting)
+data <- plotCounts(dds, gene="sema7a", intgroup=c("subtype"), returnData=TRUE)
+data
+ggplot(data, aes(x=subtype, y=count, color=subtype)) +
+  scale_y_log10() + 
+  geom_point(position=position_jitter(width=.1,height=0))
