@@ -11,7 +11,7 @@ BiocManager::install(c("apeglm"))
 BiocManager::install(c("pheatmap"))
 BiocManager::install("ReportingTools")
 BiocManager::install("pcaExplorer")
-BiocManager::install("purr")
+# BiocManager::install("purr")
 
 
 # Library loading -------------------------------------------------------------------
@@ -39,15 +39,15 @@ round_df <- function(df, digits) {
 countData <- as.matrix(read.csv(paste0(directory,"gCount.csv"), row.names="gene_id"))
 #prepDE.py does not observe the order of the provided gtf_list
 # countData <- countData[,c(13,14,15,16,17,18,25,26,27,28,29,30,19,20,21,22,23,24,25,7,8,9,10,11,12,1,2,3,4,5,6)]
-colData <- read.csv(paste0(directory,"PHENO_DATA.csv"), sep="\t", row.names=1)
+colData <- read.csv(paste0(directory,"PHENO_DATA_Groups.csv"), sep="\t", row.names=1)
 # 2019_09_07: sample S7 is actually an M_cone. Will leave things as they are and just modify PHENO_DATA.
 # use colData to reorganize countData
 countData <- countData[, rownames(colData)]
 all(rownames(colData) == colnames(countData))
 # save total number of mapped reads
-write.csv(colSums(countData), file = "nMappedReads.csv")
+# write.csv(colSums(countData), file = "nMappedReads.csv")
 
-dds <- DESeqDataSetFromMatrix(countData = countData, colData = colData, design = ~type)
+dds <- DESeqDataSetFromMatrix(countData = countData, colData = colData, design = ~subtype)
 dds <- DESeq(dds)
 res <- results(dds)
 summary(res)
@@ -56,7 +56,7 @@ sprintf('n(DEGenes) = %g (p<0.1) ', sum(res$padj < 0.1, na.rm=TRUE))
 # for excel, columns can be rounded using: temp[c("baseMean")]=round_df(temp[c("baseMean")],digits = 2)
 
 # Log fold change shrinkage for visualization and ranking -------------------------------------------------------------------
-resLFC <- lfcShrink(dds, coef="type_Rod_vs_Cone", type="apeglm")
+resLFC <- lfcShrink(dds, coef="subtype_US_vs_ML", type="apeglm")
 head(resLFC)
 
 
@@ -69,10 +69,10 @@ head(resLFC)
 # # resdata$symbol <- tolower(resdata$symbol)
 # genenames <- mapIds(org.Dr.eg.db, keys=resdata[,c("symbol")], column=c("GENENAME"), keytype="SYMBOL", multivals='first')
 # # write.csv(genenames, file = "genenames.csv", col.names=c("symbol","genename"))
-# write.csv(genenames, file = "genenames.csv", col.names=NA)
+# write.csv(genenames, file = "genenames_Groups.csv", col.names=NA)
 
 
-genenames <- read.csv("genenames.csv", sep=",")
+genenames <- read.csv("genenames_Groups.csv", sep=",")
 colnames(genenames) <- c("symbol","genename")
 genenames$genename <- gsub(",","",genenames$genename)
 head(genenames)
@@ -82,19 +82,20 @@ head(genenames)
 resdata <- merge(as.data.frame(resLFC), as.data.frame(counts(dds,normalized =TRUE)), by = 'row.names', sort = FALSE)
 resdata <- resdata[order(resdata$padj),]
 names(resdata)[1] <- 'symbol'
-head(resdata,68)
+head(resdata)
 
 # save raw results for python plotting
 if (all(genenames$symbol == resdata$symbol)) {
-    print("data frames DO match")
-    resdata$genename = genenames$genename
-    resdata <- resdata[c(1,ncol(resdata),2:ncol(resdata)-1)] #not sure why it's adding symbol again
-    resdata <- resdata[c(1,2,4:ncol(resdata))]
-    head(resdata)
-    write.csv(head(resdata), file = "00_rodsVcones/rodVCones_test.csv", row.names=FALSE, quote=FALSE)
-    write.csv(resdata, file = "00_rodsVcones/rodVCones_raw.csv", row.names=FALSE, quote=FALSE)
+  print("data frames DO match")
+  resdata$genename = genenames$genename
+  resdata <- resdata[c(1,ncol(resdata),2:ncol(resdata)-1)] #not sure why it's adding symbol again
+  resdata <- resdata[c(1,2,4:ncol(resdata))]
+  head(resdata)
+  write.csv(head(resdata), file = "00_USvsLM/USvsLM_test.csv", row.names=FALSE, quote=FALSE)
+  write.csv(resdata, file = "00_USvsLM/USvsLM_raw.csv", row.names=FALSE, quote=FALSE)
+  print("saved data frames to csv files")
 } else {
-    print("data frames do NOT match")
+  print("data frames do NOT match")
 }
 
 # save excel friendly version
@@ -105,22 +106,21 @@ if (all(genenames$symbol == resdata$symbol)) {
   res_excel[c("log2FoldChange")]=round_df(res_excel[c("log2FoldChange")],digits = 4)
   res_excel[c("lfcSE")]=round_df(res_excel[c("lfcSE")],digits = 4)
   
-  res_excel[c("R1","R2","R3","R4","R5","R6")]=round_df(res_excel[c("R1","R2","R3","R4","R5","R6")],digits = 2)
   res_excel[c("U1","U2","U3","U4","U5")]=round_df(res_excel[c("U1","U2","U3","U4","U5")],digits = 2)
   res_excel[c("S1","S2","S3","S4","S5","S6")]=round_df(res_excel[c("S1","S2","S3","S4","S5","S6")],digits = 2)
   res_excel[c("M1","M2","M3","M4","M5","M6","S7")]=round_df(res_excel[c("M1","M2","M3","M4","M5","M6","S7")],digits = 2)
   res_excel[c("L1","L2","L3","L4","L5","L6")]=round_df(res_excel[c("L1","L2","L3","L4","L5","L6")],digits = 2)
   
-  write.csv(res_excel, file = "00_rodsVcones/rodVCones01_psorted.csv", row.names=FALSE)
-  write.csv(res_excel[order(res_excel$symbol),], file = "00_rodsVcones/rodVCones02_abc.csv", row.names=FALSE)
+  write.csv(res_excel, file = "00_USvsLM/USvsLM01_psorted.csv", row.names=FALSE)
+  write.csv(res_excel[order(res_excel$symbol),], file = "00_USvsLM/USvsLM02_abc.csv", row.names=FALSE)
   
   resexcel_pvalue <- subset(res_excel, padj<0.1)
-  resexcel_Rods <- subset(resexcel_pvalue, log2FoldChange>0)
-  resexcel_Cones <- subset(resexcel_pvalue, log2FoldChange<0)
+  resexcel_US <- subset(resexcel_pvalue, log2FoldChange>0)
+  resexcel_LM <- subset(resexcel_pvalue, log2FoldChange<0)
   
-  write.csv(resexcel_pvalue, file = "00_rodsVcones/rodVCones03_pvalue.csv")
-  write.csv(resexcel_Rods[order(resexcel_Rods$baseMean),], file = "00_rodsVcones/rodVCones04_rods.csv", row.names=FALSE)
-  write.csv(resexcel_Cones[order(resexcel_Cones$baseMean),], file = "00_rodsVcones/rodVCones05_cones.csv", row.names=FALSE)
+  write.csv(resexcel_pvalue, file = "00_USvsLM/USvsLM03_pvalue.csv")
+  write.csv(resexcel_Rods[order(resexcel_Rods$baseMean),], file = "00_USvsLM/USvsLM04_US.csv", row.names=FALSE)
+  write.csv(resexcel_Cones[order(resexcel_Cones$baseMean),], file = "00_USvsLM/USvsLM05_LM.csv", row.names=FALSE)
   
 } else {
   print("data frames do NOT match")
@@ -128,10 +128,10 @@ if (all(genenames$symbol == resdata$symbol)) {
 
 # plot a single gene: counts (normalized by seq depth and +0.5 for log plotting)
 test <- plotCounts(dds, gene="rho", intgroup="type", col =c('blue','blue'), fg='white', col.lab ='white', col.main ='white', col.sub ='white', col.axis='white', bg='white')
-test <- plotCounts(dds, gene="opn1sw2", intgroup="subtype", col =c('red','green','black','magenta','blue'), fg='white', col.lab ='white', col.main ='white', col.sub ='white', col.axis='white', bg='white')
+test <- plotCounts(dds, gene="opn1sw2", intgroup="subtype", col =c('red','blue'), fg='white', col.lab ='white', col.main ='white', col.sub ='white', col.axis='white', bg='white')
 
 # more customizable plot of a single gene: counts (normalized by seq depth and +0.5 for log plotting)
-data <- plotCounts(dds, gene="sema7a", intgroup=c("subtype"), returnData=TRUE)
+data <- plotCounts(dds, gene="tbx2a", intgroup=c("subtype"), returnData=TRUE)
 data
 ggplot(data, aes(x=subtype, y=count, color=subtype)) +
   scale_y_log10() + 
@@ -152,7 +152,7 @@ pheatmap(assay(ntd)[select,], cluster_rows=FALSE, show_rownames=FALSE,
          cluster_cols=FALSE, annotation_col=df)
 
 #built-in
-# plotPCA(ntd, intgroup=c("photoreceptor"))
+plotPCA(ntd, intgroup=c("subtype"))
 
 ##ggplot
 pcaData <- plotPCA(ntd, intgroup=c("subtype"), returnData=TRUE)
