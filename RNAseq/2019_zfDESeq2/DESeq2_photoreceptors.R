@@ -15,7 +15,7 @@ BiocManager::install("purr")
 
 
 # Library loading -------------------------------------------------------------------
-
+rm(list=ls())
 library("DESeq2")
 library("apeglm")
 library("ggplot2")
@@ -156,6 +156,7 @@ pheatmap(assay(ntd)[select,], cluster_rows=FALSE, show_rownames=FALSE,
 
 ##ggplot
 pcaData <- plotPCA(ntd, intgroup=c("subtype"), returnData=TRUE)
+write.csv(pcaData, file = "00_rodsVcones/pcaData.csv", row.names=FALSE)
 percentVar <- round(100 * attr(pcaData, "percentVar"))
 ggplot(pcaData, aes(PC1, PC2, color=subtype)) +
   geom_point(size=3) +

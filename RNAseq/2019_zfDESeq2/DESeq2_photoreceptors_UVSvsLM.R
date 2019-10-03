@@ -15,7 +15,7 @@ BiocManager::install("pcaExplorer")
 
 
 # Library loading -------------------------------------------------------------------
-
+rm(list=ls())
 library("DESeq2")
 library("apeglm")
 library("ggplot2")
@@ -156,6 +156,7 @@ plotPCA(ntd, intgroup=c("subtype"))
 
 ##ggplot
 pcaData <- plotPCA(ntd, intgroup=c("subtype"), returnData=TRUE)
+write.csv(pcaData, file = "00_USvsLM/pcaData.csv", row.names=FALSE)
 percentVar <- round(100 * attr(pcaData, "percentVar"))
 ggplot(pcaData, aes(PC1, PC2, color=subtype)) +
   geom_point(size=3) +

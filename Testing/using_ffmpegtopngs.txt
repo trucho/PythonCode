@@ -1,0 +1,3 @@
+ffmpeg -i src.mov -r 10 ./pngs/out%04d.png 
+
+https://medium.com/@patdugan/converting-a-mov-to-a-gif-6bb055e54230

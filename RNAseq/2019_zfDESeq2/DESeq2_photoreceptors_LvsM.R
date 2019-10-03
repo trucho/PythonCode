@@ -15,7 +15,7 @@ BiocManager::install("pcaExplorer")
 
 
 # Library loading -------------------------------------------------------------------
-
+rm(list=ls())
 library("DESeq2")
 library("apeglm")
 library("ggplot2")
@@ -63,14 +63,14 @@ head(resLFC)
 
 # Include Genename (descriptive) -------------------------------------------------
 # Run this only if things have changed:
-resdata <- merge(as.data.frame(res), as.data.frame(counts(dds,normalized =TRUE)), by = 'row.names', sort = FALSE)
-resdata <- resdata[order(resdata$padj),]
-names(resdata)[1] <- 'symbol'
-# For some reason this breaks the csv writing and symbol column is replaced by numbers
-# resdata$symbol <- tolower(resdata$symbol)
-genenames <- mapIds(org.Dr.eg.db, keys=resdata[,c("symbol")], column=c("GENENAME"), keytype="SYMBOL", multivals='first')
-# write.csv(genenames, file = "genenames.csv", col.names=c("symbol","genename"))
-write.csv(genenames, file = "genenames_LvsM.csv", col.names=NA)
+# resdata <- merge(as.data.frame(res), as.data.frame(counts(dds,normalized =TRUE)), by = 'row.names', sort = FALSE)
+# resdata <- resdata[order(resdata$padj),]
+# names(resdata)[1] <- 'symbol'
+# # For some reason this breaks the csv writing and symbol column is replaced by numbers
+# # resdata$symbol <- tolower(resdata$symbol)
+# genenames <- mapIds(org.Dr.eg.db, keys=resdata[,c("symbol")], column=c("GENENAME"), keytype="SYMBOL", multivals='first')
+# # write.csv(genenames, file = "genenames.csv", col.names=c("symbol","genename"))
+# write.csv(genenames, file = "genenames_LvsM.csv", col.names=NA)
 
 
 genenames <- read.csv("genenames_LvsM.csv", sep=",")
@@ -155,6 +155,7 @@ plotPCA(ntd, intgroup=c("subtype"))
 
 ##ggplot
 pcaData <- plotPCA(ntd, intgroup=c("subtype"), returnData=TRUE)
+write.csv(pcaData, file = "00_LvsM/pcaData.csv", row.names=FALSE)
 percentVar <- round(100 * attr(pcaData, "percentVar"))
 ggplot(pcaData, aes(PC1, PC2, color=subtype)) +
   geom_point(size=3) +
