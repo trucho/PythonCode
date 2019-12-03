@@ -52,7 +52,8 @@ def formatFigure_Opsins(genename, figH, axH, plotH):
     
     axH.set_yticks(np.arange(0, 3.5, step=0.5))
     # axH.set_yticklabels([str(i) + ' x 10$^6$' for i in np.arange(0, 2.5, step=0.5)]);
-    axH.set_ylabel('norm. counts x 10$^6$', fontproperties=fontLabels)
+#     axH.set_ylabel('norm. counts x 10$^6$', fontproperties=fontLabels)
+    axH.set_ylabel('fpkm', fontproperties=fontLabels)
     
     axH.set_title(genename, fontproperties=fontTitle)
     axH.spines['top'].set_visible(False)
@@ -77,7 +78,8 @@ def formatFigure(genename, figH, axH, plotH):
     axH.set_xticks([3.5,9.5,15.5,22.5,29.5])
     axH.set_xticklabels(['Rods','UV','S','M','L']);
     axH.ticklabel_format(style='sci',axis='y',scilimits=(0,2))
-    axH.set_ylabel('norm. counts', fontproperties=fontLabels)
+#     axH.set_ylabel('norm. counts', fontproperties=fontLabels)
+    axH.set_ylabel('fpkm', fontproperties=fontLabels)
     axH.set_title(genename, fontproperties=fontTitle)
     axH.spines['top'].set_visible(False)
     axH.spines['right'].set_visible(False)
@@ -101,7 +103,8 @@ def formatFigure_list(genelist, figH, axH, plotH):
     axH.set_xticks(xTicks)
     axH.set_xticklabels(xLabels);
     axH.ticklabel_format(style='sci',axis='y',scilimits=(0,2))
-    axH.set_ylabel('norm. counts', fontproperties=fontLabels)
+#     axH.set_ylabel('norm. counts', fontproperties=fontLabels)
+    axH.set_ylabel('fpkm', fontproperties=fontLabels)
     axH.set_title(genelist, fontproperties=fontTitle)
     axH.spines['top'].set_visible(False)
     axH.spines['right'].set_visible(False)
