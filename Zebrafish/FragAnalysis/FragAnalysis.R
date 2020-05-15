@@ -1,0 +1,16 @@
+BiocManager::install(c("Fragman"))
+library("Fragman")
+
+folder <- "/Users/angueyraaristjm/Documents/Python/PythonCode/fatools-master"
+testdata <- storing.inds(folder)
+### here we just load our sample data and use the first 2 plants
+?testdata
+data(testdata)
+testdata <- testdata[1:2]
+class(testdata) <- "fsa_stored"
+# plot(testdata) # to visualize th
+
+
+#LIZ500 (https://assets.thermofisher.com/TFS-Assets/LSG/manuals/cms_042491.pdf)
+liz500 <- c(35, 50, 75, 100, 139, 150, 160, 200, 250, 300, 340, 350, 400, 450, 490, 500) 
+ladder.info.attach(stored=testdata, ladder=liz500)

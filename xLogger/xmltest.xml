@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<experimenters>
+  <experimenter>
+    <firstname>Juan</firstname>
+    <lastname>Angueyra</lastname>
+    <email>angueyra@nih.gov</email>
+  </experimenter>
+  <experimenter>
+    <firstname>John</firstname>
+    <lastname>Ball</lastname>
+    <email>jball@nih.gov</email>
+  </experimenter>
+</experimenters>
