@@ -128,7 +128,7 @@ if (all(genenames$symbol == resdata$symbol)) {
 
 # plot a single gene: counts (normalized by seq depth and +0.5 for log plotting)
 test <- plotCounts(dds, gene="rho", intgroup="type", col =c('blue','blue'), fg='white', col.lab ='white', col.main ='white', col.sub ='white', col.axis='white', bg='white')
-test <- plotCounts(dds, gene="opn1sw2", intgroup="subtype", col =c('red','blue'), fg='white', col.lab ='white', col.main ='white', col.sub ='white', col.axis='white', bg='white')
+test <- plotCounts(dds, gene="foxq2", intgroup="subtype", col =c('red','blue'), fg='white', col.lab ='white', col.main ='white', col.sub ='white', col.axis='white', bg='white')
 
 # more customizable plot of a single gene: counts (normalized by seq depth and +0.5 for log plotting)
 data <- plotCounts(dds, gene="tbx2a", intgroup=c("subtype"), returnData=TRUE)
@@ -168,4 +168,22 @@ plotDispEsts(dds)
 #probably means that data should be prefiltered. Maybe remove all lines with very low counts
 
 
+# launch PCA App
 pcaExplorer(dds = dds)
+
+
+
+# trying to get PC table
+# rld_rods <- rlogTransformation(dds) # using rlog transformation (very slow)
+sumExp_log2 <- SummarizedExperiment(log2(counts(dds, normalized=TRUE) + 1),colData=colData(dds)) #using log2+1 pseudocounts
+pcaobj <- prcomp(t(assay(sumExp_log2)), rank=3) # calculate the weight of each gene to the first 3 principal components
+pcaobj$rotation[1:10,] # this extracts weights for a single gene 
+write.csv(pcaobj$rotation, file = "00_USvsLM/pcaWeights.csv", row.names=TRUE)
+
+# extract the top genes that weigh PC1 the most
+PC1_Groups = hi_loadings(pcaobj, whichpc = 1, topN = 20,exprTable=counts(dds))
+head(PC1_Groups,40)
+
+# or make plot
+hi_loadings(pcaobj, whichpc = 1, topN = 40)
+# save plot as 10 x 30 inches pdf

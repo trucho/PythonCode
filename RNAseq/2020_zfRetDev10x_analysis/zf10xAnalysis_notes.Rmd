@@ -1,0 +1,59 @@
+---
+title: "zf10x_analysisNotes"
+output: html_notebook
+---
+
+### dataset available as [GSE122680](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE122680)
+### Notes on analysis from [Zhu et al., 2020](https://dev-biologists-org.ezproxy.nihlibrary.nih.gov/content/147/12/dev185660) 
+
+1. Aligned to Zv10  
+1. Seurat objects created after some cleanup (removal or empty droplets, low-quality cells and low-abundance genes)
+1. Filtered data then log-normalized with default 10 000 scaling factor
+1. Highly variable genes id'd using LogVMR dispersion function; these genes fit 0.0125<average expression<3 and s.d.>0.5
+1. Dimensionality reduction using PCA:
+   - PCs with p-value<1e-4
+   - nearest neighbor algorithm with default parameters and resolution = 0.6
+   - Clustering results visualized in t-SNE space using same PCs
+   - (for 48 hpf replicates, used UMAP)
+1. Used "FindAllMarkers" to find DEGs (using p-value adjusted < 1e-14)
+1. Removed contaminated cell clusters
+
+
+### Re-analysis
+1. Re-running analysis according to their methods gives 12 clusters and slightly different tSNE space
+1. Publication divides things into 7 clusters: Photoreceptors, HCs, BCs, RGCs, MG and CMZCs
+1. Seems like clusters 6 and 10 encompass all photoreceptors (close in tSNE plot)
+
+
+#### Standard commands for Seurat v3.0 workflow
+```{r}
+# pbmc.counts <- Read10X(data.dir = "~/Downloads/pbmc3k/filtered_gene_bc_matrices/hg19/")
+# pbmc <- CreateSeuratObject(counts = pbmc.counts)
+# pbmc <- NormalizeData(object = pbmc)
+# pbmc <- FindVariableFeatures(object = pbmc)
+# pbmc <- ScaleData(object = pbmc)
+# pbmc <- RunPCA(object = pbmc)
+# pbmc <- FindNeighbors(object = pbmc)
+# pbmc <- FindClusters(object = pbmc)
+# pbmc <- RunTSNE(object = pbmc)
+# DimPlot(object = pbmc, reduction = "tsne")
+```
+
+
+
+---
+#### Instructions
+This is an [R Markdown](http://rmarkdown.rstudio.com) Notebook. When you execute code within the notebook, the results appear beneath the code. 
+Try executing this chunk by clicking the *Run* button within the chunk or by placing your cursor inside it and pressing *Cmd+Shift+Enter*. 
+
+
+```{r}
+plot(cars)
+```
+
+Add a new chunk by clicking the *Insert Chunk* button on the toolbar or by pressing *Cmd+Option+I*.
+
+When you save the notebook, an HTML file containing the code and output will be saved alongside it (click the *Preview* button or press *Cmd+Shift+K* to preview the HTML file). 
+
+The preview shows you a rendered HTML copy of the contents of the editor. Consequently, unlike *Knit*, *Preview* does not run any R code chunks. Instead, the output of the chunk when it was last run in the editor is displayed.
+
