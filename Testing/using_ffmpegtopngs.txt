@@ -1,3 +1,43 @@
-ffmpeg -i src.mov -r 10 ./pngs/out%04d.png 
+ffmpeg -i src.mov -r 10 ./pngs/out%04d.png
+
+mkdir ./gifs
+sips -s format gif ./pngs/*.png --out ./gifs
+
+cd ./gifs
+gifsicle --optimize=3 --resize=1072x444 --delay=10 --loopcount *.gif > animation.gif
 
 https://medium.com/@patdugan/converting-a-mov-to-a-gif-6bb055e54230
+
+
+ffmpeg -i Hunting.mov -r 2 ./pngs/out%04d.png
+
+sips -s format gif ./pngs/*.png --out ./gifs
+
+cd ./gifs
+gifsicle --optimize=3 --resize=696x384 --delay=10 --loopcount *.gif > animation.gif
+
+gifsicle --resize=696x384 --delay=10 --loopcount *.gif > animation.gif
+
+
+
+ffmpeg -i Hunting.mov -r 3 ./pngs/out%04d.png
+
+sips -s format gif ./pngs/*.png --out ./gifs
+
+gifsicle --resize=366x450 --delay=1 --loopcount ./gifs/*.gif > Hunting.gif
+
+rm ./pngs/*.png
+rm ./gifs/*.gif
+
+
+ffmpeg -i mov2.mov -r 10 ./pngs/out%04d.png
+sips -s format gif ./pngs/*.png --out ./gifs
+gifsicle --resize=1620x930 --delay=1 --loopcount ./gifs/*.gif > mov2.gif
+
+ffmpeg -i mov5.mp4 -r 6 ./pngs/out%04d.png
+sips -s format gif ./pngs/*.png --out ./gifs
+gifsicle --resize=802x738 --delay=1 --colors 256 --loopcount ./gifs/*.gif > mov5.gif
+
+ffmpeg -i mov7.mp4 -r 6 ./pngs/out%04d.png
+sips -s format gif ./pngs/*.png --out ./gifs
+gifsicle --resize=1040x256 --delay=1 --colors 256 --loopcount ./gifs/*.gif > mov7.gif

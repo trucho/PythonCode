@@ -315,7 +315,16 @@ DoHeatmap(photo, features = top10$gene) + NoLegend()
 
 FeaturePlot(photo, features = c("opn1sw1", "opn1sw2",'opn1mw1','opn1mw3','opn1lw2','si:busm1-57f23.1','rho','saga'))
 
+# Clear all plots -------------------------------------------------------------------
+try(dev.off(),silent=TRUE)
+# Clear environment -------------------------------------------------------------------
+rm(list=ls())
 
+# ------------------------------------------------------------------------------------------
+# Setup -------------------------------------------------------------------
+setwd("/Users/angueyraaristjm/Documents/LiLab/RNAseq/zfRetDev10x_Xu2020/ret72hpf/")
+directory <- "/Users/angueyraaristjm/Documents/LiLab/RNAseq/zfRetDev10x_Xu2020/ret72hpf/"
+getwd()
 # ------------------------------------------------------------------------------------------
 # Subclustered photoreceptors (Vincent's dataset)
 photo <- readRDS(file = "./VPK_ZF-Cones4-Subset.rds")
@@ -431,6 +440,8 @@ VlnPlot(photo, features = c("cadm1a", "cadm1b",'cadm2a','cadm2b','cadm3','cadm4'
 # but all classes expresses cadm3
 VlnPlot(pbmc, features = c("cadm1a", "cadm1b",'cadm2a','cadm2b','cadm3','cadm4'))
 
+
+VlnPlot(photo, features = c("prdm1a","prdm1b"))
 
 
 
