@@ -14,7 +14,7 @@ import shutil
 import subprocess
 
 if len(sys.argv) <= 2:
-	print 'usage: ', sys.argv[0], '[INPUT_MOV_FILENAME]', '[OUTPUT_GIF_FILENAME]', '[FPS]'
+	print('usage: ', sys.argv[0], '[INPUT_MOV_FILENAME]', '[OUTPUT_GIF_FILENAME]', '[FPS]')
 	sys.exit(-1)
 
 assert(os.path.exists(sys.argv[1]))
@@ -50,4 +50,4 @@ cmd = 'open -R %(OUTPUT_GIF_FILENAME)s' % {
 }
 subprocess.check_call(cmd, shell=True)
 
-print 'done'
+print('done')
