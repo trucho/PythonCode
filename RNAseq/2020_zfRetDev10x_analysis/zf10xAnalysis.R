@@ -1,10 +1,10 @@
 # Enter commands in R (or R studio, if installed)
-install.packages('Seurat')
-install.packages("reticulate")
+# install.packages('Seurat')
+# install.packages("reticulate")
 # install.packages("umap")
 # install.packages("openssl")
-install.packages('BiocManager')
-BiocManager::install('limma')
+# install.packages('BiocManager')
+# BiocManager::install('limma')
 
 Sys.setenv(RETICULATE_PYTHON = "/Users/angueyraaristjm/anaconda3/bin/python")
 
@@ -19,6 +19,7 @@ library(dplyr)
 library(patchwork)
 library(reticulate)
 library(umap)
+library(ggplot2)
 
 # Clear all plots -------------------------------------------------------------------
 try(dev.off(dev.list()["RStudioGD"]),silent=TRUE)
@@ -306,6 +307,13 @@ RidgePlot(photo, features = c("opn1sw1", "opn1sw2",'opn1mw1','opn1mw2','opn1mw3'
 DotPlot(photo, features = c("gnat2", "rho",'elovl4b','gnat1','si:busm1-57f23.1'))
 
 DotPlot(photo, features = c("sema7a","efna1b","ntng2b","syt1a","syt1b","syt5a","syt5b","tbx2a","tbx2b","eml1"))
+# plotting semaphorins
+p = DotPlot(photo, features = c("sema3aa","sema3ab","sema3b","sema3bl","sema3c","sema3d","sema3e","sema3fa","sema3fb","sema3ga","sema3gb","sema3h","sema4aa","sema4ab","sema4ba","sema4bb","sema4c","sema4d","sema4e","sema4f","sema4ga","sema4gb","sema5a","sema5ba","sema5bb","sema6a","sema6ba","sema6bb","sema6d","sema6dl","sema6e","sema7a")) 
+p + theme(axis.text.x=element_text(angle=45, hjust=1))
+# ephrins
+p = DotPlot(photo, features = c("efna1a","efna1b","efna2a","efna2b","efna3a","efna3b","efna5a","efna5b","efnb1","efnb2a","efnb2b","efnb3a","efnb3b")) 
+p + theme(axis.text.x=element_text(angle=45, hjust=1))
+
 # check counts in tSNE space
 # FeaturePlot(photo, features = c("gnat2",'gngt2b', "gnat1",'rho','si:busm1-57f23.1','opn1lw2', 'crx'))
 

@@ -17,7 +17,7 @@ rm(list=ls()); + try(dev.off(),silent=TRUE);
 # ------------------------------------------------------------------------------------------------------------------------------------------------
 # ------------------------------------------------------------------------------------------------------------------------------------------------
 # define folder
-dir.fsa = "/Users/angueyraaristjm/Documents/LiMolec/zfGenotyping/20201007_frag_analysis_syt5a_ntng2b/syt5a"
+dir.fsa = "/Users/angueyraaristjm/Documents/LiMolec/zfGenotyping/20201123_tbx2RoundUp/tbx2b"
 # load all fsa files in folder
 fsaData = storing.inds(dir.fsa)
 fsaNames = names(fsaData)
@@ -27,7 +27,7 @@ cat(fsaNames, sep="\n")
 # LIZ500 (https://assets.thermofisher.com/TFS-Assets/LSG/manuals/cms_042491.pdf)
 # liz500 <- c(35, 50, 75, 100, 139, 150, 160, 200, 250, 300, 340, 350, 400, 450, 490, 500)
 # finding that first marker is usually contaminated, so decided to remove it
-liz500 <- c(50, 75, 100, 139, 150, 160, 200, 300, 340, 350, 400, 450, 490, 500)
+# liz500 <- c(50, 75, 100, 139, 150, 160, 200, 300, 340, 350, 400, 450, 490, 500)
 liz500 <- c(50, 75, 100, 139, 150, 160, 200, 250, 300, 340, 350, 400, 450, 490, 500)
 # liz500 <- c(75, 100, 139, 150, 160, 200, 250, 300, 340, 350, 400, 450, 490, 500)
 
@@ -47,7 +47,7 @@ liz500 <- c(50, 75, 100, 139, 150, 160, 200, 250, 300, 340, 350, 400, 450, 490, 
 # ------------------------------------------------------------------------------------------------------------------------------------------------
 # ------------------------------------------------------------------------------------------------------------------------------------------------
 # get single file (run section with command+alt+T)
-i=1
+i=65
 tempName = fsaNames[i]; message(paste("Analyzing:",fsaNames[i]))
 tempData <- fsaData[tempName] 
 class(tempData) <- "fsa_stored"
@@ -57,12 +57,12 @@ if (file.exists(paste(paste(dir.fsa,gsub('.{0,4}$', '', tempName),sep = "/"),".c
 chDNA = 1; chLadder = 5;
 # plot data to assess if it's worth it remapping
 # plot(tempData[[tempName]][,1], typ='l',xlim=c(1700,length(tempData[[tempName]][,1])),ylim=c(0,30000))
-dlo=1700;
+dlo=1800;
 dhi=5900;
 plot(tempData[[tempName]][,chDNA], typ='l',xlim=c(dlo,dhi),ylim=c(min(tempData[[tempName]][dlo:dhi,chDNA]),max(tempData[[tempName]][dlo:dhi,chDNA])), main = tempName)
 # figure out threshold by checking liz500 channel
 plot(tempData[[tempName]][,chLadder], xlim=c(1600,2200), typ='l')
-ilim01 = 1620;
+ilim01 = 1700;
 plot(tempData[[tempName]][,chLadder], xlim =c(ilim01,5000), typ='l')
 ilim02 = 5000;
 plot(tempData[[tempName]][ilim01:ilim02,chLadder], typ='l') # 16 peaks for liz500 (15 peaks if removed '35' marker)
@@ -102,11 +102,11 @@ fitWeights <- predict(polyModel,full_ladder)
 # plot the data
 plot(fitWeights, tempData[[tempName]][,1], typ='l', xlim=c(0, 600), main=tempName)
 # zoom into ROI
-p_lo = 350; p_hi =  550; #syt5a | tbx2a
+# p_lo = 350; p_hi =  600; #syt5a | tbx2a
 # p_lo = 250; p_hi = 420; #sema7a | tbx2b
 # p_lo = 200; p_hi = 275; #eml1
 # p_lo = 100; p_hi = 300; #ntng2b
-# p_lo = 320; p_hi =  400;
+p_lo = 100; p_hi =  600;
 # plot(fitWeights, tempData[[tempName]][,1], typ='l', xlim=c(p_lo, p_hi), ylim=c(0,1000), main=tempName)
 tempPeak = max(tempData[[tempName]][fitWeights>p_lo&fitWeights<p_hi,1]); tempBP =  fitWeights[which(tempData[[tempName]]==tempPeak)];
 plot(fitWeights, tempData[[tempName]][,1], typ='l', xlim=c(p_lo, p_hi), 
