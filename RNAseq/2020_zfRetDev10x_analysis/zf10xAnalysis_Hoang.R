@@ -21,6 +21,8 @@ library(patchwork)
 library(reticulate)
 library(umap)
 library(ggplot2)
+library(gridExtra)
+library(grid)
 
 # Clear all plots -------------------------------------------------------------------
 try(dev.off(dev.list()["RStudioGD"]),silent=TRUE)
@@ -30,14 +32,14 @@ try(dev.off(),silent=TRUE)
 rm(list=ls())
 
 # Setup -------------------------------------------------------------------
-setwd("/Users/angueyraaristjm/Documents/LiLab/RNAseq/zfRet_HoangBlackshaw2020/")
-directory = "/Users/angueyraaristjm/Documents/LiLab/RNAseq/zfRet_HoangBlackshaw2020/"
+setwd("/Users/angueyraaristjm/Documents/LiMolec/otherRNAseq/zfRet_HoangBlackshaw2020/")
+directory = "/Users/angueyraaristjm/Documents/LiMolec/otherRNAseq/zfRet_HoangBlackshaw2020/"
 getwd()
 # -------------------------------------------------------------------
 # Load the 10x dataset (28845 cells), after updating to Seurat_v3 (had to use biowulf)
-pbmc = readRDS("~/Documents/LiLab/RNAseq/zfRet_HoangBlackshaw2020/zfDev_pbmc_v3.rds");
+pbmc = readRDS("~/Documents/LiMolec/otherRNAseq/zfRet_HoangBlackshaw2020/zfDev_pbmc_v3.rds");
 # Load the adult cone dataset (~2000 cells), after reclustering (separate R script)
-photo = readRDS("~/Documents/LiLab/RNAseq/zfRet_HoangBlackshaw2020/cones_Adult.rds");
+photo = readRDS("~/Documents/LiMolec/otherRNAseq/zfRet_HoangBlackshaw2020/cones_Adult.rds");
 # ------------------------------------------------------------------------------------------
 
 # Retinal progenitor: 0
@@ -198,8 +200,8 @@ rm(list=ls())
 
 # ------------------------------------------------------------------------------------------
 # Setup -------------------------------------------------------------------
-setwd("/Users/angueyraaristjm/Documents/LiLab/RNAseq/zfRetDev10x_Xu2020/ret72hpf/")
-directory <- "/Users/angueyraaristjm/Documents/LiLab/RNAseq/zfRetDev10x_Xu2020/ret72hpf/"
+setwd("/Users/angueyraaristjm/Documents/LiMolec/otherRNAseqzfRetDev10x_Xu2020/ret72hpf/")
+directory <- "/Users/angueyraaristjm/Documents/LiMolec/otherRNAseqzfRetDev10x_Xu2020/ret72hpf/"
 getwd()
 # ------------------------------------------------------------------------------------------
 # Subclustered photoreceptors (Vincent's dataset)

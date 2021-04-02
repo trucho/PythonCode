@@ -12,6 +12,8 @@ library(patchwork)
 library(reticulate)
 library(umap)
 library(ggplot2)
+library(gridExtra)
+library(grid)
 
 # Clear all plots -------------------------------------------------------------------
 try(dev.off(dev.list()["RStudioGD"]),silent=TRUE)
@@ -21,12 +23,23 @@ try(dev.off(),silent=TRUE)
 rm(list=ls())
 
 # Setup -------------------------------------------------------------------
-setwd("/Users/angueyraaristjm/Documents/LiLab/RNAseq/zfRet_HoangBlackshaw2020/")
-directory = "/Users/angueyraaristjm/Documents/LiLab/RNAseq/zfRet_HoangBlackshaw2020/"
+setwd("/Users/angueyraaristjm/Documents/LiMolec/otherRNAseq/zfRet_HoangBlackshaw2020/")
+directory = "/Users/angueyraaristjm/Documents/LiMolec/otherRNAseq/zfRet_HoangBlackshaw2020/"
+exportDir = paste(directory,"eelAnalysis",sep="")
 getwd()
+# Plot themes -------------------------------------------------------------------
+eelTheme = function (base_size = 42, base_family = "") {
+   theme_classic() %+replace% 
+      theme(
+         axis.line = element_line(colour = 'black', size = 1),
+         axis.text = element_text(size=18),
+         text = element_text(size=18)
+      )
+}
+# -------------------------------------------------------------------
 # -------------------------------------------------------------------
 # Load the 10x dataset (28845 cells), after updating to Seurat_v3 (had to use biowulf)
-pbmc = readRDS("~/Documents/LiLab/RNAseq/zfRet_HoangBlackshaw2020/zfDev_pbmc_v3.rds");
+pbmc = readRDS("~/Documents/LiMolec/otherRNAseq/zfRet_HoangBlackshaw2020/zfDev_pbmc_v3.rds");
 # pca, tsne and umap already done, so will keep their clusters and just separate photoreceptors
 # ------------------------------------------------------------------------------------------
 
@@ -44,33 +57,137 @@ pbmc = readRDS("~/Documents/LiLab/RNAseq/zfRet_HoangBlackshaw2020/zfDev_pbmc_v3.
 # GABA ACs = 8
 
 # Assigning cell type identity to clusters (it's basically just renaming)
-new.cluster.ids <- c("RPC","MG1","R","PRPC","Ca","BC1","HC","AC","ACgaba","MG2","RGC1","MG3","Cl","RGC2","ACgly","BC2","MGi")
+new.cluster.ids <- c("RetinalProgenitor","Glia","Rod","PhotoProgenitor","Cone(adult)","BC","HC","AC","AC","Glia","RGC(adult)","Glia","Cone(larval)","RGC(larval)","AC","BC","Glia(immature)")
 names(new.cluster.ids) <- levels(pbmc)
 pbmc <- RenameIdents(pbmc, new.cluster.ids)
-DimPlot(pbmc, reduction = "tsne", label = TRUE, pt.size = 0.5) + NoLegend()
-DimPlot(pbmc, reduction = "umap", label = TRUE, pt.size = 0.5) + NoLegend()
+
+DimPlot(pbmc, reduction = "tsne", label =  TRUE, pt.size = 1, label.size = 6) + eelTheme()
+ggsave("adult_allClusters03.png", path=exportDir, width = 140*2, height = 105*2, units = "mm")
+
+DimPlot(pbmc, reduction = "umap", label = TRUE, pt.size = 1, label.size = 6, repel = TRUE) + eelTheme()
+ggsave("adult_allClusters.png", path=exportDir, width = 140*2, height = 105*2, units = "mm")
+
+# store naming information to object
+pbmc$cellTypes <- Idents(object = pbmc)
+# switch to Sample to breakdown by age
+pbmc = SetIdent(pbmc, value = "Sample")
+DimPlot(pbmc, reduction = "umap", label = TRUE, pt.size = 1, label.size = 6) + eelTheme()
+ggsave("adult_allClusters02.png", path=exportDir, width = 140*2, height = 105*2, units = "mm")
+
+# DimPlot(pbmc, reduction = "umap", label = TRUE, pt.size = 1, label.size = 6, repel = TRUE) + NoLegend() + eelTheme()
+
+DimPlot(pbmc, reduction = "tsne", label =  TRUE, pt.size = 1, label.size = 6, repel = TRUE) + eelTheme()
+ggsave("adult_allClusters04.png", path=exportDir, width = 140*2, height = 105*2, units = "mm")
+
+# And switch back
+pbmc = SetIdent(pbmc, value = "cellTypes")
+# can't trust tbx2 data from this
+FeaturePlot(pbmc, reduction = 'tsne', features = c("crx","otx5", "tbx2a",'tbx2b'), pt.size = 2)
+
+FeaturePlot(pbmc, reduction = 'umap', features = c("crx","otx5", "tbx2a",'tbx2b'), pt.size = 2)
+VlnPlot(pbmc, features = c("crx","otx5", "tbx2a",'tbx2b'))
+# ------------------------------------------------------------------------------------------
 # ------------------------------------------------------------------------------------------
 # RODS
-# There are 2 rod clusters, but it's not age since >95% on cells are from adult samples
-rods <- subset(pbmc, idents = c("R"))
+# There are 2 rod clusters, and small one corresponds to larval samples + larval looking rods.
+rods <- subset(pbmc, idents = c("Rod"))
 # saveRDS(rods, file = "./rods.rds") #preliminary saving to analyze later
 
-DimPlot(rods, reduction = "tsne", label=TRUE)
+DimPlot(rods, reduction = "tsne", label =  TRUE, pt.size = 1, label.size = 6) + eelTheme()
+ggsave("adult_rods01.png", path=exportDir, width = 140*2, height = 105*2, units = "mm")
+rods2 = SetIdent(rods, value = "Sample")
+new.cluster.ids <- c("2.5dpf","5dpf","Ad1","2.5dpf","Ad5","4dpf","Ad4","Ad3","Ad2" )
+names(new.cluster.ids) <- levels(rods2)
+rods2 <- RenameIdents(rods2, new.cluster.ids)
+Idents(rods) <- factor(x = Idents(rods2), levels = c("2.5dpf","4dpf","5dpf","Ad1","Ad2","Ad3","Ad4","Ad5"))
+DimPlot(rods2, reduction = "tsne", label = TRUE, pt.size = 1, label.size = 6, repel = TRUE, order = c("2.5dpf","4dpf","5dpf","AdR1","AdR2","AdR3","AdR4","AdR5")) + eelTheme()
+ggsave("adult_rods02.png", path=exportDir, width = 140*2, height = 105*2, units = "mm")
+
+
 zfAFlag = grepl("AdR",names(Idents(rods)));
 rods = AddMetaData(rods,metadata=zfAFlag, col.name = "zfA");
 rods = SetIdent(rods, value = "zfA")
 FeaturePlot(rods, reduction = 'tsne', features = c("opn1sw1", "opn1sw2",'opn1mw1','opn1mw2','opn1mw3','opn1mw4','opn1lw1','opn1lw2','si:busm1-57f23.1'))
-# smaller cluster has higher nr2e3 levels
+# smaller cluster has higher nr2e3 levels because it belongs to larval samples mostly
 FeaturePlot(rods, reduction = 'tsne', features = c("rho", "nr2e3",'nrl','saga','sagb'))
+# ------------------------------------------------------------------------------------------
+# plot layouts for direct export
+#Subtype markers
+p = FeaturePlot(rods, reduction = 'tsne', features = c("rho","nr2e3","gnat1","gnat2","arr3b","arr3a","thrb","opn1sw1", "opn1sw2",'opn1mw1','opn1lw1'),
+                pt.size=1, order=FALSE, combine=FALSE)
+lay = rbind(c(1,2,3,NA),c(4,5,6,7),c(8,9,10,11))
+grid.arrange(grobs = p, layout_matrix = lay)
+ps = arrangeGrob(grobs = p, layout_matrix = lay)
+ggsave(ps, file="adult_rodsMarkers.png", path=exportDir, width = 140*2, height = 105*2, units = "mm")
 
+#Subtype markers in whole dataset
+p = FeaturePlot(pbmc, reduction = 'tsne', features = c("rho","nr2e3","gnat1","gnat2","arr3b","arr3a","thrb","opn1sw1", "opn1sw2",'opn1mw1','opn1lw1'),
+                pt.size=1, order=FALSE, combine=FALSE)
+lay = rbind(c(1,2,3,NA),c(4,5,6,7),c(8,9,10,11))
+grid.arrange(grobs = p, layout_matrix = lay)
+ps = arrangeGrob(grobs = p, layout_matrix = lay)
+ggsave(ps, file="adult_allMarkers.png", path=exportDir, width = 140*2, height = 105*2, units = "mm")
+
+# HERE
+ps = DotPlot(pbmc, features = c("rho","nr2e3","gnat1","gnat2","arr3b","arr3a","thrb","opn1sw1", "opn1sw2",'opn1mw1','opn1lw1')) + eelTheme() + theme(axis.text.x = element_text(angle = 45, hjust=1))
+ggsave(ps, file="adult_allMarkersDot.png", path=exportDir, width = 140*2, height = 105*2, units = "mm")
+
+
+p = FeaturePlot(pbmc, reduction = 'tsne', features = c("crx","sox2","syt5a","syt5b","cnga1","cnga3a","elovl4b"),
+                pt.size=1, order=FALSE, combine=FALSE)
+lay = rbind(c(1,2,NA,NA),c(3,4,NA,NA),c(5,6,7,NA))
+grid.arrange(grobs = p, layout_matrix = lay)
+ps = arrangeGrob(grobs = p, layout_matrix = lay)
+ggsave(ps, file="adult_allMarkers02.png", path=exportDir, width = 140*2, height = 105*2, units = "mm")
+
+ps = DotPlot(pbmc, features =  c("crx","sox2","syt5a","syt5b","cnga1","cnga3a",'elovl4b')) + eelTheme() + theme(axis.text.x = element_text(angle = 45, hjust=1))
+ggsave(ps, file="adult_allMarkersDot02.png", path=exportDir, width = 140*2, height = 105*2, units = "mm")
+
+FeaturePlot(pbmc, reduction = 'tsne', features = c("crx","tbx2a","sox2","syt5a","syt5b","gnat1","gnat2",'elovl4b'),
+            pt.size=1, order=FALSE, combine=TRUE)
+
+FeaturePlot(pbmc, reduction = 'tsne', features = c("myo7aa","pcdh15a","cacna1fa","cacna1da","cacna1db"),
+            pt.size=0.1, order=FALSE, combine=TRUE)
+
+FeaturePlot(pbmc, reduction = 'umap', features = c("foxq2"), pt.size=1, order=TRUE, combine=FALSE)
+FeaturePlot(pbmc, reduction = 'umap', features = c("foxq2","prdm1b","pbx1a","rxrga","nr2f6b"), pt.size=1, order=TRUE, combine=TRUE)
+
+DotPlot(pbmc, features = c("myo7aa","pcdh15a","cacna1fa", "cacna1da","cacna1db","il34","p2ry1","nr2e3","crx","otx5"))
+
+DotPlot(pbmc, features = c("cpne1","cpne2","cpne3", "cpne4a","cpne4b","cpne5a","cpne5b","cpne7","cpne8","cpne9"))
+
+# HC genes in Yamagata, 2021 chicken RNAseq
+DotPlot(pbmc, features = c("onecut1","onecut2","onecut3a","lhx1a","lhx1b","isl1","ipcef1","oxt","ntrk1", "egfra","ltk"))
+
+FeaturePlot(pbmc, reduction = 'tsne', features = c("onecut1","onecut2","onecut3a","lhx1a","lhx1b","isl1","ipcef1","oxt","ntrk1", "egfra","ltk","cpne8"),
+            pt.size=0.2, order=TRUE, combine=TRUE)
+
+FeaturePlot(pbmc, reduction = 'tsne', features = c("zgc:162612"), pt.size=0.2, order=TRUE, combine=TRUE)
+
+# SAC genes in Yamagata, 2021 chicken RNAseq + tfap2a = INL and tfap2b = INL + GCL
+# Exploring briefly, ACs that are tbx2+ in this dataset are clusters: 11,14,15,16,17(nmb),2,21,22,25 (OFF SAC),31(nts, penk),39,42 (penk),43,47,54,6,7 (ON SAC)
+# In mouse amacrine dataset it's clearly in clusters 35 (PENK), 43 (GABA+), 51 (GHRH)
+# less clearly in 16, 17 (SACs), 23, 24(nGnG-1), 26 (VIP), 3 (AII),30 (nGnG-3), 56 (VG1), 9 (Gly+)
+FeaturePlot(pbmc, reduction = 'tsne', features = c("tbx2a","tbx2b","chata","sox10","tfap2a","tfap2b","slc5a7a","slc18a3a","slc18a3b"), pt.size=0.2, order=TRUE, combine=TRUE)
+
+FeaturePlot(pbmc, reduction = 'tsne', features = c("tbx2a","tbx2b","nts","nmbb","slc18a3a","penka","penkb","ghrh","maff"), pt.size=0.2, order=TRUE, combine=TRUE)
+
+# FeaturePlot(pbmc, reduction = 'tsne', features = c("opn1mw1","opn1mw2","opn1mw3","opn1mw4","opn1lw1","opn1lw2"),
+#             pt.size=1, order=FALSE, combine=TRUE)
+# ------------------------------------------------------------------------------------------
 # ------------------------------------------------------------------------------------------
 # CONES
 # Subclustering cones (probably will then remerge with rods and photoreceptor progenitors to track gene expression)
 # DimPlot(pbmc, reduction = "tsne", label = TRUE, pt.size = 0.5) + NoLegend()
 # almost impossible separation by subtypes combining all "cones"
-photo <- subset(pbmc, idents = c("Ca","Cl"))
-DimPlot(photo, reduction = "tsne", label=TRUE)
+photo <- subset(pbmc, idents = c("Cone(adult)","Cone(larval)"))
+ps = DimPlot(photo, reduction = "tsne", label=TRUE)+ eelTheme()
+ggsave(ps, file="adult_coneClusters01.png", path=exportDir, width = 140*2, height = 105*2, units = "mm")
 # clear separation between adult and larval cones
+photo2 = SetIdent(photo, value = "Sample")
+ps = DimPlot(photo2, reduction = "tsne", label=TRUE)+ eelTheme()
+ggsave(ps, file="adult_coneClusters02.png", path=exportDir, width = 140*2, height = 105*2, units = "mm")
+
 zfAFlag = grepl("AdR",names(Idents(photo)));
 photo = AddMetaData(photo,metadata=zfAFlag, col.name = "zfA");
 photo = SetIdent(photo, value = "zfA")
@@ -136,23 +253,54 @@ DimPlot(photo, reduction = "pca", label = TRUE, pt.size = 1)
 # UMAP using the same PCA dimensions for prettier visualization
 photo <- RunUMAP(photo, dims = 1:upDimLimit)
 DimPlot(photo, reduction = "umap", label = TRUE, pt.size = 1)
-# saveRDS(photo, file = "../photoreceptors_umap.rds")
+
 
 # or use tSNE (clustering can't separate some M cones from L cones)
 photo <- RunTSNE(photo, dims = 1:upDimLimit)
-DimPlot(photo, reduction = "tsne", label = TRUE, pt.size = 1)
-# saveRDS(photo, file = "../photoreceptors_tSNE.rds")
+ps = DimPlot(photo, reduction = "tsne", label = TRUE, pt.size = 1)+ eelTheme()
+ggsave(ps, file="adult_coneClusters03.png", path=exportDir, width = 140*2, height = 105*2, units = "mm")
+
+photo2 = SetIdent(photo, value = "Sample")
+ps = DimPlot(photo2, reduction = "tsne", label=TRUE)+ eelTheme()
+ggsave(ps, file="adult_coneClusters04.png", path=exportDir, width = 140*2, height = 105*2, units = "mm")
+
 
 FeaturePlot(photo, reduction = 'tsne', features = c("opn1sw1", "opn1sw2",'opn1mw1','opn1mw2','opn1mw3','opn1mw4','opn1lw1','opn1lw2','si:busm1-57f23.1'))
 FeaturePlot(photo, reduction = 'tsne', features = c("rho", "nr2e3","nr2f6","crx",'syt5a','syt5b'))
 VlnPlot(photo, features = c("opn1sw1", "opn1sw2",'opn1mw1','opn1mw2','opn1mw3','opn1mw4','opn1lw1','opn1lw2','si:busm1-57f23.1'))
+
+# ------------------------------------------------------------------------------------------
+# plot layouts for direct export
+
+#OPSINS
+p = FeaturePlot(photo, reduction = 'tsne', features = c("rho","opn1sw1", "opn1sw2",'opn1mw1','opn1mw2','opn1mw3','opn1mw4','opn1lw1','opn1lw2'),
+                pt.size=1, order=TRUE, combine=FALSE)
+lay = rbind(c(1,NA,NA,NA),c(2,3,NA,NA),c(4,5,6,7),c(8,9,NA,NA))
+grid.arrange(grobs = p, layout_matrix = lay)
+ps = arrangeGrob(grobs = p, layout_matrix = lay)
+ggsave(ps, file="adult_Opsins.png", path=exportDir, width = 140*2, height = 105*2, units = "mm")
+
+#ROD STUFF (known)
+p = FeaturePlot(photo, reduction = 'tsne', features = c("rho",'gnat1',"gnat2","saga",'pde6g',"guca1b","grk1a",'crx','nr2e3','nrl'),pt.size=1, order=FALSE, combine=FALSE)
+lay = rbind(c(1,2,3,NA),c(4,5,6,7),c(8,9,10,NA))
+grid.arrange(grobs = p, layout_matrix = lay)
+ps = arrangeGrob(grobs = p, layout_matrix = lay)
+ggsave(ps, file="adult_Rods.png", path=exportDir, width = 140*2, height = 105*2, units = "mm")
+
+
+ps = DotPlot(photo, features = c("rho","nr2e3","gnat1","gnat2","arr3a","arr3b","thrb","opn1sw1", "opn1sw2",'opn1mw4','opn1mw3','opn1mw2','opn1mw1','opn1lw1','opn1lw2')) + eelTheme() + theme(axis.text.x = element_text(angle = 45, hjust=1)) 
+ggsave(ps, file="adult_coneMarkersDot.png", path=exportDir, width = 140*2, height = 105*2, units = "mm")
+
+# ------------------------------------------------------------------------------------------
 
 
 # Assigning cone subtype identity to clusters
 new.cluster.ids <- c("L","L","L","L","L","L","L","L","US","M3","M4","M1","Ribo","L")
 names(new.cluster.ids) <- levels(photo)
 photo <- RenameIdents(photo, new.cluster.ids)
-DimPlot(photo, reduction = "tsne", label = TRUE, pt.size = 2) + NoLegend()
+Idents(photo) <- factor(x = Idents(photo), levels = c("Ribo","L","M1","M3","M4","US"))
+ps = DimPlot(photo, reduction = "tsne", label = TRUE, pt.size = 2) + NoLegend()+ eelTheme()
+ggsave(ps, file="adult_coneClusters05.png", path=exportDir, width = 140*2, height = 105*2, units = "mm")
 DimPlot(photo, reduction = "umap", label = TRUE, pt.size = 1) + NoLegend()
 
 FeaturePlot(photo, reduction = "tsne", features = c("opn1sw1", "opn1sw2",'opn1mw1','opn1mw2','opn1mw3','opn1mw4','opn1lw1','opn1lw2','si:busm1-57f23.1'))
@@ -184,13 +332,27 @@ DimPlot(us, reduction = "pca", label=TRUE)
 # UMAP using the same PCA dimensions for prettier visualization
 us <- RunUMAP(us, dims = 1:upDimLimit)
 DimPlot(us, reduction = "umap", label=TRUE)
-# saveRDS(photo, file = "../photoreceptors_umap.rds")
 
 # or use tSNE (clustering can't separate some M cones from L cones)
 us <- RunTSNE(us, dims = 1:upDimLimit)
-DimPlot(us, reduction = "tsne", label=TRUE)
-# saveRDS(photo, file = "../photoreceptors_tSNE.rds")
+ps = DimPlot(us, reduction = "tsne", label=TRUE, pt.size=4) + NoLegend()+ eelTheme()
+ggsave(ps, file="adult_coneUS01.png", path=exportDir, width = 140*2, height = 105*2, units = "mm")
+# ------------------------------------------------------------------------------------------
+# plot layouts for direct export
 
+#OPSINS
+p = FeaturePlot(us, reduction = 'tsne', features = c("rho","opn1sw1", "opn1sw2",'opn1mw1','opn1mw2','opn1mw3','opn1mw4','opn1lw1','opn1lw2'),
+                pt.size=1, order=TRUE, combine=FALSE)
+lay = rbind(c(1,NA,NA,NA),c(2,3,NA,NA),c(4,5,6,7),c(8,9,NA,NA))
+grid.arrange(grobs = p, layout_matrix = lay)
+ps = arrangeGrob(grobs = p, layout_matrix = lay)
+ggsave(ps, file="adult_coneUS02.png", path=exportDir, width = 140*2, height = 105*2, units = "mm")
+
+
+ps = DotPlot(us, features = c("rho","nr2e3","gnat1","gnat2","arr3b","arr3a","thrb","opn1sw1", "opn1sw2",'opn1mw1','opn1mw2','opn1mw3','opn1mw4','opn1lw1','opn1lw2')) + eelTheme()+ theme(axis.text.x = element_text(angle = 45, hjust=1)) 
+ggsave(ps, file="adult_coneUS03.png", path=exportDir, width = 140*2, height = 105*2, units = "mm")
+
+# ------------------------------------------------------------------------------------------
 FeaturePlot(us, reduction = 'tsne', features = c("opn1sw1", "opn1sw2",'opn1mw1','opn1mw2','opn1mw3','opn1mw4','opn1lw1','opn1lw2','si:busm1-57f23.1'))
 VlnPlot(us, features = c("opn1sw1", "opn1sw2",'opn1mw1','opn1mw2','opn1mw3','opn1mw4','opn1lw1','opn1lw2','si:busm1-57f23.1'))
 FeaturePlot(us, reduction = 'tsne', features = c('tbx2a','tbx2b','efna1b','foxq2'))
@@ -198,10 +360,14 @@ FeaturePlot(us, reduction = 'tsne', features = c('tbx2a','tbx2b','efna1b','foxq2
 new.cluster.ids <- c("S","S","S","UV")
 names(new.cluster.ids) <- levels(us)
 us <- RenameIdents(us, new.cluster.ids)
-DimPlot(us, reduction = "tsne", label = TRUE, pt.size = 0.5) + NoLegend()
+ps = DimPlot(us, reduction = "tsne", label = TRUE, pt.size = 4) + NoLegend()+ eelTheme()
+ggsave(ps, file="adult_coneUS04.png", path=exportDir, width = 140*2, height = 105*2, units = "mm")
 
+# ------------------------------------------------------------------------------------------
+# Probably better at this stage to remerge everything with rods also; will do that in next section after DESeq2 since subtype specific comparisons are still interesting
 # pull out other clusters for DESeq2 analysis
-lm = subset(photo, idents = c("L","M1","M3","M4","CPC"));
+lm = subset(photo, idents = c("L","M1","M3","M4","Ribo")); #decided to exclude Ribo cluster since I already explored it
+# lm = subset(photo, idents = c("L","M1","M3","M4"));
 # remerge into single cone dataset (1894 cones)
 photo = merge(x = lm, y = us)
 photo
@@ -210,16 +376,34 @@ photo = ScaleData(photo)
 photo <- FindVariableFeatures(photo, selection.method = "vst", nfeatures = 40)
 photo <- RunPCA(photo, features = VariableFeatures(object = photo))
 ElbowPlot(photo, ndims=50)
-upDimLimit=16;
+upDimLimit=10; #16
 DimPlot(photo, reduction = "pca", label=TRUE)
 # UMAP using the same PCA dimensions for prettier visualization
 photo <- RunUMAP(photo, dims = 1:upDimLimit)
 DimPlot(photo, reduction = "umap", label=TRUE, pt.size = 1) + NoLegend()
 # or use tSNE (clustering can't separate some M cones from L cones)
 photo <- RunTSNE(photo, dims = 1:upDimLimit)
-DimPlot(photo, reduction = "tsne", label=TRUE, pt.size = 1) + NoLegend()
+ps = DimPlot(photo, reduction = "tsne", label=TRUE, pt.size = 2) + NoLegend() +eelTheme()
+ggsave(ps, file="adult_coneClusters06.png", path=exportDir, width = 140*2, height = 105*2, units = "mm")
 
-FeaturePlot(photo, reduction = 'umap', features = c("opn1sw1", "opn1sw2",'opn1mw1','opn1mw2','opn1mw3','opn1mw4','opn1lw1','opn1lw2','si:busm1-57f23.1'))
+# ------------------------------------------------------------------------------------------
+# plot layouts for direct export
+
+#OPSINS
+p = FeaturePlot(photo, reduction = 'tsne', features = c("rho","opn1sw1", "opn1sw2",'opn1mw1','opn1mw2','opn1mw3','opn1mw4','opn1lw1','opn1lw2'),
+                pt.size=1, order=TRUE, combine=FALSE)
+lay = rbind(c(1,NA,NA,NA),c(2,3,NA,NA),c(4,5,6,7),c(8,9,NA,NA))
+grid.arrange(grobs = p, layout_matrix = lay)
+ps = arrangeGrob(grobs = p, layout_matrix = lay)
+ggsave(ps, file="adult_coneClusters06.png", path=exportDir, width = 140*2, height = 105*2, units = "mm")
+
+
+ps = DotPlot(photo, features = c("rho","nr2e3","gnat1","gnat2","arr3b","arr3a","thrb","opn1sw1", "opn1sw2",'opn1mw1','opn1mw2','opn1mw3','opn1mw4','opn1lw1','opn1lw2')) + eelTheme() + theme(axis.text.x = element_text(angle = 45, hjust=1))
+ggsave(ps, file="adult_coneMarkersDot02.png", path=exportDir, width = 140*2, height = 105*2, units = "mm")
+
+# ------------------------------------------------------------------------------------------
+
+FeaturePlot(photo, reduction = 'tsne', features = c("opn1sw1", "opn1sw2",'opn1mw1','opn1mw2','opn1mw3','opn1mw4','opn1lw1','opn1lw2','si:busm1-57f23.1'))
 VlnPlot(photo, features = c("opn1sw1", "opn1sw2",'opn1mw1','opn1mw2','opn1mw3','opn1mw4','opn1lw1','opn1lw2','si:busm1-57f23.1'))
 DotPlot(photo, features = c("opn1sw1", "opn1sw2",'opn1mw1','opn1mw2','opn1mw3','opn1mw4','opn1lw1','opn1lw2'))
 saveRDS(photo, file = "./cones_AdultAll.rds")
@@ -243,9 +427,9 @@ photo <- RunUMAP(photo, dims = 1:upDimLimit)
 DimPlot(photo, reduction = "umap", label=TRUE, pt.size = 1) + NoLegend()
 # or use tSNE (clustering can't separate some M cones from L cones)
 photo <- RunTSNE(photo, dims = 1:upDimLimit)
-DimPlot(photo, reduction = "tsne", label=TRUE, pt.size = 1) + NoLegend()
+DimPlot(photo, reduction = "tsne", label=TRUE, pt.size = 2) + NoLegend()
 
-FeaturePlot(photo, reduction = 'umap', features = c("opn1sw1", "opn1sw2",'opn1mw1','opn1mw2','opn1mw3','opn1mw4','opn1lw1','opn1lw2','si:busm1-57f23.1'))
+FeaturePlot(photo, reduction = 'tsne', features = c("opn1sw1", "opn1sw2",'opn1mw1','opn1mw2','opn1mw3','opn1mw4','opn1lw1','opn1lw2','si:busm1-57f23.1'))
 VlnPlot(photo, features = c("opn1sw1", "opn1sw2",'opn1mw1','opn1mw2','opn1mw3','opn1mw4','opn1lw1','opn1lw2','si:busm1-57f23.1'))
 DotPlot(photo, features = c("opn1sw1", "opn1sw2",'opn1mw1','opn1mw2','opn1mw3','opn1mw4','opn1lw1','opn1lw2'))
 saveRDS(photo, file = "./cones_Adult.rds")
@@ -257,7 +441,7 @@ try(dev.off(),silent=TRUE)
 rm(list=ls())
 # ------------------------------------------------------------------------------------------
 # Can be restarted here
-photo = readRDS("~/Documents/LiLab/RNAseq/zfRet_HoangBlackshaw2020/cones_Adult.rds");
+photo = readRDS("~/Documents/LiMolec/otherRNAseq/zfRet_HoangBlackshaw2020/cones_Adult.rds");
 # ------------------------------------------------------------------------------------------
 # Running DESeq2 (all relevant comparisons) and saving as csv
 # L-cones
@@ -390,7 +574,7 @@ write.csv(DESeq2_UvsS,"./DESeq2_UvsS.csv")
 
 # ------------------------------------------------------------------------------------------
 # Can be restarted here
-photoAll = readRDS("~/Documents/LiLab/RNAseq/zfRet_HoangBlackshaw2020/cones_AdultAll.rds");
+photoAll = readRDS("~/Documents/LiMolec/otherRNAseq/zfRet_HoangBlackshaw2020/cones_AdultAll.rds");
 # ------------------------------------------------------------------------------------------
 # Ribo vs rest
 DESeq2_Ribo = FindMarkers(photoAll, c("Ribo"), c("L","M1","M3","M4","S","UV"), test.use="DESeq2");
@@ -455,3 +639,227 @@ write.csv(DESeq2_M1vsM3,"./DESeq2_M1vsM3.csv")
 # cell counter
 temp = subset(photoAll, idents = c("M1", "M3", "M4"))
 length(names(Idents(temp)))
+
+# ------------------------------------------------------------------------------------------
+# ------------------------------------------------------------------------------------------
+# remerge cones with rods still split by sutype
+# remerge into single dataset (1894 cones + 3093 rods = 4987 PRs)
+r = subset(pbmc, idents = c("Rod"));
+photoAll = merge(x = lm, y = c(us,r))
+photoAll
+
+photoAll = ScaleData(photoAll)
+photoAll <- FindVariableFeatures(photoAll, selection.method = "vst", nfeatures = 200)
+
+photoAll <- RunPCA(photoAll, features = VariableFeatures(object = photoAll))
+ElbowPlot(photoAll, ndims=50)
+# if ever wanted to recluster again
+# photo <- FindNeighbors(photoAll, dims = 1:upDimLimit)
+# photo <- FindClusters(photoAll, resolution = 1)
+
+# ordering identities for plotting and assigning colors
+Idents(photoAll) <- factor(x = Idents(photoAll), levels = c("Rod","UV","S","M1","M3","M4","L"))
+prcolors = c("#a3a3a3","#B540B7","#4669F2","#04CD22","#04CD22","#04CD22","#CC2C2A")
+
+#small change for rods, using just "R" as label for consistency
+new.cluster.ids <- c("R","UV","S","M1","M3","M4","L")
+names(new.cluster.ids) <- levels(photoAll)
+photoAll <- RenameIdents(photoAll, new.cluster.ids)
+DimPlot(photoAll, reduction = "tsne", label = TRUE, pt.size = 1, label.size = 6) + eelTheme()
+
+# 'r' : '#a3a3a3',
+# 'lr' : '#474747'
+# 'u' : '#B540B7',
+
+# 's' : '#4669F2',
+# 'esls' : '#8f9bcc',
+
+# 'm' : '#04CD22',
+# 'lslm' : '#18e236',
+# 'mslm' : '#57cb69',
+# 'eslm' : '#80bc89',
+
+
+# 'l' : '#CC2C2A',
+# 'lsll' : '#ce4340',
+# 'msll' : '#c67271',
+# 'esl' : '#d69f9e',
+
+# 'pr' : "#E6B800"
+# 'lslpr' : "#cca819"
+# 'mslpr' : "#dcc360"
+# 'eslpr' : "#dacd9a"
+saveRDS(photoAll, file = "./photoreceptors_AdultAll.rds")
+# ------------------------------------------------------------------------------------------
+# Can be restarted here
+photoAll = readRDS("~/Documents/LiMolec/otherRNAseq/zfRet_HoangBlackshaw2020/photoreceptors_AdultAll.rds");
+prcolors = c("#a3a3a3","#B540B7","#4669F2","#04CD22","#04CD22","#04CD22","#CC2C2A")
+# ------------------------------------------------------------------------------------------
+upDimLimit=30;
+DimPlot(photoAll, reduction = "pca", label=TRUE, cols=prcolors)
+# UMAP using the same PCA dimensions for prettier visualization
+photoAll <- RunUMAP(photoAll, dims = 1:upDimLimit)
+DimPlot(photoAll, reduction = "umap", label=TRUE, pt.size = 1) + NoLegend()
+# or use tSNE (clustering can't separate some M cones from L cones)
+photoAll <- RunTSNE(photoAll, dims = 1:upDimLimit)
+ps = DimPlot(photoAll, reduction = "tsne", label=FALSE, pt.size = 2, cols=prcolors) +eelTheme()
+ggsave(ps, file="adult_coneClusters07.png", path=exportDir, width = 140*2, height = 105*2, units = "mm")
+
+FeaturePlot(photoAll, reduction = 'tsne', features = c("rho","opn1sw1", "opn1sw2",'opn1mw1','opn1mw2','opn1mw3','opn1mw4','opn1lw1','opn1lw2'),
+            pt.size=1, order=FALSE, combine=TRUE)
+# ------------------------------------------------------------------------------------------
+# plot layouts for direct export
+
+#OPSINS
+p = FeaturePlot(photoAll, reduction = 'tsne', features = c("rho","opn1sw1", "opn1sw2",'opn1mw1','opn1mw2','opn1mw3','opn1mw4','opn1lw1','opn1lw2'),
+                pt.size=1, order=FALSE, combine=FALSE)
+lay = rbind(c(1,NA,NA,NA),c(2,3,NA,NA),c(4,5,6,7),c(8,9,NA,NA))
+grid.arrange(grobs = p, layout_matrix = lay)
+ps = arrangeGrob(grobs = p, layout_matrix = lay)
+ggsave(ps, file="adult_coneClusters08.png", path=exportDir, width = 140*2, height = 105*2, units = "mm")
+
+# OPSINS + KNOWN MARKERS
+ps = DotPlot(photoAll, features = c("rho","nr2e3","gnat1","gnat2","arr3b","arr3a","thrb","opn1sw1", "opn1sw2",'opn1mw1','opn1mw2','opn1mw3','opn1mw4','opn1lw1','opn1lw2')) + eelTheme() + theme(axis.text.x = element_text(angle = 45, hjust=1))
+ggsave(ps, file="adult_coneMarkersDot03.png", path=exportDir, width = 140*2, height = 105*2, units = "mm")
+
+#EXPLORING GENES ID'D IN OUR OWN RNAseq
+ps = DotPlot(photoAll, features = c("sema3aa","sema3ab","sema3b","sema3bl","sema3c","sema3d","sema3e","sema3fa","sema3fb","sema3ga","sema3gb","sema3h","sema4aa","sema4ab","sema4ba","sema4bb","sema4c","sema4d","sema4e","sema4f","sema4ga","sema4gb","sema5a","sema5ba","sema5bb","sema6a","sema6ba","sema6bb","sema6d","sema6dl","sema6e","sema7a")) + eelTheme() + theme(axis.text.x = element_text(angle = 45, hjust=1))
+ggsave(ps, file="adult_coneMarkersDot04_sema.png", path=exportDir, width = 140*2, height = 105*2, units = "mm")
+
+ps = DotPlot(photoAll, features = c("vamp1","vamp2","vamp3","vamp4","vamp5","vamp8")) + eelTheme() + theme(axis.text.x = element_text(angle = 45, hjust=1))
+ps
+ggsave(ps, file="adult_coneMarkersDot04_vamp.png", path=exportDir, width = 140*2, height = 105*2, units = "mm")
+
+ps = DotPlot(photoAll, features = c("syt1a","syt1b","syt2a","syt3","syt4","syt5a","syt5b","syt6a","syt6b","syt7a","syt7b")) + eelTheme() + theme(axis.text.x = element_text(angle = 45, hjust=1))
+ps
+ggsave(ps, file="adult_coneMarkersDot04_syt.png", path=exportDir, width = 140*2, height = 105*2, units = "mm")
+
+ps = DotPlot(photoAll, features = c("efna1a","efna1b","efna2a","efna2b","efna3a","efna3b","efna5a","efna5b")) + eelTheme() + theme(axis.text.x = element_text(angle = 45, hjust=1))
+ps
+ggsave(ps, file="adult_coneMarkersDot04_efna.png", path=exportDir, width = 140*2, height = 105*2, units = "mm")
+
+
+ps = DotPlot(photoAll, features = c("tbx1","tbx15","tbx16","tbx18","tbx20","tbx21","tbx22","tbx2a","tbx2b","tbx3a","tbx3b","tbx4","tbx5a","tbx5b","tbx6")) + eelTheme() + theme(axis.text.x = element_text(angle = 45, hjust=1))
+ps
+ggsave(ps, file="adult_coneMarkersDot04_tbx.png", path=exportDir, width = 140*2, height = 105*2, units = "mm")
+
+
+ps = DotPlot(photoAll, features = c("nr2c1","nr2c2","nr2e1","nr2e3","nr2f1a","nr2f1b","nr2f2","nr2f5","nr2f6a","nr2f6b")) + eelTheme() + theme(axis.text.x = element_text(angle = 45, hjust=1))
+ps
+ggsave(ps, file="adult_coneMarkersDot04_nr2.png", path=exportDir, width = 140*2, height = 105*2, units = "mm")
+
+ps = DotPlot(photoAll, features = c("ntn1a","ntn1b","ntn2","ntn4","ntn5","ntng1a","ntng2a","ntng2b")) + eelTheme() + theme(axis.text.x = element_text(angle = 45, hjust=1))
+ps
+ggsave(ps, file="adult_coneMarkersDot04_ntn.png", path=exportDir, width = 140*2, height = 105*2, units = "mm")
+
+# Rod genes
+ps = DotPlot(photoAll, features = c("rho","gnat1","dhrs13l1","lingo1b","cabp4","saga","sagb","gnb1b","rgs9bp","eno2","guca1b","grk1a","rom1b","cplx4c","lrrn1","ncs1a","sgce","kcnv2a","pdca")) + eelTheme() + theme(axis.text.x = element_text(angle = 45, hjust=1))
+ps
+# ggsave(ps, file="adult_coneMarkersDot04_nr2.png", path=exportDir, width = 140*2, height = 105*2, units = "mm")
+# Cone Genes
+ps = DotPlot(photoAll, features = c("slc1a8b","rgs9a","slc25a24","drd4b","si:busm1-57f23.1","kera","nexn","clic1","gnat2","tgif1","crhbp","kcnv2b","anks1b","clul1")) + eelTheme() + theme(axis.text.x = element_text(angle = 45, hjust=1))
+ps
+
+# UV+S Genes
+ps = DotPlot(photoAll, features = c("grk7b","skor1a","pcdh11","srgap3","ablim1a","nav2a","jam2a","chl1a","s100z","foxq2","sh3bp5b","kcnk1a","ntng2b","nxph1","pik3r3b","myl4","pacrg","fah")) + eelTheme() + theme(axis.text.x = element_text(angle = 45, hjust=1))
+ps
+
+
+# M+L Genes
+ps = DotPlot(photoAll, features = c("slc32a1","apln","lactbl1b","nrtn","pcdh10a","myo7aa")) + eelTheme() + theme(axis.text.x = element_text(angle = 45, hjust=1))
+ps
+
+# Mup/Ldown Genes
+ps = DotPlot(photoAll, features = c("dok6","spock3","lrrfip1a","sema3fb","itga1","auts2a","esama","esamb","plxnb1a","cgnb","phf19","lrrc20")) + eelTheme() + theme(axis.text.x = element_text(angle = 45, hjust=1))
+ps
+
+# Lup/Mdown Genes
+ps = DotPlot(photoAll, features = c("slc32a1","s100v2","smad5","snap25a","ttyh2l","arhgap11a","ggctb","fbxo32","pcdh10a","abracl")) + eelTheme() + theme(axis.text.x = element_text(angle = 45, hjust=1))
+ps
+
+# UVup/Sdown Genes
+ps = DotPlot(photoAll, features = c("myl4","ttyh2l","lhx1a","rx3","itgb1bp1")) + eelTheme() + theme(axis.text.x = element_text(angle = 45, hjust=1))
+ps
+
+# Sup/UVdown Genes
+ps = DotPlot(photoAll, features = c("fkbp5","prss23","chkb","mpzl2b","nr1d1","camk2d1","frmpd2","foxo1a","prom1a")) + eelTheme() + theme(axis.text.x = element_text(angle = 45, hjust=1))
+ps
+   
+   
+# TFs in DEGs
+ps = DotPlot(photoAll, features = c("tbx2a","tbx2b","otx5","tgif1","crhbp","six7","six6b","ndrg1b","egr1","nr1d1","sall1a","skor1a","foxq2","lhx1a","ntf3","rxrga","thrb","fgf1b","eya2","sox6","sox4b","pbx1a","hmgb3a","fbxo21","tfe3a")) + eelTheme() + theme(axis.text.x = element_text(angle = 45, hjust=1))
+ps
+
+# ------------------------------------------------------------------------------------------
+
+FeaturePlot(photoAll, reduction = 'tsne', features = c("opn1sw1", "opn1sw2",'opn1mw1','opn1mw2','opn1mw3','opn1mw4','opn1lw1','opn1lw2','si:busm1-57f23.1'))
+VlnPlot(photoAll, features = c("opn1sw1", "opn1sw2",'opn1mw1','opn1mw2','opn1mw3','opn1mw4','opn1lw1','opn1lw2','si:busm1-57f23.1'))
+DotPlot(photoAll, features = c("opn1sw1", "opn1sw2",'opn1mw1','opn1mw2','opn1mw3','opn1mw4','opn1lw1','opn1lw2'))
+saveRDS(photoAll, file = "./photoreceptors_AdultAll.rds")
+
+FeaturePlot(photoAll, reduction = 'tsne', features = c("opn1sw1", "opn1sw2",'opn1mw1','opn1mw2','opn1mw3','opn1mw4','opn1lw1','opn1lw2','cyp26c1','cyp26a1'), order=TRUE)
+
+# cell counter
+table(Idents(photoAll))
+
+# Rod   UV    S   M1   M3   M4    L 
+# 3097   20   82   56   73   70 1589 
+
+# ------------------------------------------------------------------------------------------
+# getting % and Mean expression for all genes into csv.
+# DoHeatmap and DotPlot use the @scale.data slot for average expression display, which z-scored expression values (for example, as those used in PCA).
+# Cells with a value > 0 represent cells with expression above the population mean (a value of 1 would represent cells with expression 1SD away from the population mean). Hope that helps!
+# This is very detailed explanation: https://github.com/satijalab/seurat/issues/2798
+
+# Average expression in non-log scale:
+avgExp = AverageExpression(photoAll, slot="counts")
+avgExp = avgExp$RNA
+# avgExp = head(avgExp,10)
+nI = length(levels(Idents(photoAll)))
+colnames(avgExp) = paste("avg", levels(Idents(photoAll)), sep = "")
+
+# Calculate mean expression across all subtypes
+avgExp$avgMean = rowMeans(avgExp)
+avgExp[,c(ncol(avgExp),1:(ncol(avgExp)-1))]
+
+
+# Percent expression can be obtained through DotPlot, but not Average expression, as this is log z-cored normalized data # avgExpZ = dPlot$data$avg.exp
+# Percent expression in larvae:
+dPlot = DotPlot(photoAll, features=rownames(avgExp))
+pctExp = dPlot$data$pct.exp
+pctExp = as.data.frame(matrix(pctExp,nrow = length(pctExp)/nI, ncol=nI));
+
+rownames(pctExp) = rownames(avgExp)
+colnames(pctExp) = paste("pct", levels(Idents(photoAll)), sep = "")
+
+# Calculate mean percent expression across all ages
+pctExp$pctMean = rowMeans(pctExp)
+pctExp[,c(ncol(pctExp),1:(ncol(pctExp)-1))]
+
+
+photoreceptors_Hoang = cbind(pctExp,avgExp)
+
+
+
+# these are duplicated genes with lower vs upper case
+dups=toupper(c("arid5b","asph", "aste1", "crip2", "ctbp1", "dab2", "eif1b", "flnb", "frmd7", "galnt10", "grxcr1", "gse1", "hist1h4l", "hspb11", "kif1c", "lamp1", "maf1", "pamr1", "pcdh20", "pde6h", "phlpp2", "psmb10", "ptp4a3", "reep6", "rfesd", "rgs9bp", "rps17", "shank2", "slc16a7", "slc25a10", "slc6a13", "slc9a1", "srbd1", "tatdn3", "tenm3", "tmem178b", "tmem241", "tom1l2", "tp53inp2", "trappc9", "tsc22d3", "ube2o", "zc3h12a", "znf423"))
+for(i in 1:length(dups)) {
+   rownames(photoreceptors_Hoang)[rownames(photoreceptors_Hoang) == dups[i]] = paste(dups[i],"_ii",sep="")
+}
+# now everything can be lower cased
+rownames(photoreceptors_Hoang) = tolower(rownames(photoreceptors_Hoang))
+
+
+
+
+photoreceptors_Hoang = photoreceptors_Hoang[c("pctMean","pctRod","pctUV","pctS","pctM1","pctM3","pctM4","pctL","avgMean","avgRod","avgUV","avgS","avgM1","avgM3","avgM4","avgL")]
+
+
+
+scangenes=c('syt5a','syt5b','nr2e3','tbx2a','tbx2b','arr3a','arr3b','opn1lw1','opn1lw2');
+photoreceptors_Hoang[scangenes,]
+
+conesAdult_Hoang[scangenes,]
+
+# still need to manually add symbol to first column
+write.csv(photoreceptors_Hoang,"./photoreceptors_Hoang.csv",quote=FALSE)

@@ -29,19 +29,27 @@ try(dev.off(),silent=TRUE)
 rm(list=ls())
 
 # Setup -------------------------------------------------------------------
-setwd("/Users/angueyraaristjm/Documents/LiLab/RNAseq/zfRetDev10x_Xu2020/ret72hpf/")
-directory <- "/Users/angueyraaristjm/Documents/LiLab/RNAseq/zfRetDev10x_Xu2020/ret72hpf/"
+setwd("/Users/angueyraaristjm/Documents/LiMolec/otherRNAseq/zfRetDev10x_Xu2020/ret72hpf/")
+directory <- "/Users/angueyraaristjm/Documents/LiMolec/otherRNAseq/zfRetDev10x_Xu2020/ret72hpf/"
 getwd()
-
+# Plot themes -------------------------------------------------------------------
+eelTheme = function (base_size = 42, base_family = "") {
+   theme_classic() %+replace% 
+      theme(
+         axis.line = element_line(colour = 'black', size = 1),
+         axis.text = element_text(size=18),
+         text = element_text(size=18)
+      )
+}
 # -------------------------------------------------------------------
 # Load the 10x dataset (2826 cells)
-pbmcA.data <- Read10X(data.dir = "/Users/angueyraaristjm/Documents/LiLab/RNAseq/zfRetDev10x_Xu2020/ret72hpf/")
+pbmcA.data <- Read10X(data.dir = "/Users/angueyraaristjm/Documents/LiMolec/otherRNAseq/zfRetDev10x_Xu2020/ret72hpf/")
 # Initialize the Seurat object with the raw (non-normalized data).
 pbmcA <- CreateSeuratObject(counts = pbmcA.data, project = "zf10X_72hpfA", min.cells = 3, min.features = 200)
 pbmcA
 
 # Load the replciate 10x dataset (405 cells)
-pbmcB.data <- Read10X(data.dir = "/Users/angueyraaristjm/Documents/LiLab/RNAseq/zfRetDev10x_Xu2020/ret72hpfB/")
+pbmcB.data <- Read10X(data.dir = "/Users/angueyraaristjm/Documents/LiMolec/otherRNAseq/zfRetDev10x_Xu2020/ret72hpfB/")
 # Initialize the Seurat object with the raw (non-normalized data).
 pbmcB <- CreateSeuratObject(counts = pbmcB.data, project = "zf10X_72hpfB", min.cells = 3, min.features = 200)
 pbmcB
@@ -65,7 +73,7 @@ plot2
 # pbmc <- subset(pbmc, subset = nFeature_RNA > 200 & nFeature_RNA < 2500)
 pbmc <- subset(pbmc, subset = nFeature_RNA > 200)
 # normalize data
-pbmc <- NormalizeData(pbmc, normalization.method = "LogNormalize", scale.factor = 10000) # this is to get natural log-transformed data using log1p
+pbmc <- NormalizeData(pbmc, normalization.method = "LogNormalize", scale.factor = 10000) # this is to get natural log-transformed data using log10
 # pbmc <- NormalizeData(pbmc, normalization.method = "RC", scale.factor = 1e6) #this is counts per million
 
 # Identification of highly variable features (feature selection)
@@ -206,8 +214,14 @@ FeaturePlot(pbmc, features = c("opn1sw1", "opn1sw2",'opn1mw1','gnat2','opn1lw2',
 new.cluster.ids <- c("CMZ", "ACs", "CMZ", "CMZ", "RGCs", "Photo", "ACs", "BCs", "Photo", "BCs", "ACs", "RGCs", "Photo", "HCs", "MG", "HCs", "HCs")
 names(new.cluster.ids) <- levels(pbmc)
 pbmc <- RenameIdents(pbmc, new.cluster.ids)
-DimPlot(pbmc, reduction = "tsne", label = TRUE, pt.size = 0.5) + NoLegend()
+DimPlot(pbmc, reduction = "tsne", label = TRUE, pt.size = 2) + NoLegend()
 saveRDS(pbmc, file = "./allCells_reClsutered.rds")
+# ------------------------------------------------------------------------------------------
+
+FeaturePlot(pbmc, reduction = 'tsne', features = c("crx","otx5", "tbx2a",'tbx2b'), pt.size = 2)
+# FeaturePlot(pbmc, reduction = 'umap', features = c("crx","otx5", "tbx2a",'tbx2b'), pt.size = 2)
+VlnPlot(pbmc, features = c("crx","otx5", "tbx2a",'tbx2b'))
+
 # ------------------------------------------------------------------------------------------
 
 # Clear all plots -------------------------------------------------------------------
@@ -216,20 +230,14 @@ try(dev.off(),silent=TRUE)
 rm(list=ls())
 
 # ------------------------------------------------------------------------------------------
-# Setup -------------------------------------------------------------------
-setwd("/Users/angueyraaristjm/Documents/LiLab/RNAseq/zfRetDev10x_Xu2020/ret72hpf/")
-directory <- "/Users/angueyraaristjm/Documents/LiLab/RNAseq/zfRetDev10x_Xu2020/ret72hpf/"
-getwd()
-
-# ------------------------------------------------------------------------------------------
 pbmc <- readRDS(file = "./allCells_reClsutered.rds")
 # Subclustering photoreceptors
 photo <- subset(pbmc, idents = "Photo")
 
 # Identification of highly variable features (feature selection)
-photo <- FindVariableFeatures(photo, selection.method = "vst", nfeatures = 200)
+photo <- FindVariableFeatures(photo, selection.method = "vst", nfeatures = 500)
 # Identify the 10 most highly variable genes
-top10 <- head(VariableFeatures(photo), 20)
+top10 <- head(VariableFeatures(photo), 100)
 top10
 
 # plot variable features with and without labels
@@ -251,97 +259,208 @@ photo <- RunPCA(photo, features = VariableFeatures(object = photo))
 # NOTE: This process can take a long time for big datasets, comment out for expediency. More
 # approximate techniques such as those implemented in ElbowPlot() can be used to reduce
 # computation time
-photo <- JackStraw(photo, num.replicate = 100)
-photo <- ScoreJackStraw(photo, dims = 1:20)
-
-JackStrawPlot(photo, dims = 1:20)
+# photo <- JackStraw(photo, num.replicate = 100)
+# photo <- ScoreJackStraw(photo, dims = 1:20)
+# 
+# JackStrawPlot(photo, dims = 1:20)
 # Or just use elbow plot (var explained)
-ElbowPlot(photo)
+ElbowPlot(photo, ndims=100, reduction = "pca")
 
 # Cluster cells
-photo <- FindNeighbors(photo, dims = 1:3)
-photo <- FindClusters(photo, resolution = 0.2)
+upDimLimit=15
+photo <- FindNeighbors(photo, dims = 1:upDimLimit)
+photo <- FindClusters(photo, resolution = 1)
+
+DimPlot(photo, reduction = "pca", label = TRUE, pt.size = 1, label.size = 6) + eelTheme()
 
 # UMAP using the same PCA dimensions for prettier visualization
-photo <- RunUMAP(photo, dims = 1:3)
-DimPlot(photo, reduction = "umap", label=TRUE)
-# saveRDS(photo, file = "../photoreceptors_umap.rds")
+photo <- RunUMAP(photo, dims = 1:upDimLimit)
+DimPlot(photo, reduction = "umap", label = TRUE, pt.size = 1, label.size = 6) + eelTheme()
 
 # or use tSNE (clustering can't separate some M cones from L cones)
-photo <- RunTSNE(photo, dims = 1:7)
-DimPlot(photo, reduction = "tsne", label=TRUE)
-# saveRDS(photo, file = "../photoreceptors_tSNE.rds")
+photo <- RunTSNE(photo, dims = 1:upDimLimit)
+DimPlot(photo, reduction = "tsne", label = TRUE, pt.size = 1, label.size = 6) + eelTheme()
 
-# find markers for every cluster compared to all remaining cells, report only the positive ones
-photo.markers <- FindAllMarkers(photo, only.pos = TRUE, min.pct = 0.25, logfc.threshold = 0.25)
-photo.markers %>% group_by(cluster) %>% top_n(n = 20, wt = avg_logFC)
+new.cluster.ids <- c("mslPR","mslL","mslL","mslL","mslPR","mslS","mslUV","mslR","mslM")
+names(new.cluster.ids) <- levels(photo)
+photo <- RenameIdents(photo, new.cluster.ids)
+Idents(photo) <- factor(x = Idents(photo), levels = c("mslR","mslUV","mslS","mslM","mslL","mslPR"))
 
-# dataset A only:
-# 0 = L-cones too or junk?
-# 1 = UV-cones + S-cones
-# 2 = L-cones
-# 3 = M-cones
-# 4 = L-cones
-# 5 = rods
-
-# combined datasets:
-# 0 = not sure at all
-# 1 = L-cones
-# 2 = L-cones and M-cones
-# 3 = UV-cones
-# 4 = rods
-# 5 = rods
+DimPlot(photo, reduction = "tsne", label = TRUE, pt.size = 1, label.size = 6) + eelTheme()
 
 
-FeaturePlot(photo, features = c("opn1sw1", "opn1sw2",'opn1mw1','opn1mw3','opn1lw2','si:busm1-57f23.1','rho','saga'))
-VlnPlot(photo, features = c("opn1sw1", "opn1sw2",'opn1mw1','opn1mw3','opn1lw2','si:busm1-57f23.1','rho','saga')) #raw counts
-# VlnPlot(photo, features = c("opn1sw1", "opn1sw2",'opn1mw1','opn1mw3','opn1lw2','si:busm1-57f23.1','rho','saga'), slot = "counts", log = TRUE) #raw counts
+DotPlot(photo, features = c('rho',"opn1sw1", "opn1sw2",'opn1mw1','opn1lw2','si:busm1-57f23.1'))
+DotPlot(photo, features = c('rho',"opn1sw1", "opn1sw2",'opn1mw1','opn1lw2','si:busm1-57f23.1',"nr2e3","nr2f1b","nr2f6b",'syt5a','syt5b','gnat2','arr3a','arr3b',"foxq2")) + theme(axis.text.x = element_text(angle = 45, hjust=1))
 
-# check counts in each cluster
-VlnPlot(photo, features = c("gnat2", "rho",'elovl4b','gnat1','si:busm1-57f23.1')) #log norm values
-VlnPlot(photo, features = c("gnat2", "rho",'elovl4b','gnat1','si:busm1-57f23.1'), slot = "counts", log = TRUE) #raw counts
+FeaturePlot(photo, reduction = 'tsne', features = c("rho","opn1sw1", "opn1sw2",'opn1mw1','opn1lw2'))
+FeaturePlot(photo, reduction = 'tsne', features = c("rho","opn1sw1", "opn1sw2","foxq2",'opn1mw1',"pcdh10a",'opn1lw2',"thrb","skor1a")) #markers to parse clusters apart
+FeaturePlot(photo, reduction = 'tsne', features = c("rho","nrl","pde6a","nr2e3","crx",'gnat1',"saga","sagb","gucy2f","grk1a")) # rod markers
+FeaturePlot(photo, reduction = 'tsne', features = c("rho","eno2","rom1a","lrrn1","unc119.2","pdca","cplx4c")) # rod genes from my own dataset
+FeaturePlot(photo, reduction = 'tsne', features = c("gnat2",'arr3a','arr3b',"pde6c","pde6h","guca1d","grk7a","crx","neurod1","nr2f6b")) #cone markers
+FeaturePlot(photo, reduction = 'tsne', features = c("nr2e3","nr2f6b","crx",'syt5a','syt5b','gnat2','arr3a','arr3b',"pde6g","pde6h", "neurod1")) #cone markers
+FeaturePlot(photo, reduction = 'tsne', features = c("slc1a8b","rgs9a","slc25a24","ppa1a","sema7a","kera","nexn","dusp5","crhbp","prph2a")) #cone markers from my own dataset
+FeaturePlot(photo, reduction = 'tsne', features = c("otx5","tbx2a","tbx2b","rxrga","rxrgb", "thrb", "sema7a","cnga3a","cnga3b"))
 
+FeaturePlot(photo, reduction = 'tsne', features = c("nrl","mafa","mafb")) # rod markers
 
+FeaturePlot(photo, reduction = 'tsne', features = c("tbx2a","tbx2b"))
+FeaturePlot(photo, reduction = 'tsne', features = c("sema7a","efna1b","ntng2a","syt1a","syt5a","syt5b","tbx2a","tbx2b","eml1"))
 
-RidgePlot(photo, features = c("opn1sw1", "opn1sw2",'opn1mw1','opn1mw2','opn1mw3','opn1mw4','opn1lw1','opn1lw2','si:busm1-57f23.1','rho'))
-DotPlot(photo, features = c("gnat2", "rho",'elovl4b','gnat1','si:busm1-57f23.1'))
+FeaturePlot(photo, reduction = 'tsne', features = c("nr2e3","nr2f1b","nr2f6b",'syt5a','syt5b','gnat2','arr3a','arr3b',"foxq2")) #markers to parse clusters apart
+
 
 DotPlot(photo, features = c("sema7a","efna1b","ntng2b","syt1a","syt1b","syt5a","syt5b","tbx2a","tbx2b","eml1"))
 # plotting semaphorins
 p = DotPlot(photo, features = c("sema3aa","sema3ab","sema3b","sema3bl","sema3c","sema3d","sema3e","sema3fa","sema3fb","sema3ga","sema3gb","sema3h","sema4aa","sema4ab","sema4ba","sema4bb","sema4c","sema4d","sema4e","sema4f","sema4ga","sema4gb","sema5a","sema5ba","sema5bb","sema6a","sema6ba","sema6bb","sema6d","sema6dl","sema6e","sema7a")) 
-p + theme(axis.text.x=element_text(angle=45, hjust=1))
+p + eelTheme() + theme(axis.text.x=element_text(angle=45, hjust=1))
 # ephrins
 p = DotPlot(photo, features = c("efna1a","efna1b","efna2a","efna2b","efna3a","efna3b","efna5a","efna5b","efnb1","efnb2a","efnb2b","efnb3a","efnb3b")) 
-p + theme(axis.text.x=element_text(angle=45, hjust=1))
+p + eelTheme() + theme(axis.text.x=element_text(angle=45, hjust=1))
+# vamps
+p = DotPlot(photo, features = c("vamp1","vamp2","vamp3","vamp4","vamp5","vamp8")) 
+p + eelTheme() + theme(axis.text.x=element_text(angle=45, hjust=1))
+# syts
+p = DotPlot(photo, features = c("syt1a","syt1b","syt2a","syt3","syt4","syt5a","syt5b","syt6a","syt6b","syt7a","syt7b")) 
+p + eelTheme() + theme(axis.text.x=element_text(angle=45, hjust=1))
+# netrins
+p = DotPlot(photo, features = c("ntn1a","ntn1b","ntn2","ntn4","ntn5","ntng1a","ntng2a","ntng2b")) 
+p + eelTheme() + theme(axis.text.x=element_text(angle=45, hjust=1))
+# nr2
+p = DotPlot(photo, features = c("nr2c1","nr2c2","nr2e1","nr2e3","nr2f1a","nr2f1b","nr2f2","nr2f5","nr2f6a","nr2f6b")) 
+p + eelTheme() + theme(axis.text.x=element_text(angle=45, hjust=1))
+# tbx
+p = DotPlot(photo, features = c("tbx1","tbx15","tbx16","tbx18","tbx20","tbx21","tbx22","tbx2a","tbx2b","tbx3a","tbx3b","tbx4","tbx5a","tbx5b","tbx6")) 
+p + eelTheme() + theme(axis.text.x=element_text(angle=45, hjust=1))
+# rod genes
+p = DotPlot(photo, features = c("rho","gnat1","dhrs13l1","lingo1b","cabp4","saga","sagb","gnb1b","rgs9bp","eno2","guca1b","grk1a","rom1b","cplx4c","lrrn1","ncs1a","sgce","kcnv2a","pdca")) 
+p + eelTheme() + theme(axis.text.x=element_text(angle=45, hjust=1))
+# cone genes
+p = DotPlot(photo, features = c("slc1a8b","rgs9a","slc25a24","drd4b","si:busm1-57f23.1","kera","nexn","clic1","gnat2","tgif1","crhbp","kcnv2b","anks1b","clul1")) 
+p + eelTheme() + theme(axis.text.x=element_text(angle=45, hjust=1))
+# UV+S enriched
+p = DotPlot(photo, features = c("pcdh11.1","grk7b","skor1a","pcdh11","srgap3","ablim1a","nav2a","jam2a","chl1a","s100z","foxq2","sh3bp5b","kcnk1a","ntng2b","nxph1","pik3r3b","myl4","pacrg","fah")) 
+p + eelTheme() + theme(axis.text.x=element_text(angle=45, hjust=1))
+# M+L enriched
+p = DotPlot(photo, features = c("slc32a1","apln","lactbl1b","nrtn","pcdh10a","myo7aa")) 
+p + eelTheme() + theme(axis.text.x=element_text(angle=45, hjust=1))
+# Mup/Ldown
+p = DotPlot(photo, features = c("dok6","spock3","lrrfip1a","sema3fb","itga1","auts2a","esama","esamb","plxnb1a","cgnb","phf19","lrrc20")) 
+p + eelTheme() + theme(axis.text.x=element_text(angle=45, hjust=1))
+# Lup/Mdown
+p = DotPlot(photo, features = c("slc32a1","s100v2","smad5","snap25a","ttyh2l","arhgap11a","ggctb","fbxo32","pcdh10a","abracl")) 
+p + eelTheme() + theme(axis.text.x=element_text(angle=45, hjust=1))
+# UVup/Sdown Genes
+p = DotPlot(photo, features = c("myl4","ttyh2l","lhx1a","rx3","itgb1bp1")) 
+p + eelTheme() + theme(axis.text.x=element_text(angle=45, hjust=1))
+# Sup/UVdown Genes
+p = DotPlot(photo, features = c("fkbp5","prss23","chkb","mpzl2b","nr1d1","camk2d1","frmpd2","foxo1a","prom1a")) 
+p + eelTheme() + theme(axis.text.x=element_text(angle=45, hjust=1))
+# TFs in DEGs
+p = DotPlot(photo, features = c("tbx2a","tbx2b","otx5","tgif1","crhbp","six7","six6b","ndrg1b","egr1","nr1d1","sall1a","skor1a","foxq2","lhx1a","ntf3","rxrga","thrb","fgf1b","eya2","sox6","sox4b","pbx1a","hmgb3a","fbxo21","tfe3a","prdm1a")) 
+p + eelTheme() + theme(axis.text.x=element_text(angle=45, hjust=1))
 
-# check counts in tSNE space
-# FeaturePlot(photo, features = c("gnat2",'gngt2b', "gnat1",'rho','si:busm1-57f23.1','opn1lw2', 'crx'))
 
 # heatmap of top genes
+# # find markers for every cluster compared to all remaining cells, report only the positive ones
+photo.markers <- FindAllMarkers(photo, only.pos = TRUE, min.pct = 0.25, logfc.threshold = 0.25)
+photo.markers %>% group_by(cluster) %>% top_n(n = 20, wt = avg_logFC)
 top10 <- photo.markers %>% group_by(cluster) %>% top_n(n = 10, wt = avg_logFC)
 DoHeatmap(photo, features = top10$gene) + NoLegend()
 
-FeaturePlot(photo, features = c("opn1sw1", "opn1sw2",'opn1mw1','opn1mw3','opn1lw2','si:busm1-57f23.1','rho','saga'))
 
-# Clear all plots -------------------------------------------------------------------
-try(dev.off(),silent=TRUE)
-# Clear environment -------------------------------------------------------------------
-rm(list=ls())
+saveRDS(photo, file = "./photoreceptors_3dpf.rds")
+## -----------------------------------------------------------------------------
+# Exploring all celltypes
+ps = DotPlot(pbmc, features = c("tbx2a","tbx2b","otx5","tgif1","crhbp","six7","six6b","ndrg1b","egr1","nr1d1","sall1a","skor1a","foxq2","lhx1a","ntf3","rxrgb","thrb","fgf1b","eya2","sox6","sox4b","pbx1a","hmgb3a","fbxo21","tfe3a")) + eelTheme() + theme(axis.text.x = element_text(angle = 45, hjust=1))
+ps
 
-# ------------------------------------------------------------------------------------------
-# Setup -------------------------------------------------------------------
-setwd("/Users/angueyraaristjm/Documents/LiLab/RNAseq/zfRetDev10x_Xu2020/ret72hpf/")
-directory <- "/Users/angueyraaristjm/Documents/LiLab/RNAseq/zfRetDev10x_Xu2020/ret72hpf/"
-getwd()
-# ------------------------------------------------------------------------------------------
-# Subclustered photoreceptors (Vincent's dataset)
-photo <- readRDS(file = "./VPK_ZF-Cones4-Subset.rds")
+ps = DotPlot(pbmc, features = c("nr2e3","crx","syt5b")) + eelTheme() + theme(axis.text.x = element_text(angle = 45, hjust=1))
+ps
 
-DimPlot(photo, reduction = "umap")
+ps = DotPlot(pbmc, features = c("vamp1","vamp2")) + eelTheme() + theme(axis.text.x = element_text(angle = 45, hjust=1))
+ps
 
-FeaturePlot(photo, features = c("opn1sw1", "opn1sw2",'opn1mw1','opn1mw3','opn1lw2','si:busm1-57f23.1','rho','saga'))
-VlnPlot(photo, features = c("opn1sw1", "opn1sw2",'opn1mw1','opn1mw3','opn1lw2','si:busm1-57f23.1','rho','saga'))
-VlnPlot(photo, features = c("opn1sw1", "opn1sw2",'opn1mw1','opn1mw3','opn1lw2','si:busm1-57f23.1','rho','saga'), slot = "counts", log = TRUE) #raw counts
+ps = DotPlot(pbmc, features = c("tbx2a","tbx2b","foxq2","skor1a","nrtn","jam2a","pcdh10a","pcdh11","ntng2a","vamp2","syt5a","syt5b")) + eelTheme() + theme(axis.text.x = element_text(angle = 45, hjust=1))
+ps
+# # ------------------------------------------------------------------------------------------
+# -------------------------------------------------------------------
+# CAN BE RESTARTED HERE
+photo = readRDS(file = "./photoreceptors_3dpf.rds")
+
+# getting % and Mean expression for all genes into csv.
+# DoHeatmap and DotPlot use the @scale.data slot for average expression display, which z-scored expression values (for example, as those used in PCA).
+# Cells with a value > 0 represent cells with expression above the population mean (a value of 1 would represent cells with expression 1SD away from the population mean). Hope that helps!
+# This is very detailed explanation: https://github.com/satijalab/seurat/issues/2798
+
+# Average expression in non-log scale for larvae:
+avgExp = AverageExpression(photo, slot="counts")
+avgExp = avgExp$RNA
+# avgExp = head(avgExp,10)
+nI = length(levels(Idents(photo)))
+colnames(avgExp) = paste("avg", levels(Idents(photo)), sep = "")
+# Calculate mean expression across all ages
+avgExp$avgMean = rowMeans(avgExp)
+
+# Percent expression can be obtained through DotPlot, but not Average expression, as this is log z-cored normalized data # avgExpZ = dPlot$data$avg.exp
+# Percent expression in larvae:
+dPlot = DotPlot(photo, features=rownames(avgExp))
+pctExp = dPlot$data$pct.exp
+pctExp = as.data.frame(matrix(pctExp,nrow = length(pctExp)/nI, ncol=nI));
+
+rownames(pctExp) = rownames(avgExp)
+colnames(pctExp) = paste("pct", levels(Idents(photo)), sep = "")
+
+# Calculate mean percent expression across all ages
+pctExp$pctMean = rowMeans(pctExp)
+head(pctExp,10)
+
+conesXu = cbind(pctExp,avgExp)
+head(conesXu,10)
+
+
+# these are duplicated genes with lower vs upper case
+dups=toupper(c('brd8','cct2','dtx4','eif1b','flrt2','frmd5','kcnb2','lamp1','lyrm4','mepce','mras','ncam2','pcdh8','pcp4l1','rps17','serp1','slc25a22','tatdn3','tenm3','tmem151a','tppp','trappc9','ubb','ublcp1','vps72','znf423'))
+for(i in 1:length(dups)) {
+   rownames(conesXu)[rownames(conesXu) == dups[i]] = paste(dups[i],"_ii",sep="")
+}
+# now everything can be lower cased
+rownames(conesXu) = tolower(rownames(conesXu))
+# also replacing (1 of many) with .1
+rownames(conesXu) = gsub("(1 of many)",".1",rownames(conesXu))
+
+
+conesXu = conesXu[c("avgMean","avgmslR","avgmslUV","avgmslS","avgmslM","avgmslL","avgmslPR",
+                    "pctMean","pctmslR","pctmslUV","pctmslS","pctmslM","pctmslL","pctmslPR")]
+# sort by avgExpression
+conesXu=conesXu[order(-conesXu$avgMean),]
+head(conesXu,100)
+
+scangenes=c('syt5a','syt5b','nr2e3','tbx2a','tbx2b','arr3a','arr3b','opn1lw1','opn1lw2');
+conesXu[scangenes,]
+
+# this is as far as I can take this
+# take aways: 
+# ribosomal proteins are the most expressed genes
+# separation worked quite well and there is consistency between datasets it seems
+
+write.csv(conesXu,"./conesXu.csv",quote=FALSE)
+
+# -------------------------------------------------------------------
+# -------------------------------------------------------------------
+
+
+
+# # ------------------------------------------------------------------------------------------
+# # ------------------------------------------------------------------------------------------
+# # ------------------------------------------------------------------------------------------
+# # Subclustered photoreceptors (Vincent's dataset)
+# # This has 473 cells, so my guess is that he's filtered out anything that doesn't have opsin counts
+# photo2 <- readRDS(file = "./VPK_ZF-Cones4-Subset.rds")
+# 
+# DimPlot(photo2, reduction = "umap")
+# 
+# FeaturePlot(photo2, features = c("opn1sw1", "opn1sw2",'opn1mw1','opn1mw3','opn1lw2','si:busm1-57f23.1','rho','saga'))
+
 
 # check counts in each cluster
 VlnPlot(photo, features = c("gnat2", "rho",'elovl4b','gnat1','si:busm1-57f23.1')) #log norm values
@@ -454,7 +573,4 @@ VlnPlot(photo, features = c("prdm1a","prdm1b"))
 
 
 
-# Exporting photoreceptor count matrix to make comparisons with manual data
-table(Idents(photo))
-rods <- subset(photo, idents = "Rods")
-GetAssayData(object = rods, slot = "counts")
+
