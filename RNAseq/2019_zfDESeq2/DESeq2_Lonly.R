@@ -17,7 +17,6 @@ BiocManager::install("dplyr")
 
 
 # Library loading -------------------------------------------------------------------
-rm(list=ls())
 library("DESeq2")
 library("apeglm")
 library("ggplot2")
@@ -25,20 +24,24 @@ library("org.Dr.eg.db")
 library("dplyr")
 library("ReportingTools")
 library("pcaExplorer")
+library("EnhancedVolcano")
 
 # Setup -------------------------------------------------------------------
+rm(list=ls())
+
 setwd("/Users/angueyraaristjm/Documents/LiMolec/zfRNAseq/20190827/20190827_DESeq2/")
 directory <- "/Users/angueyraaristjm/Documents/LiMolec/zfRNAseq/20190827/20190827_DESeq2/"
 getwd()
 
-round_df <- function(df, digits) {
-  nums <- vapply(df, is.numeric, FUN.VALUE = logical(1))
-  df[,nums] <- round(df[,nums], digits = digits)
-  (df)
-}
+# Removing merging with count data since this is not fpkm
+# Flipping fold-chage to make enriched genes positive
+# NEED TO SAVE VST TRANSFORMED DATA FOR HEATMAPS FROM RvC: vsd <- vst(dds)
 
-# WANT TO REINCLUDE ROD DATA SO I CAN USE CSV DIRECTLY FOR FIGURES
-# ALSO MAKE SURE TO FLIP FOLD-CHANGE SO L GENES ARE POSITIVE
+# Diagnostic plots: 
+# MAplot: 
+  # plotMA( res, ylim = c(-1, 1) )
+# Ratio of small p values for groups of genes binned by mean normalized count: 
+  # hist( res$pvalue, breaks=20, col="grey" )
 
 
 # remove subtrancript info from gCount.csv (sed 's/\.[0-9]//' gCount_ensdart.csv > gCount.csv)
@@ -49,16 +52,16 @@ countData <- as.matrix(read.csv(paste0(directory,"gCount.csv"), row.names="gene_
 colData <- read.csv(paste0(directory,"PHENO_DATA_L.csv"), sep="\t", row.names=1)
 # 2019_09_07: sample S7 is actually an M_cone. Will leave things as they are and just modify PHENO_DATA.
 # use colData to reorganize countData
-countData <- countData[, rownames(colData)]
-all(rownames(colData) == colnames(countData))
+countDataSubset <- countData[, rownames(colData)]
+all(rownames(colData) == colnames(countDataSubset))
 # save total number of mapped reads
 # write.csv(colSums(countData), file = "nMappedReads.csv")
 
-dds <- DESeqDataSetFromMatrix(countData = countData, colData = colData, design = ~subtype)
+dds <- DESeqDataSetFromMatrix(countData = countDataSubset, colData = colData, design = ~subtype)
 dds <- DESeq(dds)
 res <- results(dds)
 summary(res)
-sprintf('n(DEGenes) = %g (p<0.01) ', sum(res$padj < 0.01, na.rm=TRUE))
+sprintf('n(DEGenes) = %g (p<0.05) ', sum(res$padj < 0.05, na.rm=TRUE))
 
 # for excel, columns can be rounded using: temp[c("baseMean")]=round_df(temp[c("baseMean")],digits = 2)
 
@@ -68,13 +71,12 @@ head(resLFC)
 
 
 # Include Genename (descriptive) -------------------------------------------------
-# # Run this only if things have changed:
-# resdata <- merge(as.data.frame(res), as.data.frame(counts(dds,normalized =TRUE)), by = 'row.names', sort = FALSE)
+# Run this only if things have changed:
+# resdata <- res # # # not merging with normalized counts
 # resdata <- resdata[order(resdata$padj),]
-# names(resdata)[1] <- 'symbol'
 # # For some reason this breaks the csv writing and symbol column is replaced by numbers
 # # resdata$symbol <- tolower(resdata$symbol)
-# genenames <- mapIds(org.Dr.eg.db, keys=resdata[,c("symbol")], column=c("GENENAME"), keytype="SYMBOL", multivals='first')
+# genenames <- mapIds(org.Dr.eg.db, keys=rownames(resdata), column=c("GENENAME"), keytype="SYMBOL", multivals='first')
 # # write.csv(genenames, file = "genenames.csv", col.names=c("symbol","genename"))
 # write.csv(genenames, file = "genenames_L.csv", col.names=NA)
 
@@ -85,18 +87,17 @@ genenames$genename <- gsub(",","",genenames$genename)
 head(genenames)
 
 # Save Results ------------------------------------------------------------
-# results + normalized counts as log2((counts/average sequencing depth across samples)+0.5)
-resdata <- merge(as.data.frame(resLFC), as.data.frame(counts(dds,normalized =TRUE)), by = 'row.names', sort = FALSE)
+# results 
+resdata <- res # # # not merging with normalized counts: resdata = merge(as.data.frame(resLFC), as.data.frame(counts(dds,normalized =TRUE)), by = 'row.names', sort = FALSE)
 resdata <- resdata[order(resdata$padj),]
-names(resdata)[1] <- 'symbol'
+resdata$log2FoldChange = -resdata$log2FoldChange #inverting fold-chage
 head(resdata)
 
 # save raw results for python plotting
 if (all(genenames$symbol == resdata$symbol)) {
   print("data frames DO match")
   resdata$genename = genenames$genename
-  resdata <- resdata[c(1,ncol(resdata),2:ncol(resdata)-1)] #not sure why it's adding symbol again
-  resdata <- resdata[c(1,2,4:ncol(resdata))]
+  resdata <- resdata[c(ncol(resdata),1:ncol(resdata)-1)] #not sure why it's adding symbol again
   head(resdata)
   write.csv(head(resdata), file = "00_LvsUSM/LvsUSM_test.csv", row.names=FALSE, quote=FALSE)
   write.csv(resdata, file = "00_LvsUSM/LvsUSM_raw.csv", row.names=FALSE, quote=FALSE)
@@ -104,6 +105,25 @@ if (all(genenames$symbol == resdata$symbol)) {
 } else {
   print("data frames do NOT match")
 }
+# -------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# Plotters ------------------------------------------------------------
 
 # plot a single gene: counts (normalized by seq depth and +0.5 for log plotting)
 test <- plotCounts(dds, gene="rho", intgroup="type", col =c('blue','blue'), fg='white', col.lab ='white', col.main ='white', col.sub ='white', col.axis='white', bg='white')
@@ -116,8 +136,17 @@ ggplot(data, aes(x=subtype, y=count, color=subtype)) +
   scale_y_log10() + 
   geom_point(position=position_jitter(width=.1,height=0))
 
-
-
+# volcano plot
+resDF = resdata
+# resDF = resLFC
+EnhancedVolcano(resDF,
+                lab = rownames(resDF),
+                x = 'log2FoldChange',y = 'pvalue',
+                xlim = c(-30, 30),
+                title = 'L versus UV/S/M',
+                pCutoff = 0.05,
+                FCcutoff = 0.6,col=c('grey75', 'grey50', 'grey25', 'red','blue'),
+                colAlpha = 1)
 
 # visualize as heatmap
 n_genes = 100

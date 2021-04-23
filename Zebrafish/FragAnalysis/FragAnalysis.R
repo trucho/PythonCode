@@ -19,7 +19,7 @@ rm(list=ls()); + try(dev.off(),silent=TRUE);
 # ------------------------------------------------------------------------------------------------------------------------------------------------
 # ------------------------------------------------------------------------------------------------------------------------------------------------
 # define folder
-dir.fsa = "/Users/angueyraaristjm/Documents/LiMolec/zfGenotyping/20210326_tbx2bF1s/tbx2b"
+dir.fsa = "/Users/angueyraaristjm/Documents/LiMolec/zfGenotyping/20210407_tbx2aF1s/tbx2a"
 # load all fsa files in folder
 fsaData = storing.inds(dir.fsa)
 fsaNames = names(fsaData)
@@ -104,8 +104,8 @@ fitWeights <- predict(polyModel,full_ladder)
 # plot the data
 plot(fitWeights, tempData[[tempName]][,1], typ='l', xlim=c(0, 600), main=tempName)
 # zoom into ROI
-# p_lo = 350; p_hi =  600; #syt5a | tbx2a
-p_lo = 250; p_hi = 420; #sema7a | tbx2b
+p_lo = 350; p_hi =  600; #syt5a | tbx2a
+# p_lo = 250; p_hi = 420; #sema7a | tbx2b
 # p_lo = 200; p_hi = 275; #eml1
 # p_lo = 100; p_hi = 300; #ntng2b
 # p_lo = 100; p_hi =  600; # whole range

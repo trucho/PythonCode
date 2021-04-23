@@ -3,6 +3,7 @@ import pandas as pd
 import matplotlib
 import matplotlib.pyplot as plt
 import matplotlib.font_manager as font_manager
+from scipy.stats import zscore
 from cmcrameri import cm #colormaps
 
 def log2(m):
@@ -40,6 +41,22 @@ def formatBars(plotH):
         else:
             bars[i].set_facecolor('#000000')
 
+def formatFigure_General(plottitle, figH, axH, plotH):
+    font_path = '/System/Library/Fonts/Avenir.ttc'
+    fontTicks = font_manager.FontProperties(fname=font_path, size=18)
+    fontLabels = font_manager.FontProperties(fname=font_path, size=22)
+    fontTitle = font_manager.FontProperties(fname=font_path, size=28)
+
+    axH.set_title(plottitle, fontproperties=fontTitle)
+    axH.spines['top'].set_visible(False)
+    axH.spines['right'].set_visible(False)
+    
+    axH.set_xlabel(axH.get_xlabel(), fontproperties=fontLabels)
+    axH.set_ylabel(axH.get_ylabel(), fontproperties=fontLabels)
+
+    for label in (axH.get_xticklabels() + axH.get_yticklabels()):
+        label.set_fontproperties(fontTicks)
+            
 def formatFigure_Opsins(genename, figH, axH, plotH):
     font_path = '/System/Library/Fonts/Avenir.ttc'
     fontTicks = font_manager.FontProperties(fname=font_path, size=18)
@@ -393,7 +410,7 @@ def heatmap_z(data, row_labels, col_labels, ax=None,
     
     data = zscore(data,axis=1, nan_policy='omit') # calculate z-score
 
-    im,cbar = heatmap_general_z(data, row_labels, col_labels, groupsN, groupsColors, groupsLabels, ax=ax, cbarlabel="fpkm")
+    im,cbar = heatmap_general_z(data, row_labels, col_labels, groupsN, groupsColors, groupsLabels, ax=ax, cbarlabel="z-score")
 
     return im, cbar
 
