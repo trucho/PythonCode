@@ -15,11 +15,12 @@ library(ggpubr)
 # ------------------------------------------------------------------------------------------------------------------------------------------------
 # ------------------------------------------------------------------------------------------------------------------------------------------------
 # Clear environment
-rm(list=ls()); + try(dev.off(),silent=TRUE);
+rm(list=ls()); 
+try(dev.off(),silent=TRUE);
 # ------------------------------------------------------------------------------------------------------------------------------------------------
 # ------------------------------------------------------------------------------------------------------------------------------------------------
 # define folder
-dir.fsa = "/Users/angueyraaristjm/Documents/LiMolec/zfGenotyping/20210407_tbx2aF1s/tbx2a"
+dir.fsa = "/Users/angueyraaristjm/Documents/LiMolec/zfGenotyping/20210430_foxq2Test/foxq2"
 # load all fsa files in folder
 fsaData = storing.inds(dir.fsa)
 fsaNames = names(fsaData)
@@ -104,8 +105,9 @@ fitWeights <- predict(polyModel,full_ladder)
 # plot the data
 plot(fitWeights, tempData[[tempName]][,1], typ='l', xlim=c(0, 600), main=tempName)
 # zoom into ROI
-p_lo = 350; p_hi =  600; #syt5a | tbx2a
-# p_lo = 250; p_hi = 420; #sema7a | tbx2b
+# p_lo = 350; p_hi =  600; #syt5a | tbx2a
+p_lo = 250; p_hi = 420; #sema7a | tbx2b | foxq2
+p_lo = 300; p_hi = 500; # foxq2
 # p_lo = 200; p_hi = 275; #eml1
 # p_lo = 100; p_hi = 300; #ntng2b
 # p_lo = 100; p_hi =  600; # whole range
@@ -145,6 +147,7 @@ dev.off()
 # expected peaks: gnat2 = 295bp;     syt5a = 477bp;     efna1b = 495bp; 
 #                 eml1 = 227bp (mut = -11bp); 
 #                 sema7a = 358 bp;   tbx2a = 487 bp;   tbx2b = 332 bp
+#                 foxq2 = 365 bp; slc45a2 = AA115,AB161,AC124,
 # ------------------------------------------------------------------------------------------------------------------------------------------------
 # ------------------------------------------------------------------------------------------------------------------------------------------------
 # p = ggplot() + geom_line(aes(x = fitWeights, y = tempData[[tempName]][,1]), size=.5) + # frag Data
