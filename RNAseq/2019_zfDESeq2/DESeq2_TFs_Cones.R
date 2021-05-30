@@ -94,7 +94,7 @@ if (all(genenames$symbol == resdata$symbol)) {
 resdataLFC <- resLFC # # # not merging with normalized counts: resdata = merge(as.data.frame(resLFC), as.data.frame(counts(dds,normalized =TRUE)), by = 'row.names', sort = FALSE)
 resdataLFC <- resdataLFC[order(resdataLFC$padj),]
 # resdata$log2FoldChange = -resdata$log2FoldChange #inverting fold-chage
-head(resdataLFC)
+head(data.frame(resdataLFC),20)
 
 # save lfc results for python heatmaps
 if (all(genenames$symbol == resdataLFC$symbol)) {
@@ -176,6 +176,14 @@ PC1genes = hi_loadings(pcaobj, whichpc = 1, topN = 960,exprTable=counts(dds))
 PC1genes
 hi_loadings(pcaobj, whichpc = 1, topN = 50,)
 # save plot as 10 x 30 inches pdf
+
+# For figure: strict thresholds to show only a few TFs ------------------------------------------------------------
+subTF = merge(as.data.frame(resLFC), as.data.frame(counts(dds,normalized =TRUE)), by = 'row.names', sort = FALSE)
+subTF = subTF[order(subTF$pvalue),]
+subTF = head(data.frame(subTF),50)
+subTF[order(subTF$log2FoldChange),]
+data.frame(subTF[order(subTF$log2FoldChange),]$Row.names)
+
 
 # M-cones -------------------------------------------------------------------
 # M-cones -------------------------------------------------------------------

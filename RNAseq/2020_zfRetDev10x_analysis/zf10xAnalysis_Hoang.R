@@ -59,11 +59,13 @@ photo = readRDS("~/Documents/LiMolec/otherRNAseq/zfRet_HoangBlackshaw2020/cones_
 new.cluster.ids <- c("RPC","MG1","R","PRPC","Ca","BC1","HC","AC","ACgaba","MG2","RGC1","MG3","Cl","RGC2","ACgly","BC2","MGi")
 names(new.cluster.ids) <- levels(pbmc)
 pbmc <- RenameIdents(pbmc, new.cluster.ids)
+Idents(pbmc) <- factor(x = Idents(pbmc), levels = c("RPC","PRPC","Cl","Ca","R","HC","BC1","BC2","AC","ACgaba","ACgly","RGC1","RGC2","MGi","MG1","MG2","MG3"))
 DimPlot(pbmc, reduction = "tsne", label = TRUE, pt.size = 0.5) + NoLegend()
 DimPlot(pbmc, reduction = "umap", label = TRUE, pt.size = 0.5) + NoLegend()
 # ------------------------------------------------------------------------------------------
 # -------------------------------------------------------------------
 # check counts in each cluster
+VlnPlot(pbmc, features = c("vamp1","vamp2","vamp3","vamp4","vamp5","vamp8")) #log norm values
 VlnPlot(pbmc, features = c("gnat2", "rho",'elovl4b','gnat1','si:busm1-57f23.1')) #log norm values
 VlnPlot(pbmc, features = c("gnat2", "rho",'elovl4b','gnat1','si:busm1-57f23.1'), slot = "counts", log = TRUE) #raw counts
 RidgePlot(pbmc, features = c("gnat2", "rho",'elovl4b','gnat1','si:busm1-57f23.1'))
@@ -71,7 +73,8 @@ DotPlot(pbmc, features = c("gnat2", "rho",'elovl4b','gnat1','si:busm1-57f23.1'))
 
 VlnPlot(pbmc, features = c("sema7a","efna1b","ntng2b","syt1a","syt1b","syt5a","syt5b","tbx2a","tbx2b","eml1")) #log norm values
 DotPlot(pbmc, features = c("sema7a","efna1b","ntng2b","syt1a","syt1b","syt5a","syt5b","tbx2a","tbx2b","eml1"))
-
+DotPlot(pbmc, features = c("vamp1","vamp2","vamp3","vamp4","vamp5","vamp8")) 
+FeaturePlot(pbmc, reduction = 'tsne', features = c("vamp1","vamp2","vamp3","vamp4","vamp5","vamp8")) 
 VlnPlot(pbmc, features = c("opn1sw1", "opn1sw2",'opn1mw1','gnat2','opn1lw2','si:busm1-57f23.1','rho','saga')) #log norm values
 # check counts in tSNE space
 # FeaturePlot(pbmc, features = c("gnat2",'gngt2b', "gnat1",'rho','si:busm1-57f23.1','opn1lw2', 'crx'))
@@ -85,32 +88,48 @@ top10 <- pbmc.markers %>% group_by(cluster) %>% top_n(n = 10, wt = avg_logFC)
 #Using https://proteinpaint.stjude.org/?genome=danRer10&singlecell=files/danRer10/NEI.AGI.retina/singlecell/dev/view.json to map
 # Retinal progenitor: 0
 # Photoreceptor precursor: 3
-FeaturePlot(pbmc, features = c("hmgb2b","stmn1a",'hmgn2','rrm2.1'))
+FeaturePlot(pbmc,reduction = 'tsne', features = c("hmgb2b","stmn1a",'hmgn2','rrm2.1'))
 
 # Cones: adults = 4,  larval = 12
 # Rods: 2
-FeaturePlot(pbmc, features = c("tulp1a","elovl4b",'ckmt2a','gngt2a'))
-FeaturePlot(pbmc, features = c("opn1sw1", "opn1sw2",'opn1mw1','gnat2','opn1lw2','si:busm1-57f23.1','rho','saga'))
+FeaturePlot(pbmc,reduction = 'tsne', features = c("tulp1a","elovl4b",'ckmt2a','gngt2a'))
+FeaturePlot(pbmc,reduction = 'tsne', features = c("opn1sw1", "opn1sw2",'opn1mw1','gnat2','opn1lw2','si:busm1-57f23.1','rho','saga'))
 
 
 
 # HCs: 6
-FeaturePlot(pbmc, features = c("rem1","CR361564.1",'prkar2ab','rprmb','opn4.1','atp1b1a'))
+FeaturePlot(pbmc,reduction = 'tsne', features = c("rem1","CR361564.1",'prkar2ab','rprmb','opn4.1','atp1b1a'))
 
 # BCs: 5, 15
-FeaturePlot(pbmc, features = c("samsn1a","vsx1",'gnb3a','pcp4l1','neurod4','gnao1b'))
+FeaturePlot(pbmc,reduction = 'tsne', features = c("samsn1a","vsx1",'gnb3a','pcp4l1','neurod4','gnao1b','rho'))
 
 # Immature MG: 16
 # MG: 11, 9 , 1
-FeaturePlot(pbmc, features = c("cavin2a","rhbg",'slc1a2b','atp1a1b'))
+FeaturePlot(pbmc,reduction = 'tsne', features = c("cavin2a","rhbg",'slc1a2b','atp1a1b'))
 
 # RGCs = 13 + 10
-FeaturePlot(pbmc, features = c("islr2","rbpms2a",'pou4f1'))
+FeaturePlot(pbmc,reduction = 'tsne', features = c("islr2","rbpms2a",'pou4f1'))
 
 # ngng ACs = 7
 # gly ACs = 14
 # GABA ACs = 8
-FeaturePlot(pbmc, features = c("slc32a1","pax10",'tfap2a','gad2','slc6a1b'))
+FeaturePlot(pbmc,reduction = 'tsne', features = c("slc32a1","pax10",'tfap2a','gad2','slc6a1b','mafa'))
+FeaturePlot(pbmc,reduction = 'tsne', features = c("slc32a1","pax10",'tfap2a','gad2','slc6a1b', "chata", "megf10","megf11","tbx2a","tbx2b",'rho'))
+
+# chicken SAC markers:
+FeaturePlot(pbmc,reduction = 'tsne', features = c("rho","chata","slc5a7a","slc18a3a","slc18a3b","fezf1","tenm3","zfhx3","foxq2"))
+
+
+# SAC genes in Yamagata, 2021 chicken RNAseq + tfap2a = INL and tfap2b = INL + GCL
+# Exploring briefly, ACs that are tbx2+ in this dataset are clusters: 11,14,15,16,17(nmb),2,21,22,25 (OFF SAC),31(nts, penk),39,42 (penk),43,47,54,6,7 (ON SAC)
+# In mouse amacrine dataset it's clearly in clusters 35 (PENK), 43 (GABA+), 51 (GHRH)
+# less clearly in 16, 17 (SACs), 23, 24(nGnG-1), 26 (VIP), 3 (AII),30 (nGnG-3), 56 (VG1), 9 (Gly+)
+FeaturePlot(pbmc, reduction = 'tsne', features = c("tbx2a","tbx2b","chata","sox10","tfap2a","tfap2b","slc5a7a","slc18a3a","slc18a3b","fezf1"), pt.size=0.2, order=TRUE, combine=TRUE)
+
+FeaturePlot(pbmc, reduction = 'tsne', features = c("tbx2a","tbx2b","nts","nmbb","slc18a3a","penka","penkb","ghrh","maff"), pt.size=0.2, order=TRUE, combine=TRUE)
+
+FeaturePlot(pbmc, reduction = 'tsne', features = c("tbx2a","tbx2b","slc5a7a","slc18a3a","fezf1","megf10"), pt.size=0.2, order=TRUE, combine=TRUE)
+
 # Clear all plots -------------------------------------------------------------------
 try(dev.off(),silent=TRUE)
 
@@ -156,6 +175,9 @@ photo <- RunPCA(photo, features = VariableFeatures(object = photo))
 
 
 FeaturePlot(photo, reduction = 'tsne', features = c("opn1sw1", "opn1sw2",'opn1mw1','opn1mw2','opn1mw3','opn1mw4','opn1lw1','opn1lw2','si:busm1-57f23.1'))
+
+
+
 VlnPlot(photo, features = c("opn1sw1", "opn1sw2",'opn1mw1','opn1mw2','opn1mw3','opn1mw4','opn1lw1','opn1lw2','si:busm1-57f23.1'))
 
 
