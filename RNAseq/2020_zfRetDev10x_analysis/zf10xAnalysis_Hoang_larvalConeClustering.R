@@ -23,8 +23,9 @@ try(dev.off(),silent=TRUE)
 rm(list=ls())
 
 # Setup -------------------------------------------------------------------
-setwd("/Users/angueyraaristjm/Documents/LiMolec/otherRNAseqzfRet_HoangBlackshaw2020/")
-directory = "/Users/angueyraaristjm/Documents/LiMolec/otherRNAseqzfRet_HoangBlackshaw2020/"
+setwd("/Users/angueyraaristjm/Documents/LiMolec/otherRNAseq/zfRet_HoangBlackshaw2020/")
+directory = "/Users/angueyraaristjm/Documents/LiMolec/otherRNAseq/zfRet_HoangBlackshaw2020/"
+directory = "/Users/angueyraaristjm/Documents/LiLab/Presentations/revealjs/resources/20210312_LLL/"
 exportDir = paste(directory,"eelAnalysis",sep="")
 getwd()
 # Plot themes -------------------------------------------------------------------
@@ -67,7 +68,7 @@ photo = readRDS(file = "./cones_Larval.rds")
 
 
 # Identification of highly variable features (feature selection)
-photo <- FindVariableFeatures(photo, selection.method = "vst", znfeatures = 200)
+photo <- FindVariableFeatures(photo, selection.method = "vst", nfeatures = 200)
 # Identify the 10 most highly variable genes
 top10 <- head(VariableFeatures(photo), 100)
 top10
@@ -138,6 +139,12 @@ photo2 = SetIdent(photo, value = "Sample")
 DimPlot(photo2, reduction = "tsne", label = TRUE, pt.size = 1, label.size = 6) + eelTheme()
 ggsave("larval_TSNEdpf.png", path=exportDir, width = 140, height = 105, units = "mm")
 
+FeaturePlot(photo, reduction = 'tsne',features = c("foxq2")) + eelTheme()
+ggsave("larval_TSNEfoxq2.png", path=exportDir, width = 140, height = 105, units = "mm")
+
+FeaturePlot(photo, reduction = 'tsne',features = c("opn1sw2")) + eelTheme()
+ggsave("larval_TSNEsws2.png", path=exportDir, width = 140, height = 105, units = "mm")
+
 # FeaturePlot(photo, reduction = 'tsne', features = c("opn1sw1", "opn1sw2",'opn1mw1','opn1mw2','opn1mw3','opn1mw4','opn1lw1','opn1lw2','si:busm1-57f23.1','efna1b'))
 FeaturePlot(photo, reduction = 'tsne', features = c("rho","opn1sw1", "opn1sw2",'opn1mw1','opn1mw2','opn1mw3','opn1mw4','opn1lw1','opn1lw2'))
 FeaturePlot(photo, reduction = 'tsne', features = c("rho","nrl","pde6a","nr2e3","crx",'gnat1',"saga","sagb","gucy2f","grk1a")) # rod markers
@@ -183,10 +190,17 @@ ggsave(ps, file="larval_DevClusters.png", path=exportDir, width = 140*2, height 
 
 
 # Assigning cone subtype identity to clusters
-new.cluster.ids <- c("lslPR","mslPR","lslPR","mslPR","eslPR","eslPR","eslPR","sw2eslPR","mslPR")
+# new.cluster.ids <- c("lslPR","mslPR","lslPR","mslPR","eslPR","eslPR","eslPR","sw2eslPR","mslPR")
+new.cluster.ids <- c("lslPR","lslPR","eslPR","mslPR","mslPR","eslPR","mslPR","eslPR","eslS","mslPR")
 names(new.cluster.ids) <- levels(photo)
 photo <- RenameIdents(photo, new.cluster.ids)
-DimPlot(photo, reduction = "tsne", label = TRUE, pt.size = 1, label.size = 6) + eelTheme()
+
+Idents(photo) <- factor(x = Idents(photo), levels = c("eslPR","mslPR","lslPR","eslS"))
+lcolors = c("#dacd9a","#dcc360","#cca819","#8f9bcc")
+levels(Idents(photo))
+
+
+DimPlot(photo, reduction = "tsne", label = TRUE, pt.size = 1, label.size = 6, cols=lcolors) +eelTheme()
 ggsave("larval_TSNEdev.png", path=exportDir, width = 140, height = 105, units = "mm")
 DimPlot(photo, reduction = "umap", label = TRUE, pt.size = 1) + NoLegend()
 

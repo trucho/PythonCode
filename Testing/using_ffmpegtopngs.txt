@@ -41,3 +41,13 @@ gifsicle --resize=802x738 --delay=1 --colors 256 --loopcount ./gifs/*.gif > mov5
 ffmpeg -i mov7.mp4 -r 6 ./pngs/out%04d.png
 sips -s format gif ./pngs/*.png --out ./gifs
 gifsicle --resize=1040x256 --delay=1 --colors 256 --loopcount ./gifs/*.gif > mov7.gif
+
+
+ffmpeg -i zfGastrulation.mp4 -r 6 ./pngs/out%04d.png
+sips -s format gif ./pngs/*.png --out ./gifs
+gifsicle --resize=512x256 -O3 --delay=1 --loopcount ./gifs/*.gif > ptf1aExample.gif
+
+gifsicle -O3 --delay=1 --colors 256 --loopcount ./gifs/*.gif > zfGastrulation.gif
+
+
+gifsicle --resize=512x256 -U --delay=0 --loopcount --flip-vertical ./gifs/*.gif > ptf1aExample.gif

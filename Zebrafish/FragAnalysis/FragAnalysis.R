@@ -20,7 +20,7 @@ try(dev.off(),silent=TRUE);
 # ------------------------------------------------------------------------------------------------------------------------------------------------
 # ------------------------------------------------------------------------------------------------------------------------------------------------
 # define folder
-dir.fsa = "/Users/angueyraaristjm/Documents/LiMolec/zfGenotyping/20210514_tbx2afoxq2F0s/fragAnalysis/tbx2a"
+dir.fsa = "/Users/angueyraaristjm/Documents/LiMolec/zfGenotyping/20210804_tbx2bfoxq2F0s/foxq2"
 # load all fsa files in folder
 fsaData = storing.inds(dir.fsa)
 fsaNames = names(fsaData)
@@ -50,7 +50,7 @@ i= 0;
 # ------------------------------------------------------------------------------------------------------------------------------------------------
 # ------------------------------------------------------------------------------------------------------------------------------------------------
 # get single file (run section with command+alt+T)
-i=i+1
+i=i-1
 tempName = fsaNames[i]; message(paste("Analyzing:",fsaNames[i]))
 tempData <- fsaData[tempName] 
 class(tempData) <- "fsa_stored"
@@ -74,7 +74,7 @@ plot(tempData[[tempName]][ilim01:ilim02,chLadder], typ='l') # 16 peaks for liz50
 tempData[[tempName]] = tempData[[tempName]][ilim01:ilim02,c(chDNA,chLadder)]
 # plot(tempData[[tempName]][,2], typ='l') # 16 peaks for liz500 (15 peaks if removed '35' marker)
 
-guessThreshold = quantile(tempData[[tempName]][,2],.99);
+guessThreshold = quantile(tempData[[tempName]][,2],.992);
 # guessThreshold = 50;
 # match ladder (works better if higher values when noise is high)
 ladderData = ladder.info.attach(stored=tempData, ladder=liz500, method='iter2', draw=TRUE, ladd.init.thresh=guessThreshold)
@@ -105,9 +105,9 @@ fitWeights <- predict(polyModel,full_ladder)
 # plot the data
 plot(fitWeights, tempData[[tempName]][,1], typ='l', xlim=c(0, 600), main=tempName)
 # zoom into ROI
-p_lo = 350; p_hi =  600; #syt5a | tbx2a
+# p_lo = 350; p_hi =  600; #syt5a | tbx2a
 # p_lo = 250; p_hi = 420; #sema7a | tbx2b
-# p_lo = 300; p_hi = 500; # foxq2
+p_lo = 300; p_hi = 500; # foxq2
 # p_lo = 200; p_hi = 275; #eml1
 # p_lo = 100; p_hi = 300; #ntng2b
 # p_lo = 100; p_hi =  600; # whole range
@@ -117,7 +117,7 @@ tempPeak = max(tempData[[tempName]][fitWeights>p_lo&fitWeights<p_hi,1]); tempBP 
 p = ggplot() + geom_line(aes(x = fitWeights, y = tempData[[tempName]][,1]), size=.5) + # frag Data
    geom_line(aes(x = fitWeights, y = tempData[[tempName]][,2]), color=rgb(.8, 0, 0, .25)) + #ladder Data
    geom_line(aes(x = c(tempBP,tempBP), y = c(0,tempPeak)), color=rgb(0, .5, .8, .8)) + # identified peak
-   annotate("text", x=tempBP, y=tempPeak*1.05, label=paste(toString(round(tempBP,digits=0)),'bp',sep=' '), size=5) +
+   annotate("text", x=tempBP, y=tempPeak*1.05, label=paste(toString(round(tempBP,digits=2)),'bp',sep=' '), size=5) +
    annotate("text", x=tempBP+15, y=tempPeak, label=paste(toString(round(tempPeak,digits=0)),'au',sep=' '), size=5, hjust = 0) +
    ylab("Fluo (a.u.)") +
    xlim(p_lo, p_hi) +
