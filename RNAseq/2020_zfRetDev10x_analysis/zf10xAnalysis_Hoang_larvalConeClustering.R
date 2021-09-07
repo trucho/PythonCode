@@ -767,7 +767,7 @@ rm(list=ls())
 # Load the previously saved larval cone dataset after trying to identify photoreceptor subtypes and not succeeding well
 photoLarval = readRDS(file = "./cones_LarvalReAnalyzed.rds")
 # Load the previously saved adult cone dataset after trying to more or less clustering by photoreceptor subtypes
-photo = readRDS("~/Documents/LiMolec/otherRNAseqzfRet_HoangBlackshaw2020/cones_Adult.rds")
+photo = readRDS("~/Documents/LiMolec/otherRNAseq/zfRet_HoangBlackshaw2020/cones_Adult.rds")
 
 # make sure unreliable subtype info is removed
 Idents(object = photoLarval) = photoLarval$devStage
@@ -940,7 +940,7 @@ DotPlot(photoDev,features = c("ntf3","spock3","hs3st3l","sema3fb","si:busm1-57f2
 saveRDS(photoDev, file = "./photoreceptors_Development.rds")
 
 # -------------------------------------------------------------------
-# CAN BE RESTARTED HERE
+# CAN BE RESTARTED HERE  DEVELOPMENTLINK
 photoDev = readRDS(file = "./photoreceptors_Development.rds")
 
 # getting % and Mean expression for all genes into csv.

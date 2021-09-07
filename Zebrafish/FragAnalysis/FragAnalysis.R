@@ -20,7 +20,7 @@ try(dev.off(),silent=TRUE);
 # ------------------------------------------------------------------------------------------------------------------------------------------------
 # ------------------------------------------------------------------------------------------------------------------------------------------------
 # define folder
-dir.fsa = "/Users/angueyraaristjm/Documents/LiMolec/zfGenotyping/20210804_tbx2bfoxq2F0s/foxq2"
+dir.fsa = "/Users/angueyraaristjm/Documents/LiMolec/zfGenotyping/20210827_testingPrimers/FragmentAnalysis/xbp1"
 # load all fsa files in folder
 fsaData = storing.inds(dir.fsa)
 fsaNames = names(fsaData)
@@ -50,7 +50,7 @@ i= 0;
 # ------------------------------------------------------------------------------------------------------------------------------------------------
 # ------------------------------------------------------------------------------------------------------------------------------------------------
 # get single file (run section with command+alt+T)
-i=i-1
+i=i+1
 tempName = fsaNames[i]; message(paste("Analyzing:",fsaNames[i]))
 tempData <- fsaData[tempName] 
 class(tempData) <- "fsa_stored"
@@ -105,12 +105,13 @@ fitWeights <- predict(polyModel,full_ladder)
 # plot the data
 plot(fitWeights, tempData[[tempName]][,1], typ='l', xlim=c(0, 600), main=tempName)
 # zoom into ROI
-# p_lo = 350; p_hi =  600; #syt5a | tbx2a
-# p_lo = 250; p_hi = 420; #sema7a | tbx2b
-p_lo = 300; p_hi = 500; # foxq2
+# p_lo = 350; p_hi =  650; #syt5a | tbx2a
+# p_lo = 500; p_hi =  650; # tbx2a FiRii/FiRiii
+# p_lo = 250; p_hi = 420; #sema7a | tbx2b | syt5b | xbp1
+# p_lo = 300; p_hi = 500; # foxq2 | nr2f1b
 # p_lo = 200; p_hi = 275; #eml1
 # p_lo = 100; p_hi = 300; #ntng2b
-# p_lo = 100; p_hi =  600; # whole range
+p_lo = 100; p_hi =  600; # whole range
 # p_lo = 350; p_hi =  420; # temp
 # plot(fitWeights, tempData[[tempName]][,1], typ='l', xlim=c(p_lo, p_hi), ylim=c(0,1000), main=tempName)
 tempPeak = max(tempData[[tempName]][fitWeights>p_lo&fitWeights<p_hi,1]); tempBP =  fitWeights[which(tempData[[tempName]]==tempPeak)];
