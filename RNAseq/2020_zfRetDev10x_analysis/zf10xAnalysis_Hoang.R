@@ -35,6 +35,15 @@ rm(list=ls())
 setwd("/Users/angueyraaristjm/Documents/LiMolec/otherRNAseq/zfRet_HoangBlackshaw2020/")
 directory = "/Users/angueyraaristjm/Documents/LiMolec/otherRNAseq/zfRet_HoangBlackshaw2020/"
 getwd()
+# Plot themes -------------------------------------------------------------------
+eelTheme = function (base_size = 42, base_family = "Avenir") {
+   theme_classic() %+replace% 
+      theme(
+         axis.line = element_line(colour = 'black', size = 1),
+         axis.text = element_text(size=28, family = "Avenir"),
+         text = element_text(size=42, family = "Avenir"),
+      )
+}
 # -------------------------------------------------------------------
 # Load the 10x dataset (28845 cells), after updating to Seurat_v3 (had to use biowulf)
 pbmc = readRDS("~/Documents/LiMolec/otherRNAseq/zfRet_HoangBlackshaw2020/zfDev_pbmc_v3.rds");
@@ -56,12 +65,23 @@ photo = readRDS("~/Documents/LiMolec/otherRNAseq/zfRet_HoangBlackshaw2020/cones_
 # GABA ACs = 8
 
 # Assigning cell type identity to clusters (it's basically just renaming)
-new.cluster.ids <- c("RPC","MG1","R","PRPC","Ca","BC1","HC","AC","ACgaba","MG2","RGC1","MG3","Cl","RGC2","ACgly","BC2","MGi")
+new.cluster.ids <- c("RPC","MG1","Rods","PRPC","Cones_adult","BC1","HC","AC","ACgaba","MG2","RGC1","MG3","Cones_larval","RGC2","ACgly","BC2","MGi")
 names(new.cluster.ids) <- levels(pbmc)
 pbmc <- RenameIdents(pbmc, new.cluster.ids)
-Idents(pbmc) <- factor(x = Idents(pbmc), levels = c("RPC","PRPC","Cl","Ca","R","HC","BC1","BC2","AC","ACgaba","ACgly","RGC1","RGC2","MGi","MG1","MG2","MG3"))
-DimPlot(pbmc, reduction = "tsne", label = TRUE, pt.size = 0.5) + NoLegend()
-DimPlot(pbmc, reduction = "umap", label = TRUE, pt.size = 0.5) + NoLegend()
+Idents(pbmc) <- factor(x = Idents(pbmc), levels = c("RPC","PRPC","Cones_larval","Cones_adult","Rods","HC","BC1","BC2","AC","ACgaba","ACgly","RGC1","RGC2","MGi","MG1","MG2","MG3"))
+# retcolors = c("#4d493c","#dfdac8","#cca819","#ffd024","#7d7d7d","#3db500","#871308","#871308","#e7851d","#e7851d","#8c561b","#2a81de","#2a81de","#d277ff","#ff13c8","#ff13c8","#ff13c8")
+
+# UMAP plot
+ps = DimPlot(pbmc, reduction = "umap", label=FALSE, repel = TRUE, pt.size = 1, label.size = 10) + #, cols=retcolors) + 
+   eelTheme() + NoLegend() + xlim(-12,12) + ylim(-10,10)
+ps
+ggsave(ps, file="00_UMAPClusters.png", path="./zfConeRNAseqFigure/UMAP/", width = 140*2, height = 105*2, units = "mm")
+# tSNE plot
+ps = DimPlot(pbmc, reduction = "tsne", label=TRUE, repel = TRUE, pt.size = 1, label.size = 10) + 
+   eelTheme() + NoLegend() + xlim(-50,50) + ylim(-60,60)
+ps
+ggsave(ps, file="00_TSNEClusters_labels.png", path="./zfConeRNAseqFigure/TSNE/", width = 140*2, height = 105*2, units = "mm")
+
 # ------------------------------------------------------------------------------------------
 # -------------------------------------------------------------------
 # check counts in each cluster
@@ -94,6 +114,35 @@ FeaturePlot(pbmc,reduction = 'tsne', features = c("hmgb2b","stmn1a",'hmgn2','rrm
 # Rods: 2
 FeaturePlot(pbmc,reduction = 'tsne', features = c("tulp1a","elovl4b",'ckmt2a','gngt2a'))
 FeaturePlot(pbmc,reduction = 'tsne', features = c("opn1sw1", "opn1sw2",'opn1mw1','gnat2','opn1lw2','si:busm1-57f23.1','rho','saga'))
+FeaturePlot(pbmc,reduction = 'tsne', features = c("crx","otx5","nr2e3",'rx1','meis1b'),pt.size=1, order=TRUE, combine=TRUE, ncol = 3)
+# --------------------------------------------------------------------------------
+# Photoreceptor precursor
+genelist = c("hmgb2b","stmn1a",'hmgn2','rrm2.1')
+for(i in 1:length(genelist)) {
+   genename = genelist[i]
+   ps = FeaturePlot(pbmc, reduction = 'tsne', features = c(genename),pt.size=1, order=TRUE, combine=TRUE) + eelTheme() + NoLegend() + xlim(-50,50) + ylim(-60,60)
+   ggsave(ps, file=paste("00_TSNE",genename,".png",sep=''), path="./zfConeRNAseqFigure/TSNE/", width = 140*2, height = 105*2, units = "mm")
+}
+FeaturePlot(pbmc, reduction = 'tsne', features = genelist,pt.size=1, order=TRUE, combine=TRUE, ncol = 3)
+# --------------------------------------------------------------------------------
+# opsins and others
+genelist = c("tulp1a","elovl4b",'ckmt2a','gngt2a',"rho","opn1sw1", "opn1sw2",'opn1mw1','opn1mw2','opn1mw3','opn1mw4','opn1lw1','opn1lw2','gnat2','gnat1','saga','arr3a','arr3b')
+for(i in 1:length(genelist)) {
+   genename = genelist[i]
+   ps = FeaturePlot(pbmc, reduction = 'tsne', features = c(genename),pt.size=1, order=TRUE, combine=TRUE) + eelTheme() + NoLegend() + xlim(-50,50) + ylim(-60,60)
+   ggsave(ps, file=paste("00_TSNE",genename,".png",sep=''), path="./zfConeRNAseqFigure/TSNE/", width = 140*2, height = 105*2, units = "mm")
+}
+FeaturePlot(pbmc, reduction = 'tsne', features = genelist,pt.size=1, order=TRUE, combine=TRUE, ncol = 3)
+# --------------------------------------------------------------------------------
+# opsins and others
+genelist = c("tulp1a","elovl4b",'ckmt2a','gngt2a',"rho","opn1sw1", "opn1sw2",'opn1mw1','opn1mw2','opn1mw3','opn1mw4','opn1lw1','opn1lw2','gnat2','gnat1','saga','arr3a','arr3b')
+for(i in 1:length(genelist)) {
+   genename = genelist[i]
+   ps = FeaturePlot(pbmc, reduction = 'tsne', features = c(genename),pt.size=1, order=TRUE, combine=TRUE) + eelTheme() + NoLegend() + xlim(-50,50) + ylim(-60,60)
+   ggsave(ps, file=paste("00_TSNE",genename,".png",sep=''), path="./zfConeRNAseqFigure/TSNE/", width = 140*2, height = 105*2, units = "mm")
+}
+FeaturePlot(pbmc, reduction = 'tsne', features = genelist,pt.size=1, order=TRUE, combine=TRUE, ncol = 3)
+# --------------------------------------------------------------------------------
 
 
 

@@ -40,6 +40,7 @@ def formatBars(plotH):
             bars[i].set_facecolor('#CC2C2A')
         else:
             bars[i].set_facecolor('#000000')
+            
 
 def formatFigure_General(plottitle, figH, axH, plotH):
     font_path = '/System/Library/Fonts/Avenir.ttc'
@@ -56,6 +57,7 @@ def formatFigure_General(plottitle, figH, axH, plotH):
 
     for label in (axH.get_xticklabels() + axH.get_yticklabels()):
         label.set_fontproperties(fontTicks)
+    return fontLabels
             
 def formatFigure_Opsins(genename, figH, axH, plotH):
     font_path = '/System/Library/Fonts/Avenir.ttc'
@@ -100,6 +102,22 @@ def formatFigure(genename, figH, axH, plotH):
     axH.ticklabel_format(style='sci',axis='y',scilimits=(0,2))
 #     axH.set_ylabel('norm. counts', fontproperties=fontLabels)
     axH.set_ylabel('fpkm', fontproperties=fontLabels)
+    axH.set_title(genename, fontproperties=fontTitle)
+    axH.spines['top'].set_visible(False)
+    axH.spines['right'].set_visible(False)
+
+    for label in (axH.get_xticklabels() + axH.get_yticklabels()):
+        label.set_fontproperties(fontTicks)
+    axH.tick_params(axis = 'both', which = 'major', labelsize = 24)
+    axH.yaxis.offsetText.set_fontsize(24)
+    
+def formatFigureDevCourse(genename, figH, axH, plotH):
+    [font_path, fontTicks, fontLabels, fontTitle] = defaultFonts();
+    axH.set_xticks([0,1,2,3,4,5])
+    axH.set_xticklabels(['PRP','ePR','mPR','lPR','aPR']);
+    axH.ticklabel_format(style='sci',axis='y',scilimits=(0,2))
+#     axH.set_ylabel('norm. counts', fontproperties=fontLabels)
+    axH.set_ylabel('% expression', fontproperties=fontLabels)
     axH.set_title(genename, fontproperties=fontTitle)
     axH.spines['top'].set_visible(False)
     axH.spines['right'].set_visible(False)
@@ -180,8 +198,8 @@ def heatmap_general(data, row_labels, col_labels, groupsN, groupsColors, groupsL
     All other arguments are directly passed on to the imshow call.
     """
     font_path = '/System/Library/Fonts/Avenir.ttc'
-    fontTicks = font_manager.FontProperties(fname=font_path, size=18)
-    fontLabels = font_manager.FontProperties(fname=font_path, size=12)
+    fontTicks = font_manager.FontProperties(fname=font_path, size=36)
+    fontLabels = font_manager.FontProperties(fname=font_path, size=22)
     fontTitle = font_manager.FontProperties(fname=font_path, size=28)
 
     if data.shape[0]==0:
@@ -197,8 +215,9 @@ def heatmap_general(data, row_labels, col_labels, groupsN, groupsColors, groupsL
 #     im = ax.imshow(data, cmap = "inferno", **kwargs)
 
     # Create colorbar
-    cbar = ax.figure.colorbar(im, ax=ax, orientation='horizontal', shrink=.7, pad=0.02, **cbar_kw)
-    cbar.ax.set_ylabel(cbarlabel)
+    cbar = ax.figure.colorbar(im, ax=ax, orientation='horizontal', shrink=.9, pad=0.05, **cbar_kw)
+    cbar.ax.set_ylabel(cbarlabel, fontproperties=fontLabels, rotation=0,ha="right", va="center",rotation_mode="anchor")
+    cbar.ax.tick_params(labelsize=22)
 
     # We want to show all ticks...
     ax.set_xticks(np.arange(data.shape[1]))
@@ -212,8 +231,7 @@ def heatmap_general(data, row_labels, col_labels, groupsN, groupsColors, groupsL
                    labeltop=True, labelbottom=False)
 
     # Rotate the tick labels and set their alignment.
-    plt.setp(ax.get_xticklabels(), rotation=0, ha="center",
-             rotation_mode="anchor")
+    plt.setp(ax.get_yticklabels(), rotation=30, ha="right", va="center",rotation_mode="anchor")
 
     # Turn spines off and create white grid.
     for edge, spine in ax.spines.items():
@@ -235,78 +253,25 @@ def heatmap_general(data, row_labels, col_labels, groupsN, groupsColors, groupsL
     for v in np.arange(-.5,data.shape[1]+.5):
         ax.axvline(x = v, color = 'black', linewidth = 2, alpha = 1, solid_capstyle='butt')
 
-    ax.axvline(x = -.5, color = 'white', linewidth = 1, alpha = 1, solid_capstyle='butt')
-    ax.axvline(x = np.sum(groupsN)-.5, color = 'white', linewidth = 1, alpha = 1, solid_capstyle='butt')
+    ax.axvline(x = -0.5, color = 'white', linewidth = 2, alpha = 1, solid_capstyle='butt')
+    ax.axvline(x = np.sum(groupsN)-.5, color = 'white', linewidth = 2, alpha = 1, solid_capstyle='butt')
 
     for i in np.arange(groupsN.shape[0]):
-        ax.axvline(x = np.sum(groupsN[:i+1])-.5, color = 'white', linewidth = 1, alpha = 1, solid_capstyle='butt')
+        ax.axvline(x = np.sum(groupsN[:i+1])-.5, color = 'white', linewidth = 3, alpha = 1, solid_capstyle='butt')
         ax.plot([np.sum(groupsN[:i])-.5,np.sum(groupsN[:i+1])-.5], [-.5,-.5], '-', lw=8, color = groupsColors[i], solid_capstyle='butt')
         ax.plot([np.sum(groupsN[:i])-.5,np.sum(groupsN[:i+1])-.5], [data.shape[0]-.5,data.shape[0]-.5], '-', lw=8, color = groupsColors[i], solid_capstyle='butt')
-        ax.text(((np.sum(groupsN[:i])+np.sum(groupsN[:i+1]))/2)-.5, -.8, groupsLabels[i], color = groupsColors[i], horizontalalignment='center', fontproperties=fontTicks)
+        ax.text(((np.sum(groupsN[:i])+np.sum(groupsN[:i+1]))/2)-.5, -1.2, groupsLabels[i], color = groupsColors[i], horizontalalignment='center', fontproperties=fontTicks)
 
     return im, cbar
 
-def annotate_heatmap(im, data=None, valfmt="{x:.2f}",
-                     textcolors=["black", "white"],
-                     threshold=None, **textkw):
-    """
-    A function to annotate a heatmap.
-
-    Arguments:
-        im         : The AxesImage to be labeled.
-    Optional arguments:
-        data       : Data used to annotate. If None, the image's data is used.
-        valfmt     : The format of the annotations inside the heatmap.
-                     This should either use the string format method, e.g.
-                     "$ {x:.2f}", or be a :class:`matplotlib.ticker.Formatter`.
-        textcolors : A list or array of two color specifications. The first is
-                     used for values below a threshold, the second for those
-                     above.
-        threshold  : Value in data units according to which the colors from
-                     textcolors are applied. If None (the default) uses the
-                     middle of the colormap as separation.
-
-    Further arguments are passed on to the created text labels.
-    """
-
-    if not isinstance(data, (list, np.ndarray)):
-        data = im.get_array()
-
-    # Normalize the threshold to the images color range.
-    if threshold is not None:
-        threshold = im.norm(threshold)
-    else:
-        threshold = im.norm(data.max())/2.
-
-    # Set default alignment to center, but allow it to be
-    # overwritten by textkw.
-    kw = dict(horizontalalignment="center",
-              verticalalignment="center")
-    kw.update(textkw)
-
-    # Get the formatter in case a string is supplied
-    if isinstance(valfmt, str):
-        valfmt = matplotlib.ticker.StrMethodFormatter(valfmt)
-
-    # Loop over the data and create a `Text` for each "pixel".
-    # Change the text's color depending on the data.
-    texts = []
-    for i in range(data.shape[0]):
-        for j in range(data.shape[1]):
-            kw.update(color=textcolors[im.norm(data[i, j]) > threshold])
-            text = im.axes.text(j, i, valfmt(data[i, j], None), **kw)
-            texts.append(text)
-
-    return texts
-
-def heatmap(data, row_labels, col_labels, ax=None,
+def heatmap(data, row_labels, col_labels, ax=None, cbarlabel="fpkm",
             cbar_kw={}, **kwargs):
 
     groupsN = np.array([6,5,6,7,6])
     groupsColors = np.array(['#747474','#B540B7','#4669F2','#04CD22','#CC2C2A'])
     groupsLabels = np.array(['Rods','UV','S','M','L'])
 
-    im,cbar = heatmap_general(data, row_labels, col_labels, groupsN, groupsColors, groupsLabels, ax=ax, cbarlabel="fpkm")
+    im,cbar = heatmap_general(data, row_labels, col_labels, groupsN, groupsColors, groupsLabels, ax=ax, cbarlabel=cbarlabel)
 
     return im, cbar
 
@@ -346,7 +311,7 @@ def heatmap_general_z(data, row_labels, col_labels, groupsN, groupsColors, group
     # perceptually responsible colormaps are: inferno, viridis, plasma, magma, cividis
 #     im = ax.imshow(data, cmap = "bone", **kwargs)
 #     im = ax.imshow(data, cmap = "inferno", **kwargs)
-    divnorm = matplotlib.colors.DivergingNorm(vmin=data.min(), vcenter=0, vmax=data.max())
+    divnorm = matplotlib.colors.TwoSlopeNorm(vmin=data.min(), vcenter=0, vmax=data.max())
     im = ax.imshow(data, cmap = cm.berlin, norm=divnorm, **kwargs)
     
 #     im = ax.imshow(data, cmap = cm.berlin, vmin=-5, vmax=5, **kwargs)
@@ -705,6 +670,40 @@ def heatmap_zfXu2020(data, row_labels, col_labels, ax=None,
     groupsN = np.array([1,1,1,1,1,1])
     groupsColors = np.array(['#7d7d7d','#B540B7','#4669F2','#04CD22','#CC2C2A','#dcc360'])
     groupsLabels = np.array(['mslR','mslUV','mslS','mslM','mslL','mslPR'])
+
+    im,cbar = heatmap_general(data, row_labels, col_labels, groupsN, groupsColors, groupsLabels, ax=ax, cbarlabel="avg.")
+
+    return im, cbar
+
+def formatFigure_zfOgawa2021(genename, figH, axH, plotH):
+    font_path = '/System/Library/Fonts/Avenir.ttc'
+    fontTicks = font_manager.FontProperties(fname=font_path, size=24)
+    fontLabels = font_manager.FontProperties(fname=font_path, size=28)
+    fontTitle = font_manager.FontProperties(fname=font_path, size=28)
+
+    axH.set_xticks([1,2,3,4,5,6,7,8])
+    axH.set_xticklabels(['R','UV','S','M','L','M$_{4}$','B$_{on}$','B$_{off}$']);
+#     axH.ticklabel_format(style='sci',axis='y',scilimits=(0,2))
+#     axH.set_ylabel('% Exp', fontproperties=fontLabels)
+    axH.set_ylabel('Avg. Exp', fontproperties=fontLabels)
+    axH.set_title(genename, fontproperties=fontTitle)
+    axH.spines['top'].set_visible(False)
+    axH.spines['right'].set_visible(False)
+    
+#     axH.set_ylim([0,100])
+
+    for label in (axH.get_xticklabels() + axH.get_yticklabels()):
+        label.set_fontproperties(fontTicks)
+    axH.tick_params(axis = 'both', which = 'major', labelsize = 24)
+    axH.yaxis.offsetText.set_fontsize(24)
+    
+
+def heatmap_zfOgawa2021(data, row_labels, col_labels, ax=None,
+            cbar_kw={}, **kwargs):
+
+    groupsN = np.array([1,1,1,1,1,1,1,1])
+    groupsColors = np.array(['#7d7d7d','#B540B7','#4669F2','#04CD22','#CC2C2A','#cdcd04','#ccf2ff','#663d00'])
+    groupsLabels = np.array(['R','UV','S','M','L','M$_{4}$','B$_{on}$','B$_{off}$'])
 
     im,cbar = heatmap_general(data, row_labels, col_labels, groupsN, groupsColors, groupsLabels, ax=ax, cbarlabel="avg.")
 
