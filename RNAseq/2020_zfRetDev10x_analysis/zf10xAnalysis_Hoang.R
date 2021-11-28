@@ -82,6 +82,114 @@ ps = DimPlot(pbmc, reduction = "tsne", label=TRUE, repel = TRUE, pt.size = 1, la
 ps
 ggsave(ps, file="00_TSNEClusters_labels.png", path="./zfConeRNAseqFigure/TSNE/", width = 140*2, height = 105*2, units = "mm")
 
+# -----------------------------------------------------------------------------
+# -----------------------------------------------------------------------------
+# -----------------------------------------------------------------------------
+# getting % and Mean expression for all genes into csv.
+# DoHeatmap and DotPlot use the @scale.data slot for average expression display, which z-scored expression values (for example, as those used in PCA).
+# Cells with a value > 0 represent cells with expression above the population mean (a value of 1 would represent cells with expression 1SD away from the population mean). Hope that helps!
+# This is very detailed explanation: https://github.com/satijalab/seurat/issues/2798
+
+# Average expression in non-log scale for larvae:
+avgExp = AverageExpression(pbmc, slot="counts")
+avgExp = avgExp$RNA
+# avgExp = head(avgExp,10)
+nI = length(levels(Idents(pbmc)))
+colnames(avgExp) = paste("avg", levels(Idents(pbmc)), sep = "")
+avgExp = as.data.frame(avgExp)
+# Calculate mean expression across all ages
+avgExp$avgMean = rowMeans(avgExp)
+avgExp = avgExp[,c(ncol(avgExp),1:(ncol(avgExp)-1))]
+
+
+# Percent expression can be obtained through DotPlot, but not Average expression, as this is log z-cored normalized data # avgExpZ = dPlot$data$avg.exp
+# dPlot = DotPlot(pbmc, features=rownames(avgExp)) # not working; too many warnings
+# dPlot <- FetchData(pbmc, rownames(avgExp)) # dot plot is not working. Trying this instead; does not work either
+# ------------------------------------------------------------------------------------------------
+# breaking down into pieces to try to find row that creates error
+length(rownames(avgExp))
+# let's break it in half: nope!; a quarter? works
+dPlot = DotPlot(pbmc, features=rownames(avgExp[c(1:5000),]))
+# second quarter: fails; keep splitting.
+dPlot21 = DotPlot(pbmc, features=rownames(avgExp[c(5001:6000),])) #pass
+dPlot22 = DotPlot(pbmc, features=rownames(avgExp[c(6001:7000),])) #pass
+dPlot23 = DotPlot(pbmc, features=rownames(avgExp[c(7001:8000),])) #pass
+dPlot24 = DotPlot(pbmc, features=rownames(avgExp[c(8001:9000),])) #pass
+dPlot25 = DotPlot(pbmc, features=rownames(avgExp[c(9001:10000),])) #pass
+# second half? works
+dPlot3 = DotPlot(pbmc, features=rownames(avgExp[c(10001:15000),]))
+dPlot4 = DotPlot(pbmc, features=rownames(avgExp[c(15001:20000),]))
+dPlot5 = DotPlot(pbmc, features=rownames(avgExp[c(20001:24711),]))
+# rebind everything
+# ------------------------------------------------------------------------------------------------
+# testing how to give rownames appropriately
+nLevels = length(levels(Idents(pbmc)))
+
+temp = dPlot
+tempnames = rownames(temp$data[seq(1,dim(temp$data)[1]/nLevels,1),])
+temppct = temp$data$pct.exp
+tempout1 = as.data.frame(matrix(temppct, nrow = length(temppct)/nLevels, ncol = nLevels, dimnames = list(c(tempnames),c(levels(Idents(pbmc))))))
+temp = dPlot21
+tempnames = rownames(temp$data[seq(1,dim(temp$data)[1]/nLevels,1),])
+temppct = temp$data$pct.exp
+tempout2 = as.data.frame(matrix(temppct, nrow = length(temppct)/nLevels, ncol = nLevels, dimnames = list(c(tempnames),c(levels(Idents(pbmc))))))
+temp = dPlot22
+tempnames = rownames(temp$data[seq(1,dim(temp$data)[1]/nLevels,1),])
+temppct = temp$data$pct.exp
+tempout3 = as.data.frame(matrix(temppct, nrow = length(temppct)/nLevels, ncol = nLevels, dimnames = list(c(tempnames),c(levels(Idents(pbmc))))))
+temp = dPlot23
+tempnames = rownames(temp$data[seq(1,dim(temp$data)[1]/nLevels,1),])
+temppct = temp$data$pct.exp
+tempout4 = as.data.frame(matrix(temppct, nrow = length(temppct)/nLevels, ncol = nLevels, dimnames = list(c(tempnames),c(levels(Idents(pbmc))))))
+temp = dPlot24
+tempnames = rownames(temp$data[seq(1,dim(temp$data)[1]/nLevels,1),])
+temppct = temp$data$pct.exp
+tempout5 = as.data.frame(matrix(temppct, nrow = length(temppct)/nLevels, ncol = nLevels, dimnames = list(c(tempnames),c(levels(Idents(pbmc))))))
+temp = dPlot25
+tempnames = rownames(temp$data[seq(1,dim(temp$data)[1]/nLevels,1),])
+temppct = temp$data$pct.exp
+tempout6 = as.data.frame(matrix(temppct, nrow = length(temppct)/nLevels, ncol = nLevels, dimnames = list(c(tempnames),c(levels(Idents(pbmc))))))
+temp = dPlot3
+tempnames = rownames(temp$data[seq(1,dim(temp$data)[1]/nLevels,1),])
+temppct = temp$data$pct.exp
+tempout7 = as.data.frame(matrix(temppct, nrow = length(temppct)/nLevels, ncol = nLevels, dimnames = list(c(tempnames),c(levels(Idents(pbmc))))))
+temp = dPlot4
+tempnames = rownames(temp$data[seq(1,dim(temp$data)[1]/nLevels,1),])
+temppct = temp$data$pct.exp
+tempout8 = as.data.frame(matrix(temppct, nrow = length(temppct)/nLevels, ncol = nLevels, dimnames = list(c(tempnames),c(levels(Idents(pbmc))))))
+temp = dPlot5
+tempnames = rownames(temp$data[seq(1,dim(temp$data)[1]/nLevels,1),])
+temppct = temp$data$pct.exp
+tempout9 = as.data.frame(matrix(temppct, nrow = length(temppct)/nLevels, ncol = nLevels, dimnames = list(c(tempnames),c(levels(Idents(pbmc))))))
+
+# ------------------------------------------------------------------------------------------------
+tempout = rbind(tempout1,tempout2)
+tempout = rbind(tempout,tempout3)
+tempout = rbind(tempout,tempout4)
+tempout = rbind(tempout,tempout5)
+tempout = rbind(tempout,tempout6)
+tempout = rbind(tempout,tempout7)
+tempout = rbind(tempout,tempout8)
+tempout = rbind(tempout,tempout9)
+# fixing names replaced by DotPlot
+rownames(tempout) = gsub(pattern = 'rna_', replacement = '',x = rownames(tempout))
+pctExp = tempout
+colnames(pctExp) = paste("pct", colnames(pctExp), sep = "")
+pctExp$pctMean = rowMeans(pctExp)
+pctExp = pctExp[,c(ncol(pctExp),1:(ncol(pctExp)-1))]
+# merging data frames
+pbmcData = merge(avgExp,pctExp, by="row.names", all=TRUE)
+rownames(pbmcData) = pbmcData[,1]
+pbmcData = pbmcData[-c(1)]
+# ------------------------------------------------------------------------------------------------
+# quick check
+scangenes=c('rho','nr2e3','opn1lw1','opn1lw2','thrb','skor1a','tbx2a','tbx2b','arr3a','arr3b');
+pbmcData[scangenes,]
+
+
+write.csv(pbmcData,"./retCells_Hoang.csv",quote=FALSE)
+# -----------------------------------------------------------------------------
+# -----------------------------------------------------------------------------
 # ------------------------------------------------------------------------------------------
 # -------------------------------------------------------------------
 # check counts in each cluster
@@ -399,3 +507,123 @@ VlnPlot(photo, features = c("prdm1a","prdm1b"))
 table(Idents(photo))
 rods <- subset(photo, idents = "Rods")
 GetAssayData(object = rods, slot = "counts")
+
+
+# -----------------------------------------------------------------------------
+# -----------------------------------------------------------------------------
+# -----------------------------------------------------------------------------
+# Subcluster HCs
+hcs <- subset(pbmc, idents = c("HC"))
+# saveRDS(hcs, file = "./hcs.rds") #preliminary saving to analyze later
+
+DimPlot(hcs, reduction = "tsne", label =  TRUE, pt.size = 1, label.size = 6) + eelTheme()
+hcs2 = SetIdent(hcs, value = "Sample")
+DimPlot(hcs2, reduction = "tsne", label =  FALSE, pt.size = 1, label.size = 6) + eelTheme()
+
+FeaturePlot(hcs, reduction = 'tsne', features = c("opn1sw1", "opn1sw2",'opn1mw1','opn1mw2','opn1mw3','opn1mw4','opn1lw1','opn1lw2','si:busm1-57f23.1'))
+# smaller cluster has higher nr2e3 levels because it belongs to larval samples mostly
+FeaturePlot(hcs, reduction = 'tsne', features = c("rho", "nr2e3",'nrl','saga','sagb'))
+FeaturePlot(hcs, reduction = 'tsne', features = c("sema7a", "efna1b",'efna1a','ntng2b','ntng2a'))
+
+#run PCA
+hcs <- FindVariableFeatures(hcs, selection.method = "vst", nfeatures = 1000)
+hcs <- RunPCA(hcs, features = VariableFeatures(object = hcs))
+# # Examine and visualize PCA results a few different ways
+# print(photo[["pca"]], dims = 1:5, nfeatures = 5)
+# VizDimLoadings(photo, dims = 1:2, reduction = "pca")
+# DimPlot(photo, reduction = "pca")
+# DimHeatmap(photo, dims = 1, cells = 500, balanced = TRUE)
+# DimHeatmap(photo, dims = 1:15, cells = 500, balanced = TRUE)
+
+# Determine number of clusters using elbow plot (var explained)
+ElbowPlot(hcs, ndims=50)
+
+# Cluster cells
+# nFeatures = 1448 gives too many clusters
+# nFeatures = 100 seems like not enough info; just separates by sample
+# nFeatures = 200 seems like not enough info either
+
+# nFeatures = 150 apparently good compromise
+# dims = 8, resolution = 0.6 -> not bad but still some mixing
+# dims = 23, resolution = 0.6 -> almost there; there are still some M-cones mixed with L-cones. UV and S have to be separated further
+
+# Settling for nFeatures = 1000, ndim = 12, res = .3
+upDimLimit=24;
+hcs <- FindNeighbors(hcs, dims = 1:upDimLimit)
+hcs <- FindClusters(hcs, resolution = .5)
+
+DimPlot(hcs, reduction = "pca", label = TRUE, pt.size = 1)
+
+# UMAP using the same PCA dimensions for prettier visualization
+hcs <- RunUMAP(hcs, dims = 1:upDimLimit)
+DimPlot(hcs, reduction = "umap", label = TRUE, pt.size = 1)
+
+hcs2 = SetIdent(hcs, value = "Sample")
+DimPlot(hcs2, reduction = "umap", label = TRUE, pt.size = 1)
+
+# or use tSNE (clustering can't separate some M cones from L cones)
+hcs <- RunTSNE(hcs, dims = 1:upDimLimit)
+DimPlot(hcs, reduction = "tsne", label = TRUE, pt.size = 1)+ eelTheme()
+# ps = DimPlot(hcs, reduction = "tsne", label = TRUE, pt.size = 1)+ eelTheme()
+# ggsave(ps, file="adult_coneClusters03.png", path=exportDir, width = 140*2, height = 105*2, units = "mm")
+
+hcs2 = SetIdent(hcs, value = "Sample")
+DimPlot(hcs2, reduction = "tsne", label = TRUE, pt.size = 1)
+
+
+
+FeaturePlot(hcs, reduction = 'tsne', features = c("opn1sw1", "opn1sw2",'opn1mw1','opn1mw2','opn1mw3','opn1mw4','opn1lw1','opn1lw2','si:busm1-57f23.1'))
+FeaturePlot(hcs, reduction = 'tsne', features = c("rho", "nr2e3","nr2f6","crx",'syt5a','syt5b'))
+
+FeaturePlot(hcs, reduction = 'tsne', features = c("rho", "onecut1","onecut2","lhx1a","efna1a"))
+FeaturePlot(hcs,reduction = 'tsne', features = c("rem1","CR361564.1",'prkar2ab','rprmb','opn4.1','atp1b1a'))
+
+# trying to find DEGs for clusters
+# In Yamagata/Sanes 2021:
+#     lhx1+/isl1- have 2 clusters, one that is oxt+ during early embryo then ipcef1+ later
+#     lhx1-/isl1+ have 3 clusters diff by ntrk1, egfr and ltk
+# seems like opn4.1 and opn9 are good; isl1/efna1a slipts things in half
+# sall3b
+# good dividers for clusters
+FeaturePlot(hcs,reduction = 'tsne', features = c("opn4.1","lhx1a",'vsx1', 'isl1','ntrk3a','slc6a1l','gad1b','opn9','ret'))
+FeaturePlot(hcs,reduction = 'tsne', features = c("hmx3a","plekhd1",'tmtc1','nrxn1a','barhl2','sal3b','irs1','cacng5a'))
+FeaturePlot(hcs,reduction = 'tsne', features = c("efna1a","arhgef18b",'rpap1','sgk494a','barhl2','plekhd1','shisa7b','grip1'))
+FeaturePlot(hcs,reduction = 'tsne', features = c("sept7a","sema3fb",'cdh6','cd9a','ndnf','msna','foxp4',))
+
+# some controls
+FeaturePlot(hcs,reduction = 'tsne', features = c('rho','syt5b','fabp7a',"neurod1",'gnat1','gnat2','syt5a','prdm1a'))
+
+
+FeaturePlot(hcs,reduction = 'tsne', features = c("opn4.1","lhx1a",'nrgna','neurod4','vsx1', 'isl1','ntrk3a'))
+FeaturePlot(hcs,reduction = 'tsne', features = c('opn9','nrxn1a','ntrk3a',"sall3b","PDE6H",'isl1','efna1a','vsx1'))
+FeaturePlot(hcs,reduction = 'tsne', features = c('ntrk1','ntrk2a',"ntrk2b","ntrk3a","ntrk3b"))
+
+VlnPlot(hcs, features = c("opn1sw1", "opn1sw2",'opn1mw1','opn1mw2','opn1mw3','opn1mw4','opn1lw1','opn1lw2','si:busm1-57f23.1'))
+
+
+FeaturePlot(hcs,reduction = 'tsne', features = c('rassf4','calm2b',"cd9a","znf385b","ndnf",'msna','foxp4','ppdpfb','prdm13'))
+
+# PC_ 3 
+# Positive:  slc6a1l, sall3b, ret, gad1b, opn4.1, barhl2, tmtc1, rpap1, arhgef18b, lhx1a 
+# shisa7b, sgk494a, valopa, vipr2, grip1, stk17a, rassf4, calm2b, irs1, si:dkeyp-41f9.3 
+# hmp19, sept7a, cd9a, nrxn1a, znf385b, ndnf, msna, foxp4, ppdpfb, prdm13 
+# Negative:  opn9, ntrk3a, hmx3a, isl1, efna1a, plekhd1, cryba4, nme2b.2, saga, vamp1 
+# CU861453.2, lmo1, elmo1, zgc:162144, lrrtm1, guca1a, si:ch211-113d22.2, mt2, BX004774.2, PDE6H 
+# guca1b, pdca, gnat1, kcnv2a, sagb, tnfaip8l3, gngt1, ptn, rho, tuba1a 
+# PC_ 4 
+# Positive:  si:ch211-56a11.2, lhx1a, ret, slc6a1l, opn9, ntrk3a, barhl2, gad1b, RAPGEF2 (1 of many), slc2a3a 
+# nme2b.2, hmx3a, lmo1, si:dkey-1d7.3, cd82a, palm1b, ip6k2b, slc16a9b, tnfaip8l3, syt5b 
+# cspg5b, h3f3b.1.2, histh1l, cry1bb, ppdpfb, sept7a, vsx1, si:ch73-1a9.3, rai14, lin7a 
+# Negative:  rpap1, arhgef18b, shisa7b, sgk494a, cacng5a, grip1, valopa, vipr2, si:dkeyp-41f9.3, irs1 
+# sall3b, PDE6H, saga, gnat1, si:ch211-113d22.2, guca1a, guca1b, zgc:162144, gngt1, rho 
+# rassf4, sagb, pdca, foxp4, pde6a, rbp4l, BX004774.2, msna, CNGA1 (1 of many), cnga1 
+# PC_ 5 
+# Positive:  cabp2a, rs1a, saga, guca1a, nrn1lb, cabp5a, si:ch73-256g18.2, zgc:162144, PDE6H, rgs16 
+# efna1b, guca1b, sagb, syt5a, BX004774.2, gnao1b, eml1, rpap1, ptmab, pdca 
+# pde6a, si:ch1073-83n3.2, opn4.1, sypb, lrit1a, gnat1, si:ch211-113d22.2, vsx1, pcp4a, atp1b2a 
+# Negative:  plekhd1, ptn, nme2b.2, CU861453.2, slc6a1l, tmtc1, barhl2, ret, onecut1, lhx1a 
+# gad1b, zgc:158463, nme2b.1, efna1a, sgol1, hmx3a, cdca8, kif4, knstrn, top2a 
+# ube2c, lbr, rps12, h2afx, rps29, anp32b, fam60al.1, kiaa0101, rpl13, rpl36a 
+# -----------------------------------------------------------------------------
+# -----------------------------------------------------------------------------
+# -----------------------------------------------------------------------------

@@ -4,7 +4,7 @@ mkdir ./gifs
 sips -s format gif ./pngs/*.png --out ./gifs
 
 cd ./gifs
-gifsicle --optimize=3 --resize=1072x444 --delay=10 --loopcount *.gif > animation.gif
+gifsicle --optimize=3 --resize=1280x800 --delay=10 --loopcount *.gif > animation.gif
 
 https://medium.com/@patdugan/converting-a-mov-to-a-gif-6bb055e54230
 

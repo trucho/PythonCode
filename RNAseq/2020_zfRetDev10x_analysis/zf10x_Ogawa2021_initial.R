@@ -33,6 +33,13 @@ eelTheme = function (base_size = 42, base_family = "") {
 # Load the 10x dataset (28845 cells), after updating to Seurat_v3 (had to use biowulf)
 photo = readRDS("~/Documents/LiMolec/otherRNAseq/zfRet_Ogawa2021/GSM5351368_v432_dradult_Final.rds");
 
+max(photo$nFeature_RNA) # number of genes in each cell
+max(photo$nCount_RNA) # number of UMIs in each cell
+min(photo$nCount_RNA)
+mean(photo$nCount_RNA)
+median(photo$nCount_RNA)
+
+write.csv(x=photo$nCount_RNA, file="/Users/angueyraaristjm/Documents/LiMolec/otherRNAseq/readCounts/zfRet_Ogawa2021.csv")
 # ------------------------------------------------------------------------------------------
 new.cluster.ids <- c("M","L","R","S","M4/L1","onBC","offBC","UV")
 names(new.cluster.ids) <- levels(photo)
