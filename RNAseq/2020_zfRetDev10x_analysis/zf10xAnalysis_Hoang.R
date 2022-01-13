@@ -48,7 +48,7 @@ eelTheme = function (base_size = 42, base_family = "Avenir") {
 # Load the 10x dataset (28845 cells), after updating to Seurat_v3 (had to use biowulf)
 pbmc = readRDS("~/Documents/LiMolec/otherRNAseq/zfRet_HoangBlackshaw2020/zfDev_pbmc_v3.rds");
 # Load the adult cone dataset (~2000 cells), after reclustering (separate R script)
-photo = readRDS("~/Documents/LiMolec/otherRNAseq/zfRet_HoangBlackshaw2020/cones_Adult.rds");
+# photo = readRDS("~/Documents/LiMolec/otherRNAseq/zfRet_HoangBlackshaw2020/cones_Adult.rds");
 # ------------------------------------------------------------------------------------------
 
 # Retinal progenitor: 0
@@ -72,7 +72,7 @@ Idents(pbmc) <- factor(x = Idents(pbmc), levels = c("RPC","PRPC","Cones_larval",
 # retcolors = c("#4d493c","#dfdac8","#cca819","#ffd024","#7d7d7d","#3db500","#871308","#871308","#e7851d","#e7851d","#8c561b","#2a81de","#2a81de","#d277ff","#ff13c8","#ff13c8","#ff13c8")
 
 # UMAP plot
-ps = DimPlot(pbmc, reduction = "umap", label=FALSE, repel = TRUE, pt.size = 1, label.size = 10) + #, cols=retcolors) + 
+ps = DimPlot(pbmc, reduction = "umap", label=TRUE, repel = TRUE, pt.size = 1, label.size = 10) + #, cols=retcolors) + 
    eelTheme() + NoLegend() + xlim(-12,12) + ylim(-10,10)
 ps
 ggsave(ps, file="00_UMAPClusters.png", path="./zfConeRNAseqFigure/UMAP/", width = 140*2, height = 105*2, units = "mm")
@@ -513,6 +513,15 @@ GetAssayData(object = rods, slot = "counts")
 # -----------------------------------------------------------------------------
 # -----------------------------------------------------------------------------
 # Subcluster HCs
+# This is a great resource: https://www.frontiersin.org/articles/10.3389/fnana.2016.00077/full
+# Thesis is even better: http://uu.diva-portal.org/smash/get/diva2:168823/FULLTEXT01.pdf
+# H1s should be lhx1+, while H2 and H3 should be isl1+. H2s? (Candelabrum) should also be TrkA+(ntrk1)
+# HC generation relies on ptf1a and foxn4 and also on sall3 (Blackshaw Spalt paper). Foxn4 seems to be important for mid-RPCs so it affects RGCs, PRs and HCs
+
+
+#  c("rem1","CR361564.1",'prkar2ab','rprmb','opn4.1','atp1b1a')) -> used to id HC cluster
+
+
 hcs <- subset(pbmc, idents = c("HC"))
 # saveRDS(hcs, file = "./hcs.rds") #preliminary saving to analyze later
 
@@ -575,20 +584,22 @@ DimPlot(hcs2, reduction = "tsne", label = TRUE, pt.size = 1)
 FeaturePlot(hcs, reduction = 'tsne', features = c("opn1sw1", "opn1sw2",'opn1mw1','opn1mw2','opn1mw3','opn1mw4','opn1lw1','opn1lw2','si:busm1-57f23.1'))
 FeaturePlot(hcs, reduction = 'tsne', features = c("rho", "nr2e3","nr2f6","crx",'syt5a','syt5b'))
 
-FeaturePlot(hcs, reduction = 'tsne', features = c("rho", "onecut1","onecut2","lhx1a","efna1a"))
+FeaturePlot(hcs, reduction = 'tsne', features = c("rho", "onecut1","onecut2","lhx1a","efna1a","isl1","ntrk3a"))
 FeaturePlot(hcs,reduction = 'tsne', features = c("rem1","CR361564.1",'prkar2ab','rprmb','opn4.1','atp1b1a'))
 
 # trying to find DEGs for clusters
 # In Yamagata/Sanes 2021:
 #     lhx1+/isl1- have 2 clusters, one that is oxt+ during early embryo then ipcef1+ later
 #     lhx1-/isl1+ have 3 clusters diff by ntrk1, egfr and ltk
-# seems like opn4.1 and opn9 are good; isl1/efna1a slipts things in half
+# seems like opn4.1 and opn9 are good; isl1/efna1a splits things in half
+# In mouse, HCs are lhx1+
 # sall3b
 # good dividers for clusters
+FeaturePlot(hcs,reduction = 'tsne', features = c("lhx1a",'vsx1', 'isl1','ntrk3a',"opn4.1",'opn9','egfra','ltk'))
 FeaturePlot(hcs,reduction = 'tsne', features = c("opn4.1","lhx1a",'vsx1', 'isl1','ntrk3a','slc6a1l','gad1b','opn9','ret'))
 FeaturePlot(hcs,reduction = 'tsne', features = c("hmx3a","plekhd1",'tmtc1','nrxn1a','barhl2','sal3b','irs1','cacng5a'))
 FeaturePlot(hcs,reduction = 'tsne', features = c("efna1a","arhgef18b",'rpap1','sgk494a','barhl2','plekhd1','shisa7b','grip1'))
-FeaturePlot(hcs,reduction = 'tsne', features = c("sept7a","sema3fb",'cdh6','cd9a','ndnf','msna','foxp4',))
+FeaturePlot(hcs,reduction = 'tsne', features = c("sept7a","sema3fb",'cdh6','cd9a','ndnf','msna','foxp4'))
 
 # some controls
 FeaturePlot(hcs,reduction = 'tsne', features = c('rho','syt5b','fabp7a',"neurod1",'gnat1','gnat2','syt5a','prdm1a'))
@@ -602,6 +613,46 @@ VlnPlot(hcs, features = c("opn1sw1", "opn1sw2",'opn1mw1','opn1mw2','opn1mw3','op
 
 
 FeaturePlot(hcs,reduction = 'tsne', features = c('rassf4','calm2b',"cd9a","znf385b","ndnf",'msna','foxp4','ppdpfb','prdm13'))
+
+FeaturePlot(hcs,reduction = 'tsne', features = c('onecut1', 'onecutl', 'onecut2', 'onecut3a'))
+FeaturePlot(hcs,reduction = 'tsne', features = c('epha2a', 'epha3', 'epha7', 'epha4b'))
+FeaturePlot(hcs,reduction = 'tsne', features = c('cx52.7', 'cx52.6', 'cx52.9','gad2','lrit1a','tfap2a'))
+
+
+# Clusters:
+# there is clear separation between cells derived from AdR1 (less rod contamination) and AdR2 (more rod contamination)
+# 0: H?s -> isl1-, lhx1a-, tmtc1+, slc6a1l+, gad1b+
+# 1: H2/3s -> isl1+
+# 2: H2/3s -> isl1+, opn9+, 
+# 3: ipHCs -> isl1+, opn4.1+, sall3b, nrxn1a+, arhgef18b+, rpap1+, sept7a+, sema3fb+, cdh6+, foxp4+ (subsplit comes from AdR1 and AdR2)
+# 4: larval HCs
+# 5: H2/3s -> isl1+, hmx3a+, irs1+
+# 6: AdR1 cells, opn9+
+# 7: H1s -> lhx1a+, barhl2+, slc6a1l+, gad1b+
+
+
+FeaturePlot(hcs,reduction = 'tsne', features = c("lhx1a",'vsx1', 'isl1','ntrk3a',"opn4.1",'opn9','gad1b','hmx3a'))
+
+# Putting all things together and embodying a joiner and not a splitter, it seems that loosely
+# H1s = lxh1a+
+# H2s = isl1+, ntrk3a+ (mostly), opn9+ (mostly)
+# H3s = isl1+ opn4.1+
+# larvalHcs
+# H?s = lhx1a-, isl1-
+
+new.cluster.ids <- c("HCx","HC2","HC2","HC3","lHC","HC2","HC2","HC1")
+names(new.cluster.ids) <- levels(hcs)
+hcs <- RenameIdents(hcs, new.cluster.ids)
+Idents(hcs) <- factor(x = Idents(hcs), levels = c("lHC","HC1","HC2","HC3","HCx"))
+
+DimPlot(hcs, reduction = "tsne", label = TRUE, pt.size = 1)+ eelTheme()
+
+
+FeaturePlot(hcs,reduction = 'tsne', features = c("rem1","CR361564.1",'prkar2ab','rprmb','opn4.1','atp1b1a','efna1a'))
+VlnPlot(hcs, features = c("opn1sw1", "opn1sw2",'opn1mw1','opn1mw2','opn1mw3','opn1mw4','opn1lw1','opn1lw2','si:busm1-57f23.1'))
+VlnPlot(hcs, features = c('rho','syt5b','fabp7a',"neurod1",'gnat1','gnat2','syt5a','prdm1a'))
+VlnPlot(hcs, features = c("lhx1a",'vsx1', 'isl1','ntrk3a',"opn4.1",'opn9','gad1b','hmx3a','efna1a'))
+
 
 # PC_ 3 
 # Positive:  slc6a1l, sall3b, ret, gad1b, opn4.1, barhl2, tmtc1, rpap1, arhgef18b, lhx1a 
@@ -627,3 +678,134 @@ FeaturePlot(hcs,reduction = 'tsne', features = c('rassf4','calm2b',"cd9a","znf38
 # -----------------------------------------------------------------------------
 # -----------------------------------------------------------------------------
 # -----------------------------------------------------------------------------
+
+# Subcluster larval HCs
+# Does not work well, not enough cells in any grouping to do this properly
+lhcs <- subset(hcs, idents = c("lHC"))
+# saveRDS(hcs, file = "./hcs.rds") #preliminary saving to analyze later
+
+DimPlot(lhcs, reduction = "tsne", label =  TRUE, pt.size = 1, label.size = 6) + eelTheme()
+lhcs2 = SetIdent(lhcs, value = "Sample")
+DimPlot(lhcs2, reduction = "tsne", label =  FALSE, pt.size = 1, label.size = 6) + eelTheme()
+
+FeaturePlot(lhcs, reduction = 'tsne', features = c("opn1sw1", "opn1sw2",'opn1mw1','opn1mw2','opn1mw3','opn1mw4','opn1lw1','opn1lw2','si:busm1-57f23.1'))
+# smaller cluster has higher nr2e3 levels because it belongs to larval samples mostly
+FeaturePlot(lhcs, reduction = 'tsne', features = c("rho", "nr2e3",'nrl','saga','sagb'))
+FeaturePlot(lhcs, reduction = 'tsne', features = c("sema7a", "efna1b",'efna1a','ntng2b','ntng2a'))
+
+#run PCA
+lhcs <- FindVariableFeatures(lhcs, selection.method = "vst", nfeatures = 1000)
+lhcs <- RunPCA(lhcs, features = VariableFeatures(object = lhcs))
+# # Examine and visualize PCA results a few different ways
+# print(photo[["pca"]], dims = 1:5, nfeatures = 5)
+# VizDimLoadings(photo, dims = 1:2, reduction = "pca")
+# DimPlot(photo, reduction = "pca")
+# DimHeatmap(photo, dims = 1, cells = 500, balanced = TRUE)
+# DimHeatmap(photo, dims = 1:15, cells = 500, balanced = TRUE)
+
+# Determine number of clusters using elbow plot (var explained)
+ElbowPlot(lhcs, ndims=50)
+
+# Cluster cells
+# nFeatures = 1448 gives too many clusters
+# nFeatures = 100 seems like not enough info; just separates by sample
+# nFeatures = 200 seems like not enough info either
+
+# nFeatures = 150 apparently good compromise
+# dims = 8, resolution = 0.6 -> not bad but still some mixing
+# dims = 23, resolution = 0.6 -> almost there; there are still some M-cones mixed with L-cones. UV and S have to be separated further
+
+# Settling for nFeatures = 1000, ndim = 12, res = .3
+upDimLimit=12;
+lhcs <- FindNeighbors(lhcs, dims = 1:upDimLimit)
+lhcs <- FindClusters(lhcs, resolution = 2)
+
+DimPlot(lhcs, reduction = "pca", label = TRUE, pt.size = 1)
+
+# UMAP using the same PCA dimensions for prettier visualization
+lhcs <- RunUMAP(lhcs, dims = 1:upDimLimit)
+DimPlot(lhcs, reduction = "umap", label = TRUE, pt.size = 1)
+
+lhcs2 = SetIdent(lhcs, value = "Sample")
+DimPlot(lhcs2, reduction = "umap", label = TRUE, pt.size = 1)
+
+# or use tSNE (clustering can't separate some M cones from L cones)
+lhcs <- RunTSNE(lhcs, dims = 1:upDimLimit)
+DimPlot(lhcs, reduction = "tsne", label = TRUE, pt.size = 1)+ eelTheme()
+# ps = DimPlot(hcs, reduction = "tsne", label = TRUE, pt.size = 1)+ eelTheme()
+# ggsave(ps, file="adult_coneClusters03.png", path=exportDir, width = 140*2, height = 105*2, units = "mm")
+
+lhcs2 = SetIdent(lhcs, value = "Sample")
+DimPlot(lhcs2, reduction = "tsne", label = TRUE, pt.size = 1)
+
+
+
+FeaturePlot(lhcs, reduction = 'tsne', features = c("opn1sw1", "opn1sw2",'opn1mw1','opn1mw2','opn1mw3','opn1mw4','opn1lw1','opn1lw2','si:busm1-57f23.1'))
+FeaturePlot(lhcs,reduction = 'tsne', features = c("lhx1a",'vsx1', 'isl1','ntrk3a',"opn4.1",'opn9','gad1b','hmx3a'))
+
+# ----------------------------------------------------------------------------------------------------------------
+# getting % and Mean expression for all genes into csv.
+# DoHeatmap and DotPlot use the @scale.data slot for average expression display, which z-scored expression values (for example, as those used in PCA).
+# Cells with a value > 0 represent cells with expression above the population mean (a value of 1 would represent cells with expression 1SD away from the population mean). Hope that helps!
+# This is very detailed explanation: https://github.com/satijalab/seurat/issues/2798
+
+# Average expression in non-log scale:
+avgExp = AverageExpression(hcs, slot="counts")
+avgExp = avgExp$RNA
+# avgExp = head(avgExp,10)
+nI = length(levels(Idents(hcs)))
+colnames(avgExp) = paste("avg", levels(Idents(hcs)), sep = "")
+
+# Calculate mean expression across all subtypes
+meanAvg = as.data.frame(rowMeans(avgExp))
+colnames(meanAvg) = "avgExp"
+head(meanAvg)
+avgExp = cbind(meanAvg,avgExp)
+# avgExp$avgMean = rowMeans(avgExp)
+# avgExp[,c(ncol(avgExp),1:(ncol(avgExp)-1))]
+
+
+# Percent expression can be obtained through DotPlot, but not Average expression, as this is log z-cored normalized data # avgExpZ = dPlot$data$avg.exp
+# Percent expression in larvae:
+dPlot = DotPlot(hcs, features=rownames(avgExp))
+pctExp = dPlot$data$pct.exp
+pctExp = as.data.frame(matrix(pctExp,nrow = length(pctExp)/nI, ncol=nI));
+
+rownames(pctExp) = rownames(avgExp)
+colnames(pctExp) = paste("pct", levels(Idents(hcs)), sep = "")
+
+# Calculate mean percent expression across all ages
+meanPct = as.data.frame(rowMeans(pctExp))
+colnames(meanPct) = "pctExp"
+head(meanPct)
+pctExp = cbind(meanPct,pctExp)
+# pctExp$pctMean = rowMeans(pctExp)
+# pctExp[,c(ncol(pctExp),1:(ncol(pctExp)-1))]
+
+
+hcs_Hoang = cbind(avgExp,pctExp)
+
+
+
+# these are duplicated genes with lower vs upper case
+dups=toupper(c("arid5b","asph", "aste1", "crip2", "ctbp1", "dab2", "eif1b", "flnb", "frmd7", "galnt10", "grxcr1", "gse1", "hist1h4l", "hspb11", "kif1c", "lamp1", "maf1", "pamr1", "pcdh20", "pde6h", "phlpp2", "psmb10", "ptp4a3", "reep6", "rfesd", "rgs9bp", "rps17", "shank2", "slc16a7", "slc25a10", "slc6a13", "slc9a1", "srbd1", "tatdn3", "tenm3", "tmem178b", "tmem241", "tom1l2", "tp53inp2", "trappc9", "tsc22d3", "ube2o", "zc3h12a", "znf423"))
+for(i in 1:length(dups)) {
+   rownames(hcs_Hoang)[rownames(hcs_Hoang) == dups[i]] = paste(dups[i],"_ii",sep="")
+}
+# now everything can be lower cased
+rownames(hcs_Hoang) = tolower(rownames(hcs_Hoang))
+
+
+
+
+# hcs_Hoang = hcs_Hoang[c("pctMean","pctRod","pctUV","pctS","pctM1","pctM3","pctM4","pctL","avgMean","avgRod","avgUV","avgS","avgM1","avgM3","avgM4","avgL")]
+
+
+
+scangenes=c('syt5a','syt5b','nr2e3','lhx1a','isl1','gad1b','vsx1','ntrk3a','opn9');
+hcs_Hoang[scangenes,]
+
+
+
+# still need to manually add symbol to first column
+write.csv(hcs_Hoang,"./hcs_Hoang.csv",quote=FALSE)
