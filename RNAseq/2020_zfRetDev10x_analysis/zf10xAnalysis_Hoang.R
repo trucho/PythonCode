@@ -522,8 +522,11 @@ GetAssayData(object = rods, slot = "counts")
 #  c("rem1","CR361564.1",'prkar2ab','rprmb','opn4.1','atp1b1a')) -> used to id HC cluster
 
 
-hcs <- subset(pbmc, idents = c("HC"))
+# hcs <- subset(pbmc, idents = c("HC"))
 # saveRDS(hcs, file = "./hcs.rds") #preliminary saving to analyze later
+
+hcs = readRDS("~/Documents/LiMolec/otherRNAseq/zfRet_HoangBlackshaw2020/hcs.rds");
+
 
 DimPlot(hcs, reduction = "tsne", label =  TRUE, pt.size = 1, label.size = 6) + eelTheme()
 hcs2 = SetIdent(hcs, value = "Sample")
@@ -633,6 +636,7 @@ FeaturePlot(hcs,reduction = 'tsne', features = c('cx52.7', 'cx52.6', 'cx52.9','g
 
 FeaturePlot(hcs,reduction = 'tsne', features = c("lhx1a",'vsx1', 'isl1','ntrk3a',"opn4.1",'opn9','gad1b','hmx3a'))
 
+FeaturePlot(hcs,reduction = 'tsne', features = c("lhx1a","rom1a"))
 # Putting all things together and embodying a joiner and not a splitter, it seems that loosely
 # H1s = lxh1a+
 # H2s = isl1+, ntrk3a+ (mostly), opn9+ (mostly)
@@ -653,7 +657,17 @@ VlnPlot(hcs, features = c("opn1sw1", "opn1sw2",'opn1mw1','opn1mw2','opn1mw3','op
 VlnPlot(hcs, features = c('rho','syt5b','fabp7a',"neurod1",'gnat1','gnat2','syt5a','prdm1a'))
 VlnPlot(hcs, features = c("lhx1a",'vsx1', 'isl1','ntrk3a',"opn4.1",'opn9','gad1b','hmx3a','efna1a'))
 
-
+# Trying out Mike Country's review receptors for Ca (https://pubmed.ncbi.nlm.nih.gov/6385010/)
+#NMDA receptors: nothing great. grin1a in all HCs
+FeaturePlot(hcs,reduction = 'tsne', features = c('grin1a','grin1b','grin2aa','grin2ab','grin2ba','grin2bb','grin2ca','grin2da','grin2db','grin3ba','grinaa','grinab'))
+# Ryanodine receptors: nothing
+FeaturePlot(hcs,reduction = 'tsne', features = c('ryr1a','ryr1b','ryr2a','ryr2b','ryr3'))
+# voltage gated calcium channels
+FeaturePlot(hcs,reduction = 'tsne', features = c('cacna1aa','cacna1ab','cacna1ba','cacna1bb','cacna1c','cacna1da','cacna1db','cacna1ea','cacna1fa','cacna1fb'))
+FeaturePlot(hcs,reduction = 'tsne', features = c('itpr1a','itpr1b','itpr2','itpr3','itprip','itprid1','itprid2'))
+FeaturePlot(hcs,reduction = 'tsne', features = c('panx1a','panx1b','panx2','panx3'))
+                                                 
+                                                 
 # PC_ 3 
 # Positive:  slc6a1l, sall3b, ret, gad1b, opn4.1, barhl2, tmtc1, rpap1, arhgef18b, lhx1a 
 # shisa7b, sgk494a, valopa, vipr2, grip1, stk17a, rassf4, calm2b, irs1, si:dkeyp-41f9.3 

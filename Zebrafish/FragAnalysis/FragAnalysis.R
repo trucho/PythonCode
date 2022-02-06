@@ -15,24 +15,29 @@ library(ggpubr)
 # ------------------------------------------------------------------------------------------------------------------------------------------------
 # ------------------------------------------------------------------------------------------------------------------------------------------------
 # Clear environment
-rm(list=ls()); 
+rm(list=ls());
 try(dev.off(),silent=TRUE);
 # ------------------------------------------------------------------------------------------------------------------------------------------------
 # ------------------------------------------------------------------------------------------------------------------------------------------------
 # define folder
-dir.fsa = "/Users/angueyraaristjm/Documents/LiMolec/zfGenotyping/20211122_tbx2bF2s_redo/sema7a"
+dir.fsa = "/Users/angueyraaristjm/Documents/LiMolec/zfGenotyping/20220120_tbx2aF3s/lhx1a"
 # load all fsa files in folder
 fsaData = storing.inds(dir.fsa)
 fsaNames = names(fsaData)
 cat(gsub(".fsa","",fsaNames), sep="\n") 
 # define ladder
 # ROX400 = c(50, 60, 90, 100, 120, 150, 160, 180, 190, 200, 220, 240, 260, 280, 290, 300, 320, 340, 360, 380, 400 );
+
 # LIZ500 (https://assets.thermofisher.com/TFS-Assets/LSG/manuals/cms_042491.pdf)
 # liz500 <- c(35, 50, 75, 100, 139, 150, 160, 200, 250, 300, 340, 350, 400, 450, 490, 500)
 # finding that first marker is usually contaminated, so decided to remove it
 # liz500 <- c(50, 75, 100, 139, 150, 160, 200, 300, 340, 350, 400, 450, 490, 500)
 # liz500 <- c(50, 75, 100, 139, 150, 160, 200, 250, 300, 340, 350, 400, 450, 490, 500)
-liz500 <- c(75, 100, 139, 150, 160, 200, 250, 300, 340, 350, 400, 450, 490, 500)
+# liz500 <- c(75, 100, 139, 150, 160, 200, 250, 300, 340, 350, 400, 450, 490, 500)
+
+# liz600
+# liz500 = c(20, 40, 60, 80, 100, 114, 120, 140, 160, 180, 200, 214, 220, 240, 250, 260, 280, 300, 314, 320, 340, 360, 380, 400, 414, 420, 440, 460, 480, 500, 514, 520, 540, 560, 580, 600)
+liz500 = c(40, 60, 80, 100, 114, 120, 140, 160, 180, 200, 214, 220, 240, 250, 260, 280, 300, 314, 320, 340, 360, 380, 400, 414, 420, 440, 460, 480, 500, 514, 520, 540, 560, 580, 600)
 
 # liz500 <- c(50, 75, 100, 340, 350, 400, 450, 490, 500)
 
@@ -60,29 +65,29 @@ if (file.exists(paste(paste(dir.fsa,gsub('.{0,4}$', '', tempName),sep = "/"),".c
 chDNA = 1; chLadder = 10;
 # plot data to assess if it's worth it remapping
 # plot(tempData[[tempName]][,1], typ='l',xlim=c(1700,length(tempData[[tempName]][,1])),ylim=c(0,30000))
-dlo=1800;
-dhi=5900;
+dlo=1000;
+dhi=6100;
 plot(tempData[[tempName]][,chDNA], typ='l',xlim=c(dlo,dhi),ylim=c(min(tempData[[tempName]][dlo:dhi,chDNA]),max(tempData[[tempName]][dlo:dhi,chDNA])), main = tempName)
 # figure out threshold by checking liz500 channel
 plot(tempData[[tempName]][,chLadder], xlim=c(100,2200), typ='l')
-ilim01 = 1350;
+ilim01 = 1200;
 plot(tempData[[tempName]][,chLadder], xlim =c(ilim01,6000), typ='l')
-ilim02 = 6500;
+ilim02 = 6200;
 plot(tempData[[tempName]][ilim01:ilim02,chLadder], typ='l') # 16 peaks for liz500 (15 peaks if removed '35' marker)
 
 
 tempData[[tempName]] = tempData[[tempName]][ilim01:ilim02,c(chDNA,chLadder)]
 # plot(tempData[[tempName]][,2], typ='l') # 16 peaks for liz500 (15 peaks if removed '35' marker)
 
-guessThreshold = quantile(tempData[[tempName]][,2],.992);
-# guessThreshold = 50;
+# guessThreshold = quantile(tempData[[tempName]][,2],.992);
+guessThreshold = quantile(tempData[[tempName]][,2],.9);
+guessThreshold = 50;
 # match ladder (works better if higher values when noise is high)
 ladderData = ladder.info.attach(stored=tempData, ladder=liz500, method='iter2', draw=TRUE, ladd.init.thresh=guessThreshold)
 # replot ladder if needed to play with threshold
 # plot(tempData[[tempName]][,2], typ='l') # 16 peaks for liz500
 # run manual correction if needed
 # ladderData = ladder.corrector(stored=tempData, to.correct = tempName, ladder=liz500)
-
 # ------------------------------------------------------------------------------------------------------------------------------------------------
 # ------------------------------------------------------------------------------------------------------------------------------------------------
 # ladder is stored as an environment (hidden) variable -> list.data.covarrubias[[tempName]]
@@ -106,11 +111,14 @@ fitWeights <- predict(polyModel,full_ladder)
 plot(fitWeights, tempData[[tempName]][,1], typ='l', xlim=c(0, 600), main=tempName)
 # zoom into ROI
 # p_lo = 350; p_hi =  650; #syt5a | tbx2a
-# p_lo = 500; p_hi =  650; # tbx2a FiRii/FiRiii
-p_lo = 250; p_hi = 420; #sema7a | tbx2b | syt5b | xbp1
-# p_lo = 300; p_hi = 500; # foxq2 | nr2f1b
+# p_lo = 400; p_hi =  550; # tbx2a FiRii/FiRiii
+# p_lo = 250; p_hi = 420; #sema7a | tbx2b | syt5b | xbp1
+p_lo = 300; p_hi = 500; # foxq2 | nr2f1b | lhx1a
+# p_lo = 250; p_hi = 450; #  skor1a | tefa
+# p_lo = 200; p_hi = 350; #  lrrfip1a
+# p_lo = 150; p_hi = 400; #  xbp1 | tgif
 # p_lo = 200; p_hi = 275; #eml1
-# p_lo = 100; p_hi = 300; #ntng2b
+# p_lo = 100; p_hi = 300; #ntng2b | sall1a
 # p_lo = 100; p_hi =  600; # whole range
 # p_lo = 350; p_hi =  420; # temp
 # plot(fitWeights, tempData[[tempName]][,1], typ='l', xlim=c(p_lo, p_hi), ylim=c(0,1000), main=tempName)
