@@ -20,7 +20,7 @@ try(dev.off(),silent=TRUE);
 # ------------------------------------------------------------------------------------------------------------------------------------------------
 # ------------------------------------------------------------------------------------------------------------------------------------------------
 # define folder
-dir.fsa = "/Users/angueyraaristjm/Documents/LiMolec/zfGenotyping/20220120_tbx2aF3s/lhx1a"
+dir.fsa = "/Users/angueyraaristjm/Documents/LiMolec/zfGenotyping/20220128_tbx2F3_nr2e3F0_round2/tbx2b_inx_tbx2b"
 # load all fsa files in folder
 fsaData = storing.inds(dir.fsa)
 fsaNames = names(fsaData)
@@ -32,12 +32,12 @@ cat(gsub(".fsa","",fsaNames), sep="\n")
 # liz500 <- c(35, 50, 75, 100, 139, 150, 160, 200, 250, 300, 340, 350, 400, 450, 490, 500)
 # finding that first marker is usually contaminated, so decided to remove it
 # liz500 <- c(50, 75, 100, 139, 150, 160, 200, 300, 340, 350, 400, 450, 490, 500)
-# liz500 <- c(50, 75, 100, 139, 150, 160, 200, 250, 300, 340, 350, 400, 450, 490, 500)
+liz500 <- c(50, 75, 100, 139, 150, 160, 200, 250, 300, 340, 350, 400, 450, 490, 500)
 # liz500 <- c(75, 100, 139, 150, 160, 200, 250, 300, 340, 350, 400, 450, 490, 500)
 
 # liz600
 # liz500 = c(20, 40, 60, 80, 100, 114, 120, 140, 160, 180, 200, 214, 220, 240, 250, 260, 280, 300, 314, 320, 340, 360, 380, 400, 414, 420, 440, 460, 480, 500, 514, 520, 540, 560, 580, 600)
-liz500 = c(40, 60, 80, 100, 114, 120, 140, 160, 180, 200, 214, 220, 240, 250, 260, 280, 300, 314, 320, 340, 360, 380, 400, 414, 420, 440, 460, 480, 500, 514, 520, 540, 560, 580, 600)
+# liz500 = c(40, 60, 80, 100, 114, 120, 140, 160, 180, 200, 214, 220, 240, 250, 260, 280, 300, 314, 320, 340, 360, 380, 400, 414, 420, 440, 460, 480, 500, 514, 520, 540, 560, 580, 600)
 
 # liz500 <- c(50, 75, 100, 340, 350, 400, 450, 490, 500)
 
@@ -81,7 +81,7 @@ tempData[[tempName]] = tempData[[tempName]][ilim01:ilim02,c(chDNA,chLadder)]
 
 # guessThreshold = quantile(tempData[[tempName]][,2],.992);
 guessThreshold = quantile(tempData[[tempName]][,2],.9);
-guessThreshold = 50;
+guessThreshold = 80;
 # match ladder (works better if higher values when noise is high)
 ladderData = ladder.info.attach(stored=tempData, ladder=liz500, method='iter2', draw=TRUE, ladd.init.thresh=guessThreshold)
 # replot ladder if needed to play with threshold
@@ -110,13 +110,13 @@ fitWeights <- predict(polyModel,full_ladder)
 # plot the data
 plot(fitWeights, tempData[[tempName]][,1], typ='l', xlim=c(0, 600), main=tempName)
 # zoom into ROI
-# p_lo = 350; p_hi =  650; #syt5a | tbx2a
+# p_lo = 350; p_hi =  600; #syt5a | tbx2a
 # p_lo = 400; p_hi =  550; # tbx2a FiRii/FiRiii
-# p_lo = 250; p_hi = 420; #sema7a | tbx2b | syt5b | xbp1
-p_lo = 300; p_hi = 500; # foxq2 | nr2f1b | lhx1a
+p_lo = 250; p_hi = 420; #sema7a | tbx2b | syt5b | xbp1
+# p_lo = 300; p_hi = 500; # foxq2 | nr2f1b | lhx1a
 # p_lo = 250; p_hi = 450; #  skor1a | tefa
 # p_lo = 200; p_hi = 350; #  lrrfip1a
-# p_lo = 150; p_hi = 400; #  xbp1 | tgif
+# p_lo = 100; p_hi = 400; #  xbp1 | tgif | nr2e3
 # p_lo = 200; p_hi = 275; #eml1
 # p_lo = 100; p_hi = 300; #ntng2b | sall1a
 # p_lo = 100; p_hi =  600; # whole range
@@ -130,7 +130,8 @@ p = ggplot() + geom_line(aes(x = fitWeights, y = tempData[[tempName]][,1]), size
    annotate("text", x=tempBP+15, y=tempPeak, label=paste(toString(round(tempPeak,digits=0)),'au',sep=' '), size=5, hjust = 0) +
    ylab("Fluo (a.u.)") +
    xlim(p_lo, p_hi) +
-   ylim(min(tempData[[tempName]][fitWeights>p_lo&fitWeights<p_hi,1]),1.1*tempPeak) +
+   # ylim(min(tempData[[tempName]][fitWeights>p_lo&fitWeights<p_hi,1]),1.1*tempPeak) +
+   ylim(-100,1.1*tempPeak) +
    ggtitle(tempName) +
    theme_classic(base_size = 16, base_rect_size = 5) +
    theme(axis.line = element_line(size = 2), axis.text = element_text(size=14))
