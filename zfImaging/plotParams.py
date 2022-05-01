@@ -1,8 +1,43 @@
 from cmcrameri import cm #colormaps
 from numpy import floor
+import matplotlib
+import matplotlib.pyplot as plt
+import matplotlib.font_manager as font_manager
 
 batlow = cm.vik(range(255))
 batlow = batlow[0:255:int(floor(255/8)),:]
+
+def applyPlotStyle(plotStyleString):
+    if plotStyleString=='Dark':
+        # dark background
+        params = {"ytick.color" : "w",
+                  "xtick.color" : "w",
+                  "axes.labelcolor" : "w",
+                  "axes.edgecolor" : "w",
+                 "axes.linewidth" : 3,
+                 "xtick.major.width" : 3,
+                 "ytick.major.width" : 3,
+                 "xtick.major.size" : 8,
+                 "ytick.major.size" : 8,
+                 "text.color" : "w"}
+        plt.rcParams.update(params)
+        plt.style.use('dark_background')
+    elif plotStyleString=='Light':
+        # white background
+        params = {"ytick.color" : "k",
+                  "xtick.color" : "k",
+                  "axes.labelcolor" : "k",
+                  "axes.edgecolor" : "k",
+                 "axes.linewidth" : 3,
+                 "xtick.major.width" : 3,
+                 "ytick.major.width" : 3,
+                 "xtick.major.size" : 8,
+                 "ytick.major.size" : 8,
+                 "text.color" : "k"}
+    plt.rcParams.update(params)
+    font_prop = font_manager.FontProperties(fname='/System/Library/Fonts/Avenir.ttc')
+    matplotlib.rcParams['axes.prop_cycle'] = matplotlib.cycler(color=batlow)
+    print('Plotting style is ' + plotStyleString)
 
 #gene Colors
 zfC = {
@@ -83,3 +118,4 @@ def estimateJitter(dataArray):
     density = kde(dataArray)
     jitter = np.random.randn(len(dataArray))*density
     return jitter
+

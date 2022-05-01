@@ -1,0 +1,79 @@
+{"shortcuts":
+    [
+        {
+            "command": "notebook:copy-cell",
+            "keys": [
+                "C"
+            ],
+            "selector": ".jp-Notebook:focus",
+            "disabled":true
+        },
+        {
+            "command": "notebook:cut-cell",
+            "keys": [
+                "X"
+            ],
+            "selector": ".jp-Notebook:focus",
+            "disabled":true
+        },
+        {
+            "command": "notebook:delete-cell",
+            "keys": [
+                "D",
+            ],
+            "selector": ".jp-Notebook:focus",
+            "disabled":true
+        },
+        {
+            "command": "notebook:paste-cell-below",
+            "keys": [
+                "V"
+            ],
+            "selector": ".jp-Notebook:focus",
+            "disabled":true
+        },
+        {
+            "command": "notebook:undo-cell-action",
+            "keys": [
+                "Z"
+            ],
+            "selector": ".jp-Notebook:focus",
+            "disabled":true
+        },
+        {
+            "command": "notebook:copy-cell",
+            "keys": [
+                "Alt C"
+            ],
+            "selector": ".jp-Notebook:focus"
+        },
+        {
+            "command": "notebook:cut-cell",
+            "keys": [
+                "Alt X"
+            ],
+            "selector": ".jp-Notebook:focus"
+        },
+        {
+            "command": "notebook:delete-cell",
+            "keys": [
+                "Alt D",
+            ],
+            "selector": ".jp-Notebook:focus"
+        },
+        {
+            "command": "notebook:paste-cell-below",
+            "keys": [
+                "Alt V"
+            ],
+            "selector": ".jp-Notebook:focus"
+        },
+        {
+            "command": "notebook:undo-cell-action",
+            "keys": [
+                "Alt Z"
+            ],
+            "selector": ".jp-Notebook:focus"
+        },
+    ]
+}

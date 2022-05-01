@@ -1,0 +1,216 @@
+# Your snippets
+#
+# Atom snippets allow you to enter a simple prefix in the editor and hit tab to
+# expand the prefix into a larger code block with templated values.
+#
+# You can create a new snippet in this file by typing "snip" and then hitting
+# tab.
+#
+# An example CoffeeScript snippet to expand log to console.log:
+#
+# '.source.coffee':
+#   'Console log':
+#     'prefix': 'log'
+#     'body': 'console.log $1'
+#
+# Each scope (e.g. '.source.coffee' above) can only be declared once.
+#
+# This file uses CoffeeScript Object Notation (CSON).
+# If you are unfamiliar with CSON, you can read more about it in the
+# Atom Flight Manual:
+# http://flight-manual.atom.io/using-atom/sections/basic-customization/#_cson
+
+'.html':
+  'UV-text':
+    'prefix': 'utext'
+    'body': '<mark class="u">$1</mark>$2'
+  'S-text':
+    'prefix': 'stext'
+    'body': '<mark class="s">$1</mark>$2'
+  'M-text':
+    'prefix': 'mtext'
+    'body': '<mark class="m">$1</mark>$2'
+  'L-text':
+    'prefix': 'ltext'
+    'body': '<mark class="l">$1</mark>$2'
+  'R-text':
+    'prefix': 'rtext'
+    'body': '<mark class="r">$1</mark>$2'
+  'K-text':
+    'prefix': 'ktext'
+    'body': '<mark class="k">$1</mark>$2'
+  'W-text':
+    'prefix': 'wtext'
+    'body': '<mark class="w">$1</mark>$2'
+  'etal':
+    'prefix': 'etal'
+    'body': '<em>et al.,</em>'
+  'Knock-out':
+    'prefix': 'ko'
+    'body': '_$1<sup>-/-$2</sup>_'
+  'Morpholino':
+    'prefix': 'mo'
+    'body': '_$1<sup>MO</sup>_'
+  'R-arrow':
+    'prefix': 'rarr'
+    'body': '&rarr;'
+  'L-arrow':
+    'prefix': 'larr'
+    'body': '&larr;'
+  'Up-arrow':
+    'prefix': 'uarr'
+    'body': '&uarr;'
+  'Down-arrow':
+    'prefix': 'darr'
+    'body': '&darr;'
+  'Underline':
+    'prefix': 'under'
+    'body': '<u>$1</u>$2'
+  'sub':
+    'prefix': 'subscript'
+    'body': '<sub>$1</sub>$2'
+  'sup':
+    'prefix': 'superscript'
+    'body': '<sup>$1</sup>$2'
+  'uL':
+    'prefix': 'uL'
+    'body': '&mu;L'
+  'Ion':
+    'prefix': 'ion'
+    'body': '$1<sup>$2</sup>$3'
+  'Calcium':
+    'prefix': 'calcium'
+    'body': 'Ca<sup>2+</sup>'
+  'Cyte':
+    'prefix': 'cyte'
+    'body': '&#x1D1CD;'
+  'degC':
+    'prefix': 'celsius'
+    'body': '&deg;C'
+  'F0':
+    'prefix': 'F0'
+    'body': 'F&empty;'
+
+'.text.md':
+  'UV-cone':
+    'prefix': 'uc'
+    'body': '![U](./resources/U.svg)'
+  'S-cone':
+    'prefix': 'sc'
+    'body': '![S](./resources/S.svg)'
+  'M-cone':
+    'prefix': 'mc'
+    'body': '![M](./resources/M.svg)'
+  'L-cone':
+    'prefix': 'lc'
+    'body': '![L](./resources/L.svg)'
+  'Rod':
+    'prefix': 'rods'
+    'body': '![rods](./resources/R.svg)'
+  'Cones':
+    'prefix': 'cones'
+    'body': '![cones](./resources/Cs.svg)'
+  'xOG':
+    'prefix': 'xOG'
+    'body': '![xOG](../resources/xOG.svg)'
+  's1G':
+    'prefix': 's1G'
+    'body': '![s1G](../resources/s1G.svg)'
+  's1C':
+    'prefix': 's1C'
+    'body': '![s1C](../resources/s1C.svg)'
+  's2G':
+    'prefix': 's2G'
+    'body': '![s2G](../resources/s2G.svg)'
+  's2C':
+    'prefix': 's2C'
+    'body': '![s1C](../resources/s2C.svg)'
+  'm2G':
+    'prefix': 'm2G'
+    'body': '![m2G](../resources/m2G.svg)'
+  't2T':
+    'prefix': 't2T'
+    'body': '![t2T](../resources/t2T.svg)'
+  'g6T':
+    'prefix': 'g6T'
+    'body': '![g6T](../resources/g6T.svg)'
+  'GE4':
+    'prefix': 'GE4'
+    'body': '![GE4](../resources/GE4.svg)'
+  'ptf1a':
+    'prefix': 'ptf1a'
+    'body': '![ptf1a](../resources/ptf1a.svg)'
+  'chat':
+    'prefix': 'chat'
+    'body': '![chat](../resources/chat.svg)'
+  'spark':
+    'prefix': 'sparkline'
+    'body': '![$1](./resources/$1.svg)'
+  'ref':
+    'prefix': 'reference'
+    'body': '[$1]($2)'
+  'Knock-out':
+    'prefix': 'ko'
+    'body': '_$1<sup>-/-$2</sup>_'
+  'Morpholino':
+    'prefix': 'mo'
+    'body': '_$1<sup>MO</sup>_'
+  'CRISPR':
+    'prefix': 'CR'
+    'body': 'CR[_$1_]$2'
+  'R-arrow':
+    'prefix': 'rarr'
+    'body': '&rarr;'
+  'L-arrow':
+    'prefix': 'larr'
+    'body': '&larr;'
+  'Up-arrow':
+    'prefix': 'uarr'
+    'body': '&uarr;'
+  'Down-arrow':
+    'prefix': 'darr'
+    'body': '&darr;'
+  'Underline':
+    'prefix': 'under'
+    'body': '<u>$1</u>$2'
+  'sub':
+    'prefix': 'subscript'
+    'body': '<sub>$1</sub>$2'
+  'sup':
+    'prefix': 'superscript'
+    'body': '<sup>$1</sup>$2'
+  'uL':
+    'prefix': 'uL'
+    'body': '&mu;L'
+  'Ion':
+    'prefix': 'ion'
+    'body': '$1<sup>$2</sup>$3'
+  'Calcium':
+    'prefix': 'calcium'
+    'body': 'Ca<sup>2+</sup>'
+  'ddH20':
+    'prefix': 'ddH20'
+    'body': '<sub>dd</sub>H<sub>2</sub>O'
+  'Cyte':
+    'prefix': 'cyte'
+    'body': '&#x1D1CD;'
+  'degC':
+    'prefix': 'celsius'
+    'body': '&deg;C'
+  'F0':
+    'prefix': 'F0'
+    'body': 'F&empty;'
+  '+/-':
+    'prefix': '+/-'
+    'body': '&PlusMinus;'
+  '--':
+    'prefix': '--'
+    'body': '&hyphen;'
+  'DC96':
+    'prefix': 'DC96'
+    'body': '|  | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 |  |\n| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |\n| A |  |  |  |  |  |  |  |  |  |  |  |  | A |\n| B |  |  |  |  |  |  |  |  |  |  |  |  | B |\n| C |  |  |  |  |  |  |  |  |  |  |  |  | C |\n| D |  |  |  |  |  |  |  |  |  |  |  |  | D |\n| E |  |  |  |  |  |  |  |  |  |  |  |  | E |\n| F |  |  |  |  |  |  |  |  |  |  |  |  | F |\n| G |  |  |  |  |  |  |  |  |  |  |  |  | G |\n| H |  |  |  |  |  |  |  |  |  |  |  |  | H |\n|  | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 |  |\n'
+
+'.tex':
+  'F0':
+    'prefix': 'F0'
+    'body': 'F\\\\text{Ø}'

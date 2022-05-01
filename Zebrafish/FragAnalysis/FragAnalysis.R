@@ -5,8 +5,11 @@
 # score.markers = find peaks; can be automated
 
 #ladder.corrector = allows to manually click on peaks.
+# install.packages("plotly")
+# BiocManager::install(c("ggplot2"))
 # ------------------------------------------------------------------------------------------------------------------------------------------------
 # ------------------------------------------------------------------------------------------------------------------------------------------------
+# install.packages("BiocManager")
 # BiocManager::install(c("Fragman"))
 library("Fragman")
 library(ggplot2)
@@ -20,7 +23,7 @@ try(dev.off(),silent=TRUE);
 # ------------------------------------------------------------------------------------------------------------------------------------------------
 # ------------------------------------------------------------------------------------------------------------------------------------------------
 # define folder
-dir.fsa = "/Users/angueyraaristjm/Documents/LiMolec/zfGenotyping/20220128_tbx2F3_nr2e3F0_round2/tbx2b_inx_tbx2b"
+dir.fsa = "/Users/angueyraaristjm/Library/CloudStorage/OneDrive-NationalInstitutesofHealth/zf/zfGenotyping/20220422_tbx2aF1screen/tbx2aF3"
 # load all fsa files in folder
 fsaData = storing.inds(dir.fsa)
 fsaNames = names(fsaData)
@@ -80,8 +83,8 @@ tempData[[tempName]] = tempData[[tempName]][ilim01:ilim02,c(chDNA,chLadder)]
 # plot(tempData[[tempName]][,2], typ='l') # 16 peaks for liz500 (15 peaks if removed '35' marker)
 
 # guessThreshold = quantile(tempData[[tempName]][,2],.992);
-guessThreshold = quantile(tempData[[tempName]][,2],.9);
-guessThreshold = 80;
+guessThreshold = quantile(tempData[[tempName]][,2],.98);
+guessThreshold = 100;
 # match ladder (works better if higher values when noise is high)
 ladderData = ladder.info.attach(stored=tempData, ladder=liz500, method='iter2', draw=TRUE, ladd.init.thresh=guessThreshold)
 # replot ladder if needed to play with threshold
@@ -108,11 +111,11 @@ plot(list.data.covarrubias[[tempName]]$pos,list.data.covarrubias[[tempName]]$wei
 full_ladder = data.frame("p"=1:length(tempData[[tempName]][,1]))
 fitWeights <- predict(polyModel,full_ladder)
 # plot the data
-plot(fitWeights, tempData[[tempName]][,1], typ='l', xlim=c(0, 600), main=tempName)
+# plot(fitWeights, tempData[[tempName]][,1], typ='l', xlim=c(0, 600), main=tempName)
 # zoom into ROI
-# p_lo = 350; p_hi =  600; #syt5a | tbx2a
+p_lo = 350; p_hi =  600; #syt5a | tbx2a
 # p_lo = 400; p_hi =  550; # tbx2a FiRii/FiRiii
-p_lo = 250; p_hi = 420; #sema7a | tbx2b | syt5b | xbp1
+# p_lo = 250; p_hi = 420; #sema7a | tbx2b | syt5b | xbp1
 # p_lo = 300; p_hi = 500; # foxq2 | nr2f1b | lhx1a
 # p_lo = 250; p_hi = 450; #  skor1a | tefa
 # p_lo = 200; p_hi = 350; #  lrrfip1a
@@ -120,21 +123,25 @@ p_lo = 250; p_hi = 420; #sema7a | tbx2b | syt5b | xbp1
 # p_lo = 200; p_hi = 275; #eml1
 # p_lo = 100; p_hi = 300; #ntng2b | sall1a
 # p_lo = 100; p_hi =  600; # whole range
-# p_lo = 350; p_hi =  420; # temp
-# plot(fitWeights, tempData[[tempName]][,1], typ='l', xlim=c(p_lo, p_hi), ylim=c(0,1000), main=tempName)
+# p_lo = 460; p_hi =  499; # temp
+plot(fitWeights, tempData[[tempName]][,1], typ='l', xlim=c(p_lo, p_hi), ylim=c(0,20000), main=tempName)
 tempPeak = max(tempData[[tempName]][fitWeights>p_lo&fitWeights<p_hi,1]); tempBP =  fitWeights[which(tempData[[tempName]]==tempPeak)];
-p = ggplot() + geom_line(aes(x = fitWeights, y = tempData[[tempName]][,1]), size=.5) + # frag Data
-   geom_line(aes(x = fitWeights, y = tempData[[tempName]][,2]), color=rgb(.8, 0, 0, .25)) + #ladder Data
-   geom_line(aes(x = c(tempBP,tempBP), y = c(0,tempPeak)), color=rgb(0, .5, .8, .8)) + # identified peak
-   annotate("text", x=tempBP, y=tempPeak*1.05, label=paste(toString(round(tempBP,digits=2)),'bp',sep=' '), size=5) +
-   annotate("text", x=tempBP+15, y=tempPeak, label=paste(toString(round(tempPeak,digits=0)),'au',sep=' '), size=5, hjust = 0) +
-   ylab("Fluo (a.u.)") +
-   xlim(p_lo, p_hi) +
-   # ylim(min(tempData[[tempName]][fitWeights>p_lo&fitWeights<p_hi,1]),1.1*tempPeak) +
-   ylim(-100,1.1*tempPeak) +
-   ggtitle(tempName) +
-   theme_classic(base_size = 16, base_rect_size = 5) +
-   theme(axis.line = element_line(size = 2), axis.text = element_text(size=14))
+
+p_lo2 = 450; p_hi2 =  488;
+tempPeak2 = max(tempData[[tempName]][fitWeights>p_lo2&fitWeights<p_hi2,1]); tempBP2 =  fitWeights[which(tempData[[tempName]]==tempPeak2)];
+
+# p = ggplot() + geom_line(aes(x = fitWeights, y = tempData[[tempName]][,1]), size=.5) + # frag Data
+#    geom_line(aes(x = fitWeights, y = tempData[[tempName]][,2]), color=rgb(.8, 0, 0, .25)) + #ladder Data
+#    geom_line(aes(x = c(tempBP,tempBP), y = c(0,tempPeak)), color=rgb(0, .5, .8, .8)) + # identified peak
+#    annotate("text", x=tempBP, y=tempPeak*1.05, label=paste(toString(round(tempBP,digits=2)),'bp',sep=' '), size=5) +
+#    annotate("text", x=tempBP+15, y=tempPeak, label=paste(toString(round(tempPeak,digits=0)),'au',sep=' '), size=5, hjust = 0) +
+#    ylab("Fluo (a.u.)") +
+#    xlim(p_lo, p_hi) +
+#    # ylim(min(tempData[[tempName]][fitWeights>p_lo&fitWeights<p_hi,1]),1.1*tempPeak) +
+#    ylim(-100,1.1*tempPeak) +
+#    ggtitle(tempName) +
+#    theme_classic(base_size = 16, base_rect_size = 5) +
+#    theme(axis.line = element_line(size = 2), axis.text = element_text(size=14))
 
 # p2 = ggplot() + geom_line(aes(x = fitWeights, y = tempData[[tempName]][,2]), color=rgb(1, 0, 0, .5)) +
 #    geom_line(aes(x = c(tempBP,tempBP), y = c(0,max(tempData[[tempName]][,2]))), color=rgb(0, .5, .8, .8)) +
@@ -144,14 +151,15 @@ p = ggplot() + geom_line(aes(x = fitWeights, y = tempData[[tempName]][,1]), size
 # 
 # ggarrange(p, p2, heights = c(2, 0.7),ncol = 1, nrow = 2, align = "v")
 
-ggplotly(p)
+# ggplotly(p)
 
 # or plot whole ladder by itself
 # plot(fitWeights, tempData[[tempName]][,2], typ='l', xlim=c(0, 100))
 # export data as csv into same folder and with same name
 write.csv(data.frame("size"=fitWeights,"fluo"=tempData[[tempName]][,1],"ladder"=tempData[[tempName]][,2]),paste(paste(dir.fsa,gsub('.{0,4}$', '', tempName),sep = "/"),".csv", sep=""),row.names = FALSE) + 
    message(paste("Saved analysis for:",tempName)) +
-dev.off()
+   print(tempBP) + print(tempBP2) + print(tempBP2 - tempBP)
+# dev.off()
 # ------------------------------------------------------------------------------------------------------------------------------------------------
 # ------------------------------------------------------------------------------------------------- -----------------------------------------------
 # expected peaks: gnat2 = 295bp;     syt5a = 477bp;     efna1b = 495bp; 

@@ -42,3 +42,7 @@ Testing/*.notebookCheckpoints/pyDates-checkpoint.ipynb
 Testing/*.notebookCheckpoints/using_ffmpegtopngs-checkpoint.txt
 Zebrafish/*.notebookCheckpoints/FragAnalysis_tsvColumns-checkpoint.ipynb
 Zebrafish/*.notebookCheckpoints/PCRsetup-checkpoint.ipynb
+*.Rhistory
+*-checkpoint.py
+*-checkpoint.md
+*/__pycache__/*
