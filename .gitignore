@@ -46,3 +46,4 @@ Zebrafish/*.notebookCheckpoints/PCRsetup-checkpoint.ipynb
 *-checkpoint.py
 *-checkpoint.md
 */__pycache__/*
+*/.Rhistory

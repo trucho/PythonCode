@@ -23,7 +23,7 @@ try(dev.off(),silent=TRUE);
 # ------------------------------------------------------------------------------------------------------------------------------------------------
 # ------------------------------------------------------------------------------------------------------------------------------------------------
 # define folder
-dir.fsa = "/Users/angueyraaristjm/Library/CloudStorage/OneDrive-NationalInstitutesofHealth/zf/zfGenotyping/20220422_tbx2aF1screen/tbx2aF3"
+dir.fsa = "/Users/angueyraaristjm/Library/CloudStorage/OneDrive-NationalInstitutesofHealth/zf/zfGenotyping/20220523_tbx2a_finClips_ii/tbx2a"
 # load all fsa files in folder
 fsaData = storing.inds(dir.fsa)
 fsaNames = names(fsaData)
@@ -124,34 +124,34 @@ p_lo = 350; p_hi =  600; #syt5a | tbx2a
 # p_lo = 100; p_hi = 300; #ntng2b | sall1a
 # p_lo = 100; p_hi =  600; # whole range
 # p_lo = 460; p_hi =  499; # temp
-plot(fitWeights, tempData[[tempName]][,1], typ='l', xlim=c(p_lo, p_hi), ylim=c(0,20000), main=tempName)
+# plot(fitWeights, tempData[[tempName]][,1], typ='l', xlim=c(p_lo, p_hi), ylim=c(0,20000), main=tempName)
 tempPeak = max(tempData[[tempName]][fitWeights>p_lo&fitWeights<p_hi,1]); tempBP =  fitWeights[which(tempData[[tempName]]==tempPeak)];
 
 p_lo2 = 450; p_hi2 =  488;
 tempPeak2 = max(tempData[[tempName]][fitWeights>p_lo2&fitWeights<p_hi2,1]); tempBP2 =  fitWeights[which(tempData[[tempName]]==tempPeak2)];
 
-# p = ggplot() + geom_line(aes(x = fitWeights, y = tempData[[tempName]][,1]), size=.5) + # frag Data
-#    geom_line(aes(x = fitWeights, y = tempData[[tempName]][,2]), color=rgb(.8, 0, 0, .25)) + #ladder Data
-#    geom_line(aes(x = c(tempBP,tempBP), y = c(0,tempPeak)), color=rgb(0, .5, .8, .8)) + # identified peak
-#    annotate("text", x=tempBP, y=tempPeak*1.05, label=paste(toString(round(tempBP,digits=2)),'bp',sep=' '), size=5) +
-#    annotate("text", x=tempBP+15, y=tempPeak, label=paste(toString(round(tempPeak,digits=0)),'au',sep=' '), size=5, hjust = 0) +
-#    ylab("Fluo (a.u.)") +
-#    xlim(p_lo, p_hi) +
-#    # ylim(min(tempData[[tempName]][fitWeights>p_lo&fitWeights<p_hi,1]),1.1*tempPeak) +
-#    ylim(-100,1.1*tempPeak) +
-#    ggtitle(tempName) +
-#    theme_classic(base_size = 16, base_rect_size = 5) +
-#    theme(axis.line = element_line(size = 2), axis.text = element_text(size=14))
+p = ggplot() + geom_line(aes(x = fitWeights, y = tempData[[tempName]][,1]), size=.5) + # frag Data
+   geom_line(aes(x = fitWeights, y = tempData[[tempName]][,2]), color=rgb(.8, 0, 0, .25)) + #ladder Data
+   geom_line(aes(x = c(tempBP,tempBP), y = c(0,tempPeak)), color=rgb(0, .5, .8, .8)) + # identified peak
+   annotate("text", x=tempBP, y=tempPeak*1.05, label=paste(toString(round(tempBP,digits=2)),'bp',sep=' '), size=5) +
+   annotate("text", x=tempBP+15, y=tempPeak, label=paste(toString(round(tempPeak,digits=0)),'au',sep=' '), size=5, hjust = 0) +
+   ylab("Fluo (a.u.)") +
+   xlim(p_lo, p_hi) +
+   # ylim(min(tempData[[tempName]][fitWeights>p_lo&fitWeights<p_hi,1]),1.1*tempPeak) +
+   ylim(-100,1.1*tempPeak) +
+   ggtitle(tempName) +
+   theme_classic(base_size = 16, base_rect_size = 5) +
+   theme(axis.line = element_line(size = 2), axis.text = element_text(size=14))
 
 # p2 = ggplot() + geom_line(aes(x = fitWeights, y = tempData[[tempName]][,2]), color=rgb(1, 0, 0, .5)) +
 #    geom_line(aes(x = c(tempBP,tempBP), y = c(0,max(tempData[[tempName]][,2]))), color=rgb(0, .5, .8, .8)) +
 #    ylab("Fluo (a.u.)") +
-#    xlim(p_lo, p_hi) + 
+#    xlim(p_lo, p_hi) +
 #    theme_classic()
 # 
 # ggarrange(p, p2, heights = c(2, 0.7),ncol = 1, nrow = 2, align = "v")
 
-# ggplotly(p)
+ggplotly(p)
 
 # or plot whole ladder by itself
 # plot(fitWeights, tempData[[tempName]][,2], typ='l', xlim=c(0, 100))

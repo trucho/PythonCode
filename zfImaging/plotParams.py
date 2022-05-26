@@ -41,6 +41,11 @@ def applyPlotStyle(plotStyleString):
 
 #gene Colors
 zfC = {
+    'R' : '#7d7d7d',
+    'U' : '#B73AB9',
+    'S' : '#4364F6',
+    'M' : '#59CB3B',
+    'L' : '#CE2A22',
     'rho'  : '#7d7d7d',
     'sws1' : '#B73AB9',
     'sws2' : '#4364F6',
@@ -61,6 +66,10 @@ zfG = {
     'tbx2a' : '#ab266b',
     'tbx2b' : '#421f8e',
     'foxq2' : '#001dd6',
+    'nr2e3' : '#7d7d7d',
+    'lrrfip1a' : '#00CC6A',
+    'xbp1' : '#B73AB9',
+    'sall1a' : '#B89504',
 }
 
 zfGm = {
@@ -68,10 +77,12 @@ zfGm = {
     'tbx2a' : 'P',
     'tbx2b' : 'X',
     'foxq2' : '^',
+    'nr2e3' : '+',
+    'lrrfip1a' : 'D',
 }
 
 prLabel = {
-    'R'  : 'R',
+    'R'  : 'Rods',
     'U' : 'UV',
     'S' : 'S',
     'M' : 'M',
@@ -119,3 +130,20 @@ def estimateJitter(dataArray):
     jitter = np.random.randn(len(dataArray))*density
     return jitter
 
+def formatFigure(figH, axH, plotH):
+    fontLabels = formatFigureMain(figH, axH, plotH)
+#     axH.set_xlabel('wt vs. cr', fontproperties=fontLabels)
+    axH.set_ylabel('cells per 64 x 64 $\mu$m$^2$', fontproperties=fontLabels)
+    axH.xaxis.set_tick_params(rotation=45)
+
+def formatFigureRvU(figH, axH, plotH):
+    fontLabels = formatFigureMain(figH, axH, plotH)
+    axH.set_xlabel('Rods per 64 x 64 $\mu$m$^2$', fontproperties=fontLabels)
+    axH.set_ylabel('UV cones per 64 x 64 $\mu$m$^2$', fontproperties=fontLabels)
+    axH.xaxis.set_tick_params(rotation=45)
+    
+def formatFigureMvS(figH, axH, plotH):
+    fontLabels = formatFigureMain(figH, axH, plotH)
+    axH.set_xlabel('M cones per 64 x 64 $\mu$m$^2$', fontproperties=fontLabels)
+    axH.set_ylabel('S cones per 64 x 64 $\mu$m$^2$', fontproperties=fontLabels)
+    axH.xaxis.set_tick_params(rotation=45)
