@@ -23,8 +23,8 @@ try(dev.off(),silent=TRUE)
 rm(list=ls())
 
 # Setup -------------------------------------------------------------------
-setwd("/Users/angueyraaristjm/Documents/LiMolec/otherRNAseq/zfRet_HoangBlackshaw2020/")
-directory = "/Users/angueyraaristjm/Documents/LiMolec/otherRNAseq/zfRet_HoangBlackshaw2020/"
+setwd("/Users/angueyraaristjm/Documents/eelMolec/zfRNAseq/2020_Hoang_zfRet10x/")
+directory = "/Users/angueyraaristjm/Documents/eelMolec/zfRNAseq/2020_Hoang_zfRet10x/"
 exportDir = paste(directory,"eelAnalysis",sep="")
 getwd()
 # Plot themes -------------------------------------------------------------------
@@ -39,7 +39,7 @@ eelTheme = function (base_size = 42, base_family = "") {
 # -------------------------------------------------------------------
 # -------------------------------------------------------------------
 # Load the 10x dataset (28845 cells), after updating to Seurat_v3 (had to use biowulf)
-pbmc = readRDS("~/Documents/LiMolec/otherRNAseq/zfRet_HoangBlackshaw2020/zfDev_pbmc_v3.rds");
+pbmc = readRDS("./zfDev_pbmc_v3.rds");
 # pca, tsne and umap already done, so will keep their clusters and just separate photoreceptors
 # ------------------------------------------------------------------------------------------
 
@@ -84,7 +84,7 @@ pbmc = SetIdent(pbmc, value = "cellTypes")
 # can't trust tbx2 data from this
 FeaturePlot(pbmc, reduction = 'tsne', features = c("crx","otx5", "tbx2a",'tbx2b'), pt.size = 2)
 
-FeaturePlot(pbmc, reduction = 'umap', features = c("crx","otx5", "tbx2a",'tbx2b'), pt.size = 2)
+FeaturePlot(pbmc, reduction = 'umap', features = c("crx","otx5", "tbx2a",'tbx2b'), pt.size = 1)
 VlnPlot(pbmc, features = c("crx","otx5", "tbx2a",'tbx2b'))
 # ------------------------------------------------------------------------------------------
 # ------------------------------------------------------------------------------------------
@@ -646,6 +646,7 @@ length(names(Idents(temp)))
 # remerge into single dataset (1894 cones + 3093 rods = 4987 PRs)
 r = subset(pbmc, idents = c("Rod"));
 photoAll = merge(x = lm, y = c(us,r))
+photoAll = subset(photoAll, idents = c("Rod","UV","S","M1","M3","M4","L"))
 photoAll
 
 photoAll = ScaleData(photoAll)
@@ -665,7 +666,7 @@ prcolors = c("#a3a3a3","#B540B7","#4669F2","#04CD22","#04CD22","#04CD22","#CC2C2
 new.cluster.ids <- c("R","UV","S","M1","M3","M4","L")
 names(new.cluster.ids) <- levels(photoAll)
 photoAll <- RenameIdents(photoAll, new.cluster.ids)
-DimPlot(photoAll, reduction = "tsne", label = TRUE, pt.size = 1, label.size = 6) + eelTheme()
+
 
 # 'r' : '#a3a3a3',
 # 'lr' : '#474747'
@@ -819,8 +820,12 @@ nI = length(levels(Idents(photoAll)))
 colnames(avgExp) = paste("avg", levels(Idents(photoAll)), sep = "")
 
 # Calculate mean expression across all subtypes
-avgExp$avgMean = rowMeans(avgExp)
-avgExp[,c(ncol(avgExp),1:(ncol(avgExp)-1))]
+meanAvg = as.data.frame(rowMeans(avgExp))
+colnames(meanAvg) = "avgExp"
+head(meanAvg)
+avgExp = cbind(meanAvg,avgExp)
+# avgExp$avgMean = as.data.frame(rowMeans(avgExp))
+# avgExp[,c(ncol(avgExp),1:(ncol(avgExp)-1))]
 
 
 # Percent expression can be obtained through DotPlot, but not Average expression, as this is log z-cored normalized data # avgExpZ = dPlot$data$avg.exp
@@ -833,8 +838,12 @@ rownames(pctExp) = rownames(avgExp)
 colnames(pctExp) = paste("pct", levels(Idents(photoAll)), sep = "")
 
 # Calculate mean percent expression across all ages
-pctExp$pctMean = rowMeans(pctExp)
-pctExp[,c(ncol(pctExp),1:(ncol(pctExp)-1))]
+meanPct = as.data.frame(rowMeans(pctExp))
+colnames(meanPct) = "pctExp"
+head(meanPct)
+pctExp = cbind(meanPct,pctExp)
+# pctExp$pctMean = rowMeans(pctExp)
+# pctExp[,c(ncol(pctExp),1:(ncol(pctExp)-1))]
 
 
 photoreceptors_Hoang = cbind(pctExp,avgExp)
@@ -852,7 +861,7 @@ rownames(photoreceptors_Hoang) = tolower(rownames(photoreceptors_Hoang))
 
 
 
-photoreceptors_Hoang = photoreceptors_Hoang[c("pctMean","pctRod","pctUV","pctS","pctM1","pctM3","pctM4","pctL","avgMean","avgRod","avgUV","avgS","avgM1","avgM3","avgM4","avgL")]
+photoreceptors_Hoang = photoreceptors_Hoang[c("pctExp","pctR","pctUV","pctS","pctM1","pctM3","pctM4","pctL","avgExp","avgR","avgUV","avgS","avgM1","avgM3","avgM4","avgL")]
 
 
 
@@ -863,3 +872,30 @@ conesAdult_Hoang[scangenes,]
 
 # still need to manually add symbol to first column
 write.csv(photoreceptors_Hoang,"./photoreceptors_Hoang.csv",quote=FALSE)
+# -----------------------------------------------------------------------------
+max(photoAll$nFeature_RNA) # number of genes in each cell
+max(photoAll$nCount_RNA) # number of UMIs in each cell
+min(photoAll$nCount_RNA)
+mean(photoAll$nCount_RNA)
+median(photoAll$nCount_RNA)
+
+metadata = photoAll@meta.data
+# distribution of unique genes per cell
+metadata %>% 
+   ggplot(aes(x=nFeature_RNA)) +
+   geom_density(alpha = 0.2) + 
+   scale_x_log10() + 
+   theme_classic() +
+   ylab("Cell density") +
+   geom_vline(xintercept = 500)
+
+# distribution of number of genes per cell
+metadata %>% 
+   ggplot(aes(x=nCount_RNA)) +
+   geom_density(alpha = 0.2) + 
+   scale_x_log10() + 
+   theme_classic() +
+   ylab("Cell density") +
+   geom_vline(xintercept = 500)
+
+write.csv(x=photoAll$nFeature_RNA, file="Hoang2020_photoAdult_nUniqueGenes.csv", row.names = FALSE)

@@ -32,8 +32,8 @@ try(dev.off(),silent=TRUE)
 rm(list=ls())
 
 # Setup -------------------------------------------------------------------
-setwd("/Users/angueyraaristjm/Documents/LiMolec/otherRNAseq/zfRet_HoangBlackshaw2020/")
-directory = "/Users/angueyraaristjm/Documents/LiMolec/otherRNAseq/zfRet_HoangBlackshaw2020/"
+setwd("/Users/angueyraaristjm/Documents/eelMolec/zfRNAseq/2020_Hoang_zfRet10x/")
+directory = "/Users/angueyraaristjm/Documents/eelMolec/zfRNAseq/2020_Hoang_zfRet10x/"
 getwd()
 # Plot themes -------------------------------------------------------------------
 eelTheme = function (base_size = 42, base_family = "Avenir") {
@@ -46,7 +46,7 @@ eelTheme = function (base_size = 42, base_family = "Avenir") {
 }
 # -------------------------------------------------------------------
 # Load the 10x dataset (28845 cells), after updating to Seurat_v3 (had to use biowulf)
-pbmc = readRDS("~/Documents/LiMolec/otherRNAseq/zfRet_HoangBlackshaw2020/zfDev_pbmc_v3.rds");
+pbmc = readRDS("~/Documents/eelMolec/zfRNAseq/2020_Hoang_zfRet10x/zfDev_pbmc_v3.rds");
 # Load the adult cone dataset (~2000 cells), after reclustering (separate R script)
 # photo = readRDS("~/Documents/LiMolec/otherRNAseq/zfRet_HoangBlackshaw2020/cones_Adult.rds");
 # ------------------------------------------------------------------------------------------
@@ -83,6 +83,32 @@ ps
 ggsave(ps, file="00_TSNEClusters_labels.png", path="./zfConeRNAseqFigure/TSNE/", width = 140*2, height = 105*2, units = "mm")
 
 # -----------------------------------------------------------------------------
+max(pbmc$nFeature_RNA) # number of genes in each cell
+max(pbmc$nCount_RNA) # number of UMIs in each cell
+min(pbmc$nCount_RNA)
+mean(pbmc$nCount_RNA)
+median(pbmc$nCount_RNA)
+
+metadata = pbmc@meta.data
+# distribution of unique genes per cell
+metadata %>% 
+   ggplot(aes(x=nFeature_RNA)) +
+   geom_density(alpha = 0.2) + 
+   scale_x_log10() + 
+   theme_classic() +
+   ylab("Cell density") +
+   geom_vline(xintercept = 500)
+
+# distribution of number of genes per cell
+metadata %>% 
+   ggplot(aes(x=nCount_RNA)) +
+   geom_density(alpha = 0.2) + 
+   scale_x_log10() + 
+   theme_classic() +
+   ylab("Cell density") +
+   geom_vline(xintercept = 500)
+
+write.csv(x=pbmc$nFeature_RNA, file="Hoang2020_allCells_nUniqueGenes.csv", row.names = FALSE)
 # -----------------------------------------------------------------------------
 # -----------------------------------------------------------------------------
 # getting % and Mean expression for all genes into csv.
@@ -525,7 +551,7 @@ GetAssayData(object = rods, slot = "counts")
 # hcs <- subset(pbmc, idents = c("HC"))
 # saveRDS(hcs, file = "./hcs.rds") #preliminary saving to analyze later
 
-hcs = readRDS("~/Documents/LiMolec/otherRNAseq/zfRet_HoangBlackshaw2020/hcs.rds");
+hcs = readRDS("~/Documents/eelMolec/zfRNAseq/2020_Hoang_zfRet10x/hcs.rds");
 
 
 DimPlot(hcs, reduction = "tsne", label =  TRUE, pt.size = 1, label.size = 6) + eelTheme()

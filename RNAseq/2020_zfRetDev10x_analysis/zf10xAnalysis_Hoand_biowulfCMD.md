@@ -7,7 +7,7 @@
 Run in Terminal:
 
 ```bash
-ssh bioqlulf.nih.gov
+ssh biowulf.nih.gov
 sinteractive --mem=32g --cpus-per-task=16
 module load R
 R

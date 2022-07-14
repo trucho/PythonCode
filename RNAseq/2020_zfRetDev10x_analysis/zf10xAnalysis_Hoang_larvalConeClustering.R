@@ -23,9 +23,8 @@ try(dev.off(),silent=TRUE)
 rm(list=ls())
 
 # Setup -------------------------------------------------------------------
-setwd("/Users/angueyraaristjm/Documents/LiMolec/otherRNAseq/zfRet_HoangBlackshaw2020/")
-directory = "/Users/angueyraaristjm/Documents/LiMolec/otherRNAseq/zfRet_HoangBlackshaw2020/"
-directory = "/Users/angueyraaristjm/Documents/LiLab/Presentations/revealjs/resources/20210312_LLL/"
+setwd("/Users/angueyraaristjm/Documents/eelMolec/zfRNAseq/2020_Hoang_zfRet10x/")
+directory = "/Users/angueyraaristjm/Documents/eelMolec/zfRNAseq/2020_Hoang_zfRet10x/"
 exportDir = paste(directory,"eelAnalysis",sep="")
 getwd()
 # Plot themes -------------------------------------------------------------------
@@ -175,8 +174,8 @@ ps = arrangeGrob(grobs = p, layout_matrix = lay)
 ggsave(ps, file="larval_Rods.png", path=exportDir, width = 140*2, height = 105*2, units = "mm")
 
 #JUAN'S DEV MARKERS STUFF
-p = FeaturePlot(photo, reduction = 'tsne', features = c("syt5a","syt5b","gnat2","pde6g","pde6h","crx","neurod1","nr2e3","nr2f6b"),pt.size=1, order=TRUE, combine=FALSE)
-lay = rbind(c(1,2,NA,NA),c(3,4,5,NA),c(6,7,8,9))
+p = FeaturePlot(photo, reduction = 'tsne', features = c("syt5a","syt5b","gnat2","pde6g","pde6h","crx","neurod1","nr2e3","nr2f6b","nr2f1b"),pt.size=1, order=TRUE, combine=FALSE)
+lay = rbind(c(1,2,NA,NA,NA),c(3,4,5,NA,NA),c(6,7,8,9,10))
 grid.arrange(grobs = p, layout_matrix = lay)
 ps = arrangeGrob(grobs = p, layout_matrix = lay)
 ggsave(ps, file="larval_DevClusters.png", path=exportDir, width = 140*2, height = 105*2, units = "mm")
@@ -269,7 +268,7 @@ ggsave(ps, file="larval_lslMarkers.png", path=exportDir, width = 140*2, height =
 
 # ------------------------------------------------------------------------------------------
 # Removing rods and trying clustering again
-new.cluster.ids <- c("C","C","C","C","C","R")
+new.cluster.ids <- c("C","C","C","C","R","C")
 names(new.cluster.ids) <- levels(lsl)
 lsl <- RenameIdents(lsl, new.cluster.ids)
 DimPlot(lsl, reduction = "tsne", label = TRUE, pt.size = 1, label.size = 6) + eelTheme()
@@ -346,7 +345,7 @@ lsl2 <- AddModuleScore(object = lsl2, features = lMarker, name = "L")
 FeaturePlot(object = lsl2, reduction="tsne", features = "L1")
 
 # renaming clusters as lsl for remerge later
-new.cluster.ids <- c("lslPR","lslPR","lslPR","lslPR","lslPR","lslPR","lslPR")
+new.cluster.ids <- c("lslPR","lslPR","lslPR","lslPR","lslPR")
 names(new.cluster.ids) <- levels(lsl)
 lsl <- RenameIdents(lsl, new.cluster.ids)
 DimPlot(lsl, reduction = "tsne", label = TRUE, pt.size = 0.5) + NoLegend()
@@ -450,7 +449,7 @@ FeaturePlot(msl, reduction = 'tsne', features = c("arr3a","gngt2a","gngt2b","rs1
 
 
 
-new.cluster.ids <- c("mslPR","mslL","mslM","mslPR")
+new.cluster.ids <- c("mslPR","mslM","mslM","mslM","mslL","mslL")
 names(new.cluster.ids) <- levels(msl)
 msl <- RenameIdents(msl, new.cluster.ids)
 DimPlot(msl, reduction = "tsne", label = TRUE, pt.size = 1, label.size = 6) + eelTheme()
@@ -460,10 +459,10 @@ FeaturePlot(msl, reduction = 'tsne', features = c("rho", "opn1sw1", "opn1sw2",'o
 VlnPlot(msl, features = c("rho", "opn1sw1", "opn1sw2",'opn1mw1','opn1lw2','si:busm1-57f23.1'))
 # ------------------------------------------------------------------------------------------
 # Exploring esl briefly
-esl =  subset(photo, idents = c("eslPR","sw2eslPR"))
+esl =  subset(photo, idents = c("eslPR","eslS"))
 
 # Identification of highly variable features (feature selection)
-esl <- FindVariableFeatures(esl, selection.method = "vst", nfeatures = 200)
+esl <- FindVariableFeatures(esl, selection.method = "vst", nfeatures = 500)
 # Identify the 10 most highly variable genes
 top10 <- head(VariableFeatures(esl), 200)
 top10
@@ -480,7 +479,7 @@ ElbowPlot(esl, ndims=50)
 # nFeatures = 250, ndim = 35, res = 1 -> no separation, except for rods in cluster 5; 0 might be M-cones?
 # nFeatures = 1000, ndim = 20, res = 1 -> not good either
 # nFeatures = 20, ndim = 15, res = 1 -> forces separation on opsins giving a mixed cluster and a pure L
-upDimLimit=30;
+upDimLimit=20;
 esl <- FindNeighbors(esl, dims = 1:upDimLimit)
 esl <- FindClusters(esl, resolution = 1)
 
@@ -489,6 +488,7 @@ DimPlot(esl, reduction = "pca", label=TRUE)
 # UMAP using the same PCA dimensions for prettier visualization
 esl <- RunUMAP(esl, dims = 1:upDimLimit)
 DimPlot(esl, reduction = "umap", label=TRUE, pt.size = 2, label.size = 8)
+
 
 # or use tSNE (clustering can't separate some M cones from L cones)
 esl <- RunTSNE(esl, dims = 1:upDimLimit)
@@ -563,7 +563,7 @@ ggsave(ps, file="larval_eslMarkers.png", path=exportDir, width = 140*2, height =
 
 # I think conclusion is that I should do DESeq2 comparison between foxq2+ eslCluster; can also separate M-cones and L-cones
 
-new.cluster.ids <- c("eslPR","eslL","eslS","eslM","eslPR","eslPR","eslL")
+new.cluster.ids <- c("eslL","eslM","eslS","eslPR","eslPR","eslL","eslL")
 names(new.cluster.ids) <- levels(esl)
 esl <- RenameIdents(esl, new.cluster.ids)
 DimPlot(esl, reduction = "tsne", label = TRUE, pt.size = 1, label.size = 6) + eelTheme()
@@ -751,11 +751,20 @@ VlnPlot(photoLarval, features = c("tbx2a", "tbx2b",'sema7a','sema3fa','sema6d',"
 
 # cell counter
 table(Idents(photoLarval))
+# 2021
 # eslPR  eslL  eslM  eslS mslPR  mslL  mslM lslPR     lslR 
 # 167   109    63    73   141    96    91   372    41 
 
 # eslPR mslPR lslPR     lslR 
 # 412   328   372    41 
+
+# Jul 2022
+# eslPR  eslL  eslM  eslS mslPR  mslL  mslM lslPR     R 
+# 85   178    87    62   110    73   219   297    42 
+
+# eslPR mslPR lslPR  lslR 
+# 412   402   297    42 
+
 
 saveRDS(photoLarval, file = "./cones_LarvalReAnalyzed.rds")
 # -------------------------------------------------------------------
@@ -763,11 +772,11 @@ saveRDS(photoLarval, file = "./cones_LarvalReAnalyzed.rds")
 # -------------------------------------------------------------------
 rm(list=ls())
 # -------------------------------------------------------------------
-# CAN BE RESTARTED HERE
+# CAN BE RESTARTED HERE 
 # Load the previously saved larval cone dataset after trying to identify photoreceptor subtypes and not succeeding well
 photoLarval = readRDS(file = "./cones_LarvalReAnalyzed.rds")
 # Load the previously saved adult cone dataset after trying to more or less clustering by photoreceptor subtypes
-photo = readRDS("~/Documents/LiMolec/otherRNAseq/zfRet_HoangBlackshaw2020/cones_Adult.rds")
+photo = readRDS("./cones_AdultAll.rds")
 
 # make sure unreliable subtype info is removed
 Idents(object = photoLarval) = photoLarval$devStage

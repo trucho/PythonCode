@@ -15,8 +15,8 @@ try(dev.off(),silent=TRUE)
 rm(list=ls())
 
 # Setup -------------------------------------------------------------------
-setwd("/Users/angueyraaristjm/Documents/LiMolec/otherRNAseq/zfRet_Ogawa2021/")
-directory = "/Users/angueyraaristjm/Documents/LiMolec/otherRNAseq/zfRet_Ogawa2021/"
+setwd("/Users/angueyraaristjm/Documents/eelMolec/zfRNAseq/2021_Ogawa_zfPR10x/")
+directory = "/Users/angueyraaristjm/Documents/eelMolec/zfRNAseq/2021_Ogawa_zfPR10x/"
 exportDir = paste(directory,"eelAnalysis",sep="")
 getwd()
 # Plot themes -------------------------------------------------------------------
@@ -30,16 +30,8 @@ eelTheme = function (base_size = 42, base_family = "") {
 }
 # -------------------------------------------------------------------
 # -------------------------------------------------------------------
-# Load the 10x dataset (28845 cells), after updating to Seurat_v3 (had to use biowulf)
-photo = readRDS("~/Documents/LiMolec/otherRNAseq/zfRet_Ogawa2021/GSM5351368_v432_dradult_Final.rds");
-
-max(photo$nFeature_RNA) # number of genes in each cell
-max(photo$nCount_RNA) # number of UMIs in each cell
-min(photo$nCount_RNA)
-mean(photo$nCount_RNA)
-median(photo$nCount_RNA)
-
-write.csv(x=photo$nCount_RNA, file="/Users/angueyraaristjm/Documents/LiMolec/otherRNAseq/readCounts/zfRet_Ogawa2021.csv")
+# Load the 10x dataset 
+photo = readRDS("~/Documents/eelMolec/zfRNAseq/2021_Ogawa_zfPR10x/GSM5351368_v432_dradult_Final.rds");
 # ------------------------------------------------------------------------------------------
 new.cluster.ids <- c("M","L","R","S","M4/L1","onBC","offBC","UV")
 names(new.cluster.ids) <- levels(photo)
@@ -51,6 +43,65 @@ table(Idents(photo))
 
 # R     UV     S     M     L     M4/L1  onBC    offBC
 # 332   105   301   506   490   195     136     121
+
+
+max(photo$nFeature_RNA) # number of genes in each cell
+max(photo$nCount_RNA) # number of UMIs in each cell
+min(photo$nCount_RNA)
+mean(photo$nCount_RNA)
+median(photo$nCount_RNA)
+
+metadata = photo@meta.data
+# distribution of unique genes per cell
+metadata %>% 
+   ggplot(aes(x=nFeature_RNA)) +
+   geom_density(alpha = 0.2) + 
+   scale_x_log10() + 
+   theme_classic() +
+   ylab("Cell density") +
+   geom_vline(xintercept = 500)
+
+# distribution of number of genes per cell
+metadata %>% 
+   ggplot(aes(x=nCount_RNA)) +
+   geom_density(alpha = 0.2) + 
+   scale_x_log10() + 
+   theme_classic() +
+   ylab("Cell density") +
+   geom_vline(xintercept = 500)
+
+write.csv(x=photo$nFeature_RNA, file="Ogawa2022_nUniqueGenes.csv", row.names = FALSE)
+
+#repeat these measures without bipolar cells
+photo_notBCs = subset(photo, idents = c("R","UV","S","M","L","M4/L1"))
+
+
+max(photo_notBCs$nFeature_RNA) # number of genes in each cell
+max(photo_notBCs$nCount_RNA) # number of UMIs in each cell
+min(photo_notBCs$nCount_RNA)
+mean(photo_notBCs$nCount_RNA)
+median(photo_notBCs$nCount_RNA)
+
+metadata = photo_notBCs@meta.data
+# distribution of unique genes per cell
+metadata %>% 
+   ggplot(aes(x=nFeature_RNA)) +
+   geom_density(alpha = 0.2) + 
+   scale_x_log10() + 
+   theme_classic() +
+   ylab("Cell density") +
+   geom_vline(xintercept = 500)
+
+# distribution of number of genes per cell
+metadata %>% 
+   ggplot(aes(x=nCount_RNA)) +
+   geom_density(alpha = 0.2) + 
+   scale_x_log10() + 
+   theme_classic() +
+   ylab("Cell density") +
+   geom_vline(xintercept = 500)
+
+write.csv(x=photo_notBCs$nFeature_RNA, file="Ogawa2022_nUniqueGenes.csv", row.names = FALSE)
 
 
 # ---------------------------------------------------------------

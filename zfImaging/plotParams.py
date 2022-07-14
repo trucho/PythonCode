@@ -22,22 +22,25 @@ def applyPlotStyle(plotStyleString):
                  "text.color" : "w"}
         plt.rcParams.update(params)
         plt.style.use('dark_background')
+        baseColor = '#ffffff'
     elif plotStyleString=='Light':
         # white background
         params = {"ytick.color" : "k",
                   "xtick.color" : "k",
                   "axes.labelcolor" : "k",
                   "axes.edgecolor" : "k",
-                 "axes.linewidth" : 3,
-                 "xtick.major.width" : 3,
-                 "ytick.major.width" : 3,
+                 "axes.linewidth" : 2,
+                 "xtick.major.width" : 2,
+                 "ytick.major.width" : 2,
                  "xtick.major.size" : 8,
                  "ytick.major.size" : 8,
                  "text.color" : "k"}
+        baseColor = '#000000'
     plt.rcParams.update(params)
     font_prop = font_manager.FontProperties(fname='/System/Library/Fonts/Avenir.ttc')
     matplotlib.rcParams['axes.prop_cycle'] = matplotlib.cycler(color=batlow)
     print('Plotting style is ' + plotStyleString)
+    return baseColor
 
 #gene Colors
 zfC = {
