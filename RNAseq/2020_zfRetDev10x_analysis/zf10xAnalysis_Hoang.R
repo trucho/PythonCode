@@ -37,7 +37,7 @@ directory = "/Users/angueyraaristjm/Documents/eelMolec/zfRNAseq/2020_Hoang_zfRet
 getwd()
 # Plot themes -------------------------------------------------------------------
 eelTheme = function (base_size = 42, base_family = "Avenir") {
-   theme_classic() %+replace% 
+   theme_classic() %+replace%
       theme(
          axis.line = element_line(colour = 'black', size = 1),
          axis.text = element_text(size=28, family = "Avenir"),
@@ -72,12 +72,12 @@ Idents(pbmc) <- factor(x = Idents(pbmc), levels = c("RPC","PRPC","Cones_larval",
 # retcolors = c("#4d493c","#dfdac8","#cca819","#ffd024","#7d7d7d","#3db500","#871308","#871308","#e7851d","#e7851d","#8c561b","#2a81de","#2a81de","#d277ff","#ff13c8","#ff13c8","#ff13c8")
 
 # UMAP plot
-ps = DimPlot(pbmc, reduction = "umap", label=TRUE, repel = TRUE, pt.size = 1, label.size = 10) + #, cols=retcolors) + 
+ps = DimPlot(pbmc, reduction = "umap", label=TRUE, repel = TRUE, pt.size = 1, label.size = 10) + #, cols=retcolors) +
    eelTheme() + NoLegend() + xlim(-12,12) + ylim(-10,10)
 ps
 ggsave(ps, file="00_UMAPClusters.png", path="./zfConeRNAseqFigure/UMAP/", width = 140*2, height = 105*2, units = "mm")
 # tSNE plot
-ps = DimPlot(pbmc, reduction = "tsne", label=TRUE, repel = TRUE, pt.size = 1, label.size = 10) + 
+ps = DimPlot(pbmc, reduction = "tsne", label=TRUE, repel = TRUE, pt.size = 1, label.size = 10) +
    eelTheme() + NoLegend() + xlim(-50,50) + ylim(-60,60)
 ps
 ggsave(ps, file="00_TSNEClusters_labels.png", path="./zfConeRNAseqFigure/TSNE/", width = 140*2, height = 105*2, units = "mm")
@@ -91,19 +91,19 @@ median(pbmc$nCount_RNA)
 
 metadata = pbmc@meta.data
 # distribution of unique genes per cell
-metadata %>% 
+metadata %>%
    ggplot(aes(x=nFeature_RNA)) +
-   geom_density(alpha = 0.2) + 
-   scale_x_log10() + 
+   geom_density(alpha = 0.2) +
+   scale_x_log10() +
    theme_classic() +
    ylab("Cell density") +
    geom_vline(xintercept = 500)
 
 # distribution of number of genes per cell
-metadata %>% 
+metadata %>%
    ggplot(aes(x=nCount_RNA)) +
-   geom_density(alpha = 0.2) + 
-   scale_x_log10() + 
+   geom_density(alpha = 0.2) +
+   scale_x_log10() +
    theme_classic() +
    ylab("Cell density") +
    geom_vline(xintercept = 500)
@@ -227,8 +227,8 @@ DotPlot(pbmc, features = c("gnat2", "rho",'elovl4b','gnat1','si:busm1-57f23.1'))
 
 VlnPlot(pbmc, features = c("sema7a","efna1b","ntng2b","syt1a","syt1b","syt5a","syt5b","tbx2a","tbx2b","eml1")) #log norm values
 DotPlot(pbmc, features = c("sema7a","efna1b","ntng2b","syt1a","syt1b","syt5a","syt5b","tbx2a","tbx2b","eml1"))
-DotPlot(pbmc, features = c("vamp1","vamp2","vamp3","vamp4","vamp5","vamp8")) 
-FeaturePlot(pbmc, reduction = 'tsne', features = c("vamp1","vamp2","vamp3","vamp4","vamp5","vamp8")) 
+DotPlot(pbmc, features = c("vamp1","vamp2","vamp3","vamp4","vamp5","vamp8"))
+FeaturePlot(pbmc, reduction = 'tsne', features = c("vamp1","vamp2","vamp3","vamp4","vamp5","vamp8"))
 VlnPlot(pbmc, features = c("opn1sw1", "opn1sw2",'opn1mw1','gnat2','opn1lw2','si:busm1-57f23.1','rho','saga')) #log norm values
 # check counts in tSNE space
 # FeaturePlot(pbmc, features = c("gnat2",'gngt2b', "gnat1",'rho','si:busm1-57f23.1','opn1lw2', 'crx'))
@@ -293,7 +293,7 @@ FeaturePlot(pbmc,reduction = 'tsne', features = c("cavin2a","rhbg",'slc1a2b','at
 # RGCs = 13 + 10
 FeaturePlot(pbmc,reduction = 'tsne', features = c("islr2","rbpms2a",'pou4f1'))
 
-# ngng ACs = 7
+# ngng ACs = 7 -> these are actually larval ACs
 # gly ACs = 14
 # GABA ACs = 8
 FeaturePlot(pbmc,reduction = 'tsne', features = c("slc32a1","pax10",'tfap2a','gad2','slc6a1b','mafa'))
@@ -652,7 +652,7 @@ FeaturePlot(hcs,reduction = 'tsne', features = c('cx52.7', 'cx52.6', 'cx52.9','g
 # there is clear separation between cells derived from AdR1 (less rod contamination) and AdR2 (more rod contamination)
 # 0: H?s -> isl1-, lhx1a-, tmtc1+, slc6a1l+, gad1b+
 # 1: H2/3s -> isl1+
-# 2: H2/3s -> isl1+, opn9+, 
+# 2: H2/3s -> isl1+, opn9+,
 # 3: ipHCs -> isl1+, opn4.1+, sall3b, nrxn1a+, arhgef18b+, rpap1+, sept7a+, sema3fb+, cdh6+, foxp4+ (subsplit comes from AdR1 and AdR2)
 # 4: larval HCs
 # 5: H2/3s -> isl1+, hmx3a+, irs1+
@@ -692,29 +692,29 @@ FeaturePlot(hcs,reduction = 'tsne', features = c('ryr1a','ryr1b','ryr2a','ryr2b'
 FeaturePlot(hcs,reduction = 'tsne', features = c('cacna1aa','cacna1ab','cacna1ba','cacna1bb','cacna1c','cacna1da','cacna1db','cacna1ea','cacna1fa','cacna1fb'))
 FeaturePlot(hcs,reduction = 'tsne', features = c('itpr1a','itpr1b','itpr2','itpr3','itprip','itprid1','itprid2'))
 FeaturePlot(hcs,reduction = 'tsne', features = c('panx1a','panx1b','panx2','panx3'))
-                                                 
-                                                 
-# PC_ 3 
-# Positive:  slc6a1l, sall3b, ret, gad1b, opn4.1, barhl2, tmtc1, rpap1, arhgef18b, lhx1a 
-# shisa7b, sgk494a, valopa, vipr2, grip1, stk17a, rassf4, calm2b, irs1, si:dkeyp-41f9.3 
-# hmp19, sept7a, cd9a, nrxn1a, znf385b, ndnf, msna, foxp4, ppdpfb, prdm13 
-# Negative:  opn9, ntrk3a, hmx3a, isl1, efna1a, plekhd1, cryba4, nme2b.2, saga, vamp1 
-# CU861453.2, lmo1, elmo1, zgc:162144, lrrtm1, guca1a, si:ch211-113d22.2, mt2, BX004774.2, PDE6H 
-# guca1b, pdca, gnat1, kcnv2a, sagb, tnfaip8l3, gngt1, ptn, rho, tuba1a 
-# PC_ 4 
-# Positive:  si:ch211-56a11.2, lhx1a, ret, slc6a1l, opn9, ntrk3a, barhl2, gad1b, RAPGEF2 (1 of many), slc2a3a 
-# nme2b.2, hmx3a, lmo1, si:dkey-1d7.3, cd82a, palm1b, ip6k2b, slc16a9b, tnfaip8l3, syt5b 
-# cspg5b, h3f3b.1.2, histh1l, cry1bb, ppdpfb, sept7a, vsx1, si:ch73-1a9.3, rai14, lin7a 
-# Negative:  rpap1, arhgef18b, shisa7b, sgk494a, cacng5a, grip1, valopa, vipr2, si:dkeyp-41f9.3, irs1 
-# sall3b, PDE6H, saga, gnat1, si:ch211-113d22.2, guca1a, guca1b, zgc:162144, gngt1, rho 
-# rassf4, sagb, pdca, foxp4, pde6a, rbp4l, BX004774.2, msna, CNGA1 (1 of many), cnga1 
-# PC_ 5 
-# Positive:  cabp2a, rs1a, saga, guca1a, nrn1lb, cabp5a, si:ch73-256g18.2, zgc:162144, PDE6H, rgs16 
-# efna1b, guca1b, sagb, syt5a, BX004774.2, gnao1b, eml1, rpap1, ptmab, pdca 
-# pde6a, si:ch1073-83n3.2, opn4.1, sypb, lrit1a, gnat1, si:ch211-113d22.2, vsx1, pcp4a, atp1b2a 
-# Negative:  plekhd1, ptn, nme2b.2, CU861453.2, slc6a1l, tmtc1, barhl2, ret, onecut1, lhx1a 
-# gad1b, zgc:158463, nme2b.1, efna1a, sgol1, hmx3a, cdca8, kif4, knstrn, top2a 
-# ube2c, lbr, rps12, h2afx, rps29, anp32b, fam60al.1, kiaa0101, rpl13, rpl36a 
+
+
+# PC_ 3
+# Positive:  slc6a1l, sall3b, ret, gad1b, opn4.1, barhl2, tmtc1, rpap1, arhgef18b, lhx1a
+# shisa7b, sgk494a, valopa, vipr2, grip1, stk17a, rassf4, calm2b, irs1, si:dkeyp-41f9.3
+# hmp19, sept7a, cd9a, nrxn1a, znf385b, ndnf, msna, foxp4, ppdpfb, prdm13
+# Negative:  opn9, ntrk3a, hmx3a, isl1, efna1a, plekhd1, cryba4, nme2b.2, saga, vamp1
+# CU861453.2, lmo1, elmo1, zgc:162144, lrrtm1, guca1a, si:ch211-113d22.2, mt2, BX004774.2, PDE6H
+# guca1b, pdca, gnat1, kcnv2a, sagb, tnfaip8l3, gngt1, ptn, rho, tuba1a
+# PC_ 4
+# Positive:  si:ch211-56a11.2, lhx1a, ret, slc6a1l, opn9, ntrk3a, barhl2, gad1b, RAPGEF2 (1 of many), slc2a3a
+# nme2b.2, hmx3a, lmo1, si:dkey-1d7.3, cd82a, palm1b, ip6k2b, slc16a9b, tnfaip8l3, syt5b
+# cspg5b, h3f3b.1.2, histh1l, cry1bb, ppdpfb, sept7a, vsx1, si:ch73-1a9.3, rai14, lin7a
+# Negative:  rpap1, arhgef18b, shisa7b, sgk494a, cacng5a, grip1, valopa, vipr2, si:dkeyp-41f9.3, irs1
+# sall3b, PDE6H, saga, gnat1, si:ch211-113d22.2, guca1a, guca1b, zgc:162144, gngt1, rho
+# rassf4, sagb, pdca, foxp4, pde6a, rbp4l, BX004774.2, msna, CNGA1 (1 of many), cnga1
+# PC_ 5
+# Positive:  cabp2a, rs1a, saga, guca1a, nrn1lb, cabp5a, si:ch73-256g18.2, zgc:162144, PDE6H, rgs16
+# efna1b, guca1b, sagb, syt5a, BX004774.2, gnao1b, eml1, rpap1, ptmab, pdca
+# pde6a, si:ch1073-83n3.2, opn4.1, sypb, lrit1a, gnat1, si:ch211-113d22.2, vsx1, pcp4a, atp1b2a
+# Negative:  plekhd1, ptn, nme2b.2, CU861453.2, slc6a1l, tmtc1, barhl2, ret, onecut1, lhx1a
+# gad1b, zgc:158463, nme2b.1, efna1a, sgol1, hmx3a, cdca8, kif4, knstrn, top2a
+# ube2c, lbr, rps12, h2afx, rps29, anp32b, fam60al.1, kiaa0101, rpl13, rpl36a
 # -----------------------------------------------------------------------------
 # -----------------------------------------------------------------------------
 # -----------------------------------------------------------------------------

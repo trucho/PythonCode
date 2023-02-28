@@ -1,11 +1,6 @@
-Sys.setenv(RETICULATE_PYTHON = "/Users/angueyraaristjm/anaconda3/bin/python")
-
-reticulate::use_python("/Users/angueyraaristjm/anaconda3/bin/python")
-# reticulate::use_python("/usr/local/bin/python3")
-reticulate::use_virtualenv()
-reticulate::py_install(packages = 'umap-learn')
 
 
+# Load required libraries -------------------------------------------------------------------
 library(Seurat)
 library(dplyr)
 library(patchwork)
@@ -22,7 +17,7 @@ try(dev.off(),silent=TRUE)
 # Clear environment -------------------------------------------------------------------
 rm(list=ls())
 # Plot themes -------------------------------------------------------------------
-eelTheme = function (base_size = 42, base_family = "") {
+plotTheme = function (base_size = 42, base_family = "") {
    theme_classic() %+replace% 
       theme(
          axis.line = element_line(colour = 'black', size = 1),
@@ -31,17 +26,18 @@ eelTheme = function (base_size = 42, base_family = "") {
       )
 }
 # Setup -------------------------------------------------------------------
-setwd("/Users/angueyraaristjm/Documents/eelMolec/zfRNAseq/20190827/")
-directory = "/Users/angueyraaristjm/Documents/eelMolec/zfRNAseq/20190827/"
-exportDir = paste(directory,"SeuratAnalysis",sep="")
+setwd(".code/R_SeuratAnalysis/")
+directory = ".code/R_SeuratAnalysis/"
+exportDir = paste(directory,"Angueyra2021_Photoreceptors",sep="")
 getwd()
 
-gCounts<-read.table(file=paste0("/Users/angueyraaristjm/Documents/eelMolec/zfRNAseq/20190827/20190827_DESeq2/","gCount.csv"),sep=",", header = TRUE)
+# load gene count data
+gCounts<-read.table(file=paste0("./data/","Angueyra2022_Photoreceptors_rawCounts.csv"),sep=",", header = TRUE)
 rownames(gCounts) = gCounts[,1]
 gCounts = gCounts[,-1]
 head(gCounts)
 
-# manually picked photoreceptors
+# Create Seurat object from manually picked photoreceptors
 photoMP <- CreateSeuratObject(counts = gCounts, min.cells = 3, min.genes = 100, project = "zfRNAseq")
 photoMP <- NormalizeData(photoMP, normalization.method = "LogNormalize", scale.factor = 10000)
 photoMP <- ScaleData(photoMP, features = rownames(photoMP))
@@ -51,10 +47,10 @@ photoMP
 # -------------------------------------------------------------------
 # -------------------------------------------------------------------
 photoMP$subtype = c("L","L","L","L","L","L",
-                     "M","M","M","M","M","M",
-                     "R","R","R","R","R","R",
-                     "S","S","S","S","S","S","M", #correction for mislabeled sample during collection
-                     "UV","UV","UV","UV","UV")
+                    "M","M","M","M","M","M",
+                    "R","R","R","R","R","R",
+                    "S","S","S","S","S","S","M", #correction for mislabeled sample during collection
+                    "UV","UV","UV","UV","UV")
 Idents(object = photoMP) = photoMP$subtype
 Idents(photoMP) <- factor(x = Idents(photoMP), levels = c("R","UV","S","M","L"))
 
@@ -83,39 +79,34 @@ photoMP <- RunPCA(photoMP, features = VariableFeatures(object = photoMP), npcs=u
 
 # Determine number of clusters using Macosko, 2015 (random permutation of 1% of data and rerun PCA iteritavely)
 # Or just use elbow plot (var explained)
-ElbowPlot(photoMP, ndims=upDimLimit) + eelTheme()
+ElbowPlot(photoMP, ndims=upDimLimit) + plotTheme()
 # ggsave("larval_Elbow.png", path=exportDir, width = 140, height = 105, units = "mm")
 
 # Cells don't need reclustering (one of the main reasons why we did manual picking)
 
-DimPlot(photoMP, reduction = "pca", label = TRUE, pt.size = 1, label.size = 6) + eelTheme()
+DimPlot(photoMP, reduction = "pca", label = TRUE, pt.size = 1, label.size = 6) + plotTheme()
 # ggsave("larval_PCAinitial.png", path=exportDir, width = 140, height = 105, units = "mm")
 
 # UMAP using the same PCA dimensions for prettier visualization
 photoMP <- RunUMAP(photoMP, dims = 1:upDimLimit)
-DimPlot(photoMP, reduction = "umap", label = TRUE, pt.size = 6, label.size = 6) + eelTheme()
+DimPlot(photoMP, reduction = "umap", label = TRUE, pt.size = 6, label.size = 6) + plotTheme()
 # ggsave("larval_UMAPinitial.png", path=exportDir, width = 140, height = 105, units = "mm")
 
 # or use tSNE (clustering can't separate some M cones from L cones)
 photoMP <- RunTSNE(photoMP, dims = 1:upDimLimit, perplexity = 8)
-DimPlot(photoMP, reduction = "tsne", label = TRUE, pt.size = 6, label.size = 6) + eelTheme()
+DimPlot(photoMP, reduction = "tsne", label = TRUE, pt.size = 6, label.size = 6) + plotTheme()
 # ggsave("larval_TSNEinitial.png", path=exportDir, width = 140, height = 105, units = "mm")
 
-# FeaturePlot(photo, reduction = 'tsne', features = c("opn1sw1", "opn1sw2",'opn1mw1','opn1mw2','opn1mw3','opn1mw4','opn1lw1','opn1lw2','si:busm1-57f23.1','efna1b'))
+# some exploration plots
+VlnPlot(photoMP, features = c("opn1sw1", "opn1sw2",'opn1mw1','opn1mw2','opn1mw3','opn1mw4','opn1lw1','opn1lw2','si:busm1-57f23.1'))
+
 FeaturePlot(photoMP, reduction = 'tsne', features = c("rho","opn1sw1", "opn1sw2",'opn1mw1','opn1mw2','opn1mw3','opn1mw4','opn1lw1','opn1lw2'))
 FeaturePlot(photoMP, reduction = 'tsne', features = c("rho","nrl","pde6a","nr2e3","crx",'gnat1',"saga","sagb","gucy2f","grk1a")) # rod markers
 FeaturePlot(photoMP, reduction = 'tsne', features = c("rho","eno2","rom1a","lrrn1","unc119.2","pdca","cplx4c")) # rod genes from my own dataset
 FeaturePlot(photoMP, reduction = 'tsne', features = c("gnat2",'arr3a','arr3b',"pde6c","pde6h","guca1d","grk7a","crx","neurod1","nr2f6b")) #cone markers
-FeaturePlot(photoMP, reduction = 'tsne', features = c("nr2e3","nr2f6b","crx",'syt5a','syt5b','gnat2','arr3a','arr3b',"pde6g","pde6h", "neurod1")) #cone markers
-FeaturePlot(photoMP, reduction = 'tsne', features = c("slc1a8b","rgs9a","slc25a24","ppa1a","sema7a","kera","nexn","dusp5","crhbp","prph2a")) #cone markers from my own dataset
-FeaturePlot(photoMP, reduction = 'tsne', features = c("otx5","tbx2a","tbx2b","rxrga","rxrgb", "thrb", "sema7a","cnga3a","cnga3b"))
-VlnPlot(photoMP, features = c("opn1sw1", "opn1sw2",'opn1mw1','opn1mw2','opn1mw3','opn1mw4','opn1lw1','opn1lw2','si:busm1-57f23.1'))
-FeaturePlot(photoMP, reduction = 'tsne', features = c("nrl","mafa","mafb")) # rod markers
+FeaturePlot(photoMP, reduction = 'tsne', features = c("otx5","tbx2a","tbx2b","rxrga","rxrgb", "thrb", "cnga3a","cnga3b"))
 
-FeaturePlot(photoMP, reduction = 'tsne', features = c("crx","nr2e3","nr2f6a","nr2f6b",'syt5a','syt5b','gnat2',"pde6g","pde6h", "neurod1")) #dev markers
-
-
-DotPlot(photoMP, features = c('tbx2a','tbx2b','efna1b','foxq2',"ntf3","nr2e3","nr2f6b","thrb"))
+DotPlot(photoMP, features = c('tbx2a','tbx2b','foxq2','nr2e3','skor1a','lrrfip1a','xbp1'))
 
 saveRDS(photoMP, file = "./zfAPhotoreceptors.rds")
 

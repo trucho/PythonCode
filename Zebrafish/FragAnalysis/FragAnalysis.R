@@ -23,7 +23,7 @@ try(dev.off(),silent=TRUE);
 # ------------------------------------------------------------------------------------------------------------------------------------------------
 # ------------------------------------------------------------------------------------------------------------------------------------------------
 # define folder
-dir.fsa = "/Users/angueyraaristjm/Library/CloudStorage/OneDrive-NationalInstitutesofHealth/zf/zfGenotyping/20220523_tbx2a_finClips_ii/tbx2a"
+dir.fsa = "/Users/angueyraaristjm/Library/CloudStorage/OneDrive-NationalInstitutesofHealth/zf/zfGenotyping/20230127_skor2myt1anr2sF0s/skor2"
 # load all fsa files in folder
 fsaData = storing.inds(dir.fsa)
 fsaNames = names(fsaData)
@@ -36,11 +36,12 @@ cat(gsub(".fsa","",fsaNames), sep="\n")
 # finding that first marker is usually contaminated, so decided to remove it
 # liz500 <- c(50, 75, 100, 139, 150, 160, 200, 300, 340, 350, 400, 450, 490, 500)
 liz500 <- c(50, 75, 100, 139, 150, 160, 200, 250, 300, 340, 350, 400, 450, 490, 500)
-# liz500 <- c(75, 100, 139, 150, 160, 200, 250, 300, 340, 350, 400, 450, 490, 500)
+liz500 <- c(75, 100, 139, 150, 160, 200, 250, 300, 340, 350, 400, 450, 490, 500)
+liz500 <- c(139, 150, 160, 200, 250, 300, 340, 350, 400, 450, 490, 500)
 
 # liz600
-# liz500 = c(20, 40, 60, 80, 100, 114, 120, 140, 160, 180, 200, 214, 220, 240, 250, 260, 280, 300, 314, 320, 340, 360, 380, 400, 414, 420, 440, 460, 480, 500, 514, 520, 540, 560, 580, 600)
-# liz500 = c(40, 60, 80, 100, 114, 120, 140, 160, 180, 200, 214, 220, 240, 250, 260, 280, 300, 314, 320, 340, 360, 380, 400, 414, 420, 440, 460, 480, 500, 514, 520, 540, 560, 580, 600)
+# liz500 = c(20, 40, 60, 80, 100, 114, 120, 140, 160i=, 180, 200, 214, 220, 240, 250, 260, 280, 300, 314, 320, 340, 360, 380, 400, 414, 420, 440, 460, 480, 500, 514, 520, 540, 560, 580, 600)
+liz500 = c(40, 60, 80, 100, 114, 120, 140, 160, 180, 200, 214, 220, 240, 250, 260, 280, 300, 314, 320, 340, 360, 380, 400, 414, 420, 440, 460, 480, 500, 514, 520, 540, 560, 580, 600)
 
 # liz500 <- c(50, 75, 100, 340, 350, 400, 450, 490, 500)
 
@@ -59,6 +60,7 @@ i= 0;
 # ------------------------------------------------------------------------------------------------------------------------------------------------
 # get single file (run section with command+alt+T)
 i=i+1
+if (i>length(fsaNames)) {stop('Finished analyzing files')}
 tempName = fsaNames[i]; message(paste("Analyzing:",fsaNames[i]))
 tempData <- fsaData[tempName] 
 class(tempData) <- "fsa_stored"
@@ -68,7 +70,7 @@ if (file.exists(paste(paste(dir.fsa,gsub('.{0,4}$', '', tempName),sep = "/"),".c
 chDNA = 1; chLadder = 10;
 # plot data to assess if it's worth it remapping
 # plot(tempData[[tempName]][,1], typ='l',xlim=c(1700,length(tempData[[tempName]][,1])),ylim=c(0,30000))
-dlo=1000;
+dlo=200;
 dhi=6100;
 plot(tempData[[tempName]][,chDNA], typ='l',xlim=c(dlo,dhi),ylim=c(min(tempData[[tempName]][dlo:dhi,chDNA]),max(tempData[[tempName]][dlo:dhi,chDNA])), main = tempName)
 # figure out threshold by checking liz500 channel
@@ -84,13 +86,15 @@ tempData[[tempName]] = tempData[[tempName]][ilim01:ilim02,c(chDNA,chLadder)]
 
 # guessThreshold = quantile(tempData[[tempName]][,2],.992);
 guessThreshold = quantile(tempData[[tempName]][,2],.98);
-guessThreshold = 100;
+guessThreshold = 50 ;
 # match ladder (works better if higher values when noise is high)
 ladderData = ladder.info.attach(stored=tempData, ladder=liz500, method='iter2', draw=TRUE, ladd.init.thresh=guessThreshold)
 # replot ladder if needed to play with threshold
 # plot(tempData[[tempName]][,2], typ='l') # 16 peaks for liz500
 # run manual correction if needed
 # ladderData = ladder.corrector(stored=tempData, to.correct = tempName, ladder=liz500)
+
+if (file.exists(paste(paste(dir.fsa,gsub('.{0,4}$', '', tempName),sep = "/"),".csv", sep=""))) {message("Already calibrated and exported; no need to redo")}
 # ------------------------------------------------------------------------------------------------------------------------------------------------
 # ------------------------------------------------------------------------------------------------------------------------------------------------
 # ladder is stored as an environment (hidden) variable -> list.data.covarrubias[[tempName]]
@@ -113,7 +117,8 @@ fitWeights <- predict(polyModel,full_ladder)
 # plot the data
 # plot(fitWeights, tempData[[tempName]][,1], typ='l', xlim=c(0, 600), main=tempName)
 # zoom into ROI
-p_lo = 350; p_hi =  600; #syt5a | tbx2a
+# p_lo = 350; p_hi =  600; #syt5a | tbx2a
+# p_lo = 450; p_hi =  650; # myt1a (wt and not F0)
 # p_lo = 400; p_hi =  550; # tbx2a FiRii/FiRiii
 # p_lo = 250; p_hi = 420; #sema7a | tbx2b | syt5b | xbp1
 # p_lo = 300; p_hi = 500; # foxq2 | nr2f1b | lhx1a
@@ -122,12 +127,12 @@ p_lo = 350; p_hi =  600; #syt5a | tbx2a
 # p_lo = 100; p_hi = 400; #  xbp1 | tgif | nr2e3
 # p_lo = 200; p_hi = 275; #eml1
 # p_lo = 100; p_hi = 300; #ntng2b | sall1a
-# p_lo = 100; p_hi =  600; # whole range
+p_lo = 100; p_hi =  650; # whole range | myt1a | skor2 (big deletions)
 # p_lo = 460; p_hi =  499; # temp
 # plot(fitWeights, tempData[[tempName]][,1], typ='l', xlim=c(p_lo, p_hi), ylim=c(0,20000), main=tempName)
 tempPeak = max(tempData[[tempName]][fitWeights>p_lo&fitWeights<p_hi,1]); tempBP =  fitWeights[which(tempData[[tempName]]==tempPeak)];
 
-p_lo2 = 450; p_hi2 =  488;
+p_lo2 = 400; p_hi2 =  624;
 tempPeak2 = max(tempData[[tempName]][fitWeights>p_lo2&fitWeights<p_hi2,1]); tempBP2 =  fitWeights[which(tempData[[tempName]]==tempPeak2)];
 
 p = ggplot() + geom_line(aes(x = fitWeights, y = tempData[[tempName]][,1]), size=.5) + # frag Data
@@ -137,7 +142,7 @@ p = ggplot() + geom_line(aes(x = fitWeights, y = tempData[[tempName]][,1]), size
    annotate("text", x=tempBP+15, y=tempPeak, label=paste(toString(round(tempPeak,digits=0)),'au',sep=' '), size=5, hjust = 0) +
    ylab("Fluo (a.u.)") +
    xlim(p_lo, p_hi) +
-   # ylim(min(tempData[[tempName]][fitWeights>p_lo&fitWeights<p_hi,1]),1.1*tempPeak) +
+   ylim(min(tempData[[tempName]][fitWeights>p_lo&fitWeights<p_hi,1]),1.1*tempPeak) +
    ylim(-100,1.1*tempPeak) +
    ggtitle(tempName) +
    theme_classic(base_size = 16, base_rect_size = 5) +

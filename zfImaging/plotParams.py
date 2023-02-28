@@ -10,31 +10,33 @@ batlow = batlow[0:255:int(floor(255/8)),:]
 def applyPlotStyle(plotStyleString):
     if plotStyleString=='Dark':
         # dark background
-        params = {"ytick.color" : "w",
-                  "xtick.color" : "w",
-                  "axes.labelcolor" : "w",
-                  "axes.edgecolor" : "w",
-                 "axes.linewidth" : 3,
-                 "xtick.major.width" : 3,
-                 "ytick.major.width" : 3,
-                 "xtick.major.size" : 8,
-                 "ytick.major.size" : 8,
-                 "text.color" : "w"}
+        params = {'ytick.color' : 'w',
+                  'xtick.color' : 'w',
+                  'axes.labelcolor' : 'w',
+                  'axes.edgecolor' : 'w',
+                 'axes.linewidth' : 3,
+                 'xtick.major.width' : 3,
+                 'ytick.major.width' : 3,
+                 'xtick.major.size' : 8,
+                 'ytick.major.size' : 8,
+                 'text.color' : 'w',
+                 'xtick.alignment': 'right'}
         plt.rcParams.update(params)
         plt.style.use('dark_background')
         baseColor = '#ffffff'
     elif plotStyleString=='Light':
         # white background
-        params = {"ytick.color" : "k",
-                  "xtick.color" : "k",
-                  "axes.labelcolor" : "k",
-                  "axes.edgecolor" : "k",
-                 "axes.linewidth" : 2,
-                 "xtick.major.width" : 2,
-                 "ytick.major.width" : 2,
-                 "xtick.major.size" : 8,
-                 "ytick.major.size" : 8,
-                 "text.color" : "k"}
+        params = {'ytick.color' : 'k',
+                  'xtick.color' : 'k',
+                  'axes.labelcolor' : 'k',
+                  'axes.edgecolor' : 'k',
+                 'axes.linewidth' : 2,
+                 'xtick.major.width' : 2,
+                 'ytick.major.width' : 2,
+                 'xtick.major.size' : 8,
+                 'ytick.major.size' : 8,
+                 'text.color' : 'k',
+                 'xtick.alignment': 'right'}
         baseColor = '#000000'
     plt.rcParams.update(params)
     font_prop = font_manager.FontProperties(fname='/System/Library/Fonts/Avenir.ttc')
@@ -97,7 +99,7 @@ def formatFigureMain(figH, axH, plotH):
     fontTicks = font_manager.FontProperties(fname=font_path, size=30)
     fontLabels = font_manager.FontProperties(fname=font_path, size=36)
     fontTitle = font_manager.FontProperties(fname=font_path, size=32)
-    axH.set_xscale('linear')
+    # axH.set_xscale('linear')
     axH.spines['top'].set_visible(False)
     axH.spines['right'].set_visible(False)
     
@@ -128,9 +130,10 @@ def lighten_color(color, amount=0.5):
 def estimateJitter(dataArray):
     """ creates random jitter scaled by local density of points"""
     from scipy.stats import gaussian_kde
+    from numpy.random import randn
     kde = gaussian_kde(dataArray)
     density = kde(dataArray)
-    jitter = np.random.randn(len(dataArray))*density
+    jitter = randn(len(dataArray))*density
     return jitter
 
 def formatFigure(figH, axH, plotH):
